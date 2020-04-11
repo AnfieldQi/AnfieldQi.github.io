@@ -1,2 +1,0 @@
-# AnfieldQi.github.io
-blog
