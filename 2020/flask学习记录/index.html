@@ -57,7 +57,7 @@
     "datePublished": "2020-04-11 16:28:09 \x2b0800 CST",
     "dateModified" : "2020-04-11 16:28:09 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95\/",
-    "wordCount" : "2658",
+    "wordCount" : "2674",
     "keywords" : [ "python flask", "AnfieldQi`s Blog"]
 }
 </script>
@@ -128,7 +128,7 @@
                         <a href="https://anfieldqi.github.io/categories/python/"> python </a>
                         
                 </span>
-                <span class="post-word-count">, 2658 words</span>
+                <span class="post-word-count">, 2674 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -175,59 +175,59 @@ flask不允许返回None</p>
 </blockquote>
 <h4 id="4获取post方法传送的数据">4.获取POST方法传送的数据</h4>
 <p>服务端：</p>
-<pre><code>
-from flask import Flask, request
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, request
 
-app = Flask(__name__)
-
-
-@app.route('/')def hello_world():
-    return 'hello world'
+app <span style="color:#f92672">=</span> Flask(__name__)
 
 
-@app.route('/register', methods=['POST'])def register():
-    print(request.headers)
-    print(request.stream.read())
-    return 'welcome'
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
 
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/register&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;POST&#39;</span>])<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">register</span>():
+    <span style="color:#66d9ef">print</span>(request<span style="color:#f92672">.</span>headers)
+    <span style="color:#66d9ef">print</span>(request<span style="color:#f92672">.</span>stream<span style="color:#f92672">.</span>read())
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;welcome&#39;</span>
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
     
-</code></pre><p>客户端：</p>
-<pre><code>
-import requests
+</code></pre></div><p>客户端：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> requests
 
-user_info = {'name': 'letian', 'password': '123'}
-r = requests.post(&quot;http://127.0.0.1:5000/register&quot;, data=user_info)
+user_info <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;letian&#39;</span>, <span style="color:#e6db74">&#39;password&#39;</span>: <span style="color:#e6db74">&#39;123&#39;</span>}
+r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>post(<span style="color:#e6db74">&#34;http://127.0.0.1:5000/register&#34;</span>, data<span style="color:#f92672">=</span>user_info)
 
-print(r.text)
-</code></pre><blockquote>
+<span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>text)
+</code></pre></div><blockquote>
 <p>解析post数据：request.form</p>
 </blockquote>
-<pre><code>
-from flask import Flask, request
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, request
 
-app = Flask(__name__)
+app <span style="color:#f92672">=</span> Flask(__name__)
 
-@app.route('/')def hello_world():
-    return 'hello world'
-
-
-@app.route('/register', methods=['POST'])def register():
-    print(request.headers)
-    # print(request.stream.read()) # 不要用，否则下面的form取不到数据
-    print(request.form)
-    print(request.form['name'])
-    print(request.form.get('name'))
-    print(request.form.getlist('name'))
-    print(request.form.get('nickname', default='little apple')) #可以设默认值
-    return 'welcome'
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
 
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
-</code></pre><h4 id="5处理和响应json数据">5.处理和响应JSON数据</h4>
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/register&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;POST&#39;</span>])<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">register</span>():
+    <span style="color:#66d9ef">print</span>(request<span style="color:#f92672">.</span>headers)
+    <span style="color:#75715e"># print(request.stream.read()) # 不要用，否则下面的form取不到数据</span>
+    <span style="color:#66d9ef">print</span>(request<span style="color:#f92672">.</span>form)
+    <span style="color:#66d9ef">print</span>(request<span style="color:#f92672">.</span>form[<span style="color:#e6db74">&#39;name&#39;</span>])
+    <span style="color:#66d9ef">print</span>(request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;name&#39;</span>))
+    <span style="color:#66d9ef">print</span>(request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>getlist(<span style="color:#e6db74">&#39;name&#39;</span>))
+    <span style="color:#66d9ef">print</span>(request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;nickname&#39;</span>, default<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;little apple&#39;</span>)) <span style="color:#75715e">#可以设默认值</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;welcome&#39;</span>
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
+</code></pre></div><h4 id="5处理和响应json数据">5.处理和响应JSON数据</h4>
 <blockquote>
 <p>使用 HTTP POST 方法传到网站服务器的数据格式可以有很多种，比如name=letian&amp;password=123这种用过&amp;符号分割的key-value键值对格式。也可以用JSON格式、XML格式。相比XML的重量、规范繁琐，JSON显得非常小巧和易用</p>
 </blockquote>
@@ -235,47 +235,47 @@ if __name__ == '__main__':
 <p>处理json格式的请求数据：request.json</p>
 </blockquote>
 <p><strong>响应json-方法1：response</strong></p>
-<pre><code>
-from flask import Flask, request, Response
-import json
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, request, Response
+<span style="color:#f92672">import</span> json
 
-app = Flask(&quot;my-app&quot;)
-
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+app <span style="color:#f92672">=</span> Flask(<span style="color:#e6db74">&#34;my-app&#34;</span>)
 
 
-@app.route('/add', methods=['POST'])
-def add():
-    result = {'sum': request.json['a'] + request.json['b']}
-    return Response(json.dumps(result),  mimetype='application/json')#响应头设置为json
-    resp.headers.add('Server', 'python flask'）#为相应头添加东西
-
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
-</code></pre><p><strong>响应json-方法2：使用jsonify</strong></p>
-<pre><code>
-from flask import Flask, request, jsonify
-
-app = Flask(&quot;my-app&quot;)
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Hello World!&#39;</span>
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/add&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;POST&#39;</span>])
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>():
+    result <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;sum&#39;</span>: request<span style="color:#f92672">.</span>json[<span style="color:#e6db74">&#39;a&#39;</span>] <span style="color:#f92672">+</span> request<span style="color:#f92672">.</span>json[<span style="color:#e6db74">&#39;b&#39;</span>]}
+    <span style="color:#66d9ef">return</span> Response(json<span style="color:#f92672">.</span>dumps(result),  mimetype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;application/json&#39;</span>)<span style="color:#75715e">#响应头设置为json</span>
+    resp<span style="color:#f92672">.</span>headers<span style="color:#f92672">.</span>add(<span style="color:#e6db74">&#39;Server&#39;</span>, <span style="color:#e6db74">&#39;python flask&#39;</span><span style="color:#960050;background-color:#1e0010">）</span><span style="color:#75715e">#为相应头添加东西</span>
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;127.0.0.1&#39;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
+</code></pre></div><p><strong>响应json-方法2：使用jsonify</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, request, jsonify
+
+app <span style="color:#f92672">=</span> Flask(<span style="color:#e6db74">&#34;my-app&#34;</span>)
 
 
-@app.route('/add', methods=['POST'])
-def add():
-    result = {'sum': request.json['a'] + request.json['b']}
-    return jsonify(result)
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Hello World!&#39;</span>
 
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
-</code></pre><h4 id="6上传文件">6.上传文件</h4>
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/add&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;POST&#39;</span>])
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>():
+    result <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;sum&#39;</span>: request<span style="color:#f92672">.</span>json[<span style="color:#e6db74">&#39;a&#39;</span>] <span style="color:#f92672">+</span> request<span style="color:#f92672">.</span>json[<span style="color:#e6db74">&#39;b&#39;</span>]}
+    <span style="color:#66d9ef">return</span> jsonify(result)
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;127.0.0.1&#39;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
+</code></pre></div><h4 id="6上传文件">6.上传文件</h4>
 <blockquote>
 <p>假设将上传的图片只允许&rsquo;png&rsquo;、&lsquo;jpg&rsquo;、&lsquo;jpeg&rsquo;、&lsquo;gif'这四种格式，通过url/upload使用POST上传，上传的图片存放在服务器端的static/uploads目录下。</p>
 </blockquote>
@@ -283,90 +283,90 @@ if __name__ == '__main__':
 <p>werkzeug库可以判断文件名是否安全，例如防止文件名是../../../a.png，安装这个库：</p>
 </blockquote>
 <p>服务端：</p>
-<pre><code>
-from flask import Flask, request
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, request
 
-from werkzeug.utils import secure_filename
-import os
+<span style="color:#f92672">from</span> werkzeug.utils <span style="color:#f92672">import</span> secure_filename
+<span style="color:#f92672">import</span> os
 
-app = Flask(__name__)
+app <span style="color:#f92672">=</span> Flask(__name__)
 
-# 文件上传目录
-app.config['UPLOAD_FOLDER'] = 'static/uploads/'# 支持的文件格式
-app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}  # 集合类型
-
-
-# 判断文件名是否是我们支持的格式def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
+<span style="color:#75715e"># 文件上传目录</span>
+app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;UPLOAD_FOLDER&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;static/uploads/&#39;</span><span style="color:#75715e"># 支持的文件格式</span>
+app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;ALLOWED_EXTENSIONS&#39;</span>] <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;png&#39;</span>, <span style="color:#e6db74">&#39;jpg&#39;</span>, <span style="color:#e6db74">&#39;jpeg&#39;</span>, <span style="color:#e6db74">&#39;gif&#39;</span>}  <span style="color:#75715e"># 集合类型</span>
 
 
-@app.route('/')def hello_world():
-    return 'hello world'
+<span style="color:#75715e"># 判断文件名是否是我们支持的格式def allowed_file(filename):</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">in</span> filename <span style="color:#f92672">and</span> \
+           filename<span style="color:#f92672">.</span>rsplit(<span style="color:#e6db74">&#39;.&#39;</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">in</span> app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;ALLOWED_EXTENSIONS&#39;</span>]
 
 
-@app.route('/upload', methods=['POST'])def upload():
-    upload_file = request.files['image']
-    if upload_file and allowed_file(upload_file.filename):
-        filename = secure_filename(upload_file.filename)
-        # 将文件保存到 static/uploads 目录，文件名同上传时使用的文件名
-        upload_file.save(os.path.join(app.root_path, app.config['UPLOAD_FOLDER'], filename))
-        return 'info is '+request.form.get('info', '')+'. success'
-    else:
-        return 'failed'
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
 
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
-</code></pre><p>客户端：</p>
-<pre><code>
-import requests
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/upload&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;POST&#39;</span>])<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">upload</span>():
+    upload_file <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>files[<span style="color:#e6db74">&#39;image&#39;</span>]
+    <span style="color:#66d9ef">if</span> upload_file <span style="color:#f92672">and</span> allowed_file(upload_file<span style="color:#f92672">.</span>filename):
+        filename <span style="color:#f92672">=</span> secure_filename(upload_file<span style="color:#f92672">.</span>filename)
+        <span style="color:#75715e"># 将文件保存到 static/uploads 目录，文件名同上传时使用的文件名</span>
+        upload_file<span style="color:#f92672">.</span>save(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(app<span style="color:#f92672">.</span>root_path, app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;UPLOAD_FOLDER&#39;</span>], filename))
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;info is &#39;</span><span style="color:#f92672">+</span>request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;info&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;. success&#39;</span>
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;failed&#39;</span>
 
-file_data = {'image': open('Lenna.jpg', 'rb')}
 
-user_info = {'info': 'Lenna'}
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
+</code></pre></div><p>客户端：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> requests
 
-r = requests.post(&quot;http://127.0.0.1:5000/upload&quot;, data=user_info, files=file_data)
+file_data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;image&#39;</span>: open(<span style="color:#e6db74">&#39;Lenna.jpg&#39;</span>, <span style="color:#e6db74">&#39;rb&#39;</span>)}
 
-print(r.text)
-</code></pre><p>运行client.py，当前目录下的Lenna.jpg将上传到服务器。然后，我们可以在static/uploads中看到文件Lenna.jpg。要控制上产文件的大小，可以设置请求实体的大小，例如：</p>
+user_info <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;info&#39;</span>: <span style="color:#e6db74">&#39;Lenna&#39;</span>}
+
+r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>post(<span style="color:#e6db74">&#34;http://127.0.0.1:5000/upload&#34;</span>, data<span style="color:#f92672">=</span>user_info, files<span style="color:#f92672">=</span>file_data)
+
+<span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>text)
+</code></pre></div><p>运行client.py，当前目录下的Lenna.jpg将上传到服务器。然后，我们可以在static/uploads中看到文件Lenna.jpg。要控制上产文件的大小，可以设置请求实体的大小，例如：</p>
 <p>app.config[&lsquo;MAX_CONTENT_LENGTH&rsquo;] = 16 * 1024 * 1024 #16MB</p>
 <h4 id="7restful-url">7.Restful URL</h4>
 <blockquote>
 <p>Restful URL可以看做是对 URL 参数的替代</p>
 </blockquote>
-<pre><code>
-@app.route('/user/&lt;username&gt;')def user(username):
-    print(username)
-    print(type(username))
-    return 'hello ' + username
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/user/&lt;username&gt;&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user</span>(username):
+    <span style="color:#66d9ef">print</span>(username)
+    <span style="color:#66d9ef">print</span>(type(username))
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello &#39;</span> <span style="color:#f92672">+</span> username
 
 
-@app.route('/user/&lt;username&gt;/friends')def user_friends(username):
-    print(username)
-    print(type(username))
-    return 'hello ' + username
-</code></pre><blockquote>
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/user/&lt;username&gt;/friends&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_friends</span>(username):
+    <span style="color:#66d9ef">print</span>(username)
+    <span style="color:#66d9ef">print</span>(type(username))
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello &#39;</span> <span style="color:#f92672">+</span> username
+</code></pre></div><blockquote>
 <p>访问http://127.0.0.1:5000/user/letian 
 输出：</p>
 </blockquote>
-<pre><code>letian
-&lt;class 'str'&gt;
-</code></pre><h5 id="71-转换类型">7.1 转换类型</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">letian
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">str</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><h5 id="71-转换类型">7.1 转换类型</h5>
 <blockquote>
 <p>使用 Restful URL 得到的变量默认为str对象。如果我们需要通过分页显示查询结果，那么需要在url中有数字来指定页数。用flask内置的转换机制，即在route中指定该如何转换。</p>
 </blockquote>
-<pre><code>@app.route('/page/&lt;int:num&gt;')def page(num):
-    print(num)
-    print(type(num))
-    return 'hello world'
-</code></pre><pre><code>
-@app.route('/page/&lt;int:num1&gt;-&lt;int:num2&gt;')
-def page(num1, num2):
-    print(num1)
-    print(num2)
-    return 'hello world'
-</code></pre><p>注意这里只有三张类型可以转换：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/page/&lt;int:num&gt;&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">page</span>(num):
+    <span style="color:#66d9ef">print</span>(num)
+    <span style="color:#66d9ef">print</span>(type(num))
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/page/&lt;int:num1&gt;-&lt;int:num2&gt;&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">page</span>(num1, num2):
+    <span style="color:#66d9ef">print</span>(num1)
+    <span style="color:#66d9ef">print</span>(num2)
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
+</code></pre></div><p>注意这里只有三张类型可以转换：</p>
 <table>
 <thead>
 <tr>
@@ -396,54 +396,54 @@ def page(num1, num2):
 to_python方法用于将url中的变量转换后供被@app.route包装的函数使用，
 to_url方法用于flask.url_for中的参数转换。</p>
 </blockquote>
-<pre><code>app.url_map.converters['my_int'] = MyIntConverter
-</code></pre><h4 id="8使用url_for生成连接">8.使用url_for生成连接</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">app<span style="color:#f92672">.</span>url_map<span style="color:#f92672">.</span>converters[<span style="color:#e6db74">&#39;my_int&#39;</span>] <span style="color:#f92672">=</span> MyIntConverter
+</code></pre></div><h4 id="8使用url_for生成连接">8.使用url_for生成连接</h4>
 <blockquote>
 <p>url_for可以生成url软连接</p>
 </blockquote>
-<pre><code>
-from flask import Flask, url_for
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, url_for
 
-app = Flask(__name__)
+app <span style="color:#f92672">=</span> Flask(__name__)
 
-@app.route('/')def hello_world():
-    pass
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">pass</span>
 
-@app.route('/user/&lt;name&gt;')def user(name):
-    pass
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/user/&lt;name&gt;&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user</span>(name):
+    <span style="color:#66d9ef">pass</span>
 
-@app.route('/page/&lt;int:num&gt;')def page(num):
-    pass
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/page/&lt;int:num&gt;&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">page</span>(num):
+    <span style="color:#66d9ef">pass</span>
 
-@app.route('/test')def test():
-    print(url_for('hello_world'))
-    print(url_for('user', name='letian'))
-    print(url_for('page', num=1, q='hadoop mapreduce 10%3'))
-    print(url_for('static', filename='uploads/01.jpg'))
-    return 'Hello'
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/test&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>():
+    <span style="color:#66d9ef">print</span>(url_for(<span style="color:#e6db74">&#39;hello_world&#39;</span>))
+    <span style="color:#66d9ef">print</span>(url_for(<span style="color:#e6db74">&#39;user&#39;</span>, name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;letian&#39;</span>))
+    <span style="color:#66d9ef">print</span>(url_for(<span style="color:#e6db74">&#39;page&#39;</span>, num<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, q<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hadoop mapreduce 10%3&#39;</span>))
+    <span style="color:#66d9ef">print</span>(url_for(<span style="color:#e6db74">&#39;static&#39;</span>, filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;uploads/01.jpg&#39;</span>))
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Hello&#39;</span>
 
-if __name__ == '__main__':
-    app.run(debug=True)
-</code></pre><h4 id="9使用redirect重定向网址">9.使用redirect重定向网址</h4>
-<pre><code>
-from flask import Flask, url_for, redirect
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(debug<span style="color:#f92672">=</span>True)
+</code></pre></div><h4 id="9使用redirect重定向网址">9.使用redirect重定向网址</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, url_for, redirect
 
-app = Flask(__name__)
+app <span style="color:#f92672">=</span> Flask(__name__)
 
-@app.route('/')def hello_world():
-    return 'hello world'
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
 
-@app.route('/test1')def test1():
-    print('this is test1')
-    return redirect(url_for('test2'))
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/test1&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test1</span>():
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;this is test1&#39;</span>)
+    <span style="color:#66d9ef">return</span> redirect(url_for(<span style="color:#e6db74">&#39;test2&#39;</span>))
 
-@app.route('/test2')def test2():
-    print('this is test2')
-    return 'this is test2'
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/test2&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test2</span>():
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;this is test2&#39;</span>)
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;this is test2&#39;</span>
 
-if __name__ == '__main__':
-    app.run(debug=True)
-</code></pre><h4 id="10使用jinja2模板引擎">10.使用jinja2模板引擎</h4>
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(debug<span style="color:#f92672">=</span>True)
+</code></pre></div><h4 id="10使用jinja2模板引擎">10.使用jinja2模板引擎</h4>
 <blockquote>
 <p>给模板传递变量render_template(&lsquo;user_info.html&rsquo;, page_title='letian's info&rsquo;, user_info=user_info)</p>
 </blockquote>
@@ -451,94 +451,94 @@ if __name__ == '__main__':
 <blockquote>
 <p>要处理HTTP错误，可以使用flask.abort函数。</p>
 </blockquote>
-<pre><code>
-from flask import Flask, render_template_string, abort
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, render_template_string, abort
 
-app = Flask(__name__)
-
-
-@app.route('/')def hello_world():
-    return 'hello world'
+app <span style="color:#f92672">=</span> Flask(__name__)
 
 
-@app.route('/user')def user():
-    abort(401)  # Unauthorized 未授权
-    print('Unauthorized, 请先登录')
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
 
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/user&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user</span>():
+    abort(<span style="color:#ae81ff">401</span>)  <span style="color:#75715e"># Unauthorized 未授权</span>
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Unauthorized, 请先登录&#39;</span>)
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
     
-</code></pre><p><strong>自定义错误页面</strong></p>
+</code></pre></div><p><strong>自定义错误页面</strong></p>
 <blockquote>
 <p>render_template_string(&lsquo;<!-- raw HTML omitted --> Unauthorized <!-- raw HTML omitted --><!-- raw HTML omitted -->{{ error_info }}<!-- raw HTML omitted -->&rsquo;</p>
 </blockquote>
-<pre><code>
-from flask import Flask, render_template_string, abort
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, render_template_string, abort
 
-app = Flask(__name__)
-
-
-@app.route('/')def hello_world():
-    return 'hello world'
+app <span style="color:#f92672">=</span> Flask(__name__)
 
 
-@app.route('/user')def user():
-    abort(401)  # Unauthorized
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
 
 
-@app.errorhandler(401)def page_unauthorized(error):
-    return render_template_string('&lt;h1&gt; Unauthorized &lt;/h1&gt;&lt;h2&gt;{{ error_info }}&lt;/h2&gt;', error_info=error), 401
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/user&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user</span>():
+    abort(<span style="color:#ae81ff">401</span>)  <span style="color:#75715e"># Unauthorized</span>
 
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
-</code></pre><h4 id="12用户会话">12.用户会话</h4>
+<span style="color:#a6e22e">@app.errorhandler</span>(<span style="color:#ae81ff">401</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">page_unauthorized</span>(error):
+    <span style="color:#66d9ef">return</span> render_template_string(<span style="color:#e6db74">&#39;&lt;h1&gt; Unauthorized &lt;/h1&gt;&lt;h2&gt;{{ error_info }}&lt;/h2&gt;&#39;</span>, error_info<span style="color:#f92672">=</span>error), <span style="color:#ae81ff">401</span>
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
+</code></pre></div><h4 id="12用户会话">12.用户会话</h4>
 <blockquote>
 <p>session用来记录用户的登录状态，一般基于cookie实现。</p>
 </blockquote>
-<pre><code>
-from flask import Flask, render_template_string, \
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, render_template_string, \
     session, request, redirect, url_for
 
-app = Flask(__name__)
+app <span style="color:#f92672">=</span> Flask(__name__)
 
-app.secret_key = 'F12Zr47j\3yX R~X@H!jLwf/T'
-
-
-@app.route('/')def hello_world():
-    return 'hello world'
+app<span style="color:#f92672">.</span>secret_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;F12Zr47j</span><span style="color:#ae81ff">\3</span><span style="color:#e6db74">yX R~X@H!jLwf/T&#39;</span>
 
 
-@app.route('/login')def login():
-    page = '''
-    &lt;form action=&quot;{{ url_for('do_login') }}&quot; method=&quot;post&quot;&gt;
-        &lt;p&gt;name: &lt;input type=&quot;text&quot; name=&quot;user_name&quot; /&gt;&lt;/p&gt;
-        &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
-    &lt;/form&gt;
-    '''
-    return render_template_string(page)
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
 
 
-@app.route('/do_login', methods=['POST'])def do_login():
-    name = request.form.get('user_name')
-    session['user_name'] = name
-    return 'success'
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/login&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">login</span>():
+    page <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">    &lt;form action=&#34;{{ url_for(&#39;do_login&#39;) }}&#34; method=&#34;post&#34;&gt;
+</span><span style="color:#e6db74">        &lt;p&gt;name: &lt;input type=&#34;text&#34; name=&#34;user_name&#34; /&gt;&lt;/p&gt;
+</span><span style="color:#e6db74">        &lt;input type=&#34;submit&#34; value=&#34;Submit&#34; /&gt;
+</span><span style="color:#e6db74">    &lt;/form&gt;
+</span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+    <span style="color:#66d9ef">return</span> render_template_string(page)
 
 
-@app.route('/show')def show():
-    return session['user_name']
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/do_login&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;POST&#39;</span>])<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_login</span>():
+    name <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;user_name&#39;</span>)
+    session[<span style="color:#e6db74">&#39;user_name&#39;</span>] <span style="color:#f92672">=</span> name
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;success&#39;</span>
 
 
-@app.route('/logout')def logout():
-    session.pop('user_name', None)
-    return redirect(url_for('login'))
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/show&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show</span>():
+    <span style="color:#66d9ef">return</span> session[<span style="color:#e6db74">&#39;user_name&#39;</span>]
 
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/logout&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">logout</span>():
+    session<span style="color:#f92672">.</span>pop(<span style="color:#e6db74">&#39;user_name&#39;</span>, None)
+    <span style="color:#66d9ef">return</span> redirect(url_for(<span style="color:#e6db74">&#39;login&#39;</span>))
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    app<span style="color:#f92672">.</span>run(port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
     
-</code></pre><blockquote>
+</code></pre></div><blockquote>
 <p>1.app.secret_key用于给session加密
 2.在/login中将向用户展示一个表单，要求输入一个名字，submit后将数据以post的方式传递给/do_login
 3./do_login将名字存放在session中
@@ -546,79 +546,79 @@ if __name__ == '__main__':
 5./logout用于登出，通过将session中的user_name字段pop即可。Flask中的session基于字典类型实现，调用pop方法时会返回pop的键对应的值；如果要pop的键并不存在，那么返回值是pop()的第二个参数。另外，使用redirect()重定向时，一定要在前面加上return</p>
 </blockquote>
 <h6 id="设置sessin的有效时间">设置sessin的有效时间</h6>
-<pre><code>
-from datetime import timedelta
-from flask import session, app
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> timedelta
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> session, app
 
-session.permanent = True
-app.permanent_session_lifetime = timedelta(minutes=5)
-</code></pre><h4 id="13使用闪存系统">13.使用闪存系统</h4>
+session<span style="color:#f92672">.</span>permanent <span style="color:#f92672">=</span> True
+app<span style="color:#f92672">.</span>permanent_session_lifetime <span style="color:#f92672">=</span> timedelta(minutes<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</code></pre></div><h4 id="13使用闪存系统">13.使用闪存系统</h4>
 <blockquote>
 <p>Flask的闪存系统（flashing system）用于向用户提供反馈信息，这些反馈信息一般是对用户上一次操作的反馈。反馈信息是存储在服务器端的，当服务器向客户端返回反馈信息后，这些反馈信息会被服务器端删除。</p>
 </blockquote>
-<pre><code>
-from flask import Flask, flash, get_flashed_messages
-import time
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, flash, get_flashed_messages
+<span style="color:#f92672">import</span> time
 
-app = Flask(__name__)
-app.secret_key = 'some_secret'
-
-
-@app.route('/')def index():
-    return 'hi'
+app <span style="color:#f92672">=</span> Flask(__name__)
+app<span style="color:#f92672">.</span>secret_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;some_secret&#39;</span>
 
 
-@app.route('/gen')def gen():
-    info = 'access at '+ time.time().__str__()
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hi&#39;</span>
+
+
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/gen&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gen</span>():
+    info <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;access at &#39;</span><span style="color:#f92672">+</span> time<span style="color:#f92672">.</span>time()<span style="color:#f92672">.</span>__str__()
     flash(info)
-    return info
+    <span style="color:#66d9ef">return</span> info
 
 
-@app.route('/show1')def show1():
-    return get_flashed_messages().__str__()
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/show1&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show1</span>():
+    <span style="color:#66d9ef">return</span> get_flashed_messages()<span style="color:#f92672">.</span>__str__()
 
 
-@app.route('/show2')def show2():
-    return get_flashed_messages().__str__()
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/show2&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show2</span>():
+    <span style="color:#66d9ef">return</span> get_flashed_messages()<span style="color:#f92672">.</span>__str__()
 
 
-if __name__ == &quot;__main__&quot;:
-    app.run(port=5000, debug=True)
-</code></pre><blockquote>
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+    app<span style="color:#f92672">.</span>run(port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
+</code></pre></div><blockquote>
 <p>访问http://127.0.0.1:5000/gen 显示:access at 1404020982.83
 查看cookie:
 查看show1：可以看到连接记录</p>
 </blockquote>
 <p><strong>对flash分类</strong></p>
-<pre><code>
-from flask import Flask, flash, get_flashed_messages
-import time
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask, flash, get_flashed_messages
+<span style="color:#f92672">import</span> time
 
-app = Flask(__name__)
-app.secret_key = 'some_secret'
-
-
-@app.route('/')def index():
-    return 'hi'
+app <span style="color:#f92672">=</span> Flask(__name__)
+app<span style="color:#f92672">.</span>secret_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;some_secret&#39;</span>
 
 
-@app.route('/gen')def gen():
-    info = 'access at '+ time.time().__str__()
-    flash('show1 '+info, category='show1')
-    flash('show2 '+info, category='show2')
-    return info
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>():
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hi&#39;</span>
 
 
-@app.route('/show1')def show1():
-    return get_flashed_messages(category_filter='show1').__str__()
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/gen&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gen</span>():
+    info <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;access at &#39;</span><span style="color:#f92672">+</span> time<span style="color:#f92672">.</span>time()<span style="color:#f92672">.</span>__str__()
+    flash(<span style="color:#e6db74">&#39;show1 &#39;</span><span style="color:#f92672">+</span>info, category<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;show1&#39;</span>)
+    flash(<span style="color:#e6db74">&#39;show2 &#39;</span><span style="color:#f92672">+</span>info, category<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;show2&#39;</span>)
+    <span style="color:#66d9ef">return</span> info
 
-@app.route('/show2')def show2():
-    return get_flashed_messages(category_filter='show2').__str__()
+
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/show1&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show1</span>():
+    <span style="color:#66d9ef">return</span> get_flashed_messages(category_filter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;show1&#39;</span>)<span style="color:#f92672">.</span>__str__()
+
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/show2&#39;</span>)<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show2</span>():
+    <span style="color:#66d9ef">return</span> get_flashed_messages(category_filter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;show2&#39;</span>)<span style="color:#f92672">.</span>__str__()
 
 
-if __name__ == &quot;__main__&quot;:
-    app.run(port=5000, debug=True)
-</code></pre>
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+    app<span style="color:#f92672">.</span>run(port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span>True)
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
