@@ -9,12 +9,23 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Abouts</title>
+      <title>2020s</title>
+      <link>https://anfieldqi.github.io/2020/</link>
+      <pubDate>Sat, 11 Apr 2020 16:28:09 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
       <link>https://anfieldqi.github.io/about/</link>
       <pubDate>Sat, 11 Apr 2020 16:28:09 +0800</pubDate>
       
       <guid>https://anfieldqi.github.io/about/</guid>
-      <description></description>
+      <description>&lt;h1 id=&#34;anfieldqi&#34;&gt;AnfieldQi&lt;/h1&gt;
+&lt;p&gt;一枚菜鸡&lt;/p&gt;
+</description>
     </item>
     
     <item>

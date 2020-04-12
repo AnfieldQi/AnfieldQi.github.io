@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>Flask框架学习</title>
-      <link>https://anfieldqi.github.io/post/python/flask%E6%A1%86%E6%9E%B6/</link>
+      <title>About</title>
+      <link>https://anfieldqi.github.io/post/about/</link>
       <pubDate>Sat, 11 Apr 2020 16:28:09 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/post/python/flask%E6%A1%86%E6%9E%B6/</guid>
-      <description>Flask框架 1.安装flask 安装flask框架并在项目中导入 2.基本文件结构 static:存放静态资源，图片，js,css等 templa</description>
+      <guid>https://anfieldqi.github.io/post/about/</guid>
+      <description>AnfieldQi 一枚菜鸡</description>
     </item>
     
   </channel>

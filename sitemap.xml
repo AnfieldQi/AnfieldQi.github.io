@@ -2,7 +2,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://anfieldqi.github.io/about/about/</loc>
+      <loc>https://anfieldqi.github.io/2020/</loc>
       
       <lastmod>2020-04-11T16:28:09+08:00</lastmod>
       
@@ -22,6 +22,16 @@
     </url>
   
     <url>
+      <loc>https://anfieldqi.github.io/post/about/</loc>
+      
+      <lastmod>2020-04-11T16:28:09+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://anfieldqi.github.io/</loc>
       
       <lastmod>2020-04-11T16:28:09+08:00</lastmod>
@@ -32,7 +42,17 @@
     </url>
   
     <url>
-      <loc>https://anfieldqi.github.io/post/python/flask%E6%A1%86%E6%9E%B6/</loc>
+      <loc>https://anfieldqi.github.io/categories/</loc>
+      
+      <lastmod>2020-04-11T16:28:09+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/2020/04/flask%E6%A1%86%E6%9E%B6/</loc>
       
       <lastmod>2020-04-11T16:28:09+08:00</lastmod>
       
@@ -52,7 +72,19 @@
     </url>
   
     <url>
-      <loc>https://anfieldqi.github.io/categories/</loc>
+      <loc>https://anfieldqi.github.io/tags/python/</loc>
+      
+      <lastmod>2020-04-11T16:28:09+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/categories/python%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</loc>
+      
+      <lastmod>2020-04-11T16:28:09+08:00</lastmod>
       
       
       
@@ -61,6 +93,8 @@
   
     <url>
       <loc>https://anfieldqi.github.io/tags/</loc>
+      
+      <lastmod>2020-04-11T16:28:09+08:00</lastmod>
       
       
       

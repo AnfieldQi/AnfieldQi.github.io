@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on AnfieldQi`s Blog</title>
+    <link>https://anfieldqi.github.io/tags/python/</link>
+    <description>Recent content in python on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 11 Apr 2020 16:28:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://anfieldqi.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flask框架学习</title>
+      <link>https://anfieldqi.github.io/2020/04/flask%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sat, 11 Apr 2020 16:28:09 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/04/flask%E6%A1%86%E6%9E%B6/</guid>
+      <description>Flask框架 1.安装flask 安装flask框架并在项目中导入 2.基本文件结构 static:存放静态资源，图片，js,css等 templa</description>
+    </item>
+    
+  </channel>
+</rss>
