@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Hugo\x2bGithub Pages",
     "headline" : "Hugo\x2bGithub Pages",
-    "description" : "",
+    "description" : "Hugo简介 Hugo是由Steve Francis基于Go语言开发的静态网站构建工具。 Hugo博客搭建流程 准备工作 github账号：使用git",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -57,7 +57,7 @@
     "datePublished": "2020-04-12 13:10:40 \x2b0800 CST",
     "dateModified" : "2020-04-12 13:10:40 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/hugo-github-pages\/",
-    "wordCount" : "0",
+    "wordCount" : "1354",
     "keywords" : [ "blog", "AnfieldQi`s Blog"]
 }
 </script>
@@ -70,6 +70,9 @@
   <body class="">
     <div class="wrapper">
         <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
     <div class="container">
         <div class="navbar-header header-logo">
         	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
@@ -89,6 +92,9 @@
     </div>
 </nav>
 <nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
      <div class="container">
         <div class="navbar-header">
             <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
@@ -125,10 +131,10 @@
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://anfieldqi.github.io/categories/blog%E6%90%AD%E5%BB%BA/"> blog搭建 </a>
+                        <a href="https://anfieldqi.github.io/categories/%E6%95%99%E7%A8%8B%E5%AD%98%E6%A1%A3/"> 教程存档 </a>
                         
                 </span>
-                <span class="post-word-count">, 0 words</span>
+                <span class="post-word-count">, 1354 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -147,7 +153,164 @@
           
           
 
-          
+          <h3 id="hugo简介">Hugo简介</h3>
+<p><a href="https://gohugo.io/">Hugo</a>是由<a href="http://spf13.com/">Steve Francis</a>基于Go语言开发的静态网站构建工具。</p>
+<h3 id="hugo博客搭建流程">Hugo博客搭建流程</h3>
+<h5 id="准备工作">准备工作</h5>
+<ol>
+<li>github账号：使用github pages 来搭建,<del>网址就不写了</del></li>
+<li>git:用来将博客发布到github上，<del>众所周知</del></li>
+<li>hugo：一个博客框架，将Markdown渲染为静态网页</li>
+</ol>
+<h5 id="环境部署">环境部署</h5>
+<h6 id="hugo">hugo</h6>
+<ol>
+<li>
+<p>下载Hugo，根据自己的系统选择不同的版本，本文所用环境为windows</p>
+</li>
+<li>
+<p>选择合适的目录解压下载的文件，包含hugo.exe等三项内容</p>
+</li>
+<li>
+<p>配置变量</p>
+<p>3.1 在目录下建立名为bin的文件夹，将内容移动到此处</p>
+<p>3.2 在系统变量设置中将路径（如：D:/hugo/bin）加入Path</p>
+<p>3.3 在命令行输入hugo version，输出版本号，安装成功</p>
+</li>
+</ol>
+<h6 id="git">git</h6>
+<ol>
+<li>
+<p>下载git安装包，根据系统选择</p>
+</li>
+<li>
+<p>安装后在命令行中输入git version,输出版本号则表示安装成功</p>
+</li>
+<li>
+<p>后续还需要配置密钥信息，这个自行查找相关教程就好</p>
+</li>
+</ol>
+<h6 id="github">github</h6>
+<!-- raw HTML omitted -->
+<ol>
+<li>登录github,新建一个名为&lt;账户名&gt;.github.io的库，注意不要带README</li>
+<li><del>选择此库的  Settings ,拖动至github pages块，并点击 Automatic page generator</del></li>
+<li>然后github会自动为我们创建，稍等一下，https://&laquo;账户名&gt;.github.io就可以访问了</li>
+</ol>
+<h5 id="hugo使用">hugo使用</h5>
+<h6 id="建立新站点">建立新站点</h6>
+<p>1.在选好的本地路径下，使用：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hugo new site Blog
+</code></pre></div><p>此时会创建一个一个名为Blog的文件夹来存放博客</p>
+<p>2.进入文件，目录结构如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">├──</span> archetypes <span style="color:#75715e"># 创建新md页面时的预设信息存放路径</span>
+<span style="color:#960050;background-color:#1e0010">├──</span> content <span style="color:#75715e"># 写作的内容都存放在这里面</span>
+<span style="color:#960050;background-color:#1e0010">├──</span> data
+<span style="color:#960050;background-color:#1e0010">├──</span> layouts <span style="color:#75715e"># 网站模版</span>
+<span style="color:#960050;background-color:#1e0010">├──</span> static <span style="color:#75715e"># 包含 CSS、JavaScript、Fonts、media 等，与网站页面设置有关</span>
+<span style="color:#960050;background-color:#1e0010">├──</span> themes <span style="color:#75715e"># 主题</span>
+<span style="color:#960050;background-color:#1e0010">└──</span> config<span style="color:#f92672">.</span>toml <span style="color:#75715e"># 配置文件</span>
+</code></pre></div><h6 id="选择喜欢的主题">选择喜欢的主题</h6>
+<p>1.在hugo官方主题页选择自己喜欢的主题</p>
+<p>2.将选择的主题下载后放入themes文件下</p>
+<h6 id="配置configtoml">配置config.toml</h6>
+<p>``</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">baseURL = <span style="color:#e6db74">&#34;https://&lt;用户名&gt;.github.io&#34;</span> 
+title = <span style="color:#e6db74">&#34;Anfieldqi`s Blog&#34;</span> 
+languageCode = <span style="color:#e6db74">&#34;zh-cn&#34;</span> 
+hasCJKLanguage = <span style="color:#66d9ef">true</span>
+theme = <span style="color:#e6db74">&#34;LeaveIt&#34;</span> 
+
+paginate = <span style="color:#ae81ff">10</span>
+enableEmoji = <span style="color:#66d9ef">true</span> 
+enableRobotsTXT = <span style="color:#66d9ef">true</span> 
+googleAnalytics = <span style="color:#e6db74">&#34;&#34;</span> 
+
+preserveTaxonomyNames = <span style="color:#66d9ef">true</span>
+
+[blackfriday]
+  hrefTargetBlank = <span style="color:#66d9ef">true</span>
+  nofollowLinks = <span style="color:#66d9ef">true</span>
+  noreferrerLinks = <span style="color:#66d9ef">true</span>
+
+[Permalinks]
+ posts = <span style="color:#e6db74">&#34;/:year/:filename/&#34;</span>
+
+[menu]
+  [[menu.main]]
+    name = <span style="color:#e6db74">&#34;Blog&#34;</span>
+    url = <span style="color:#e6db74">&#34;/posts/&#34;</span>
+    weight = <span style="color:#ae81ff">1</span>
+
+  [[menu.main]]
+    name = <span style="color:#e6db74">&#34;Categories&#34;</span>
+    url = <span style="color:#e6db74">&#34;/categories/&#34;</span>
+    weight = <span style="color:#ae81ff">2</span>
+
+  [[menu.main]]
+    name = <span style="color:#e6db74">&#34;Tags&#34;</span>
+    url = <span style="color:#e6db74">&#34;/tags/&#34;</span>
+    weight = <span style="color:#ae81ff">3</span>
+
+  [[menu.main]]
+    name = <span style="color:#e6db74">&#34;About&#34;</span>
+    url = <span style="color:#e6db74">&#34;/about/&#34;</span>
+    weight = <span style="color:#ae81ff">4</span>
+
+[params]
+    since = <span style="color:#ae81ff">2019</span>
+    author = <span style="color:#e6db74">&#34;anfieldqi&#34;</span>                        
+    avatar = <span style="color:#e6db74">&#34;/image/*.png&#34;</span>           
+    subtitle = <span style="color:#e6db74">&#34;但行好事，莫问前程&#34;</span>              
+    cdn_url = <span style="color:#e6db74">&#34;&#34;</span>   <span style="color:#75715e"># 配置cdn加速时使用</span>
+    home_mode = <span style="color:#e6db74">&#34;&#34;</span> 
+
+    google_verification = <span style="color:#e6db74">&#34;&#34;</span>
+
+    description = <span style="color:#e6db74">&#34;&#34;</span> 
+    keywords = <span style="color:#e6db74">&#34;&#34;</span>
+
+    beian = <span style="color:#e6db74">&#34;&#34;</span>
+    baiduAnalytics = <span style="color:#e6db74">&#34;&#34;</span>
+
+    license= <span style="color:#e6db74">&#39;本文采用&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34;&gt;知识共享署名-非商业性使用 4.0 国际许可协议&lt;/a&gt;进行许可&#39;</span>
+
+[params.social]
+    GitHub = <span style="color:#e6db74">&#34;&#34;</span>
+    Email  = <span style="color:#e6db74">&#34;&#34;</span>
+    Wechat = <span style="color:#e6db74">&#34;&#34;</span>  
+
+</code></pre></div><h6 id="创建页面">创建页面</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hugo new readme<span style="color:#f92672">.</span>md
+</code></pre></div><p>使用此命令后在content页面下会出现readme.md文件</p>
+<p>1.打开文件后可以看见title等信息，为yaml语法，这里的默认项可以在archetypes目录相关文件中修改</p>
+<ul>
+<li><code>title:</code></li>
+<li><code>date:</code></li>
+<li><code>draft:</code> # 是否为草稿，发布时需修改为false</li>
+</ul>
+<h6 id="项目build">项目build</h6>
+<ol>
+<li>生成网站</li>
+</ol>
+<pre><code>hugo server --buildDrafts -w
+</code></pre><p>此时可以在本地1313端口访问网站</p>
+<ol start="2">
+<li>
+<p>此时仅是本地预览阶段，-w代表每次修改可以直接在启动的页面中显示,若要发布，将所写页面中<!-- raw HTML omitted -->draft<!-- raw HTML omitted -->修改为<!-- raw HTML omitted -->false<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>运行hugo命令,此时在博客目录下生成一个public文件</p>
+<p><code>hugo</code></p>
+</li>
+<li>
+<p>进入public文件，初始化git，将此部分push至GitHub相关库中。</p>
+</li>
+<li>
+<p>接下来，就可以在https://&lt;用户名&gt;.github.io下访问自己的博客了</p>
+</li>
+</ol>
+
     </div>
 
     <div class="post-copyright">
@@ -243,6 +406,7 @@
 		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
     </div>
 </footer>
+
 
 
 
