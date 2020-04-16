@@ -2,6 +2,136 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://anfieldqi.github.io/categories/</loc>
+      
+      <lastmod>2020-04-16T21:52:53+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/posts/</loc>
+      
+      <lastmod>2020-04-16T21:52:53+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/categories/python/</loc>
+      
+      <lastmod>2020-04-16T21:52:53+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
+      
+      <lastmod>2020-04-16T21:52:53+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/tags/python%E5%9F%BA%E7%A1%80/</loc>
+      
+      <lastmod>2020-04-16T21:52:53+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/tags/</loc>
+      
+      <lastmod>2020-04-16T21:52:53+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</loc>
+      
+      <lastmod>2020-04-16T21:52:44+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</loc>
+      
+      <lastmod>2020-04-16T21:52:36+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/tags/shell/</loc>
+      
+      <lastmod>2020-04-16T21:52:28+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/2020/shell%E5%AD%A6%E4%B9%A0/</loc>
+      
+      <lastmod>2020-04-16T21:52:28+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/categories/misc/</loc>
+      
+      <lastmod>2020-04-15T21:47:51+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/tags/typora/</loc>
+      
+      <lastmod>2020-04-15T21:47:51+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://anfieldqi.github.io/2020/typora%E4%BD%BF%E7%94%A8/</loc>
+      
+      <lastmod>2020-04-15T21:47:51+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://anfieldqi.github.io/tags/blog/</loc>
       
       <lastmod>2020-04-12T13:10:40+08:00</lastmod>
@@ -12,37 +142,7 @@
     </url>
   
     <url>
-      <loc>https://anfieldqi.github.io/categories/</loc>
-      
-      <lastmod>2020-04-12T13:10:40+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://anfieldqi.github.io/2020/hugo-github-pages/</loc>
-      
-      <lastmod>2020-04-12T13:10:40+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://anfieldqi.github.io/posts/</loc>
-      
-      <lastmod>2020-04-12T13:10:40+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://anfieldqi.github.io/tags/</loc>
       
       <lastmod>2020-04-12T13:10:40+08:00</lastmod>
       
@@ -83,16 +183,6 @@
   
     <url>
       <loc>https://anfieldqi.github.io/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</loc>
-      
-      <lastmod>2020-04-11T16:28:09+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://anfieldqi.github.io/categories/python/</loc>
       
       <lastmod>2020-04-11T16:28:09+08:00</lastmod>
       

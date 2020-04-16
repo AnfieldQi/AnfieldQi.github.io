@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on AnfieldQi`s Blog</title>
-    <link>https://anfieldqi.github.io/categories/python/</link>
-    <description>Recent content in python on AnfieldQi`s Blog</description>
+    <title>python基础 on AnfieldQi`s Blog</title>
+    <link>https://anfieldqi.github.io/tags/python%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in python基础 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 16 Apr 2020 21:52:53 +0800</lastBuildDate>
     
-	<atom:link href="https://anfieldqi.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://anfieldqi.github.io/tags/python%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -36,24 +36,6 @@
       
       <guid>https://anfieldqi.github.io/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
       <description>Python装饰器 1.概念 装饰器是可调用的对象，其参数是另外一个函数，装饰器可能会处理被装饰的函数然后把它返回，或者将其替换成另外一个函数或</description>
-    </item>
-    
-    <item>
-      <title>Shell学习</title>
-      <link>https://anfieldqi.github.io/2020/shell%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Thu, 16 Apr 2020 21:52:28 +0800</pubDate>
-      
-      <guid>https://anfieldqi.github.io/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
-      <description>shell 开始 #!/bin/bash 与python一样，告诉其路径 Shell 变量 1.变量名和=之间不准有空格 2.命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数</description>
-    </item>
-    
-    <item>
-      <title>Flask框架学习</title>
-      <link>https://anfieldqi.github.io/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Sat, 11 Apr 2020 16:28:09 +0800</pubDate>
-      
-      <guid>https://anfieldqi.github.io/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
-      <description>Flask框架 1.安装flask 安装flask框架并在项目中导入 2.基本文件结构 static:存放静态资源，图片，js,css等 templa</description>
     </item>
     
   </channel>
