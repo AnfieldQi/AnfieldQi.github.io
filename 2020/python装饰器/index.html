@@ -57,7 +57,7 @@
     "datePublished": "2020-04-16 21:52:36 \x2b0800 CST",
     "dateModified" : "2020-04-16 21:52:36 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/python%E8%A3%85%E9%A5%B0%E5%99%A8\/",
-    "wordCount" : "2752",
+    "wordCount" : "2740",
     "keywords" : [ "python基础", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="https://anfieldqi.github.io/categories/python/"> python </a>
                         
                 </span>
-                <span class="post-word-count">, 2752 words</span>
+                <span class="post-word-count">, 2740 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -155,30 +155,26 @@
 
           <h3 id="python装饰器">Python装饰器</h3>
 <h4 id="1概念">1.概念</h4>
-<blockquote>
 <p>装饰器是可调用的对象，其参数是另外一个函数，装饰器可能会处理被装饰的函数然后把它返回，或者将其替换成另外一个函数或者可调用对象。</p>
-</blockquote>
 <h4 id="一等函数">一等函数</h4>
 <h6 id="函数是一等对象满足以下条件">函数是一等对象，满足以下条件</h6>
-<blockquote>
-<p>1.在运行时创建
-2.能赋值给变量或者数据结构中的元素
-3.能作为承诺书传给参数
-4.能作为函数的返回结果</p>
-</blockquote>
+<ol>
+<li>在运行时创建</li>
+<li>能赋值给变量或者数据结构中的元素</li>
+<li>能作为承诺书传给参数</li>
+<li>能作为函数的返回结果</li>
+</ol>
 <h6 id="一个简单函数的定义">一个简单函数的定义：</h6>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>():    
     <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
 </code></pre></div><p>python解释器遇到这段代码时：</p>
-<blockquote>
-<p>1.编译生成一个函数对象
-2.将名为hello的名字绑定到对象上</p>
-</blockquote>
+<ol>
+<li>编译生成一个函数对象</li>
+<li>将名为hello的名字绑定到对象上</li>
+</ol>
 <p>在python中，函数作为一等对象，可以向int string float一样作为参数或返回值</p>
 <h4 id="函数作为参数">函数作为参数</h4>
-<blockquote>
 <p>例：函数call_foo_with_arg 返回两个函数，一个是函数对象foo</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(bar):
      <span style="color:#66d9ef">return</span> bar <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
@@ -191,9 +187,7 @@
     
 <span style="color:#66d9ef">print</span>(call_foo_with_arg(foo, <span style="color:#ae81ff">3</span>))
 </code></pre></div><h4 id="嵌套函数">嵌套函数</h4>
-<blockquote>
 <p>函数也可以定义在另外一个函数中，作为嵌套函数</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parent</span>():  
       <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Printing from the parent() function.&#34;</span>)    
@@ -210,12 +204,8 @@
 </code></pre></div><p>first_child 和 second_child 函数是嵌套在 parent 函数中的函数。</p>
 <p>当调用 parent 函数时，内嵌的first_child 和 second_child 函数也被调用，但是如果在 parent 函数中并不是调用first_child 和 second_child 函数， 而是返回这两个函数对象时：</p>
 <h3 id="变量作用域">变量作用域</h3>
-<blockquote>
 <p>首先介绍变量作用域，关于作用域的详细内容初学者可结合另一篇博文学习</p>
-</blockquote>
-<blockquote>
 <p>Python是动态语言，Python的变量名解析机制有时称为LEGB法则，当在函数中使用未认证的变量名时，Python搜索4个作用域：</p>
-</blockquote>
 <p><strong>L&ndash;&gt;E&ndash;&gt;G&ndash;&gt;B原则：</strong></p>
 <ol>
 <li>local 函数内部作用域</li>
@@ -249,10 +239,8 @@ b <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
    
  f2(<span style="color:#ae81ff">3</span>)
 </code></pre></div><h3 id="闭包">闭包</h3>
-<blockquote>
 <p>闭包是指延伸了作用域的函数。
 例子：现在有个avg函数，用于计算不断增长的序列的平均值。</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_averager</span>():   
          series <span style="color:#f92672">=</span> []   
@@ -284,10 +272,8 @@ b <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
  avg(<span style="color:#ae81ff">10</span>)
 </code></pre></div><p>这时候会抛出错误 “UnboundLocalError: local variable ‘count’ referenced before assignment”。这是因为：当count为数字或者任何不可变类型时，在函数体定义中 count = count + 1 实际上是为count赋值，所以count就变成了局部变量。为了避免这个问题，python3引入了 nonlocal 声明，作用是把变量标记成 自由变量</p>
 <h3 id="装饰器">装饰器</h3>
-<blockquote>
 <p>了解了闭包，可以用嵌套函数实现装饰器
 装饰器时一种闭包的应用，传递的时函数</p>
-</blockquote>
 <h4 id="被修饰的函数无参">被修饰的函数无参</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">makebold</span>(fn):  
@@ -369,9 +355,7 @@ hello_italic <span style="color:#f92672">=</span> makeitalic(hello)
 <p>最外层的函数 logged() 接受参数并将它们作用在内部的装饰器函数上面。 内层的函数 decorate() 接受一个函数作为参数，然后在函数上面放置一个包装器。</p>
 <h4 id="装饰器的应用">装饰器的应用</h4>
 <h5 id="1-给函数做缓存">1. 给函数做缓存</h5>
-<blockquote>
 <p>第n个斐波那契数来说，是个递归算法，对于这种慢速递归，可以把耗时函数的结果先缓存起来，在调用函数之前先查询一下缓存，如果没有才调用函数</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> wraps
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">memo</span>(func):    

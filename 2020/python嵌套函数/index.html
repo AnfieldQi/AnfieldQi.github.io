@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Python嵌套函数",
     "headline" : "Python嵌套函数",
-    "description" : "python嵌套函数 在 Python 中，函数高级用法都与嵌套函数紧密相关，所以有必要先熟悉一下嵌套函数。 使用场景封装 - 数据隐藏 贯彻 DRY 原则 闭包 1.封装，数",
+    "description" : "python嵌套函数 在 Python 中，函数高级用法都与嵌套函数紧密相关，所以有必要先熟悉一下嵌套函数。 使用场景 封装 - 数据隐藏 贯彻 DRY 原则 闭包 1.封装，数",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -57,7 +57,7 @@
     "datePublished": "2020-04-16 21:52:44 \x2b0800 CST",
     "dateModified" : "2020-04-16 21:52:44 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0\/",
-    "wordCount" : "563",
+    "wordCount" : "557",
     "keywords" : [ "python基础", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="https://anfieldqi.github.io/categories/python/"> python </a>
                         
                 </span>
-                <span class="post-word-count">, 563 words</span>
+                <span class="post-word-count">, 557 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -154,15 +154,16 @@
           
 
           <h3 id="python嵌套函数">python嵌套函数</h3>
-<blockquote>
 <p>在 Python 中，函数高级用法都与嵌套函数紧密相关，所以有必要先熟悉一下嵌套函数。</p>
-</blockquote>
-<blockquote>
-<p><!-- raw HTML omitted -->使用场景<!-- raw HTML omitted -->
-封装 - 数据隐藏
-贯彻 DRY 原则
-闭包</p>
-</blockquote>
+<ol>
+<li><!-- raw HTML omitted -->使用场景<!-- raw HTML omitted -->
+<ol>
+<li>封装 - 数据隐藏</li>
+<li>贯彻 DRY 原则</li>
+<li>闭包</li>
+</ol>
+</li>
+</ol>
 <p><strong>1.封装，数据隐藏</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">outer</span>(n): 
@@ -188,8 +189,8 @@
 <span style="color:#f92672">...</span>         <span style="color:#66d9ef">return</span> n <span style="color:#f92672">*</span> inner_factorial(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
 <span style="color:#f92672">...</span>     <span style="color:#66d9ef">return</span> inner_factorial(n)
 <span style="color:#f92672">...</span> 
-</code></pre></div><p>、这样内部函数无需判断输入的类型正确与否</p>
-<p><strong>2.贯彻DRY原则</strong>
+</code></pre></div><p>这样内部函数无需判断输入的类型正确与否</p>
+<p><strong>2. 贯彻DRY原则</strong>
 支持文件对象的文件处理格式</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_file</span>(f):
 <span style="color:#f92672">...</span>     <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> f:
@@ -234,9 +235,11 @@ I am a Pythonista
         <span style="color:#66d9ef">print</span>(msg)
     printer()<span style="color:#75715e"># 输出 zen of pythonprint_msg()</span>
 </code></pre></div><p>对于嵌套函数，它可以访问到其外层作用域中声明的非局部（non-local）变量，比如代码示例中的变量 msg 可以被嵌套函数 printer 正常访问。</p>
-<p><strong>嵌套函数即在函数内部定义函数并使用，需要注意</strong>：
-1.外部函数的变量(不是全局变量)可以被内部函数所使用，但不能被内部函数修改，若要修改需要添加关键字nonlocal
-2.外层函数执行后外层函数所定义的变量失效</p>
+<h5 id="嵌套函数即在函数内部定义函数并使用需要注意">嵌套函数即在函数内部定义函数并使用，需要注意：</h5>
+<ol>
+<li>外部函数的变量(不是全局变量)可以被内部函数所使用，但不能被内部函数修改，若要修改需要添加关键字nonlocal</li>
+<li>外层函数执行后外层函数所定义的变量失效</li>
+</ol>
 
     </div>
 

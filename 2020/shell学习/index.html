@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Shell学习",
     "headline" : "Shell学习",
-    "description" : "shell 开始 #!\/bin\/bash 与python一样，告诉其路径 Shell 变量 1.变量名和=之间不准有空格 2.命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数",
+    "description" : "shell 开始 #!\/bin\/bash 与python一样，告诉其路径 Shell 变量 变量名和=之间不准有空格 命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头 中",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -57,7 +57,7 @@
     "datePublished": "2020-04-16 21:52:28 \x2b0800 CST",
     "dateModified" : "2020-04-16 21:52:28 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/shell%E5%AD%A6%E4%B9%A0\/",
-    "wordCount" : "2535",
+    "wordCount" : "2568",
     "keywords" : [ "shell", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="https://anfieldqi.github.io/categories/python/"> python </a>
                         
                 </span>
-                <span class="post-word-count">, 2535 words</span>
+                <span class="post-word-count">, 2568 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -157,10 +157,10 @@
 <h4 id="开始">开始</h4>
 <p>#!/bin/bash 与python一样，告诉其路径</p>
 <h4 id="shell-变量">Shell 变量</h4>
-<blockquote>
-<p>1.变量名和=之间不准有空格
-2.命名规则</p>
-</blockquote>
+<ol>
+<li>变量名和=之间不准有空格</li>
+<li>命名规则</li>
+</ol>
 <table>
 <thead>
 <tr>
@@ -182,25 +182,25 @@
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>3.可以通过语句给变量赋值（for file in $(ls /etc)）</p>
-</blockquote>
-<blockquote>
-<p>4.使用变量：
-4.1 在变量名前加$
-4.2 通过{}来标识变量边界 I am good at ${skill}Script</p>
-</blockquote>
-<blockquote>
-<p>5.删除变量：unset variable_name</p>
-</blockquote>
+<ol start="3">
+<li>
+<p>可以通过语句给变量赋值（for file in $(ls /etc)）</p>
+</li>
+<li>
+<p>使用变量：
+4.1  在变量名前加$
+4.2  通过{}来标识变量边界 I am good at ${skill}Script</p>
+</li>
+<li>
+<p>删除变量：unset variable_name</p>
+</li>
+</ol>
 <h4 id="shell字符串">Shell字符串</h4>
-<blockquote>
 <p><!-- raw HTML omitted -->单引号：<!-- raw HTML omitted -->字符原样输出，字符串中的变量是无效的 &lsquo;I am good at ${skill}Script&rsquo;
 <!-- raw HTML omitted --> 双引号：<!-- raw HTML omitted -->
-2.1 里面可以有变量存在 “ I am good at ${skill}Script”</p>
-<p>2.2 里面可以有转义字符  &ldquo;Hello, I know you are &quot;$your_name&quot;! \n&rdquo;
-<!-- raw HTML omitted -->拼接字符串：<!-- raw HTML omitted --></p>
-</blockquote>
+2.1  里面可以有变量存在 “ I am good at ${skill}Script”</p>
+<p>2.2  里面可以有转义字符  &ldquo;Hello, I know you are &quot;$your_name&quot;! \n&rdquo;</p>
+<p><!-- raw HTML omitted -->拼接字符串：<!-- raw HTML omitted --></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">your_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;runoob&#34;</span><span style="color:#75715e"># 使用双引号拼接</span>
 greeting<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello, &#34;</span>$your_name<span style="color:#e6db74">&#34; !&#34;</span>
 greeting_1<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello, </span><span style="color:#e6db74">${</span>your_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> !&#34;</span>
@@ -211,35 +211,24 @@ greeting_3<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h
 echo $greeting_2  $greeting_3
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hello, runoob ! hello, runoob !
 hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style="color:#e6db74">}</span> !
-</code></pre></div><blockquote>
-<p>获取字符串长度：${#string}</p>
+</code></pre></div><p>获取字符串长度：${#string}</p>
 <p>截取字符串：${string:1:4}</p>
 <p>查找字符串中io字母的位置：<code>expr index &quot;$string&quot; io</code></p>
-</blockquote>
 <h4 id="shell数组">Shell数组</h4>
-<blockquote>
 <p>定义：array_name=(value0 value1 value2 value3)
 读取数组：valuen=${array_name[n]}
 获取所有元素：echo ${array_name[@]}</p>
-</blockquote>
 <h4 id="shell注释">Shell注释</h4>
-<blockquote>
 <p>#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</p>
-</blockquote>
 <h4 id="shell参数传递">Shell参数传递</h4>
-<blockquote>
 <p>获取方式：$0：执行的文件名 $1 $2 $3</p>
-</blockquote>
 <h4 id="shell运算符">Shell运算符</h4>
-<blockquote>
 <p>expr：表达式计算，完成表达式的求值工作
 注意：
 1.表达式与运算符之间要空格
 2.完整的表达式要被```键包含
 3.条件表达式要放在[ ]之中
 4.乘号(*)前边必须加反斜杠()才能实现乘法运算；</p>
-</blockquote>
-<blockquote>
 <p><strong>关系运算符</strong>
 关系运算符只支持数字，不支持字符串，除非字符串的值是数字。
 |eq|检测两个数是否相等，相等返回 true。| [ $a -eq $b ]
@@ -248,31 +237,21 @@ hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style
 |lt|检测左边的数是否小于右边的，如果是，则返回 true。|[ $a -lt $b ]
 |ge|检测左边的数是否大于等于右边的，如果是，则返回 true。|[ $a -ge $b ]
 |le|检测左边的数是否小于等于右边的，如果是，则返回 true。|[ $a -le $b ]</p>
-</blockquote>
-<blockquote>
 <p><strong>布尔运算符</strong>
 |!|非运算，表达式为 true 则返回 false，否则返回 true|[ ! false ]
 |-o|或运算，有一个表达式为 true 则返回 true。|[ $a -lt 20 -o $b -gt 100 ]
 |-a|与运算，两个表达式都为 true 才返回 true。|[ $a -lt 20 -a $b -gt 100 ]</p>
-</blockquote>
-<blockquote>
 <p><strong>逻辑运算符</strong>
-|&amp;&amp;|逻辑的 AND|[[ $a -lt 100 &amp;&amp; $b -gt 100 ]] 返回 false
-| // |逻辑的 OR|[[ $a -lt 100 // $b -gt 100 ]] 返回 true</p>
-</blockquote>
-<blockquote>
+|&amp;&amp;|逻辑的 AND|[[ $a -lt 100 &amp;&amp; $b -gt 100 ]] 返回 false</p>
+<p>| // |逻辑的 OR|[[ $a -lt 100 // $b -gt 100 ]] 返回 true</p>
 <p><strong>字符串运算符</strong></p>
-</blockquote>
 <p>|=|检测两个字符串是否相等，相等返回 true。|[ $a = $b ] 返回 false。
 |!=|检测两个字符串是否相等，不相等返回 true。|[ $a != $b ] 返回 true。
 |-z|检测字符串长度是否为0，为0返回 true。|[ -z $a ] 返回 false。
 |-n|检测字符串长度是否不为 0，不为 0 返回 true。|[ -n &ldquo;$a&rdquo; ] 返回 true。
 |$|检测字符串是否为空，不为空返回 true。|[ $a ] 返回 true。</p>
-<blockquote>
 <p><strong>文件测试运算符</strong></p>
-</blockquote>
 <h4 id="shell-echo命令">Shell echo命令</h4>
-<blockquote>
 <p>1.显示普通字符
 2.显示转义字符<br>
 3.显示变量 read从输入中读取一行，将每个字段的值指定给shell变量
@@ -280,53 +259,18 @@ hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style
 5.显示结果定向至文件 ：echo &ldquo;It is a test&rdquo; &gt; myfile
 6.原样输出字符串：&rsquo; '
 显示命令执行结果: echo``</p>
-</blockquote>
 <h4 id="shell-printf命令">Shell printf命令</h4>
-<blockquote>
 <p>printf差不多</p>
-</blockquote>
 <h4 id="shell-test命令">Shell test命令</h4>
-<blockquote>
 <p>数值测试：
-示例：if test $[num1] -eq $[num2]</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-eq</td>
-<td>等于则为真</td>
-</tr>
-<tr>
-<td>-ne</td>
-<td>不等于则为真</td>
-</tr>
-<tr>
-<td>-gt</td>
-<td>大于则为真</td>
-</tr>
-<tr>
-<td>-ge</td>
-<td>大于等于则为真</td>
-</tr>
-<tr>
-<td>-lt</td>
-<td>小于则为真</td>
-</tr>
-<tr>
-<td>-le</td>
-<td>小于等于则为真</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
+示例：if test $[num1] -eq $[num2]
+|-eq|等于则为真
+|-ne|不等于则为真
+|-gt|大于则为真
+|-ge|大于等于则为真
+|-lt|小于则为真
+|-le|小于等于则为真</p>
 <p>字符串测试</p>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -353,64 +297,21 @@ hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style
 </tr>
 </tbody>
 </table>
-<blockquote>
 <p>文件测试</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-e</td>
-<td>文件名如果文件存在则为真</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>文件名如果文件存在且可读则为真</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>文件名如果文件存在且可写则为真</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>文件名如果文件存在且可执行则为真</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>文件名如果文件存在且至少有一个字符则为真</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>文件名如果文件存在且为目录则为真</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>文件名如果文件存在且为普通文件则为真</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>文件名如果文件存在且为字符型特殊文件则为真</td>
-</tr>
-<tr>
-<td>-b</td>
-<td>文件名如果文件存在且为块特殊文件则为真</td>
-</tr>
-</tbody>
-</table>
+<p>|-e| 文件名如果文件存在则为真
+|-r |文件名如果文件存在且可读则为真
+|-w| 文件名如果文件存在且可写则为真
+|-x| 文件名如果文件存在且可执行则为真
+|-s| 文件名如果文件存在且至少有一个字符则为真
+|-d| 文件名如果文件存在且为目录则为真
+|-f| 文件名如果文件存在且为普通文件则为真
+|-c| 文件名如果文件存在且为字符型特殊文件则为真
+|-b| 文件名如果文件存在且为块特殊文件则为真</p>
 <h4 id="shell-流程控制">Shell 流程控制</h4>
-<blockquote>
 <p>1.如果没有分支内容则不要写出分支
 2.if :</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">      <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>ps -ef | grep -c <span style="color:#e6db74">&#34;ssh&#34;</span><span style="color:#66d9ef">)</span> -gt <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;true&#34;</span>; <span style="color:#66d9ef">fi</span>
-</code></pre></div><blockquote>
-<p>3.if else</p>
-</blockquote>
+</code></pre></div><p>3.if else</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> <span style="color:#66d9ef">if</span> condition
 <span style="color:#66d9ef">then</span>
     command1 
@@ -420,9 +321,7 @@ hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style
 <span style="color:#66d9ef">else</span>
     command
 <span style="color:#66d9ef">fi</span>
-</code></pre></div><blockquote>
-<p>if else-if else</p>
-</blockquote>
+</code></pre></div><p>if else-if else</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#66d9ef">if</span> condition1
 <span style="color:#66d9ef">then</span>
     command1
@@ -432,9 +331,7 @@ hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style
 <span style="color:#66d9ef">else</span>
     commandN
 <span style="color:#66d9ef">fi</span>
-</code></pre></div><blockquote>
-<p>for循环</p>
-</blockquote>
+</code></pre></div><p>for循环</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#66d9ef">for</span> var in item1 item2 ... itemN
 <span style="color:#66d9ef">do</span>
     command1
@@ -442,23 +339,17 @@ hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style
     ...
     commandN
 <span style="color:#66d9ef">done</span>
-</code></pre></div><blockquote>
-<p>while</p>
-</blockquote>
+</code></pre></div><p>while</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#66d9ef">while</span> condition
 <span style="color:#66d9ef">do</span>
     command
 <span style="color:#66d9ef">done</span>
-</code></pre></div><blockquote>
-<p>until:执行一系列命令直到条件为true,一般不用</p>
-</blockquote>
+</code></pre></div><p>until:执行一系列命令直到条件为true,一般不用</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#66d9ef">until</span> condition
 <span style="color:#66d9ef">do</span>
     command
 <span style="color:#66d9ef">done</span>
-</code></pre></div><blockquote>
-<p>case:多选择语句</p>
-</blockquote>
+</code></pre></div><p>case:多选择语句</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#66d9ef">case</span> 值 in模式1<span style="color:#f92672">)</span>
     command1
     command2
@@ -471,11 +362,9 @@ hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style
     commandN
     ;;<span style="color:#66d9ef">esac</span>
 </code></pre></div><h4 id="shell函数">Shell函数</h4>
-<blockquote>
 <p>函数不带参数
 函数返回值在调用该函数后通过 $? 来获得
 例子：</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">funWithReturn<span style="color:#f92672">(){</span>
     echo <span style="color:#e6db74">&#34;这个函数会对输入的两个数字进行相加运算...&#34;</span>
     echo <span style="color:#e6db74">&#34;输入第一个数字: &#34;</span>
@@ -486,10 +375,8 @@ hello, runoob ! hello, <span style="color:#e6db74">${</span>your_name<span style
     <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">$((</span>$aNum<span style="color:#f92672">+</span>$anotherNum<span style="color:#66d9ef">))</span><span style="color:#f92672">}</span>
 funWithReturn
 echo <span style="color:#e6db74">&#34;输入的两个数字之和为 </span>$?<span style="color:#e6db74"> !&#34;</span>
-</code></pre></div><blockquote>
-<p>函数传参
+</code></pre></div><p>函数传参
 例子：</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">funWithParam<span style="color:#f92672">(){</span>
     echo <span style="color:#e6db74">&#34;第一个参数为 </span>$1<span style="color:#e6db74"> !&#34;</span>
     echo <span style="color:#e6db74">&#34;第二个参数为 </span>$2<span style="color:#e6db74"> !&#34;</span>
@@ -500,42 +387,28 @@ echo <span style="color:#e6db74">&#34;输入的两个数字之和为 </span>$?<s
     echo <span style="color:#e6db74">&#34;作为一个字符串输出所有参数 </span>$*<span style="color:#e6db74"> !&#34;</span><span style="color:#f92672">}</span>
 funWithParam <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">34</span> <span style="color:#ae81ff">73</span>
 </code></pre></div><h4 id="shell输入输出">Shell输入输出</h4>
-<blockquote>
 <p>command&gt;file 将输出重定向到file
 command&lt;file 将输入重定向到file
 command&raquo;将输出以追加的方式重定向到file
 n&gt;&amp;m 将输出的文件m和n合并
 n&lt;&amp;m 将输入文件m和n合并
 n&gt;file 将文件描述符为n的文件重定向到file</p>
-</blockquote>
-<blockquote>
 <p>例子：command1 &lt; infile &gt; outfile</p>
-</blockquote>
 <p><strong>重定向深入讲解：</strong></p>
-<blockquote>
 <p><!-- raw HTML omitted -->一般情况下，每个 Unix/Linux 命令运行时都会打开三个文件：<!-- raw HTML omitted -->
 <!-- raw HTML omitted -->标准输入文件(stdin)：<!-- raw HTML omitted -->stdin的文件描述符为0，Unix程序默认从stdin读取数据。
 <!-- raw HTML omitted -->标准输出文件(stdout)<!-- raw HTML omitted -->：stdout 的文件描述符为1，Unix程序默认向stdout输出数据。
 <!-- raw HTML omitted -->标准错误文件(stderr)：<!-- raw HTML omitted -->stderr的文件描述符为2，Unix程序会向stderr流中写入错误信息。</p>
-</blockquote>
-<blockquote>
 <p>默认情况下，command &gt; file 将 stdout 重定向到 file，command &lt; file 将stdin 重定向到 file。</p>
-</blockquote>
-<blockquote>
 <p>将 stdout 和 stderr 合并后重定向到 file:$ command &gt; file 2&gt;&amp;1</p>
-</blockquote>
 <p><strong>here document</strong></p>
-<blockquote>
 <p>基本格式：</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">command <span style="color:#e6db74">&lt;&lt; delimiter(EOF)
 </span><span style="color:#e6db74">    document #将其传递给command
 </span><span style="color:#e6db74">delimiter</span>
 </code></pre></div><p><strong>/dev/null</strong> 写入的文件会被丢弃</p>
 <h4 id="shell文件包含">Shell文件包含</h4>
-<blockquote>
 <p>文件包含的格式：</p>
-</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">. filename   <span style="color:#75715e"># 注意点号(.)和文件名中间有一空格</span>
 
 或

@@ -26,7 +26,7 @@
       <pubDate>Thu, 16 Apr 2020 21:52:44 +0800</pubDate>
       
       <guid>https://anfieldqi.github.io/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</guid>
-      <description>python嵌套函数 在 Python 中，函数高级用法都与嵌套函数紧密相关，所以有必要先熟悉一下嵌套函数。 使用场景封装 - 数据隐藏 贯彻 DRY 原则 闭包 1.封装，数</description>
+      <description>python嵌套函数 在 Python 中，函数高级用法都与嵌套函数紧密相关，所以有必要先熟悉一下嵌套函数。 使用场景 封装 - 数据隐藏 贯彻 DRY 原则 闭包 1.封装，数</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@
       <pubDate>Thu, 16 Apr 2020 21:52:28 +0800</pubDate>
       
       <guid>https://anfieldqi.github.io/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
-      <description>shell 开始 #!/bin/bash 与python一样，告诉其路径 Shell 变量 1.变量名和=之间不准有空格 2.命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数</description>
+      <description>shell 开始 #!/bin/bash 与python一样，告诉其路径 Shell 变量 变量名和=之间不准有空格 命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头 中</description>
     </item>
     
     <item>

@@ -17,7 +17,7 @@
       <pubDate>Thu, 16 Apr 2020 21:52:28 +0800</pubDate>
       
       <guid>https://anfieldqi.github.io/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
-      <description>shell 开始 #!/bin/bash 与python一样，告诉其路径 Shell 变量 1.变量名和=之间不准有空格 2.命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数</description>
+      <description>shell 开始 #!/bin/bash 与python一样，告诉其路径 Shell 变量 变量名和=之间不准有空格 命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头 中</description>
     </item>
     
   </channel>

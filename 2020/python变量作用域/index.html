@@ -57,7 +57,7 @@
     "datePublished": "2020-04-16 21:52:53 \x2b0800 CST",
     "dateModified" : "2020-04-16 21:52:53 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F\/",
-    "wordCount" : "891",
+    "wordCount" : "877",
     "keywords" : [ "python基础", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="https://anfieldqi.github.io/categories/python/"> python </a>
                         
                 </span>
-                <span class="post-word-count">, 891 words</span>
+                <span class="post-word-count">, 877 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -155,22 +155,30 @@
 
           <h3 id="python-变量及其作用域">python 变量及其作用域</h3>
 <h5 id="四个作用域">四个作用域</h5>
-<p><strong>LEGB原则：</strong>
-L(local)：局部作用域
-E(Enclosing)：闭包函数外的函数中
-G(global)：全局作用域
-B(built-in)：内建作用域</p>
+<p><strong>LEGB原则：</strong></p>
+<ol>
+<li>L(local)：局部作用域</li>
+<li>E(Enclosing)：闭包函数外的函数中</li>
+<li>G(global)：全局作用域</li>
+<li>B(built-in)：内建作用域</li>
+</ol>
 <h5 id="简单规则">简单规则</h5>
-<p>1.查找规则：L&ndash;&gt;E&ndash;&gt;G&ndash;&gt;B
-<strong>2.作用规则：</strong></p>
-<blockquote>
-<p>1.def/class/lambda 可改变作用域
-2.不可改变：if/elif/else/ try/except for/while等
-3.attention：在def/class/lambda中进行内部赋值操作的话，变成局部作用域</p>
-</blockquote>
-<blockquote>
-<p>1.在 def/class/lambda内进行<strong>赋值，就变成了其局部的作用域</strong>，局部作用域会覆盖全局作用域，但不会影响全局作用域。</p>
-</blockquote>
+<ol>
+<li>
+<p>查找规则：L&ndash;&gt;E&ndash;&gt;G&ndash;&gt;B</p>
+</li>
+<li>
+<p>作用规则：</p>
+<ol>
+<li>def/class/lambda 可改变作用域</li>
+<li>不可改变：if/elif/else/ try/except for/while等</li>
+<li>attention：在def/class/lambda中进行内部赋值操作的话，变成局部作用域</li>
+</ol>
+</li>
+<li>
+<p>在 def/class/lambda内进行<strong>赋值，就变成了其局部的作用域</strong>，局部作用域会覆盖全局作用域，但不会影响全局作用域。</p>
+</li>
+</ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">g <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e">#全局的</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fun</span>(): 
      g <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">#局部的 </span>
@@ -180,9 +188,9 @@ B(built-in)：内建作用域</p>
  <span style="color:#75715e"># 结果为2</span>
  <span style="color:#66d9ef">print</span> g 
  <span style="color:#75715e"># 结果为1</span>
-</code></pre></div><blockquote>
-<p>2.在局部作用域<strong>引用全局变量</strong>需要进行标识<strong>global</strong>,修改后全局变量也会改变</p>
-</blockquote>
+</code></pre></div><ol start="4">
+<li>在局部作用域<strong>引用全局变量</strong>需要进行标识<strong>global</strong>,修改后全局变量也会改变</li>
+</ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#file1.py</span>
 var <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fun</span>():
@@ -198,7 +206,9 @@ var <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 <span style="color:#66d9ef">print</span> fun()
 
 <span style="color:#75715e">#这两个需要修改的时候必须加global，但是不需要修改的时候（例：print）的时候不需要global声明</span>
-</code></pre></div><p>关于修改与否更简单的例子</p>
+</code></pre></div><ol start="5">
+<li>关于修改与否更简单的例子</li>
+</ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">g <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e">#全局的</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fun</span>(): 
      g <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">#局部的 </span>
@@ -214,14 +224,10 @@ var <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
      
  <span style="color:#66d9ef">print</span> fun() 
  <span style="color:#75715e">#这样就需要修改，在print前面加global g,因为判断为局部变量了，但是局部变量没赋值，print不知道去print谁（这也就是规则里说的引用全局变量），加上global后修改后全局也该</span>
-</code></pre></div><blockquote>
-<p>3.1.外部函数的变量可以被内部函数所使用，但不能被内部函数修改，若要修改需要添加<strong>关键字nonlocal</strong>，跟上面global一样</p>
-</blockquote>
+</code></pre></div><p>tips: 外部函数的变量可以被内部函数所使用，但不能被内部函数修改，若要修改需要添加<strong>关键字nonlocal</strong>，跟上面global一样</p>
 <h5 id="闭包closure">闭包closure</h5>
-<blockquote>
 <p>闭包的定义：如果在一个内部函数里，对在外部函数内**（但不是在全局作用域）**的变量进行引用，那么内部函数就被认为是闭包(closure)</p>
-</blockquote>
-<h6 id="函数嵌套闭包中的作用域">函数嵌套/闭包中的作用域</h6>
+<h6 id="1-函数嵌套闭包中的作用域">1. 函数嵌套/闭包中的作用域</h6>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">external</span>():
     <span style="color:#66d9ef">global</span> a
@@ -241,10 +247,10 @@ var <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 <span style="color:#66d9ef">print</span> external()
 
 </code></pre></div><h4 id="变量作用域的陷阱">变量作用域的陷阱</h4>
-<blockquote>
-<p>深入理解作用域陷阱
-解释为什么嵌套函数内修改全局/自由list等不需要加标识</p>
-</blockquote>
+<ol>
+<li>深入理解作用域陷阱</li>
+<li>解释为什么嵌套函数内修改全局/自由list等不需要加标识</li>
+</ol>
 
     </div>
 
