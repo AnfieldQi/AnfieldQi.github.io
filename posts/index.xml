@@ -6,10 +6,19 @@
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Apr 2020 21:52:53 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2020 20:52:47 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android逆向入门</title>
+      <link>https://anfieldqi.github.io/2020/android%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sat, 18 Apr 2020 20:52:47 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/android%E5%9F%BA%E7%A1%80/</guid>
+      <description>[TOC] Android相关文件结构 1. APK的组成 AndroidManifest.xml: Android的基础配置文件，包含了与apk相关的大量信息 asserts:资源文件目录，在jav</description>
+    </item>
     
     <item>
       <title>Python变量作用域</title>

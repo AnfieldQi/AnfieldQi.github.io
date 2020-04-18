@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/android%E5%9F%BA%E7%A1%80/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Android逆向入门 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="Android逆向入门 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Android逆向入门",
+    "headline" : "Android逆向入门",
+    "description" : "[TOC] Android相关文件结构 1. APK的组成 AndroidManifest.xml: Android的基础配置文件，包含了与apk相关的大量信息 asserts:资源文件目录，在jav",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-18 20:52:47 \x2b0800 CST",
+    "dateModified" : "2020-04-18 20:52:47 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/android%E5%9F%BA%E7%A1%80\/",
+    "wordCount" : "1889",
+    "keywords" : [ "Android逆向", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Android逆向入门</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-18 itemprop="datePublished">April 18, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/android/"> Android </a>
+                        
+                </span>
+                <span class="post-word-count">, 1889 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>[TOC]</p>
+<h2 id="android相关文件结构">Android相关文件结构</h2>
+<h3 id="1-apk的组成">1. APK的组成</h3>
+<ol>
+<li>
+<p>AndroidManifest.xml: Android的基础配置文件，包含了与apk相关的大量信息</p>
+</li>
+<li>
+<p>asserts:资源文件目录，在java中用AssetManager访问</p>
+</li>
+<li>
+<p>res：资源文件目录，在java中使用R.xx来使用</p>
+</li>
+<li>
+<p>lib：so库存放目录，一般由NDK编译得到</p>
+</li>
+<li>
+<p>META-INF：工程属性文件存放目录</p>
+</li>
+<li>
+<p>classes.dex：java代码编译得到的Dalvik VM能直接执行的文件</p>
+</li>
+<li>
+<p>resources.arsc：res目录资源索引文件，保存了原工程中 strings.xml等文件内容</p>
+</li>
+</ol>
+<h3 id="2-核心基础">2. 核心基础</h3>
+<h4 id="dalvik字节码">Dalvik字节码</h4>
+<p>Dalvik 是 google 专门为 Android 操作系统设计的一个虚拟机，经过深度优化。虽然 Android 上的程序是使用 java 来开发的，但是 Dalvik 和标准的 java 虚拟机 JVM 存在不同之处
+|          | JVM        | Dalvik                    |
+| &mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- |
+| 原理     | 基于栈     | 基于寄存器                |
+| 执行格式 | java字节码 | dex （dalvik executable） |
+| 速度     | 普通       | 更快                      |
+| 空间占用 | 普通       | 更少                      |</p>
+<ol>
+<li>通过 Dalvik 的字节码我们不能直接看到原来的逻辑代码，这时需要借助如 Apktool 等工具来查看。最终修改 APK 需要操作的文件是 .smali 文件，而不是导出来的 Java 文件重新编译。</li>
+<li>Dalvik字节码有两种类型：原始类型；引用类型（包括对象和数组）</li>
+<li>在Davlik字节码中，寄存器都是32位的，能够支持任何类型，64位类型（Long/Double）用2个寄存器表示</li>
+</ol>
+<h4 id="smali">Smali</h4>
+<ol>
+<li>
+<p>Smali，Baksmali 分别是指安卓系统里的 Java 虚拟机（Dalvik）所使用的一种 dex 格式文件的汇编器，反汇编器。它实现了 .dex 格式所有功能</p>
+</li>
+<li>
+<p>当我们对 APK 使用Apktool等进行反编译后，生成Smali相关文件。</p>
+</li>
+</ol>
+<h3 id="3-深入理解smali">3. 深入理解Smali</h3>
+<h4 id="1dalvik字节码原始类型">1.Dalvik字节码原始类型</h4>
+<table>
+<thead>
+<tr>
+<th>B&mdash;byte</th>
+<th>字节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C&mdash;char</td>
+<td>字符</td>
+</tr>
+<tr>
+<td>D&mdash;double</td>
+<td>双精度浮点数</td>
+</tr>
+<tr>
+<td>F&mdash;float</td>
+<td>单精度浮点数</td>
+</tr>
+<tr>
+<td>I&mdash;int</td>
+<td>整型</td>
+</tr>
+<tr>
+<td>J&mdash;long</td>
+<td>长整型</td>
+</tr>
+<tr>
+<td>S&mdash;short</td>
+<td>短整型</td>
+</tr>
+<tr>
+<td>V&mdash;void</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Z&mdash;boolean</td>
+<td>布尔型</td>
+</tr>
+<tr>
+<td>[XXX&mdash;array</td>
+<td>[，表示为数组，后接基本类型</td>
+</tr>
+<tr>
+<td>Lxxx/yyy&mdash;object</td>
+<td>L,表示方法，，格式 Ljava/lang/String;（分号结尾） ，String表对象</td>
+</tr>
+<tr>
+<td>Lxxx/yyy&mdash;$object</td>
+<td>表内部类，关键符号$</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2方法的定义">2.方法的定义</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Func<span style="color:#f92672">-</span>Name <span style="color:#f92672">(</span>Para<span style="color:#f92672">-</span>Type1Para<span style="color:#f92672">-</span>Type2Para<span style="color:#f92672">-</span>Type3<span style="color:#f92672">...)</span>Return<span style="color:#f92672">-</span>Type
+</code></pre></div><p>举个栗子</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>hello (Z[I[ILjava/lang/String;J)Ljava/lang/String;</em></td>
+<td>String hello (boolean, int[], int[], String, long)</td>
+</tr>
+<tr>
+<td>hello (III)Z</td>
+<td>boolean hello(int, int, int)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3smali基本语法">3.Smali基本语法</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.method</td>
+<td>方法</td>
+</tr>
+<tr>
+<td>.parameter</td>
+<td>方法参数</td>
+</tr>
+<tr>
+<td>.prologue</td>
+<td>方法开始</td>
+</tr>
+<tr>
+<td>.line 123</td>
+<td>此方法位于第123行</td>
+</tr>
+<tr>
+<td>invoke-super</td>
+<td>调用父函数</td>
+</tr>
+<tr>
+<td>.field private isFlag:z</td>
+<td>定义变量</td>
+</tr>
+<tr>
+<td>const/high16 v0, 0x7fo3</td>
+<td>把0x7fo3赋值给v0</td>
+</tr>
+<tr>
+<td>invoke-direct</td>
+<td>调用函数</td>
+</tr>
+<tr>
+<td>return-void</td>
+<td>函数返回void</td>
+</tr>
+<tr>
+<td>.end method</td>
+<td>函数结束</td>
+</tr>
+<tr>
+<td>new-instance</td>
+<td>创建实例</td>
+</tr>
+<tr>
+<td>iput-object</td>
+<td>对象赋值</td>
+</tr>
+<tr>
+<td>iget-object</td>
+<td>调用对象</td>
+</tr>
+<tr>
+<td>invoke-static</td>
+<td>调用静态函数</td>
+</tr>
+</tbody>
+</table>
+<p>与跳转有关的分支结构</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&ldquo;if-eq vA, vB, :cond_**&rdquo;</td>
+<td>如果vA等于vB则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-ne vA, vB, :cond_**&rdquo;</td>
+<td>如果vA不等于vB则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-lt vA, vB, :cond_**&rdquo;</td>
+<td>如果vA小于vB则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-ge vA, vB, :cond_**&rdquo;</td>
+<td>如果vA大于等于vB则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-gt vA, vB, :cond_**&rdquo;</td>
+<td>如果vA大于vB则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-le vA, vB, :cond_**&rdquo;</td>
+<td>如果vA小于等于vB则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-eqz vA, :cond_**&rdquo;</td>
+<td>如果vA等于0则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-nez vA, :cond_**&rdquo;</td>
+<td>如果vA不等于0则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-ltz vA, :cond_**&rdquo;</td>
+<td>如果vA小于0则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-gez vA, :cond_**&rdquo;</td>
+<td>如果vA大于等于0则跳转到:cond_**</td>
+</tr>
+<tr>
+<td>&ldquo;if-gtz vA, :cond_**&rdquo;</td>
+<td>如果vA大于0则跳转到:cond_**</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4smali文件的信息">4.Smali文件的信息</h4>
+<ol>
+<li>.class public Lcom/aaaaa; （它是com.aaaaa这个package下的一个类）</li>
+<li>.super Lcom/bbbbb; （继承自com.bbbbb这个类）</li>
+<li>.source &ldquo;ccccc.java&rdquo; （一个由ccccc.java编译得到的smali文件）</li>
+</ol>
+<h4 id="5smali的声明">5.Smali的声明</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#960050;background-color:#1e0010">#</span> annotations 
+<span style="color:#f92672">.</span><span style="color:#a6e22e">annotation</span> system Ldalvik<span style="color:#f92672">/</span>annotation<span style="color:#f92672">/</span>MemberClasses<span style="color:#f92672">;</span> 
+value <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> 
+      Lcom<span style="color:#f92672">/</span>aaa$qqq<span style="color:#f92672">;,</span> 
+      Lcom<span style="color:#f92672">/</span>aaa$www<span style="color:#f92672">;</span> 
+      <span style="color:#f92672">}</span>
+<span style="color:#f92672">.</span><span style="color:#a6e22e">end</span> annotation
+</code></pre></div><h4 id="6smali的成员变量">6.Smali的成员变量</h4>
+<ol>
+<li>
+<p>格式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">.</span><span style="color:#a6e22e">field</span> <span style="color:#66d9ef">public</span><span style="color:#f92672">/</span><span style="color:#66d9ef">private</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">static</span><span style="color:#f92672">]</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">final</span><span style="color:#f92672">]</span> varName<span style="color:#f92672">:&lt;</span>类型<span style="color:#f92672">&gt;</span>
+</code></pre></div></li>
+<li>
+<p>相关处理命令</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ol>
+<li>获取：iget、sget、iget-boolean、sget-boolean、iget-object、sget-object</li>
+<li>操作：iput、sput、iput-boolean、sput-boolean、iput-object、sput-object</li>
+</ol>
+</li>
+<li>
+<p>指令实例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">sget<span style="color:#f92672">-</span>object v0<span style="color:#f92672">,</span> Lcom<span style="color:#f92672">/</span>aaa<span style="color:#f92672">;-&gt;</span>ID<span style="color:#f92672">:</span>Ljava<span style="color:#f92672">/</span>lang<span style="color:#f92672">/</span>String<span style="color:#f92672">;</span>
+<span style="color:#75715e">//获取ID这个String类型的成员变 量并放到v0这个寄存器中
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">iget<span style="color:#f92672">-</span>object v0<span style="color:#f92672">,</span> p0<span style="color:#f92672">,</span> Lcom<span style="color:#f92672">/</span>aaa<span style="color:#f92672">;-&gt;</span>view<span style="color:#f92672">:</span>Lcom<span style="color:#f92672">/</span>aaa<span style="color:#f92672">/</span>view<span style="color:#f92672">;</span>
+<span style="color:#75715e">//iget-object指令比sget-object多了一个参数，就是该变量所在类的实例，在这里就是p0即“this”
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">const</span><span style="color:#f92672">/</span>4 v3<span style="color:#f92672">,</span> 0x0 sput<span style="color:#f92672">-</span>object v3<span style="color:#f92672">,</span> Lcom<span style="color:#f92672">/</span>aaa<span style="color:#f92672">;-&gt;</span>timer<span style="color:#f92672">:</span>Lcom<span style="color:#f92672">/</span>aaa<span style="color:#f92672">/</span>timer<span style="color:#f92672">;</span>
+<span style="color:#75715e">//timer=null
+</span></code></pre></div></li>
+</ol>
+<h4 id="7smali函数分析">7.Smali函数分析</h4>
+<ol>
+<li>
+<p>函数类型</p>
+<table>
+<thead>
+<tr>
+<th>direct</th>
+<th>virtual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private函数</td>
+<td>其他函数</td>
+</tr>
+<tr>
+<td>invoke-direct</td>
+<td>invoke-virtual</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>.invoke-static：用于调用static函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">invoke<span style="color:#f92672">-</span><span style="color:#66d9ef">static</span> <span style="color:#f92672">{},</span> Lcom<span style="color:#f92672">/</span>aaa<span style="color:#f92672">;-&gt;</span>CheckSignature<span style="color:#f92672">()</span>Z
+<span style="color:#75715e">//{}，其实是调用该方法的实例+参数列表
+</span></code></pre></div></li>
+<li>
+<p>.invoke-virtual</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">sget<span style="color:#f92672">-</span>object v0<span style="color:#f92672">,</span> Lcom<span style="color:#f92672">/</span>dddd<span style="color:#f92672">;-&gt;</span>bbb<span style="color:#f92672">:</span>Lcom<span style="color:#f92672">/</span>ccc<span style="color:#f92672">;</span> 
+invoke<span style="color:#f92672">-</span>virtual <span style="color:#f92672">{</span>v0<span style="color:#f92672">,</span> v1<span style="color:#f92672">},</span> Lcom<span style="color:#f92672">/</span>ccc<span style="color:#f92672">;-&gt;</span>Messages<span style="color:#f92672">(</span>Ljava<span style="color:#f92672">/</span>lang<span style="color:#f92672">/</span>Object<span style="color:#f92672">;)</span>V
+<span style="color:#75715e">//v0是bbb:Lcom/ccc
+</span><span style="color:#75715e">//v1是传递给Messages方法的Ljava/lang/Object参数
+</span></code></pre></div></li>
+<li>
+<p>.invoke-direct</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">invoke<span style="color:#f92672">-</span>direct <span style="color:#f92672">{</span>p0<span style="color:#f92672">},</span> Landroid<span style="color:#f92672">/</span>app<span style="color:#f92672">/</span>TabActivity<span style="color:#f92672">;-&gt;()</span>V
+<span style="color:#75715e">//init()就是定义在TabActivity中的一个private函数
+</span></code></pre></div></li>
+<li>
+<p>.invoke-super</p>
+</li>
+<li>
+<p>函数结果返回</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">const</span><span style="color:#f92672">-</span>string v0<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Eric&#34;</span> 
+invoke<span style="color:#f92672">-</span><span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>v0<span style="color:#f92672">},</span> Lcmb<span style="color:#f92672">/</span>pbi<span style="color:#f92672">;-&gt;</span>t<span style="color:#f92672">(</span>Ljava<span style="color:#f92672">/</span>lang<span style="color:#f92672">/</span>String<span style="color:#f92672">;)</span>Ljava<span style="color:#f92672">/</span>lang<span style="color:#f92672">/</span>String<span style="color:#f92672">;</span> 
+move<span style="color:#f92672">-</span>result<span style="color:#f92672">-</span>object v2
+<span style="color:#75715e">//调用的函数返回非void，那么还需要用到move-result（返回基本数据类型）和move-result-object（返 回对象）指令
+</span><span style="color:#75715e">//v2保存的是调用t方法返回的String字符串
+</span></code></pre></div></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/android%E5%9F%BA%E7%A1%80/>https://anfieldqi.github.io/2020/android%E5%9F%BA%E7%A1%80/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/android%E9%80%86%E5%90%91/">
+                    #Android逆向</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="prev" rel="prev" title="Python变量作用域"><i class="iconfont icon-left"></i>&nbsp;Python变量作用域</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
