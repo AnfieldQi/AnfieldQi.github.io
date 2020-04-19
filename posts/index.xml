@@ -6,10 +6,37 @@
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 Apr 2020 14:39:14 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 22:48:19 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android_Monkey</title>
+      <link>https://anfieldqi.github.io/2020/android_monkey/</link>
+      <pubDate>Sun, 19 Apr 2020 22:48:19 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/android_monkey/</guid>
+      <description>什么是Monkey 一只猴子？ Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(</description>
+    </item>
+    
+    <item>
+      <title>Python错误处理的细节</title>
+      <link>https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</link>
+      <pubDate>Sun, 19 Apr 2020 20:48:27 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</guid>
+      <description>错误处理的一些可记细节 try except finally continue和break不会影响异常处理机制 def test(): while True: try: a = 1/0 except Exception as e: print (&amp;#34;exception&amp;#34;) continue finally: print (&amp;#34;finally&amp;#34;) print (&amp;#34;out of try&amp;#34;) if __name__ == &amp;#39;__main__&amp;#39;: test() //输出 exception</description>
+    </item>
+    
+    <item>
+      <title>Python测试</title>
+      <link>https://anfieldqi.github.io/2020/python%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Sun, 19 Apr 2020 19:48:30 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/python%E6%B5%8B%E8%AF%95/</guid>
+      <description>单元测试和文档测试 1.单元测试 单元测试的意义 单元测试在未来项目重构中有十分重要的作用，单元测试包含了对某功能测试的一切边际条件，未来重构时，</description>
+    </item>
     
     <item>
       <title>Python面向对象</title>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/android_monkey/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Android_Monkey | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="Android_Monkey | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Android_Monkey",
+    "headline" : "Android_Monkey",
+    "description" : "什么是Monkey 一只猴子？ Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-19 22:48:19 \x2b0800 CST",
+    "dateModified" : "2020-04-19 22:48:19 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/android_monkey\/",
+    "wordCount" : "978",
+    "keywords" : [ "AndroidtestMachine", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Android_Monkey</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-19 itemprop="datePublished">April 19, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/android/"> Android </a>
+                        
+                </span>
+                <span class="post-word-count">, 978 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="什么是monkey">什么是Monkey</h3>
+<p><del>一只猴子？</del></p>
+<ol>
+<li>Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。</li>
+</ol>
+<h3 id="monkey的特征">Monkey的特征</h3>
+<ol>
+<li>
+<p>测试的对象仅为应用程序包，有一定的局限性。</p>
+</li>
+<li>
+<p>Monky测试使用的事件流数据流是随机的，不能进行自定义。</p>
+</li>
+<li>
+<p>可对MonkeyTest的对象，事件数量，类型，频率等进行设置。</p>
+</li>
+</ol>
+<h3 id="monkey的基本用法">Monkey的基本用法</h3>
+<p>基本语法如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ adb shell monkey <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+
+//如果不指定options，Monkey将以无反馈模式启动，并把事件任意发送到安装在目标环境中的全部包。
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">//下面是一个更为典型的命令行示例，它启动指定的应用程序，并向其发送500个伪随机事件：
+$ adb shell monkey -p your.package.name -v <span style="color:#ae81ff">500</span>
+</code></pre></div><h3 id="monkey测试的一个实例">Monkey测试的一个实例</h3>
+<p>通过这个实例，我们能理解Monkey测试的步骤以及如何知道哪些应用程序能够用Monkey进行测试。</p>
+<hr>
+<p>Windows下（注：2—4步是为了查看我们可以测试哪些应用程序包，可省略）：</p>
+<ol>
+<li>
+<p>通过eclipse启动一个Android的emulator</p>
+</li>
+<li>
+<p>在命令行中输入：adb devices查看设备连接情况</p>
+</li>
+</ol>
+<p>C:\Documents and Settings\Administrator&gt;adb devices</p>
+<p>List of devices attached</p>
+<p>emulator-5554  device</p>
+<ol start="3">
+<li>
+<p>在有设备连接的前提下，在命令行中输入：adb shell 进入shell界面</p>
+<p>C:\Documents and Settings\Administrator&gt;adb shell</p>
+</li>
+<li>
+<p>查看data/data文件夹下的应用程序包。注：我们能测试的应用程序包都在这个目录下面</p>
+<p>C:\Documents and Settings\Administrator&gt;adb shell</p>
+<p># ls data/data</p>
+<p>ls data/data</p>
+<p>com.google.android.btrouter</p>
+</li>
+<li>
+<p>以com.android.calculator2作为对象进行MonkeyTest</p>
+</li>
+</ol>
+<p>#monkey -p com.android.calculator2 -v 500</p>
+<p>其中-p表示对象包 –v 表示反馈信息级别</p>
+<p>运行过程中，Emulator中的应用程序在不断地切换画面。</p>
+<p>按照选定的不同级别的反馈信息，在Monkey中还可以看到其执行过程报告和生成的事件。</p>
+<p>注：具体参数的设定可参考：</p>
+<p><a href="http://developer.android.com/guide/developing/tools/monkey.html">http://developer.android.com/guide/developing/tools/monkey.html</a></p>
+<h3 id="monkey测试的停止条件">Monkey测试的停止条件</h3>
+<p>Monkey Test执行过程中在下列三种情况下会自动停止：</p>
+<ol>
+<li>
+<p>如果限定了Monkey运行在一个或几个特定的包上，那么它会监测试图转到其它包的操作，并对其进行阻止。</p>
+</li>
+<li>
+<p>如果应用程序崩溃或接收到任何失控异常，Monkey将停止并报错。</p>
+</li>
+<li>
+<p>如果应用程序产生了应用程序不响应(application not responding)的错误，Monkey将会停止并报错。</p>
+</li>
+</ol>
+<p>​    通过多次并且不同设定下的Monkey测试才算它是一个稳定性足够的程序。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/android_monkey/>https://anfieldqi.github.io/2020/android_monkey/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/androidtestmachine/">
+                    #AndroidtestMachine</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/" class="prev" rel="prev" title="Python错误处理的细节"><i class="iconfont icon-left"></i>&nbsp;Python错误处理的细节</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
