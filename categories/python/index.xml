@@ -6,10 +6,28 @@
     <description>Recent content in python on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Apr 2020 21:52:53 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 14:39:14 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python面向对象</title>
+      <link>https://anfieldqi.github.io/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Sun, 19 Apr 2020 14:39:14 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <description>一些面向对象的知识 1.访问限制 算了其实跟其他的都一样但是还是写一下 // 使用__ class Student(object): def __init__(self, name, score): self.__name = name self.__score = score def print_score(self): print(&amp;#39;%s: %s&amp;#39; % (self.__name, self.__score)) //外部的实例变量已经无法</description>
+    </item>
+    
+    <item>
+      <title>Python函数式</title>
+      <link>https://anfieldqi.github.io/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</link>
+      <pubDate>Sun, 19 Apr 2020 10:07:01 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</guid>
+      <description>python函数式 1.四个高阶函数 1.map map(func,Iterable) //fnuc依次作用至每一个Iterable元素,并将结果作为Iterator返回 2.filter filter(func,Iterable) //fnuc依次</description>
+    </item>
     
     <item>
       <title>Python变量作用域</title>
