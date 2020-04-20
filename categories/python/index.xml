@@ -6,10 +6,19 @@
     <description>Recent content in python on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 Apr 2020 20:48:27 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2020 19:56:52 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PythonProcessandThread</title>
+      <link>https://anfieldqi.github.io/2020/pythonprocessandthread/</link>
+      <pubDate>Mon, 20 Apr 2020 19:56:52 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/pythonprocessandthread/</guid>
+      <description>进程 1.多进程 os.fork():返回两次：1.父进程返回子进程id 2.子进程返回0 3.子进程调用getppid()得到父进程id mutip</description>
+    </item>
     
     <item>
       <title>Python错误处理的细节</title>

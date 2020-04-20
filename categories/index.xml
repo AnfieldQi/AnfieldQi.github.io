@@ -6,10 +6,19 @@
     <description>Recent content in Categories on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 Apr 2020 22:48:19 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2020 19:56:52 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python</title>
+      <link>https://anfieldqi.github.io/categories/python/</link>
+      <pubDate>Mon, 20 Apr 2020 19:56:52 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/categories/python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Android</title>
@@ -17,15 +26,6 @@
       <pubDate>Sun, 19 Apr 2020 22:48:19 +0800</pubDate>
       
       <guid>https://anfieldqi.github.io/categories/android/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://anfieldqi.github.io/categories/python/</link>
-      <pubDate>Sun, 19 Apr 2020 20:48:27 +0800</pubDate>
-      
-      <guid>https://anfieldqi.github.io/categories/python/</guid>
       <description></description>
     </item>
     
