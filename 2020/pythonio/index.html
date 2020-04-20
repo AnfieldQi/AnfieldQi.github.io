@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="https://anfieldqi.github.io/2020/pythonio/" />
-  <link rel="next" href="https://anfieldqi.github.io/2020/android_monkey/" />
-  <link rel="canonical" href="https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/" />
+  <link rel="prev" href="https://anfieldqi.github.io/2020/python%E6%B5%8B%E8%AF%95/" />
+  <link rel="next" href="https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/" />
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/pythonio/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Python错误处理的细节 | AnfieldQi`s Blog
+           PythonIO | AnfieldQi`s Blog
        
   </title>
-  <meta name="title" content="Python错误处理的细节 | AnfieldQi`s Blog">
+  <meta name="title" content="PythonIO | AnfieldQi`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/anfieldqi.github.io"
     },
     "articleSection" : "posts",
-    "name" : "Python错误处理的细节",
-    "headline" : "Python错误处理的细节",
-    "description" : "错误处理的一些可记细节 try except finally continue和break不会影响异常处理机制 def test(): while True: try: a = 1\/0 except Exception as e: print (\x26#34;exception\x26#34;) continue finally: print (\x26#34;finally\x26#34;) print (\x26#34;out of try\x26#34;) if __name__ == \x26#39;__main__\x26#39;: test() \/\/输出 exception",
+    "name" : "PythonIO",
+    "headline" : "PythonIO",
+    "description" : "文件的读写 f = open(\x26#39;path\x26#39;, \x26#39;r\x26#39;, encoding=\x26#39;\x26#39;, errors=\x26#39;ignore\x26#39;) f = open(\x26#39;\/Users\/michael\/test.txt\x26#39;, \x26#39;r\x26#39;) f = read() \/\/读入内存存为str对象 f.close() \/\/关掉 \/\/最好是调用finally，不然万一read出了错就关不掉了 \/\/这",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -54,10 +54,10 @@
     "accountablePerson" : "anfieldqi",
     "copyrightHolder" : "anfieldqi",
     "copyrightYear" : "2020",
-    "datePublished": "2020-04-19 20:48:27 \x2b0800 CST",
-    "dateModified" : "2020-04-19 20:48:27 \x2b0800 CST",
-    "url" : "https:\/\/anfieldqi.github.io\/2020\/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82\/",
-    "wordCount" : "646",
+    "datePublished": "2020-04-19 19:49:06 \x2b0800 CST",
+    "dateModified" : "2020-04-19 19:49:06 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/pythonio\/",
+    "wordCount" : "780",
     "keywords" : [ "python基础", "AnfieldQi`s Blog"]
 }
 </script>
@@ -122,7 +122,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Python错误处理的细节</h1>
+        <h1 class="post-title" itemprop="name headline">PythonIO</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
                 <span class="post-time">
@@ -134,7 +134,7 @@
                         <a href="https://anfieldqi.github.io/categories/python/"> python </a>
                         
                 </span>
-                <span class="post-word-count">, 646 words</span>
+                <span class="post-word-count">, 780 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -153,68 +153,14 @@
           
           
 
-          <h4 id="错误处理的一些可记细节">错误处理的一些可记细节</h4>
-<p>try except finally</p>
-<ol>
-<li>
-<p>continue和break不会影响异常处理机制</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>():
-    <span style="color:#66d9ef">while</span> True:
-        <span style="color:#66d9ef">try</span>:
-            a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">0</span>
-        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
-            <span style="color:#66d9ef">print</span> (<span style="color:#e6db74">&#34;exception&#34;</span>)
-            <span style="color:#66d9ef">continue</span>
-        <span style="color:#66d9ef">finally</span>:
-            <span style="color:#66d9ef">print</span> (<span style="color:#e6db74">&#34;finally&#34;</span>)
-        <span style="color:#66d9ef">print</span> (<span style="color:#e6db74">&#34;out of try&#34;</span>)
-    
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
-    test()
-<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">输出</span>
-exception
-<span style="color:#66d9ef">finally</span>
-exception
-<span style="color:#66d9ef">finally</span>
-</code></pre></div></li>
-<li>
-<p>模块必须性</p>
-<hr>
-<ul>
-<li>如果没有 try 块，则不能有后面的 except 块、else 块和 finally 块。但是也不能只使用 try 块，要么使用 try except 结构，要么使用 try finally 结构；</li>
-<li>except 块、else 块、finally 块都是可选的，当然也可以同时出现；</li>
-<li>可以有多个 except 块，但捕获父类异常的 except 块应该位于捕获子类异常的 except 块的后面</li>
-<li>多个 except 块必须位于 try 块之后，finally 块必须位于所有的 except 块之后。</li>
-<li>要使用 else 块，其前面必须包含 try 和 except</li>
-</ul>
-</li>
-</ol>
-<hr>
-<ol start="3">
-<li>
-<p>关于return重写</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>():
-    <span style="color:#66d9ef">try</span>:
-        <span style="color:#75715e"># 因为finally块中包含了return语句</span>
-        <span style="color:#75715e"># 所以下面的return语句失去作用</span>
-        <span style="color:#66d9ef">return</span> True
-    <span style="color:#66d9ef">finally</span>:
-        <span style="color:#66d9ef">return</span> False
-<span style="color:#66d9ef">print</span>(test())
-</code></pre></div></li>
-<li>
-<p><strong>执行顺序</strong></p>
-<ol>
-<li>
-<p>如果 Python 程序在执行 try 块、except 块包含有 return 或 raise 语句，则 Python 解释器执行到该语句时，会先去查找 finally 块，如果没有 finally 块，程序才会立即执行 return 或 raise 语句；</p>
-</li>
-<li>
-<p>如果找到 finally 块，系统立即开始执行 finally 块，只有当 finally 块执行完成后，系统才会再次跳回来执行 try 块、except 块里的 return 或 raise 语句。</p>
-</li>
-<li>
-<p>如果在 finally 块里也使用了 return 或 raise 等导致方法中止的语句，finally 块己经中止了方法，系统将不会跳回去执行 try 块、except 块里的任何代码。</p>
-<p>栗子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">这里恰好复习一下异常处理，如果</span>open的路径无效<span style="color:#960050;background-color:#1e0010">，那么就</span>raise了异常<span style="color:#960050;background-color:#1e0010">，就先去找有没有对应异常处理，没有的话执行</span><span style="color:#66d9ef">finally</span><span style="color:#960050;background-color:#1e0010">（让错误程序释放一些资源的功能写在这）</span>,finally又异常了<span style="color:#960050;background-color:#1e0010">，完了，程序停了</span>
+          <h3 id="文件的读写">文件的读写</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">f <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;path&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, errors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ignore&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">f <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;/Users/michael/test.txt&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>)
+f <span style="color:#f92672">=</span> read() <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">读入内存存为</span>str对象
+f<span style="color:#f92672">.</span>close() <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">关掉</span>
+
+<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">最好是调用</span><span style="color:#66d9ef">finally</span><span style="color:#960050;background-color:#1e0010">，不然万一</span>read出了错就关不掉了
+<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">这里恰好复习一下异常处理，如果</span>open的路径无效<span style="color:#960050;background-color:#1e0010">，那么就</span>raise了异常<span style="color:#960050;background-color:#1e0010">，就先去找有没有对应异常处理，没有的话执行</span><span style="color:#66d9ef">finally</span><span style="color:#960050;background-color:#1e0010">（让错误程序释放一些资源的功能写在这）</span>,finally又异常了<span style="color:#960050;background-color:#1e0010">，完了，程序停了</span>
 <span style="color:#66d9ef">try</span>:
     f <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;/path/to/file&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>)
     <span style="color:#66d9ef">print</span>(f<span style="color:#f92672">.</span>read())
@@ -222,11 +168,102 @@ exception
     <span style="color:#66d9ef">if</span> f:
         f<span style="color:#f92672">.</span>close()
 <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">最好还是一个</span><span style="color:#66d9ef">try</span> catch一个错误
+
+<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">一般用不着，直接用</span><span style="color:#66d9ef">with</span> open就行了
+
+<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">不同的</span>read
+read()<span style="color:#960050;background-color:#1e0010">一次性读取所有内容到内存，</span>str
+read(size)<span style="color:#960050;background-color:#1e0010">每次读取</span>size字节
+readline()<span style="color:#960050;background-color:#1e0010">每次读取一行</span>
+readlines()<span style="color:#960050;background-color:#1e0010">读取所有，按行返回</span>list
+
+<span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">文件的读取写入模式</span>
+<span style="color:#960050;background-color:#1e0010">具体查文档吧，常用的？</span> a w r wb rb 
+</code></pre></div><h3 id="内存读写">内存读写</h3>
+<ol>
+<li>
+<p>stringIO and BytesIO</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> io <span style="color:#f92672">import</span> StringIO
+<span style="color:#f92672">from</span> io <span style="color:#f92672">import</span> BytesIO
+f <span style="color:#f92672">=</span> BytesIO()
+f <span style="color:#f92672">=</span> StringIO()
+f<span style="color:#f92672">.</span>write()
+f<span style="color:#f92672">.</span>getvalue()
 </code></pre></div></li>
 </ol>
-</li>
+<h3 id="os操作文件目录">OS操作文件目录</h3>
+<table>
+<thead>
+<tr>
+<th>func</th>
+<th>context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>os.path.abspath('.')</td>
+<td>绝对路径</td>
+</tr>
+<tr>
+<td>os.path.join（path,file）</td>
+<td>获取file完整路径</td>
+</tr>
+<tr>
+<td>os.path.split（path）</td>
+<td>拆分路径</td>
+</tr>
+<tr>
+<td>os.path.splitext()</td>
+<td>直接获取最后的扩展名</td>
+</tr>
+<tr>
+<td>os.mkdir()</td>
+<td>创建新目录</td>
+</tr>
+<tr>
+<td>os.rmdir()</td>
+<td>删除目录</td>
+</tr>
+<tr>
+<td>os.remove（path）</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>os.rename（old,new）</td>
+<td>重命名</td>
+</tr>
+<tr>
+<td>os.path.isdir(x)/isfile(x)</td>
+<td>判断类型</td>
+</tr>
+</tbody>
+</table>
+<h3 id="序列化">序列化</h3>
+<ol>
+<li>定义：将变量从内存中变成可存储或传输的过程，序列化后内容可以写入磁盘</li>
 </ol>
-<p>​</p>
+<p>模块：</p>
+<ol>
+<li>
+<p>pickle</p>
+<ol>
+<li>pickle.dumps():对象序列化为bytes,</li>
+<li>pickle.dump(d,fileobj) ：直接写入文件对象file</li>
+<li>pickle.loads()：字符串反序列化</li>
+<li>pickle.load(fileobj)：将内容在file obj中读出</li>
+</ol>
+</li>
+<li>
+<p>json:不同语言之间传递，比如java和python</p>
+<ol>
+<li>json.dumps():返回一个json格式的串</li>
+<li>json.dump(d，file):直接写入文件对象file</li>
+<li>json.loads():字符串反序列化</li>
+<li>json.load(fileobj):直接在file obj反序列化出对象</li>
+</ol>
+</li>
+<li></li>
+</ol>
 
     </div>
 
@@ -241,7 +278,7 @@ exception
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/>https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</span>
+                    <a href=https://anfieldqi.github.io/2020/pythonio/>https://anfieldqi.github.io/2020/pythonio/</span>
             </p>
             
              
@@ -270,10 +307,10 @@ exception
 
     <div class="post-nav">
         
-        <a href="https://anfieldqi.github.io/2020/pythonio/" class="prev" rel="prev" title="PythonIO"><i class="iconfont icon-left"></i>&nbsp;PythonIO</a>
+        <a href="https://anfieldqi.github.io/2020/python%E6%B5%8B%E8%AF%95/" class="prev" rel="prev" title="Python测试"><i class="iconfont icon-left"></i>&nbsp;Python测试</a>
          
         
-        <a href="https://anfieldqi.github.io/2020/android_monkey/" class="next" rel="next" title="Android_Monkey">Android_Monkey&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://anfieldqi.github.io/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/" class="next" rel="next" title="Python错误处理的细节">Python错误处理的细节&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

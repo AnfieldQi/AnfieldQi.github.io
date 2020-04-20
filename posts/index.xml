@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>PythonIO</title>
+      <link>https://anfieldqi.github.io/2020/pythonio/</link>
+      <pubDate>Sun, 19 Apr 2020 19:49:06 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/pythonio/</guid>
+      <description>文件的读写 f = open(&amp;#39;path&amp;#39;, &amp;#39;r&amp;#39;, encoding=&amp;#39;&amp;#39;, errors=&amp;#39;ignore&amp;#39;) f = open(&amp;#39;/Users/michael/test.txt&amp;#39;, &amp;#39;r&amp;#39;) f = read() //读入内存存为str对象 f.close() //关掉 //最好是调用finally，不然万一read出了错就关不掉了 //这</description>
+    </item>
+    
+    <item>
       <title>Python测试</title>
       <link>https://anfieldqi.github.io/2020/python%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 19 Apr 2020 19:48:30 +0800</pubDate>

@@ -57,7 +57,7 @@
     "datePublished": "2020-04-19 14:39:14 \x2b0800 CST",
     "dateModified" : "2020-04-19 14:39:14 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1\/",
-    "wordCount" : "1800",
+    "wordCount" : "1801",
     "keywords" : [ "python基础", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="https://anfieldqi.github.io/categories/python/"> python </a>
                         
                 </span>
-                <span class="post-word-count">, 1800 words</span>
+                <span class="post-word-count">, 1801 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -194,27 +194,29 @@
 </ol>
 <h5 id="多态">多态</h5>
 <ol>
-<li>建立在继承的基础上，同一接口提供多种不同的实现形式</li>
-</ol>
+<li>
+<p>建立在继承的基础上，同一接口提供多种不同的实现形式</p>
+</li>
+<li>
 <p>例子：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">示例来源于廖雪峰的网站</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>(object):
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):
         <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Animal is running...&#39;</span>)
-
+   
 <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">啥也不干，猫狗就有了</span>run<span style="color:#960050;background-color:#1e0010">，不过如果猫狗有自己的</span>run<span style="color:#960050;background-color:#1e0010">，就会覆盖掉父类的</span>run
 <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">当然了这个猫和狗使用</span>isinstance判断类型也属于Animal
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):
     <span style="color:#66d9ef">pass</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Animal):
     <span style="color:#66d9ef">pass</span>
-    
+       
 dog <span style="color:#f92672">=</span> Dog()
 dog<span style="color:#f92672">.</span>run()
-
+   
 cat <span style="color:#f92672">=</span> Cat()
 cat<span style="color:#f92672">.</span>run()
-
+   
 <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">啥是多态啊？建立</span>run_t<span style="color:#960050;background-color:#1e0010">，接受</span>Animal类型的变量
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run_twice</span>(animal):
     animal<span style="color:#f92672">.</span>run()
@@ -226,14 +228,15 @@ cat<span style="color:#f92672">.</span>run()
 <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">不用修改</span>rt<span style="color:#960050;background-color:#1e0010">，直接可以给大鹅用上。</span>
 run_twice(Dae())
 </code></pre></div><p>由于Animal类型有run()方法，因此，传入的任意类型，只要是Animal类或者子类，就会自动调用实际类型的run()方法，这就是多态。 对于一个变量，我们只需要知道它是Animal类型，无需确切地知道它的子类型，就可以调用run()方法，这就是多态真正的威力：调用方只管调用，不管细节，而当我们新增一种Animal的子类时，只要确保run()方法编写正确，不用管原来的代码是如何调用的。</p>
-<hr>
-<ol>
-<li>
-<p>开闭原则：</p>
-<p>对扩展开放：允许新增子类</p>
-<p>对修改封闭：不需要修改依赖Animal类型的run_twice()等函数</p>
 </li>
 </ol>
+<hr>
+<pre><code>  1. 开闭原则：
+
+  对扩展开放：允许新增子类
+
+  对修改封闭：不需要修改依赖Animal类型的run_twice()等函数
+</code></pre>
 <hr>
 <h4 id="4对象的信息相关">4.对象的信息相关</h4>
 <h5 id="41内置类属性">4.1内置类属性</h5>
@@ -336,9 +339,15 @@ Employee<span style="color:#f92672">.</span>__dict__:  <span style="color:#75715
 </table>
 <h5 id="43获取对象信息">4.3获取对象信息</h5>
 <ol>
-<li>type</li>
-<li>isinstance</li>
-<li>dir配合getattr()、setattr()以及hasattr()</li>
+<li>
+<p>type</p>
+</li>
+<li>
+<p>isinstance</p>
+</li>
+<li>
+<p>dir配合getattr()、setattr()以及hasattr()</p>
+</li>
 </ol>
 <h4 id="5__-slots-__的使用">5.__ slots __的使用</h4>
 <ol>
