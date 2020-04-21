@@ -6,10 +6,37 @@
     <description>Recent content in python on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 20 Apr 2020 19:56:52 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2020 14:45:40 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Database</title>
+      <link>https://anfieldqi.github.io/2020/database/</link>
+      <pubDate>Tue, 21 Apr 2020 14:45:40 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/database/</guid>
+      <description>redis MySQL MongoDB</description>
+    </item>
+    
+    <item>
+      <title>Python网络</title>
+      <link>https://anfieldqi.github.io/2020/pythonnet/</link>
+      <pubDate>Tue, 21 Apr 2020 14:45:18 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/pythonnet/</guid>
+      <description>1. TCP 客户端 import socket # 创建一个socket: s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) //指定IPV4面向流 # 建立连接: s.connect((ipv4, 80)) s.send(&amp;#34;&amp;#34;)#发送请求 s.recv(nums) #每次接</description>
+    </item>
+    
+    <item>
+      <title>PythonSampleModule</title>
+      <link>https://anfieldqi.github.io/2020/pythonsamplemodule/</link>
+      <pubDate>Tue, 21 Apr 2020 14:44:57 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/pythonsamplemodule/</guid>
+      <description>有一些还是没有常用到，没有常用的东西就容易忘，还是梳理一下 1. struct 解决字节与其他二进制数据类型（整数等）的转换 python没有专门处理字节的数据</description>
+    </item>
     
     <item>
       <title>PythonProcessandThread</title>
