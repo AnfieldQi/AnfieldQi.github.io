@@ -6,10 +6,19 @@
     <description>Recent content in python基础 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Apr 2020 14:45:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 09:42:58 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/tags/python%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PythonTkinter</title>
+      <link>https://anfieldqi.github.io/2020/pythontkinter/</link>
+      <pubDate>Wed, 22 Apr 2020 09:42:58 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/pythontkinter/</guid>
+      <description>TKinter python提供的一个图形界面的库 1. 窗口主体框架 import tkinter as tk windows=tk.TK() windows.title() windows=geometry(&amp;#39;num x num &amp;#39;) #windows上面的label,多参数可选,定义一个变量 var=tk.StringVar() l=tk.Label(windows,text=var,bg=&amp;#39;&amp;#39;,font=(&amp;#34;Arial&amp;#34;,12),width=,height= ) #安置</description>
+    </item>
     
     <item>
       <title>Database</title>

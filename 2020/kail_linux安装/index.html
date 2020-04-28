@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="https://anfieldqi.github.io/2020/pythontkinter/" />
-  <link rel="next" href="https://anfieldqi.github.io/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" />
-  <link rel="canonical" href="https://anfieldqi.github.io/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" />
+  <link rel="prev" href="https://anfieldqi.github.io/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" />
+  <link rel="next" href="https://anfieldqi.github.io/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/" />
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           项目部署至服务器及设置定时任务 | AnfieldQi`s Blog
+           kail_linux安装 | AnfieldQi`s Blog
        
   </title>
-  <meta name="title" content="项目部署至服务器及设置定时任务 | AnfieldQi`s Blog">
+  <meta name="title" content="kail_linux安装 | AnfieldQi`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/anfieldqi.github.io"
     },
     "articleSection" : "posts",
-    "name" : "项目部署至服务器及设置定时任务",
-    "headline" : "项目部署至服务器及设置定时任务",
-    "description" : "",
+    "name" : "kail_linux安装",
+    "headline" : "kail_linux安装",
+    "description" : "kali 简介 Kali是一套用于安全渗透(黑客)的Linux发行版，涵盖了安全方面所需的大部分应用，不过倒是没看到IDA和OD什么的，记得之前做逆向",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -54,11 +54,11 @@
     "accountablePerson" : "anfieldqi",
     "copyrightHolder" : "anfieldqi",
     "copyrightYear" : "2020",
-    "datePublished": "2020-04-23 11:38:44 \x2b0800 CST",
-    "dateModified" : "2020-04-23 11:38:44 \x2b0800 CST",
-    "url" : "https:\/\/anfieldqi.github.io\/2020\/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1\/",
-    "wordCount" : "0",
-    "keywords" : [ "项目部署", "AnfieldQi`s Blog"]
+    "datePublished": "2020-04-27 16:28:40 \x2b0800 CST",
+    "dateModified" : "2020-04-27 16:28:40 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/kail_linux%E5%AE%89%E8%A3%85\/",
+    "wordCount" : "995",
+    "keywords" : [ "kali", "AnfieldQi`s Blog"]
 }
 </script>
 
@@ -122,19 +122,19 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">项目部署至服务器及设置定时任务</h1>
+        <h1 class="post-title" itemprop="name headline">kail_linux安装</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-04-23 itemprop="datePublished">April 23, 2020</time>
+                on <time datetime=2020-04-27 itemprop="datePublished">April 27, 2020</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://anfieldqi.github.io/categories/%E6%95%99%E7%A8%8B%E5%AD%98%E6%A1%A3/"> 教程存档 </a>
+                        <a href="https://anfieldqi.github.io/categories/iot%E5%AE%89%E5%85%A8/"> IoT安全 </a>
                         
                 </span>
-                <span class="post-word-count">, 0 words</span>
+                <span class="post-word-count">, 995 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -153,7 +153,64 @@
           
           
 
-          
+          <h3 id="kali-简介">kali 简介</h3>
+<p>Kali是一套用于安全渗透(黑客)的Linux发行版，涵盖了安全方面所需的大部分应用，不过倒是没看到IDA和OD什么的，记得之前做逆向使用时kali有其他功能进行动态调试等</p>
+<h3 id="kail-安装">kail 安装</h3>
+<h4 id="所需依赖">所需依赖</h4>
+<ol>
+<li>VMware® Workstation 15 Pro</li>
+<li><a href="https://cdimage.kali.org/kali-2020.1b/kali-linux-2020.1b-installer-amd64.iso"><strong>Kali Linux 64-Bit (Installer)</strong></a>2020</li>
+</ol>
+<h4 id="1镜像下载">1.镜像下载</h4>
+<p>从官方下载地址下载镜像，这里分为多种，可以直接下载其安装镜像，也可以下载其为VM虚拟机准备的专用版本，选择哪个都没关系，这里选择 <a href="https://cdimage.kali.org/kali-2020.1b/kali-linux-2020.1b-installer-amd64.iso"><strong>Kali Linux 64-Bit (Installer)</strong></a> ，2G左右，很快就下好了</p>
+<hr>
+<hr>
+<h4 id="2从光盘或映像中安装">2.从光盘或映像中安装</h4>
+<ol>
+<li>打开VM，选择创建新的虚拟机</li>
+<li>选择典型安装，比较简单</li>
+<li>下一步，将路径定位到刚才下载ISO镜像的目录</li>
+<li>选择操作系统：linux&ndash;&gt;Debian 10 x64位</li>
+<li>分配配置：这里看自己PC决定吧，我分了4G+50G固态</li>
+<li>进入安装：选择Graphical install选项</li>
+<li>接下来经历选择语言&mdash;-&gt;设置主机名&mdash;&gt;设置密码等多个过程，一路点击即可（http配置为空即可）</li>
+<li>磁盘分区&ndash;&gt;使用整个磁盘&ndash;&gt;选定磁盘并继续&ndash;&gt;将所有文件放在同一个分区中&ndash;&gt;结束分区设定并写入&ndash;&gt;将改动写入磁盘选是</li>
+<li><strong>选择并安装软件</strong>：这一步执行后会报错，回到<strong>安装程序主菜单</strong></li>
+<li><strong>点击上一步配置软件包管理器</strong>：这里要点击其上一步，其他教程中<strong>直接进行下一步是错误的</strong>，完成后没有图形化界面等软件</li>
+<li>询问是否使用网络镜像：选否</li>
+<li>这样会安装图形化界面等所需依赖包，直到完成</li>
+<li>输入账号密码，进入系统</li>
+</ol>
+<h4 id="3-kali换源">3. kali换源</h4>
+<ol>
+<li>
+<p>这个和其他都一样的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vim /etc/apt/sources.list
+   
+<span style="color:#75715e">#把下面的源添加</span>
+<span style="color:#75715e">#清华源</span>
+deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+   
+<span style="color:#75715e">#更新</span>
+sudo apt-get update
+</code></pre></div><p>这是为了安装open-vm，不然不能跟宿主机进行文件交换，想分析的东西也托不进来，这一步配置的时候东西是不能内外复制的，不过kail自带了Firefox，直接用这个搜就行了</p>
+</li>
+<li>
+<p>安装open-vm-tools</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#这一步如果之前安卓了VM自带的VMTOOL会让我们选择是否覆盖，默认为N保留，所有的都输入Y，全部使用软件源提供的就行了，VM自带的那个对kali没有用</span>
+sudo apt-get install open-vm-tools-desktop fuse
+   
+<span style="color:#75715e">#完成后</span>
+sudo reboot
+</code></pre></div></li>
+<li>
+<p>重启后即可与主机交换文件等，使用工具进行分析</p>
+</li>
+</ol>
+<hr>
+<p>总结：一个安装kali的流程，按以上操作后即可满足我们的使用需求，不必四处查阅安装教程，值得注意的地方就是安装的第9 10 步吧，不然安装后没有图形化界面缺了很多东西，再去解决那个问题，又是另一个悲伤的故事了</p>
+
     </div>
 
     <div class="post-copyright">
@@ -167,7 +224,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://anfieldqi.github.io/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/>https://anfieldqi.github.io/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</span>
+                    <a href=https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/>https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/</span>
             </p>
             
              
@@ -183,8 +240,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://anfieldqi.github.io/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
-                    #项目部署</a></span>
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/kali/">
+                    #kali</a></span>
             
             </section>
         
@@ -196,10 +253,10 @@
 
     <div class="post-nav">
         
-        <a href="https://anfieldqi.github.io/2020/pythontkinter/" class="prev" rel="prev" title="PythonTkinter"><i class="iconfont icon-left"></i>&nbsp;PythonTkinter</a>
+        <a href="https://anfieldqi.github.io/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="Python数据分析"><i class="iconfont icon-left"></i>&nbsp;Python数据分析</a>
          
         
-        <a href="https://anfieldqi.github.io/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="next" rel="next" title="Python数据分析">Python数据分析&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://anfieldqi.github.io/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/" class="next" rel="next" title="QCA9533提取固件练习">QCA9533提取固件练习&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

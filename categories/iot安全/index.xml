@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT安全 on AnfieldQi`s Blog</title>
+    <link>https://anfieldqi.github.io/categories/iot%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in IoT安全 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 28 Apr 2020 10:42:17 +0800</lastBuildDate>
+    
+	<atom:link href="https://anfieldqi.github.io/categories/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IoT固件提取手段入门</title>
+      <link>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Tue, 28 Apr 2020 10:42:17 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E5%85%A5%E9%97%A8/</guid>
+      <description>1.IoT Firmware 1.IoT设备 IoT 设备是一类特殊的嵌入式设备，基于智能单元与网络提升了传统硬件功能的设备 IoT Device = Embedded Device + Network = Hardware Device + Computation Intelligence + Network 2.IoT固件 IoT Fi</description>
+    </item>
+    
+    <item>
+      <title>QCA9533提取固件练习</title>
+      <link>https://anfieldqi.github.io/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Mon, 27 Apr 2020 17:56:00 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</guid>
+      <description>QCA9533固件解包 1.依赖 kali linux 2020 QCA9533路由器原厂固件、 通用的linux re工具：file hexdump string dd lzma(都在kali里了) 第三方</description>
+    </item>
+    
+    <item>
+      <title>kail_linux安装</title>
+      <link>https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 27 Apr 2020 16:28:40 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/</guid>
+      <description>kali 简介 Kali是一套用于安全渗透(黑客)的Linux发行版，涵盖了安全方面所需的大部分应用，不过倒是没看到IDA和OD什么的，记得之前做逆向</description>
+    </item>
+    
+  </channel>
+</rss>

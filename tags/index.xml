@@ -6,10 +6,28 @@
     <description>Recent content in Tags on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Apr 2020 10:20:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 10:42:17 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IoT固件</title>
+      <link>https://anfieldqi.github.io/tags/iot%E5%9B%BA%E4%BB%B6/</link>
+      <pubDate>Tue, 28 Apr 2020 10:42:17 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/tags/iot%E5%9B%BA%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kali</title>
+      <link>https://anfieldqi.github.io/tags/kali/</link>
+      <pubDate>Mon, 27 Apr 2020 16:28:40 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/tags/kali/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>python数据处理</title>
@@ -32,7 +50,7 @@
     <item>
       <title>python基础</title>
       <link>https://anfieldqi.github.io/tags/python%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Tue, 21 Apr 2020 14:45:40 +0800</pubDate>
+      <pubDate>Wed, 22 Apr 2020 09:42:58 +0800</pubDate>
       
       <guid>https://anfieldqi.github.io/tags/python%E5%9F%BA%E7%A1%80/</guid>
       <description></description>

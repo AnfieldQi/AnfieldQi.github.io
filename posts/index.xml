@@ -6,10 +6,37 @@
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Apr 2020 10:20:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 10:42:17 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IoT固件提取手段入门</title>
+      <link>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Tue, 28 Apr 2020 10:42:17 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E5%85%A5%E9%97%A8/</guid>
+      <description>1.IoT Firmware 1.IoT设备 IoT 设备是一类特殊的嵌入式设备，基于智能单元与网络提升了传统硬件功能的设备 IoT Device = Embedded Device + Network = Hardware Device + Computation Intelligence + Network 2.IoT固件 IoT Fi</description>
+    </item>
+    
+    <item>
+      <title>QCA9533提取固件练习</title>
+      <link>https://anfieldqi.github.io/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Mon, 27 Apr 2020 17:56:00 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</guid>
+      <description>QCA9533固件解包 1.依赖 kali linux 2020 QCA9533路由器原厂固件、 通用的linux re工具：file hexdump string dd lzma(都在kali里了) 第三方</description>
+    </item>
+    
+    <item>
+      <title>kail_linux安装</title>
+      <link>https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 27 Apr 2020 16:28:40 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/</guid>
+      <description>kali 简介 Kali是一套用于安全渗透(黑客)的Linux发行版，涵盖了安全方面所需的大部分应用，不过倒是没看到IDA和OD什么的，记得之前做逆向</description>
+    </item>
     
     <item>
       <title>Python数据分析</title>
@@ -27,6 +54,15 @@
       
       <guid>https://anfieldqi.github.io/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>PythonTkinter</title>
+      <link>https://anfieldqi.github.io/2020/pythontkinter/</link>
+      <pubDate>Wed, 22 Apr 2020 09:42:58 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/pythontkinter/</guid>
+      <description>TKinter python提供的一个图形界面的库 1. 窗口主体框架 import tkinter as tk windows=tk.TK() windows.title() windows=geometry(&amp;#39;num x num &amp;#39;) #windows上面的label,多参数可选,定义一个变量 var=tk.StringVar() l=tk.Label(windows,text=var,bg=&amp;#39;&amp;#39;,font=(&amp;#34;Arial&amp;#34;,12),width=,height= ) #安置</description>
     </item>
     
     <item>
