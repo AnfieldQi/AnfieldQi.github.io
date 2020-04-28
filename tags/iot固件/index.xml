@@ -6,17 +6,26 @@
     <description>Recent content in IoT固件 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 28 Apr 2020 10:42:17 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 15:06:30 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/tags/iot%E5%9B%BA%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>IoT固件提取手段入门</title>
-      <link>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E5%85%A5%E9%97%A8/</link>
+      <title>IoT固件模拟运行</title>
+      <link>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</link>
+      <pubDate>Tue, 28 Apr 2020 15:06:30 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</guid>
+      <description>模拟运行和调试技术 1.分析环境 QEMU 安装： sudo apt-get install qemu-user-static 用户模式：能启动那些为不同处理架构编译的独立的 Linux 程序 使用对应的QEMU提供的程序，执行相应架构</description>
+    </item>
+    
+    <item>
+      <title>IoT固件提取与解包</title>
+      <link>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</link>
       <pubDate>Tue, 28 Apr 2020 10:42:17 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</guid>
       <description>1.IoT Firmware 1.IoT设备 IoT 设备是一类特殊的嵌入式设备，基于智能单元与网络提升了传统硬件功能的设备 IoT Device = Embedded Device + Network = Hardware Device + Computation Intelligence + Network 2.IoT固件 IoT Fi</description>
     </item>
     

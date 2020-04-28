@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/" />
+  <link rel="next" href="https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/" />
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           IoT固件提取与解包 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="IoT固件提取与解包 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "IoT固件提取与解包",
+    "headline" : "IoT固件提取与解包",
+    "description" : "1.IoT Firmware 1.IoT设备 IoT 设备是一类特殊的嵌入式设备，基于智能单元与网络提升了传统硬件功能的设备 IoT Device = Embedded Device \x2b Network = Hardware Device \x2b Computation Intelligence \x2b Network 2.IoT固件 IoT Fi",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 10:42:17 \x2b0800 CST",
+    "dateModified" : "2020-04-28 10:42:17 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85\/",
+    "wordCount" : "2015",
+    "keywords" : [ "IoT固件", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">IoT固件提取与解包</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/iot%E5%AE%89%E5%85%A8/"> IoT安全 </a>
+                        
+                </span>
+                <span class="post-word-count">, 2015 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="1iot-firmware">1.IoT Firmware</h1>
+<h2 id="1iot设备">1.IoT设备</h2>
+<p>IoT 设备是一类特殊的嵌入式设备，基于智能单元与网络提升了传统硬件功能的设备</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">IoT Device 
+<span style="color:#f92672">=</span> Embedded Device + Network
+<span style="color:#f92672">=</span> Hardware Device + Computation Intelligence + Network
+</code></pre></div><h2 id="2iot固件">2.IoT固件</h2>
+<p>IoT Firmware是最终存储运行在微处理器内存中的一段可执行的软件程序</p>
+<h3 id="21-固件的存储">2.1 固件的存储</h3>
+<h4 id="1集成式固件存储">1.集成式固件存储</h4>
+<ol>
+<li>
+<p>适用：设备功能单一，不需要运行复杂的系统或者通过复杂的协议，也不需要什么计算高级计算功能，厂商会把固件集成到他们的主控芯片中，以节约成本。</p>
+</li>
+<li>
+<p>主控芯片MCU：CPU+外接口+内存+flash~~(一般用来控制外围传感器)~~</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C3ad66a3c285fa25cd02f2bf00ed73ca6.png" alt="img"></p>
+<p>如同计算机一样，固件一定被存储于ROM+Flash~~(硬盘+内存)~~中。</p>
+</li>
+<li>
+<p>提取方法，只要知道产品所利用的主控芯片地址结构分配，就可以通过某种方法提取</p>
+</li>
+</ol>
+<h4 id="2分离式固件存储">2.分离式固件存储</h4>
+<ol>
+<li>
+<p>适用：比较大一些的主控，将存储器外接</p>
+</li>
+<li>
+<p>提取方法：</p>
+<p>2.1 将外接的存储器直接取下来读取，利用相应读取设备，插入电脑，利用配套软件即可读出固件</p>
+<p>2.2 通过Bootloader或者利用JTAG/SWD等调试接口，通过控制主控器的读写存储器流程，进而读出固件内容</p>
+</li>
+</ol>
+<h3 id="22-固件的获取方法">2.2 固件的获取方法</h3>
+<h4 id="1-固件升级流程截取">1. 固件升级流程截取</h4>
+<ol>
+<li>
+<p>协议：FTP，HTTP</p>
+</li>
+<li>
+<p>场景：一般适用于设备初次使用时，会自动进入固件升级流程。可以通过burp,wireshark等抓取</p>
+</li>
+<li>
+<p>特点：不需要控制设备</p>
+</li>
+<li>
+<p>修复手段：使用加密传输</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200428115217137.png" alt="image-20200428115217137"></p>
+</li>
+</ol>
+<h4 id="2-直接读取存储器">2. 直接读取存储器</h4>
+<ol>
+<li>
+<p>器材：编程器+焊接器+配套读取编程器软件</p>
+</li>
+<li>
+<p>场景：分离式固件存储方式，拆掉存储器，读取固件</p>
+</li>
+<li>
+<p>使用：使用编程器读取芯片，使用配套软件读取编程器中的信息，拿到固件文件信息</p>
+</li>
+<li>
+<p>特点：不需要控制CPU</p>
+</li>
+<li>
+<p>修复手段：加密固件。</p>
+<p>例子：如加密除Bootloader以外的代码，解密程序在Bootloader中实现。解密密钥相关的信息完全可以放到主控器中，并加以读保护，这样，即便他们拿到了加密的固件，和Bootloader中的算法，也没办法得到解密密钥，获取不到有用的信息（来源于绿盟科技博客）</p>
+</li>
+</ol>
+<h4 id="3-通过通信总线读取串口">3. 通过通信总线读取（串口）</h4>
+<ol>
+<li>
+<p>器材：通信线+UART接口</p>
+</li>
+<li>
+<p>场景：较为方便的读取手段</p>
+</li>
+<li>
+<p>使用：通过主板上暴露的UART接口，在PC与固化在主控器中的Bootloader程序之间建立通信</p>
+</li>
+<li>
+<p>特点：控制主控中的Bootloader来读取存储器内容</p>
+</li>
+<li>
+<p>修复手段：设置主芯片的读写保护</p>
+</li>
+<li>
+<p>原理：</p>
+<blockquote>
+<p>BootLoder存储在 STM32 器件的内部ROM 存储器（系统存储器）中。在生产期间由<strong>ST</strong>编程。其主要任务是通过一种可用的串行外设（<strong>USART</strong>、<strong>CAN</strong>、<strong>USB</strong>、<strong>I2C</strong> 等）将应用程序下 载到内部Flash 中。每种串行接口都定义了相应的通信协议，其中包含兼容的命令集和序列。”</p>
+</blockquote>
+<p>运行流程：</p>
+<p><!-- raw HTML omitted --></p>
+<p>其他信息参考bootloader相关文档</p>
+</li>
+</ol>
+<h4 id="4-通过调试接口读取">4. 通过调试接口读取</h4>
+<ol>
+<li>器材：硬件调试器</li>
+<li>场景：相对于串口可以设置断点等，方便开发者调试</li>
+<li>使用：利用相关调试接口和相配套的硬件调试器及其配套软件，将PC和物联网设备建立连接，使用PC运行调试器配套软件，即可发送命令。不同调试器配套软件不同。</li>
+<li>特点：控制整个设备，开发者调试模式</li>
+<li>修复：隐藏接口，让攻击者难以找到对应针脚</li>
+</ol>
+<h4 id="5串口识别对应3">5.串口识别（对应3）</h4>
+<p>为了找出 UART 的接口，可以使用万用表来确定每个引脚 (TXD，RXD，GND 和 VCC)，下面列出关键的步骤 :</p>
+<ol>
+<li>将万用表功能开关定位到二极管 ( 蜂鸣 ) 档位，关闭设备电源，用黑色探头接到硬件电路板的接地引脚 ( 这</li>
+</ol>
+<p>个引脚一般于较大的铜箔面相连 )。</p>
+<ol start="2">
+<li>
+<p>用红色探头分别放在可能是 UART 接口的每个焊盘或者针脚上，直到听到蜂鸣器 (BEEP) 的声音。</p>
+</li>
+<li>
+<p>听到蜂鸣器声音时即可判定设备接口的接地引脚，这种测试方法也称为通断测试。</p>
+</li>
+<li>
+<p>将万用表功能开关定位 20V 直流电压档位置，黑色探头保持接口的接地引脚 (GND)，用红色探头移到接口的其他引脚（GND 除外）上。接通设备电源，如果看到恒定电压 (3.3V 或者 5V) 的引脚就是 VCC 引脚。</p>
+</li>
+<li>
+<p>再次重启设备并测量剩余焊盘和 GND 之间的电压（除了前面步骤中确定的 VCC 和 GND）。由于在启动期间最初进行的大量数据传输，可以看到在最初的 10-15 秒内其中一个引脚上的电压值发生了巨大波动。这个引脚将是 TXD 引脚。</p>
+</li>
+<li>
+<p>RXD 可以通过在整个过程中具有最低电压波动和最低总值的引脚来确定。通过以上方法确定的引脚比较集中在某个区域时即可判定这个接口为设备的 UART 接口</p>
+</li>
+</ol>
+<h4 id="6usb-ttl对应3-4">6.USB-TTL(对应3 4)</h4>
+<p>该设备一端接入 PC 机的 USB 接口，另一端有 TXD、RXD、GND、5V、3.3V 五个引脚，只需要将对应的引</p>
+<p>脚分别与电路板的 RXD、TXD、GND 引脚相连 (Rx 和 Tx 交叉相连，VCC 可以不连 ) 即可。同时在 PC 机上安装</p>
+<p>对应的 USB 转串口驱动，就能让 PC 机识别该串口设备。</p>
+<hr>
+<h3 id="23-固件解包">2.3. 固件解包</h3>
+<h4 id="1binwalk">1.binwalk</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#常用的命令</span>
+
+<span style="color:#75715e">#固件信息扫描</span>
+binwalk  firmware.bin
+
+<span style="color:#75715e">#提取文件</span>
+binwalk -e firmware.bin
+
+<span style="color:#75715e">#根据magic签名扫描结果递归提取固件</span>
+binwalk -Me firmware.bin
+
+<span style="color:#75715e">#文件比较</span>
+binwalk -W firmware.bin firmware2.bin firmware3. bin
+
+<span style="color:#75715e">#读取日志</span>
+binwalk -f firmwar.log -q firmware.bin
+
+<span style="color:#75715e">#进行熵分析生成图</span>
+binwalk -E firmware.bin
+</code></pre></div><h4 id="2ivforemost">2.iv.foremost</h4>
+<p>在数字取证和CTF中常用来恢复、分离文件。它默认支持19种类型文件(jpg, gif, png, bmp, avi, exe, mpg, mp4, wav, riff, wmv, mov, pdf, ole, doc, zip, rar, html, cpp 等文件)的扫描识别恢复。</p>
+<hr>
+<p>总结：本文简单介绍了从物联网固件中获取固件文件的几种手法及对应的修复策略，未做实验验证，文中提到的技术细节可查阅相关开发文档。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/>https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/iot%E5%9B%BA%E4%BB%B6/">
+                    #IoT固件</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/" class="prev" rel="prev" title="QCA9533提取固件练习"><i class="iconfont icon-left"></i>&nbsp;QCA9533提取固件练习</a>
+         
+        
+        <a href="https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/" class="next" rel="next" title="IoT固件模拟运行">IoT固件模拟运行&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
