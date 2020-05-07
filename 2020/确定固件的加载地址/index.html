@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/" />
+  <link rel="next" href="https://anfieldqi.github.io/2020/matplotlib/" />
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           确定固件的加载地址 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="确定固件的加载地址 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "确定固件的加载地址",
+    "headline" : "确定固件的加载地址",
+    "description" : "确定固件的加载地址 1. 固件的识别与解压 binwalk **.bin 为压缩包格式，直接使用binwalk进行解包提取 提取后会得到一个以固件起始位置来命名的文件目录，本例",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-29 16:50:58 \x2b0800 CST",
+    "dateModified" : "2020-04-29 16:50:58 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80\/",
+    "wordCount" : "722",
+    "keywords" : [ "IoT固件", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">确定固件的加载地址</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-29 itemprop="datePublished">April 29, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/iot%E5%AE%89%E5%85%A8/"> IoT安全 </a>
+                        
+                </span>
+                <span class="post-word-count">, 722 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="确定固件的加载地址">确定固件的加载地址</h3>
+<h4 id="1-固件的识别与解压">1. 固件的识别与解压</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">binwalk **.bin
+</code></pre></div><p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200429170112796.png" alt="image-20200429170112796"></p>
+<p>为压缩包格式，直接使用binwalk进行解包提取</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200429170245624.png" alt="image-20200429170245624"></p>
+<p>提取后会得到一个以固件起始位置来命名的文件目录，本例中文385，查看文件内容</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200429170504829.png" alt="image-20200429170504829"></p>
+<p>能看见固件中的文件名及版本信息（VxWorks WIND kernel version &ldquo;2.5&rdquo;），主要是得到符号表的相关信息，即图中最后一行的内容。</p>
+<h4 id="2-固件加载地址的计算">2. 固件加载地址的计算</h4>
+<p><strong>固件加载地址</strong>：嵌入式系统的固件需要到指定<strong>内存中</strong>的<strong>特定位置</strong>进行运行，这个特定的位置叫做固件加载地址</p>
+<p><strong>嵌入式的函数调用</strong>：嵌入式系统固件的函数调用地址是基于<strong>固件加载地址</strong>所计算出的<strong>内存位置</strong>，而<strong>不是固件中的地址</strong>，就是要计算出固件加载的内存地址。因此，为了使反汇编工具软件（如IDA Pro）能够正确的分析函数调用关系，我们需要分析出固件加载地址</p>
+<ol>
+<li>
+<p>查看固件的CPU架构，以便选择正确的反汇编引擎</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200429174649014.png" alt="image-20200429174649014"></p>
+</li>
+<li>
+<p>首先Strings一下，查找字符串表的最后一个特征字符串</p>
+<p>肯定会有一个APP_STATION_MODBUS,这一步用处不大，检查一下有没有</p>
+</li>
+<li>
+<p>直接定位至此，为字符串表最后一个字符串的地址，即符号表首地址</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200429185706946.png" alt="image-20200429185706946"></p>
+</li>
+</ol>
+<p>可见其地址为0x26656c</p>
+<pre><code>#计算公式加载地址 = 符号表中字符串的地址 - 相应字符串在固件中的偏移
+字符串表里面的最后一个字符串 在 符号表的第一项被引用
+</code></pre><ol start="4">
+<li>
+<p>binwalk中显示固件起始位置为：0x301E74</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200429191528623.png" alt="image-20200429191528623"></p>
+</li>
+<li>
+<p>查看0x301E74，发现其上一个也属于符号表，则符号表在固件中真实的起始地址为：0x301E64</p>
+</li>
+<li>
+<p>可知其内存地址为0x0027656c</p>
+</li>
+<li>
+<p>所以加载地址=0x0027656c-0x26656c=0x10000</p>
+</li>
+</ol>
+<hr>
+<p>一般来说，vxwork的固件加载地址是<strong>0x10000</strong></p>
+<h4 id="3-ida加载固件">3. IDA加载固件</h4>
+<ol>
+<li>加载385文件，选择之前识别的反汇编引擎</li>
+</ol>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200429194936628.png" alt="image-20200429194936628"></p>
+<ol start="2">
+<li>
+<p>起始地址选择0x10000</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200429195314271.png" alt="image-20200429195314271"></p>
+</li>
+</ol>
+<h4 id="4修复符号表">4.修复符号表</h4>
+<p>///&hellip;&hellip;</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/>https://anfieldqi.github.io/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/iot%E5%9B%BA%E4%BB%B6/">
+                    #IoT固件</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/" class="prev" rel="prev" title="IoT固件模拟运行"><i class="iconfont icon-left"></i>&nbsp;IoT固件模拟运行</a>
+         
+        
+        <a href="https://anfieldqi.github.io/2020/matplotlib/" class="next" rel="next" title="Matplotlib">Matplotlib&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

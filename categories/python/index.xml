@@ -6,10 +6,19 @@
     <description>Recent content in python on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Apr 2020 10:20:26 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2020 15:45:57 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Matplotlib</title>
+      <link>https://anfieldqi.github.io/2020/matplotlib/</link>
+      <pubDate>Sun, 03 May 2020 15:45:57 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/matplotlib/</guid>
+      <description>不同的画图方式 scatter散点 import matplotlib.pyplot as plt import numpy as np n=1024 X=np.random.normal(0,1,n) Y=np.random.normal(0,1,n) #透明度 plt.scatter(X,Y,c=T,alpha=0.5) plt.xlim((-1.5,1.5)) plt.ylim((-1.5,1.5)) plt.xticks(()) plt.yticks(()) plt.show() bar柱状图 import matplotlib.pyplot as plt import numpy as np n = 12 X = np.arange(n) Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n) Y2 =</description>
+    </item>
     
     <item>
       <title>Python数据分析</title>

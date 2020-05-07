@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/matplotlib/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Matplotlib | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="Matplotlib | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Matplotlib",
+    "headline" : "Matplotlib",
+    "description" : "不同的画图方式 scatter散点 import matplotlib.pyplot as plt import numpy as np n=1024 X=np.random.normal(0,1,n) Y=np.random.normal(0,1,n) #透明度 plt.scatter(X,Y,c=T,alpha=0.5) plt.xlim((-1.5,1.5)) plt.ylim((-1.5,1.5)) plt.xticks(()) plt.yticks(()) plt.show() bar柱状图 import matplotlib.pyplot as plt import numpy as np n = 12 X = np.arange(n) Y1 = (1 - X \/ float(n)) * np.random.uniform(0.5, 1.0, n) Y2 =",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-03 15:45:57 \x2b0800 CST",
+    "dateModified" : "2020-05-03 15:45:57 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/matplotlib\/",
+    "wordCount" : "819",
+    "keywords" : [ "画图", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Matplotlib</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-05-03 itemprop="datePublished">May 3, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/python/"> python </a>
+                        
+                </span>
+                <span class="post-word-count">, 819 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="不同的画图方式">不同的画图方式</h2>
+<h4 id="scatter散点">scatter散点</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np 
+
+n<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>
+X<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,n)
+Y<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,n)
+<span style="color:#75715e">#透明度</span>
+plt<span style="color:#f92672">.</span>scatter(X,Y,c<span style="color:#f92672">=</span>T,alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+plt<span style="color:#f92672">.</span>xlim((<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1.5</span>))
+plt<span style="color:#f92672">.</span>ylim((<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1.5</span>))
+plt<span style="color:#f92672">.</span>xticks(())
+plt<span style="color:#f92672">.</span>yticks(())
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><h4 id="bar柱状图">bar柱状图</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+n <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
+X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(n)
+Y1 <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> X <span style="color:#f92672">/</span> float(n)) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">1.0</span>, n)
+Y2 <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> X <span style="color:#f92672">/</span> float(n)) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">1.0</span>, n)
+
+plt<span style="color:#f92672">.</span>bar(X, <span style="color:#f92672">+</span>Y1, facecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#9999ff&#39;</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;white&#39;</span>)
+plt<span style="color:#f92672">.</span>bar(X, <span style="color:#f92672">-</span>Y2, )
+
+<span style="color:#75715e">#为柱状图设置标签</span>
+<span style="color:#75715e">#ha:水平对齐方式</span>
+<span style="color:#75715e">#va:竖直对齐方式</span>
+<span style="color:#66d9ef">for</span> x, y <span style="color:#f92672">in</span> zip(X, Y1):
+    plt<span style="color:#f92672">.</span>text(x <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.04</span>, y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.05</span>, <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%.2f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> y, ha<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;center&#39;</span>, va<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bottom&#39;</span>)
+
+<span style="color:#66d9ef">for</span> x, y <span style="color:#f92672">in</span> zip(X, Y2):
+    plt<span style="color:#f92672">.</span>text(x <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.04</span>, <span style="color:#f92672">-</span>y<span style="color:#f92672">-</span><span style="color:#ae81ff">0.05</span>, <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%.2f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> y, ha<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;center&#39;</span>, va<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;top&#39;</span>)
+
+plt<span style="color:#f92672">.</span>xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>, n)
+plt<span style="color:#f92672">.</span>xticks(())
+plt<span style="color:#f92672">.</span>ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.25</span>, <span style="color:#ae81ff">1.25</span>)
+plt<span style="color:#f92672">.</span>yticks(())
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><h4 id="contours等高线">Contours等高线</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x,y):
+    <span style="color:#75715e"># the height function</span>
+    <span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> x <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> y<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span>y<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+
+<span style="color:#75715e">#生成数据做为底图网格</span>
+n <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, n)
+y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, n)
+X,Y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x, y) <span style="color:#75715e">#底图网格</span>
+
+<span style="color:#75715e">#contourf颜色填充网格</span>
+<span style="color:#75715e">#cmap：生成的数据对应得颜色,填充</span>
+<span style="color:#75715e">#8：等高线分为多少段</span>
+plt<span style="color:#f92672">.</span>contourf(X,Y,f(X,Y),<span style="color:#ae81ff">8</span>,alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.75</span>,cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>hot)
+
+<span style="color:#75715e">#画等高线的线</span>
+C<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>contour(X,Y,f(X,Y),<span style="color:#ae81ff">8</span>,colors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>,linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+
+<span style="color:#75715e">#加入等高线高度值</span>
+<span style="color:#75715e">#线画给C，画在线里面，大小等于10</span>
+plt<span style="color:#f92672">.</span>clabel(C,inline<span style="color:#f92672">=</span>True,fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+
+plt<span style="color:#f92672">.</span>xticks(())
+plt<span style="color:#f92672">.</span>yticks(())
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><h4 id="image-图片">image 图片</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#75715e">#随机矩阵画图</span>
+a <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">0.313660827978</span>, <span style="color:#ae81ff">0.365348418405</span>, <span style="color:#ae81ff">0.423733120134</span>,
+              <span style="color:#ae81ff">0.365348418405</span>, <span style="color:#ae81ff">0.439599930621</span>, <span style="color:#ae81ff">0.525083754405</span>,
+              <span style="color:#ae81ff">0.423733120134</span>, <span style="color:#ae81ff">0.525083754405</span>, <span style="color:#ae81ff">0.651536351379</span>])<span style="color:#f92672">.</span>reshape(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>)
+<span style="color:#75715e">#imshow:数据图形化</span>
+<span style="color:#75715e">#origin:位置的设定</span>
+<span style="color:#75715e">#interpolation：多种不同的网格效果</span>
+plt<span style="color:#f92672">.</span>imshow(a,interpolation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nearest&#39;</span>,cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>bone,origin<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lower&#39;</span>)
+
+<span style="color:#75715e">#设置图片的color bar</span>
+plt<span style="color:#f92672">.</span>colorbar(shrink<span style="color:#f92672">=</span><span style="color:#ae81ff">0.9</span>)
+
+plt<span style="color:#f92672">.</span>xticks(())
+plt<span style="color:#f92672">.</span>yticks(())
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><h4 id="3d数据">3D数据</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> mpl_toolkits.mplot3d <span style="color:#f92672">import</span> Axes3D
+
+fig<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>figure()
+ax<span style="color:#f92672">=</span>Axes3D(fig)
+X<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">0.25</span>)
+Y<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">0.25</span>)
+X,Y<span style="color:#f92672">=</span>meshgrid(X,Y)
+R<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>sqrt(X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span>Y<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+<span style="color:#75715e">#height value</span>
+Z<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>sin(R)
+<span style="color:#75715e">#rstride=1,cstride=1:跨度</span>
+ax<span style="color:#f92672">.</span>plot_surface(X,Y,Z,rstride<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,cstride<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>get_cmap(<span style="color:#e6db74">&#39;rainbow&#39;</span>))
+
+<span style="color:#75715e">#zdir等高线压到哪个值</span>
+<span style="color:#75715e">#offset:压到哪个值面</span>
+ax<span style="color:#f92672">.</span>contourf(X,Y,Z,zdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;z&#39;</span>,offset<span style="color:#f92672">=-</span><span style="color:#ae81ff">2</span>,camp<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rainbow&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><h4 id="subplot在一个figure中输出几个小图">Subplot:在一个figure中输出几个小图</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+plt<span style="color:#f92672">.</span>figure()
+<span style="color:#75715e">#将figure分割成两行两列</span>
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>)
+plt<span style="color:#f92672">.</span>port([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>])
+
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>)
+plt<span style="color:#f92672">.</span>port([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>])
+
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>)
+plt<span style="color:#f92672">.</span>port([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>])
+
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>)
+plt<span style="color:#f92672">.</span>port([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>],[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>])
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><h4 id="subplot分格显示">subplot分格显示</h4>
+<pre><code>import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+ax1 = plt.subplot2grid((3, 3), (0, 0), colspan=3,rowspan=1)
+ax1.plot([1, 2], [1, 2])    # 画小图
+ax1.set_title('ax1_title')  # 设置小图的标题
+#按坐标确定分割块，按坐标点起始
+ax2 = plt.subplot2grid((3, 3), (1, 0), colspan=2)
+ax3 = plt.subplot2grid((3, 3), (1, 2), rowspan=2)
+ax4 = plt.subplot2grid((3, 3), (2, 0))
+ax5 = plt.subplot2grid((3, 3), (2, 1))
+
+ax4.scatter([1, 2], [2, 2])
+ax4.set_xlabel('ax4_x')
+ax4.set_ylabel('ax4_y')
+</code></pre><h4 id="画中画">画中画</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+<span style="color:#75715e"># 初始化figure</span>
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
+
+<span style="color:#75715e"># 创建数据</span>
+x <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>]
+y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>]
+left, bottom, width, height <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.8</span>, <span style="color:#ae81ff">0.8</span>
+ax1<span style="color:#f92672">=</span>fig<span style="color:#f92672">.</span>add_axes([left, bottom, width, height])
+ax1<span style="color:#f92672">.</span>plot(x,y,<span style="color:#e6db74">&#39;r&#39;</span>)
+ax1<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
+ax1<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
+ax1<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;title&#39;</span>)
+<span style="color:#75715e">#方法1</span>
+left, bottom, width, height <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.6</span>, <span style="color:#ae81ff">0.25</span>, <span style="color:#ae81ff">0.25</span>
+ax2<span style="color:#f92672">=</span>fig<span style="color:#f92672">.</span>add_axes([left, bottom, width, height])
+ax2<span style="color:#f92672">.</span>plot(x,y,<span style="color:#e6db74">&#39;r&#39;</span>)
+ax2<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
+ax2<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
+ax2<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;title&#39;</span>)
+<span style="color:#75715e">#方法2</span>
+plt<span style="color:#f92672">.</span>axes([<span style="color:#ae81ff">0.6</span>, <span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.25</span>, <span style="color:#ae81ff">0.25</span>])
+plt<span style="color:#f92672">.</span>plot(y[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], x, <span style="color:#e6db74">&#39;g&#39;</span>) <span style="color:#75715e"># 注意对y进行了逆序处理</span>
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;title inside 2&#39;</span>)
+
+</code></pre></div><h4 id="次坐标轴">次坐标轴</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> animation
+
+x<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">0.1</span>)
+y1<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span><span style="color:#f92672">*</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+y2<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">*</span>y1
+<span style="color:#75715e">#获取figure默认的坐标系ax1</span>
+fig,ax1<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>subplots()
+ax2<span style="color:#f92672">=</span>ax1<span style="color:#f92672">.</span>twinx()
+ax1<span style="color:#f92672">.</span>plot(x,y1,<span style="color:#e6db74">&#39;g-&#39;</span>)
+ax2<span style="color:#f92672">.</span>plot(x,y2,<span style="color:#e6db74">&#39;b-&#39;</span>)
+
+
+</code></pre></div><h4 id="动画">动画</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi, <span style="color:#ae81ff">0.01</span>)
+line, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot(x, np<span style="color:#f92672">.</span>sin(x))
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">animate</span>(i):
+    line<span style="color:#f92672">.</span>set_ydata(np<span style="color:#f92672">.</span>sin(x <span style="color:#f92672">+</span> i<span style="color:#f92672">/</span><span style="color:#ae81ff">10.0</span>))
+    <span style="color:#66d9ef">return</span> line,
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init</span>():
+    line<span style="color:#f92672">.</span>set_ydata(np<span style="color:#f92672">.</span>sin(x))
+    <span style="color:#66d9ef">return</span> line,
+
+ani<span style="color:#f92672">=</span>animation<span style="color:#f92672">.</span>FuncAnimation(fig<span style="color:#f92672">=</span>fig,func<span style="color:#f92672">=</span>,frames<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>,init_func<span style="color:#f92672">=</span>init,interval<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>,blit<span style="color:#f92672">=</span>True)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/matplotlib/>https://anfieldqi.github.io/2020/matplotlib/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/%E7%94%BB%E5%9B%BE/">
+                    #画图</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="prev" rel="prev" title="确定固件的加载地址"><i class="iconfont icon-left"></i>&nbsp;确定固件的加载地址</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
