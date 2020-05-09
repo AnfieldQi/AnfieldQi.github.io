@@ -6,10 +6,19 @@
     <description>Recent content in IoT安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 May 2020 15:39:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2020 18:29:16 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/categories/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>FACT_platform</title>
+      <link>https://anfieldqi.github.io/2020/fact_platform/</link>
+      <pubDate>Thu, 07 May 2020 18:29:16 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/fact_platform/</guid>
+      <description>FACT 一款基于Flask开发的自动化固件检测平台 1.基本功能 1.软件识别 （1）使用哪个操作系统？ （2）哪些节目存在？ （3）使用哪些版本？ （4）哪</description>
+    </item>
     
     <item>
       <title>固件敏感文件信息分析</title>

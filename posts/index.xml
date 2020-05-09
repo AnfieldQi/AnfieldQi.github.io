@@ -6,10 +6,19 @@
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 May 2020 15:39:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2020 18:29:16 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>FACT_platform</title>
+      <link>https://anfieldqi.github.io/2020/fact_platform/</link>
+      <pubDate>Thu, 07 May 2020 18:29:16 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/fact_platform/</guid>
+      <description>FACT 一款基于Flask开发的自动化固件检测平台 1.基本功能 1.软件识别 （1）使用哪个操作系统？ （2）哪些节目存在？ （3）使用哪些版本？ （4）哪</description>
+    </item>
     
     <item>
       <title>固件敏感文件信息分析</title>
@@ -18,6 +27,15 @@
       
       <guid>https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</guid>
       <description>固件信息 固件被顺利提取后，就可以进入分析流程 1.工具：file hexdump string 2.本章使用固件：TL-WR841Nv14_EU_0.9.1_4.16_u</description>
+    </item>
+    
+    <item>
+      <title>Python_crawler</title>
+      <link>https://anfieldqi.github.io/2020/python_crawler/</link>
+      <pubDate>Thu, 07 May 2020 13:52:26 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/python_crawler/</guid>
+      <description>1. beautifulSoup 1.1 基础 #1.使用beautifulsoup解析html网页/读取a标签的链接 from bs4 import BeautifulSoup from urllib.request import urlopen html=urlopen(&amp;#34;https://baike.baidu.com/item/%E5%AE%81%E5%9F%8E%E9%AB%98%E7%BA%A7%E4%B8%AD%E5%AD%A6/9016318?fr=aladdin&amp;#34;).read().decode() print(html) #%% soup=BeautifulSoup(html,features=&amp;#34;lxml&amp;#34;) print(soup.h1) print(soup.div) #%% all_href=soup.find_all(&amp;#34;a&amp;#34;) for l in enumerate(all_href): if l[1].get(&amp;#39;href&amp;#39;): print(l[0],l[1][&amp;#39;href&amp;#39;]) #2.解析CS</description>
     </item>
     
     <item>
@@ -89,7 +107,7 @@
       <pubDate>Thu, 23 Apr 2020 11:38:44 +0800</pubDate>
       
       <guid>https://anfieldqi.github.io/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
-      <description></description>
+      <description>写在前面：个人笔记整理，比较简单 脚本代码放到服务器运行 1.配置服务端环境 1.1 python环境 一般现在服务器自带2和3环境，根据需要使用即可 1.2 创</description>
     </item>
     
     <item>
