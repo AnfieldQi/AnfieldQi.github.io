@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/fact_platform/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Python方法 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="Python方法 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Python方法",
+    "headline" : "Python方法",
+    "description" : "普通方法 调用：类名调用，不可使用实例化对象，关于类没啥用 class Num: def one(): print (\x26#39;1\x26#39;) 实例方法 所属：实例对象 调用：用实例化对象调用 类中最常用的方法是实例方法,",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-11 13:54:49 \x2b0800 CST",
+    "dateModified" : "2020-05-11 13:54:49 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/python%E7%B1%BB%E6%96%B9%E6%B3%95\/",
+    "wordCount" : "1473",
+    "keywords" : [ "python基础", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Python方法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-05-11 itemprop="datePublished">May 11, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/python/"> python </a>
+                        
+                </span>
+                <span class="post-word-count">, 1473 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h4 id="普通方法">普通方法</h4>
+<ol>
+<li>调用：类名调用，不可使用实例化对象，关于类没啥用</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Num</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">one</span>():   
+        <span style="color:#66d9ef">print</span> (<span style="color:#e6db74">&#39;1&#39;</span>)
+</code></pre></div><h4 id="实例方法">实例方法</h4>
+<ol>
+<li>
+<p>所属：实例对象</p>
+</li>
+<li>
+<p>调用：用实例化对象调用</p>
+</li>
+</ol>
+<p>类中最常用的方法是实例方法, 即通过通过实例作为第一个参数的方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Kls</span>(object):
+    <span style="color:#66d9ef">def</span> __init__(self, data):
+        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> data
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">printd</span>(self):
+        <span style="color:#66d9ef">print</span>(self<span style="color:#f92672">.</span>data)
+test1 <span style="color:#f92672">=</span> Kls(<span style="color:#e6db74">&#39;test1&#39;</span>)
+test2 <span style="color:#f92672">=</span> Kls(<span style="color:#e6db74">&#39;test2&#39;</span>)
+test1<span style="color:#f92672">.</span>printd()
+test2<span style="color:#f92672">.</span>printd()
+</code></pre></div><p>其中self指向实例方法。通常我们这样实例化对象并使用实例对象的方法。</p>
+<h4 id="类方法">类方法</h4>
+<ol>
+<li>
+<p>所属：类</p>
+</li>
+<li>
+<p>主要用途：作为构造函数，class method可以用来为一个类创建一些预处理的实例.</p>
+<p>有些方法不需要在实例中运行，只在类中运行就可以了。</p>
+</li>
+<li>
+<p>调用：调用时将Num类作为对象隐式地传入方法，使用实例化对象和类名调用</p>
+</li>
+<li>
+<p>普通做法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iget_no_of_instance</span>(ins_obj):
+    <span style="color:#66d9ef">return</span> ins_obj<span style="color:#f92672">.</span>__class__<span style="color:#f92672">.</span>no_inst
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Kls</span>(object):
+    no_inst <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">def</span> __init__(self):
+    Kls<span style="color:#f92672">.</span>no_inst <span style="color:#f92672">=</span> Kls<span style="color:#f92672">.</span>no_inst <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+ik1 <span style="color:#f92672">=</span> Kls()
+ik2 <span style="color:#f92672">=</span> Kls()
+<span style="color:#66d9ef">print</span> iget_no_of_instance(ik1)
+   
+</code></pre></div></li>
+<li>
+<p>使用@classmethod修饰</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Kls</span>(object):
+    no_inst <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">def</span> __init__(self):
+        Kls<span style="color:#f92672">.</span>no_inst <span style="color:#f92672">=</span> Kls<span style="color:#f92672">.</span>no_inst <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#a6e22e">@classmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_no_of_instance</span>(cls_obj):
+        <span style="color:#66d9ef">return</span> cls_obj<span style="color:#f92672">.</span>no_inst
+ik1 <span style="color:#f92672">=</span> Kls()
+ik2 <span style="color:#f92672">=</span> Kls()
+<span style="color:#66d9ef">print</span> ik1<span style="color:#f92672">.</span>get_no_of_instance()
+<span style="color:#66d9ef">print</span> Kls<span style="color:#f92672">.</span>get_no_of_instance()
+   
+</code></pre></div><p>无论是从实例调用还是从类调用，它都用第一个参数<strong>把当前类对象传递过来</strong>，访问类相关参数</p>
+</li>
+<li>
+<p>类方法对静态方法的调用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Pizza</span>(object):
+    <span style="color:#66d9ef">def</span> __init__(self, radius, height):
+        self<span style="color:#f92672">.</span>radius <span style="color:#f92672">=</span> radius
+        self<span style="color:#f92672">.</span>height <span style="color:#f92672">=</span> height
+   
+    <span style="color:#a6e22e">@staticmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_area</span>(radius):
+        <span style="color:#66d9ef">return</span> math<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> (radius <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
+   
+    <span style="color:#a6e22e">@classmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_volume</span>(cls, height, radius):
+        <span style="color:#66d9ef">return</span> height <span style="color:#f92672">*</span> cls<span style="color:#f92672">.</span>compute_area(radius)
+   
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_volume</span>(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>compute_volume(self<span style="color:#f92672">.</span>height, self<span style="color:#f92672">.</span>radius)
+</code></pre></div></li>
+<li>
+<p>类方法的简单使用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Pizza</span>(object):
+    <span style="color:#66d9ef">def</span> __init__(self, ingredients):
+        self<span style="color:#f92672">.</span>ingredients <span style="color:#f92672">=</span> ingredients
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_cheese</span>(arg):
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_vegetables</span>(arg):
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span>
+    <span style="color:#a6e22e">@classmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">from_fridge</span>(cls, fridge):
+        <span style="color:#66d9ef">return</span> cls(fridge<span style="color:#f92672">.</span>get_cheese() <span style="color:#f92672">+</span> fridge<span style="color:#f92672">.</span>get_vegetables())
+fridge<span style="color:#f92672">=</span>Pizza(<span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">print</span>(Pizza<span style="color:#f92672">.</span>from_fridge(fridge)<span style="color:#f92672">.</span>ingredients)
+</code></pre></div></li>
+<li>
+<p>类方法作为构造函数的例子</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#......</span>
+</code></pre></div></li>
+</ol>
+<h4 id="静态方法">静态方法</h4>
+<ol>
+<li>
+<p>所属：似乎属于类，但与类和实例都无关，是一些跟某一指定类有关的东西，可以放在类外面，但是会造成混乱</p>
+</li>
+<li>
+<p>主要用途：限定namespace，也就是说这个函数虽然是个普通的function，但是它只有这个class会用到，不适合作为module level的function。这时候就把它作为staticmethod</p>
+</li>
+<li>
+<p>调用：能用类名和实例化对象调用</p>
+</li>
+<li>
+<p>规则：Python不会为Pizza对象实例化静态方法</p>
+</li>
+<li>
+<p>比如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">IND <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ON&#39;</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">checkind</span>():
+    <span style="color:#66d9ef">return</span> (IND <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;ON&#39;</span>)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Kls</span>(object):
+     <span style="color:#66d9ef">def</span> __init__(self,data):
+        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> data
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_reset</span>(self):
+    <span style="color:#66d9ef">if</span> checkind():
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Reset done for:&#39;</span>, self<span style="color:#f92672">.</span>data)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_db</span>(self):
+    <span style="color:#66d9ef">if</span> checkind():
+        self<span style="color:#f92672">.</span>db <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;new db connection&#39;</span>
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;DB connection made for:&#39;</span>,self<span style="color:#f92672">.</span>data)
+ik1 <span style="color:#f92672">=</span> Kls(<span style="color:#ae81ff">12</span>)
+ik1<span style="color:#f92672">.</span>do_reset()
+ik1<span style="color:#f92672">.</span>set_db()
+</code></pre></div></li>
+<li>
+<p>使用@staticmethod修饰</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">IND <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ON&#39;</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Kls</span>(object):
+    <span style="color:#66d9ef">def</span> __init__(self, data):
+        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> data
+    <span style="color:#a6e22e">@staticmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">checkind</span>():
+        <span style="color:#66d9ef">return</span> (IND <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;ON&#39;</span>)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_reset</span>(self):
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>checkind():
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Reset done for:&#39;</span>, self<span style="color:#f92672">.</span>data)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_db</span>(self):
+        <span style="color:#75715e">#其他方法可以省去实例化等东西就可以使用它</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>checkind():
+            self<span style="color:#f92672">.</span>db <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;New db connection&#39;</span>
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;DB connection made for: &#39;</span>, self<span style="color:#f92672">.</span>data)
+ik1 <span style="color:#f92672">=</span> Kls(<span style="color:#ae81ff">12</span>)
+ik1<span style="color:#f92672">.</span>do_reset()
+ik1<span style="color:#f92672">.</span>set_db()
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#这里涉及到调用权限</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Kls</span>(object):
+    <span style="color:#66d9ef">def</span> __init__(self, data):
+        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> data
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">printd</span>(self):
+        <span style="color:#66d9ef">print</span>(self<span style="color:#f92672">.</span>data)
+    <span style="color:#a6e22e">@staticmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">smethod</span>(<span style="color:#f92672">*</span>arg):
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Static:&#39;</span>, arg)
+    <span style="color:#a6e22e">@classmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cmethod</span>(<span style="color:#f92672">*</span>arg):
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Class:&#39;</span>, arg)
+    
+<span style="color:#f92672">&gt;&gt;&gt;</span> ik <span style="color:#f92672">=</span> Kls(<span style="color:#ae81ff">23</span>)
+<span style="color:#75715e">#实例可以访问类，实例，静态方法，但传入的东西不同的</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> ik<span style="color:#f92672">.</span>printd()
+<span style="color:#ae81ff">23</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> ik<span style="color:#f92672">.</span>smethod()
+Static: ()
+<span style="color:#f92672">&gt;&gt;&gt;</span> ik<span style="color:#f92672">.</span>cmethod()
+Class: (<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">__main__</span><span style="color:#f92672">.</span>Kls<span style="color:#e6db74">&#39;&gt;,)</span>
+<span style="color:#75715e">#不可以通过类名直接访问实例方法</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> Kls<span style="color:#f92672">.</span>printd()
+<span style="color:#a6e22e">TypeError</span>: unbound method printd() must be called <span style="color:#66d9ef">with</span> Kls instance <span style="color:#66d9ef">as</span> first argument (got nothing instead)
+<span style="color:#75715e">#可以通过类名访问静态方法</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> Kls<span style="color:#f92672">.</span>smethod()
+Static: ()
+<span style="color:#75715e">#可以访问类方法</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> Kls<span style="color:#f92672">.</span>cmethod()
+Class: (<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">__main__</span><span style="color:#f92672">.</span>Kls<span style="color:#e6db74">&#39;&gt;,)</span>
+</code></pre></div></li>
+</ol>
+<hr>
+<ol>
+<li>
+<p>可以看看里面的例子，应该使用没有问题</p>
+</li>
+<li>
+<p>题外话：类变量和实例变量的访问</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">1.</span><span style="color:#960050;background-color:#1e0010">类变量访问：在类内部和外部都用类名</span><span style="color:#f92672">.</span><span style="color:#960050;background-color:#1e0010">类变量</span>
+  <span style="color:#960050;background-color:#1e0010">在类内部，也可以用</span> self<span style="color:#f92672">.</span><span style="color:#960050;background-color:#1e0010">类变量</span><span style="color:#f92672">--&gt;</span><span style="color:#960050;background-color:#1e0010">含义变成一个实例变量（实例变量会屏蔽掉类变量的值）</span>
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">实例变量：在类内部，用</span> self<span style="color:#f92672">.</span><span style="color:#960050;background-color:#1e0010">实例变量</span> <span style="color:#960050;background-color:#1e0010">访问</span><span style="color:#f92672">|</span><span style="color:#960050;background-color:#1e0010">在类外部，用</span> <span style="color:#960050;background-color:#1e0010">实例名</span><span style="color:#f92672">.</span><span style="color:#960050;background-color:#1e0010">实例变量</span> <span style="color:#960050;background-color:#1e0010">访问（实例变量是绑定到一个实例上的变量，它只属于这个实例。这一点区别于类变量，类变量是所有来自于同一个类的实例所共享的）</span>
+<span style="color:#ae81ff">3.</span><span style="color:#960050;background-color:#1e0010">总结</span>
+<span style="color:#ae81ff">3.1</span><span style="color:#960050;background-color:#1e0010">、类变量可以用</span> <span style="color:#960050;background-color:#1e0010">类名</span><span style="color:#f92672">.</span><span style="color:#960050;background-color:#1e0010">类变量</span> <span style="color:#960050;background-color:#1e0010">和</span> self<span style="color:#f92672">.</span><span style="color:#960050;background-color:#1e0010">类变量</span> <span style="color:#960050;background-color:#1e0010">两种方式访问，后者一般情况不建议使用。</span>
+<span style="color:#ae81ff">3.2</span><span style="color:#960050;background-color:#1e0010">、类变量是所有对象所共享的，无论任何时候都建议用类名的方式访问类变量。</span>
+<span style="color:#ae81ff">3.3</span><span style="color:#960050;background-color:#1e0010">、实例变量在类内部用</span> self <span style="color:#960050;background-color:#1e0010">访问，在类外部用实例名访问。</span>
+<span style="color:#ae81ff">3.4</span><span style="color:#960050;background-color:#1e0010">、类变量通过</span> self <span style="color:#960050;background-color:#1e0010">访问时则被转化为实例变量，被绑定到特定的实例上，其值会屏蔽掉类变量。</span>
+<span style="color:#ae81ff">3.5</span><span style="color:#960050;background-color:#1e0010">、通过对实例变量（</span>self<span style="color:#960050;background-color:#1e0010">）的形式对类变量重新赋值后，类变量的值不随之变化。</span>
+<span style="color:#ae81ff">3.6</span><span style="color:#960050;background-color:#1e0010">、方法内的局部变量会屏蔽掉类变量和实例变量。</span>
+<span style="color:#ae81ff">3.7</span><span style="color:#960050;background-color:#1e0010">、同一实例变量在不同的实例中可能拥有不同的值。</span>
+</code></pre></div></li>
+</ol>
+<hr>
+<h4 id="staticmethod和classmethod">staticmethod和classmethod</h4>
+<ol>
+<li>两者的区别在于在存在类的继承的情况下对多态的支持不同</li>
+<li>Python中不管是classmethod还是staticmethod都有OOP、多态上的意义</li>
+</ol>
+<p>具体：略</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/>https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/python%E5%9F%BA%E7%A1%80/">
+                    #python基础</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/fact_platform/" class="prev" rel="prev" title="FACT_platform"><i class="iconfont icon-left"></i>&nbsp;FACT_platform</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

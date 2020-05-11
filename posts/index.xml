@@ -6,10 +6,19 @@
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 May 2020 18:29:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2020 13:54:49 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python方法</title>
+      <link>https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 11 May 2020 13:54:49 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</guid>
+      <description>普通方法 调用：类名调用，不可使用实例化对象，关于类没啥用 class Num: def one(): print (&amp;#39;1&amp;#39;) 实例方法 所属：实例对象 调用：用实例化对象调用 类中最常用的方法是实例方法,</description>
+    </item>
     
     <item>
       <title>FACT_platform</title>
