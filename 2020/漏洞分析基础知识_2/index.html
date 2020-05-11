@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/" />
+  <link rel="next" href="https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/" />
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           2.漏洞分析基础知识 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="2.漏洞分析基础知识 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "2.漏洞分析基础知识",
+    "headline" : "2.漏洞分析基础知识",
+    "description" : "二进制文件概述 1. PE文件格式 PE（Portable Exec utable）是 Win32 平台下可执行文件遵守的数据格式。常见的可执行文件（如*.exe文件和*",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-10 16:22:19 \x2b0800 CST",
+    "dateModified" : "2020-05-10 16:22:19 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2\/",
+    "wordCount" : "1654",
+    "keywords" : [ "软件漏洞分析", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">2.漏洞分析基础知识</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-05-10 itemprop="datePublished">May 10, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 1654 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="二进制文件概述">二进制文件概述</h2>
+<h3 id="1-pe文件格式">1. PE文件格式</h3>
+<p>PE（Portable Exec utable）是 Win32 平台下可执行文件遵守的数据格式。常见的可执行文件（如*.exe文件和*.dll文件）都是典型的 PE 文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">PE <span style="color:#960050;background-color:#1e0010">文件格式把可执行文件分成若干个数据节（</span>section<span style="color:#960050;background-color:#1e0010">），不同的资源被存放在不同的节中。</span>
+<span style="color:#960050;background-color:#1e0010">一个典型的</span> PE <span style="color:#960050;background-color:#1e0010">文件中包含的节如下。</span>
+<span style="color:#f92672">.</span>text <span style="color:#960050;background-color:#1e0010">由编译器产生，存放着二进制的机器代码，也是我们反汇编和调试的对象。</span>
+<span style="color:#f92672">.</span>data <span style="color:#960050;background-color:#1e0010">初始化的数据块，如宏定义、全局变量、静态变量等。</span>
+<span style="color:#f92672">.</span>idata <span style="color:#960050;background-color:#1e0010">可执行文件所使用的动态链接库等外来函数与文件的信息。</span>
+<span style="color:#f92672">.</span>rsrc <span style="color:#960050;background-color:#1e0010">存放程序的资源，如图标、菜单等。</span>
+<span style="color:#960050;background-color:#1e0010">除此以外，还可能出现的节包括“</span><span style="color:#f92672">.</span>reloc<span style="color:#960050;background-color:#1e0010">”、“</span><span style="color:#f92672">.</span>edata<span style="color:#960050;background-color:#1e0010">”、“</span><span style="color:#f92672">.</span>tls<span style="color:#960050;background-color:#1e0010">”、“</span><span style="color:#f92672">.</span>rdata<span style="color:#960050;background-color:#1e0010">”等。</span>
+
+<span style="color:#75715e">#正常的PE大体相同，加壳的PE十分古怪</span>
+</code></pre></div><h3 id="2-虚拟内存">2. 虚拟内存</h3>
+<p>windows进程层面：</p>
+<ol>
+<li>物理内存（复杂，通常看不到）</li>
+<li>虚拟内存（在用户模式下，我们用调试器看到的内存地址都是虚拟内存）</li>
+</ol>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200510164815026.png" alt="image-20200510164815026"></p>
+<p>在这个系统中，每个进程都相信自己拥有4GB的内存空间，但他们实际运行时根本用不到这么多，内存管理器给他们分配一片假地址，让进程们“认为”这些“虚拟地址”都是可以访问的。如果进程不使用这些“虚拟地址”，它们对进程来说就只是一笔“无形的数字财富”；当需要进行实际的内存操作时，内存管理器才会把“虚拟地址”和“物理地址”联系起来。</p>
+<hr>
+<p>操作系统中的虚拟内存：是指内存不够用将硬盘的一些空间占用的策略，与此不同</p>
+<hr>
+<h3 id="3-pe-文件与虚拟内存之间的映射">3. PE 文件与虚拟内存之间的映射</h3>
+<p>在调试漏洞的时候，我们需要做两种操作：</p>
+<ol>
+<li>PE中的文件偏移—&gt;虚拟内存地址（VA）</li>
+<li>VA—&gt;PE文件中对应位置的机器码</li>
+</ol>
+<p>因此需要知道PE与虚拟内存的映射关系：</p>
+<ol>
+<li>
+<p>文件偏移地址（File Offset）：数据在 PE 文件中的地址叫文件偏移地址，作者认为叫做文件地址更加准确。这是文件在磁盘上存放时相对于文件开头的偏移。</p>
+</li>
+<li>
+<p>装载基址（Image Base）：PE 装入内存时的基地址。默认情况下，EXE 文件在内存中的基地址是0x00400000，DLL文件是 0x10000000。这些位置可以通过修改编译选项更改。</p>
+</li>
+<li>
+<p>虚拟内存地址（Virtual Address，VA）：PE 文件中的指令被装入内存后的地址。</p>
+</li>
+<li>
+<p>相对虚拟地址（Relative Virtual Address，RVA）：内存地址相对于映射基址的偏移量。</p>
+</li>
+</ol>
+<hr>
+<p>​                                                                     VA= Image Base+ RVA</p>
+<hr>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200510170825652.png" alt="image-20200510170825652"></p>
+<p>文件偏移是相对于文件开始处 0 字节的偏移，RVA（相对虚拟地址）则是相对于装载基址。</p>
+<hr>
+<p>但是有一些差异：</p>
+<ol>
+<li>
+<p>PE 文件中的数据按照磁盘数据标准存放，以 0x200 字节为基本单位进行组织。当一个数据节（section）不足 0x200 字节时，不足的地方将被 0x00 填充；当一个数据节超过 0x200字节时，下一个 0x200 块将分配给这个节使用。因此 PE 数据节的大小永远是 0x200 的整数倍。</p>
+</li>
+<li>
+<p>当代码装入内存后，将按照内存数据标准存放，并以 0x1000 字节为基本单位进行组织。类似的，不足将被补全，若超出将分配下一个 0x1000 为其所用。因此，内存中的节总是0x1000 的整数倍。</p>
+</li>
+</ol>
+<p>这导致节偏移的出现：</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200510203504387.png" alt="image-20200510203504387"></p>
+<hr>
+<p><strong>文件偏移地址 = 虚拟内存地址（VA）−装载基址（Image Base）−节偏移= RVA -节偏移</strong></p>
+<p>一般 PE 文件的 0 字节将对映到虚拟内存的 0x00400000位置</p>
+<hr>
+<p>以表 1-2-1 为例，如果在调试时遇到虚拟内存中 0x00404141 处的一条指令，那么要换算出这条指令在文件中的偏移量，则有：文件偏移量=0x00404141-0x00400000- (0x1000-0x400)=0x3541</p>
+<h4 id="地址转换工具load-pe">地址转换工具：Load PE</h4>
+<p>一般需要环境，直接下载一个吾爱破解虚拟机算了。</p>
+<p><!-- raw HTML omitted --></p>
+<p>VOFFSET：虚拟内存地址（VA）  | ROFFSET：文件偏移地址</p>
+<hr>
+<h3 id="4必备工具">4.必备工具</h3>
+<h4 id="1-ollydbg">1. OllyDbg</h4>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200510213214102.png" alt="image-20200510213214102"></p>
+<h4 id="2ida-pro">2.IDA PRO</h4>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200510213325239.png" alt="image-20200510213325239"></p>
+<h4 id="3010-editor">3.010 editor</h4>
+<h4 id="4python">4.python</h4>
+<hr>
+<h3 id="5-一个简单的例子">5. 一个简单的例子</h3>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200510220055347.png" alt="image-20200510220055347"></p>
+<p>我们可以使用IDA分析其逻辑</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200510220231747.png" alt="image-20200510220231747"></p>
+<p>发现其跳转逻辑位于此条，IDA已经为我们计算好了运行时VA，打开OD按快捷键 Ctrl+G 直接跳到由 IDA 得到的 VA：0x0040106E 处查看那条引起程序分支的关键指令</p>
+<p>将其直接修改为jz，点击汇编将其写入内存，下断点程序运行至此处，输入密码后会显示有不同的跳转，不输入正确密码也能跳转成功。</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200510221459754.png" alt="image-20200510221459754"></p>
+<p>题外话：软件破解是另一门自成体系的技术了，在这里不做讨论，这个也是最简单的OD+IDA利用了，其实有很多种方法可以绕过这个密码验证，实在无趣。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/>https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/">
+                    #软件漏洞分析</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/" class="prev" rel="prev" title="1.漏洞的概念"><i class="iconfont icon-left"></i>&nbsp;1.漏洞的概念</a>
+         
+        
+        <a href="https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/" class="next" rel="next" title="Python方法">Python方法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 May 2020 13:54:49 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2020 20:30:37 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>3.栈溢出原理与实践</title>
+      <link>https://anfieldqi.github.io/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/</link>
+      <pubDate>Mon, 11 May 2020 20:30:37 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/</guid>
+      <description>栈溢出原理与实践 1. 系统栈的工作原理 1.1内存的用途 进程使用的内存都可以按照功能大致分成以下 4 个部分 代码区：这个区域存储着被装入执行的二进制机</description>
+    </item>
     
     <item>
       <title>Python方法</title>
@@ -22,10 +31,10 @@
     
     <item>
       <title>2.漏洞分析基础知识</title>
-      <link>https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/</link>
       <pubDate>Sun, 10 May 2020 16:22:19 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/</guid>
       <description>二进制文件概述 1. PE文件格式 PE（Portable Exec utable）是 Win32 平台下可执行文件遵守的数据格式。常见的可执行文件（如*.exe文件和*</description>
     </item>
     

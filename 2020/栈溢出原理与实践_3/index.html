@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           3.栈溢出原理与实践 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="3.栈溢出原理与实践 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "3.栈溢出原理与实践",
+    "headline" : "3.栈溢出原理与实践",
+    "description" : "栈溢出原理与实践 1. 系统栈的工作原理 1.1内存的用途 进程使用的内存都可以按照功能大致分成以下 4 个部分 代码区：这个区域存储着被装入执行的二进制机",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-11 20:30:37 \x2b0800 CST",
+    "dateModified" : "2020-05-11 20:30:37 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3\/",
+    "wordCount" : "1691",
+    "keywords" : [ "软件漏洞分析", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">3.栈溢出原理与实践</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-05-11 itemprop="datePublished">May 11, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 1691 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="栈溢出原理与实践">栈溢出原理与实践</h1>
+<h2 id="1-系统栈的工作原理">1. 系统栈的工作原理</h2>
+<h3 id="11内存的用途">1.1内存的用途</h3>
+<p>进程使用的内存都可以按照功能大致分成以下 4 个部分</p>
+<ol>
+<li>代码区：这个区域存储着被装入执行的二进制机器代码，处理器会到这个区域取指并执行。</li>
+<li>数据区：用于存储全局变量等</li>
+<li>堆区：进程可以在堆区动态地请求一定大小的内存，并在用完之后归还给堆区。动态分配和回收是堆区的特点。</li>
+<li>栈区：用于动态地存储函数之间的调用关系，以保证被调用函数在返回时恢复到母函数中继续执行</li>
+</ol>
+<h3 id="12-window平台装载过程">1.2 window平台装载过程</h3>
+<p><strong>PE—&gt;装载—&gt;进程—&gt;文件二进制代码段装入内存的代码区（.text)—&gt;处理器在内存区读取指令并传入算数逻辑单元—&gt;if请求动态内存—&gt;在内存堆区分配空间—&gt;发生函数调用—&gt;相关调用信息保存在栈中</strong></p>
+<p><!-- raw HTML omitted --></p>
+<p>如果把计算机看成一个有条不紊的工厂，我们可以得到如下类比。</p>
+<ol>
+<li>
+<p>CPU 是完成工作的工人。</p>
+</li>
+<li>
+<p>数据区、堆区、栈区等则是用来存放原料、半成品、成品等各种东西的场所。</p>
+</li>
+<li>
+<p>存在代码区的指令则告诉 CPU 要做什么，怎么做，到哪里去领原材料，用什么工具来做，做完以后把成品放到哪个货舱去。</p>
+</li>
+<li>
+<p>值得一提的是，栈除了扮演存放原料、半成品的仓库之外，它还是车间调度主任的办公室。</p>
+</li>
+</ol>
+<p>本章主要介绍在利用系统栈进行缓存时发生溢出。</p>
+<h3 id="13-栈与系统栈">1.3 栈与系统栈</h3>
+<p>栈：&hellip;.</p>
+<p>系统栈：内存中的系统栈由系统自动维护，用于实现高级语言中函数的调用</p>
+<h3 id="14-函数调用时系统栈发生了什么">1.4 函数调用时系统栈发生了什么</h3>
+<p>例子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> intfunc_B(<span style="color:#66d9ef">int</span> arg_B1, <span style="color:#66d9ef">int</span> arg_B2) 
+{ 
+ <span style="color:#66d9ef">int</span> var_B1, var_B2; 
+ var_B1<span style="color:#f92672">=</span>arg_B1<span style="color:#f92672">+</span>arg_B2; 
+ var_B2<span style="color:#f92672">=</span>arg_B1<span style="color:#f92672">-</span>arg_B2; 
+ <span style="color:#66d9ef">return</span> var_B1<span style="color:#f92672">*</span>var_B2; 
+} 
+intfunc_A(<span style="color:#66d9ef">int</span> arg_A1, <span style="color:#66d9ef">int</span> arg_A2) 
+{ 
+ <span style="color:#66d9ef">int</span> var_A; 
+ var_A <span style="color:#f92672">=</span> func_B(arg_A1,arg_A2) <span style="color:#f92672">+</span> arg_A1 ; 
+ <span style="color:#66d9ef">return</span> var_A; 
+} 
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>envp) 
+{ 
+ <span style="color:#66d9ef">int</span> var_main; 
+ var_main<span style="color:#f92672">=</span>func_A(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">3</span>);
+ <span style="color:#66d9ef">return</span> var_main; 
+}
+</code></pre></div><p>这段程序加载进内存后的效果如下：</p>
+<p><!-- raw HTML omitted --></p>
+<p>CPU在各个函数的代码区跳转，这一切都是与系统栈配合实现的，当函数被调用时，系统栈会为这个函数开辟一个新的栈帧，并把它压入栈中。这个栈帧中的内存空间被它所属的函数独占，正常情况下是不会和别的函数共享的。当函数返回时，系统栈会弹出该函数所对应的栈帧，流程如下：</p>
+<p><!-- raw HTML omitted --></p>
+<h3 id="15-寄存器与函数栈帧">1.5 寄存器与函数栈帧</h3>
+<p>每一个函数独占自己的栈帧空间。当前正在运行的函数的栈帧总是在栈顶。Win32 系统提供两个特殊的寄存器用于标识位于系统栈顶端的栈帧。</p>
+<ol>
+<li>
+<p>ESP：栈指针寄存器(extended stack po inter)，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的栈顶。</p>
+</li>
+<li>
+<p>EBP：基址指针寄存器(extended base pointer)，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的底部。</p>
+</li>
+<li>
+<p>额外EIP：指令寄存器(Extended Instruction Pointer)，其内存放着一个指针，该指针永远指向下一条等待执行的指令地址（<strong>控制EIP就控制了进程，可以自行决定指令的跳转</strong>）</p>
+</li>
+</ol>
+<h4 id="函数栈帧的信息">函数栈帧的信息</h4>
+<p>栈帧的大小不固定，与函数局部变量多少有关</p>
+<ol>
+<li>
+<p>局部变量：为函数局部变量开辟的内存空间。（全局变量在数据区）</p>
+</li>
+<li>
+<p>栈帧状态值：保存前栈帧的顶部和底部（实际上只保存前栈帧的底部，前栈帧的顶部可以通过堆栈平衡计算得到），用于在本帧被弹出后恢复出上一个栈帧。</p>
+</li>
+<li>
+<p>函数返回地址：保存当前函数调用前的“断点”信息，也就是函数调用前的指令位置，以便在函数返回时能够恢复到函数被调用前的代码区中继续执行指令。</p>
+</li>
+</ol>
+<h3 id="16-函数调用约定与相关指令">1.6 函数调用约定与相关指令</h3>
+<ol>
+<li>
+<p>函数调用约定描述了函数传递参数方式和栈协同工作的技术细节</p>
+</li>
+<li>
+<p>具体的调用约定差别：</p>
+<ol>
+<li>参数传递方式</li>
+<li>参数入栈顺序是从右向左还是从左向右</li>
+<li>函数返回时恢复堆栈平衡的操作在子函数中进行还是在母函数中进行</li>
+</ol>
+</li>
+<li>
+<p>VC</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200511215232188.png" alt="image-20200511215232188"></p>
+</li>
+</ol>
+<h4 id="函数调用的步骤">函数调用的步骤：</h4>
+<ol>
+<li>
+<p>参数入栈：将参数从右向左依次压入系统栈中。</p>
+</li>
+<li>
+<p>返回地址入栈：将当前代码区调用指令的下一条指令地址压入栈中，供函数返回时继</p>
+</li>
+</ol>
+<p>续执行。</p>
+<ol start="3">
+<li>
+<p>代码区跳转：处理器从当前代码区跳转到被调用函数的入口处。</p>
+</li>
+<li>
+<p>栈帧调整：具体包括：</p>
+<ol>
+<li>保存当前栈帧状态值，已备后面恢复本栈帧时使用（EBP 入栈）</li>
+<li>将当前栈帧切换到新栈帧（将 ESP 值装入 EBP，更新栈帧底部）</li>
+<li>给新栈帧分配空间（把 ESP 减去所需空间的大小，抬高栈顶）</li>
+</ol>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200511220742215.png" alt="image-20200511220742215"></p>
+</li>
+</ol>
+<h4 id="函数返回的步骤">函数返回的步骤：</h4>
+<ol>
+<li>保存返回值：通常将函数的返回值保存在寄存器 EAX 中</li>
+<li>弹出当前栈帧，恢复上一个栈帧
+<ol>
+<li>在堆栈平衡的基础上，给 ESP 加上栈帧的大小，降低栈顶，回收当前栈帧的空间</li>
+<li>将当前栈帧底部保存的前栈帧 EBP 值弹入 EBP 寄存器，恢复出上一个栈帧</li>
+<li>将函数返回地址弹给 EIP 寄存器</li>
+</ol>
+</li>
+<li>跳转：按照函数返回地址跳回母函数中继续执行</li>
+</ol>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200511220906010.png" alt="image-20200511220906010"></p>
+<h3 id="2-修改邻接变量">2. 修改邻接变量</h3>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/>https://anfieldqi.github.io/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/">
+                    #软件漏洞分析</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/" class="prev" rel="prev" title="Python方法"><i class="iconfont icon-left"></i>&nbsp;Python方法</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
