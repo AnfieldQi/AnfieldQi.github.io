@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/" />
-  <link rel="next" href="https://anfieldqi.github.io/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/" />
-  <link rel="canonical" href="https://anfieldqi.github.io/2020/fact_platform/" />
+  <link rel="prev" href="https://anfieldqi.github.io/2020/fact_platform/" />
+  <link rel="next" href="https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" />
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           FACT_platform | AnfieldQi`s Blog
+           1.漏洞的概念 | AnfieldQi`s Blog
        
   </title>
-  <meta name="title" content="FACT_platform | AnfieldQi`s Blog">
+  <meta name="title" content="1.漏洞的概念 | AnfieldQi`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/anfieldqi.github.io"
     },
     "articleSection" : "posts",
-    "name" : "FACT_platform",
-    "headline" : "FACT_platform",
-    "description" : "FACT 一款基于Flask开发的自动化固件检测平台 1.基本功能 1.软件识别 （1）使用哪个操作系统？ （2）哪些节目存在？ （3）使用哪些版本？ （4）哪",
+    "name" : "1.漏洞的概念",
+    "headline" : "1.漏洞的概念",
+    "description" : "1.Vulnerability 定义 通常把能够引起软件做一些“超出设计范围的事情”的 bug 称为漏洞（vulnerability） 种类 功能性逻辑缺陷（bug）：影响软件的正常功",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -54,11 +54,11 @@
     "accountablePerson" : "anfieldqi",
     "copyrightHolder" : "anfieldqi",
     "copyrightYear" : "2020",
-    "datePublished": "2020-05-07 18:29:16 \x2b0800 CST",
-    "dateModified" : "2020-05-07 18:29:16 \x2b0800 CST",
-    "url" : "https:\/\/anfieldqi.github.io\/2020\/fact_platform\/",
-    "wordCount" : "654",
-    "keywords" : [ "固件分析平台", "AnfieldQi`s Blog"]
+    "datePublished": "2020-05-10 15:38:40 \x2b0800 CST",
+    "dateModified" : "2020-05-10 15:38:40 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1\/",
+    "wordCount" : "509",
+    "keywords" : [ "软件漏洞分析", "AnfieldQi`s Blog"]
 }
 </script>
 
@@ -122,26 +122,24 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">FACT_platform</h1>
+        <h1 class="post-title" itemprop="name headline">1.漏洞的概念</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-05-07 itemprop="datePublished">May 7, 2020</time>
+                on <time datetime=2020-05-10 itemprop="datePublished">May 10, 2020</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://anfieldqi.github.io/categories/iot%E5%AE%89%E5%85%A8/"> IoT安全 </a>
+                        <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
                         
                 </span>
-                <span class="post-word-count">, 654 words</span>
+                <span class="post-word-count">, 509 words</span>
         </div>
     </header>
     <div class="post-content">
         
 
-        
-            
         
 
         
@@ -155,73 +153,22 @@
           
           
 
-          <h3 id="fact">FACT</h3>
-<p>一款基于Flask开发的自动化固件检测平台</p>
-<h4 id="1基本功能">1.基本功能</h4>
-<p><strong>1.软件识别</strong></p>
-<p>（1）使用哪个操作系统？</p>
-<p>（2）哪些节目存在？</p>
-<p>（3）使用哪些版本？</p>
-<p>（4）哪些服务在启动时启动</p>
-<p>（5）这些漏洞有哪些？</p>
-<p><strong>2.查找用户凭据</strong></p>
-<p><strong>3.加密材料检测</strong></p>
-<p>（1）私人钥匙</p>
-<p>（2）证书</p>
-<p>（3）CPU架构（需要进行仿真和反汇编）</p>
-<p>​    &hellip;&hellip;</p>
-<h4 id="2功能模块">2.功能模块</h4>
+          <h2 id="1vulnerability">1.Vulnerability</h2>
+<h3 id="定义">定义</h3>
+<p>通常把能够引起软件做一些“超出设计范围的事情”的 bug 称为漏洞（vulnerability）</p>
+<h3 id="种类">种类</h3>
 <ol>
-<li>
-<p>FACT的业务代码主要有三块</p>
-<p><strong>Unpacking - 固件解包</strong></p>
-<p><strong>Analysis - 固件系统分析</strong></p>
-<p><strong>Comparison - 固件类比</strong></p>
-</li>
-<li>
-<p>每一块业务代码又由一下两部分组成：</p>
-<p>（1）Scheduler - 任务调度器</p>
-<p>（2）Multiple plugins - 插件集</p>
-</li>
+<li>功能性逻辑缺陷（bug）：影响软件的正常功能，例如，执行结果错误、图标显示错误等</li>
+<li>安全性逻辑缺陷（漏洞）：通常情况下不影响软件的正常功能，但被攻击者成功利用后，有可能引起软件去执行额外的恶意代码。常见的漏洞包括软件中的缓冲区溢出漏洞、网站中的跨站脚本漏洞（XSS）、SQL 注入漏洞等。</li>
 </ol>
-<h4 id="3系统流程图">3.系统流程图</h4>
-<h5 id="总流程图">总流程图</h5>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cokad6bul3z.jpeg" alt="okad6bul3z"></p>
-<h5 id="固件解包流程">固件解包流程</h5>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cr6orsqmhql.jpeg" alt="r6orsqmhql"></p>
-<h5 id="固件分析流程">固件分析流程</h5>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C5uaaztlo6z.jpeg" alt="5uaaztlo6z"></p>
-<h5 id="固件类比流程目前未涉及">固件类比流程（目前未涉及）</h5>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C3w82eu7iiv.jpeg" alt="3w82eu7iiv"></p>
-<h4 id="4目录结构">4.目录结构</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">FACT_CORE-MASTER/SRC
-├─analysis <span style="color:#e6db74">&#39;&#39;</span> 固件分析任务脚本
-├─bootstrap
-│  └─patches
-├─compare <span style="color:#e6db74">&#39;&#39;</span>固件类比任务脚本
-├─config <span style="color:#e6db74">&#39;&#39;</span>配置信息
-├─helperFunctions <span style="color:#e6db74">&#39;&#39;</span> 辅助任务函数
-├─intercom <span style="color:#e6db74">&#39;&#39;</span>数据交互定义
-├─mime <span style="color:#e6db74">&#39;&#39;</span> 文件类型的mime资源
-├─objects <span style="color:#e6db74">&#39;&#39;</span> 目标类型定义脚本
-├─plugins <span style="color:#e6db74">&#39;&#39;</span> 插件集合
-│  ├─analysis
-│  │  ├─architecture_detection
-│  │     ├─code
-│  │     ├─test
-│  │     │  └─data
-│  │     └─view
-│  ├─compare
-│  │
-│  └─unpacking
-│     
-├─scheduler <span style="color:#e6db74">&#39;&#39;</span> 调度器脚本
-├─statistic <span style="color:#e6db74">&#39;&#39;</span> 任务统计
-├─storage <span style="color:#e6db74">&#39;&#39;</span> 数据交互存储接口
-├─test 
-├─unpacker <span style="color:#e6db74">&#39;&#39;</span> 固件解包任务脚本
-└─web_interface <span style="color:#e6db74">&#39;&#39;</span> WEB端
-</code></pre></div>
+<h2 id="vulnerability-attack">Vulnerability Attack</h2>
+<h3 id="漏洞挖掘">漏洞挖掘</h3>
+<p>一般安全性逻辑缺陷很难被常规QA测试出来，其不会影响系统正常的工作，漏洞的挖掘实际上是一种高级QA，在学术界，一般采用动态分析的方法来查找漏洞，但在工程界，一般采用“灰”盒测试的方法&ndash;FUZZ来寻找漏洞。</p>
+<h3 id="漏洞分析">漏洞分析</h3>
+<p>当 fuzz 捕捉到软件中一个严重的异常时，当您想透过厂商公布的简单描述了解漏洞细节的时候，您就需要具备一定的漏洞分析能力。一般情况下，我们需要调试二进制级别的程序。在分析漏洞时，如果能够搜索到 POC（proof of concept）代码，就能重现漏洞被触发的现场。这时可以使用调试器观察漏洞的细节，或者利用一些工具（如 Paimei）更方便地找到漏洞的触发点</p>
+<h3 id="漏洞利用">漏洞利用</h3>
+<p>包括内存漏洞（堆栈溢出）和 Web 应用漏洞（脚本注入）等</p>
+
     </div>
 
     <div class="post-copyright">
@@ -235,7 +182,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://anfieldqi.github.io/2020/fact_platform/>https://anfieldqi.github.io/2020/fact_platform/</span>
+                    <a href=https://anfieldqi.github.io/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/>https://anfieldqi.github.io/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/</span>
             </p>
             
              
@@ -251,8 +198,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://anfieldqi.github.io/tags/%E5%9B%BA%E4%BB%B6%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/">
-                    #固件分析平台</a></span>
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/">
+                    #软件漏洞分析</a></span>
             
             </section>
         
@@ -264,10 +211,10 @@
 
     <div class="post-nav">
         
-        <a href="https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="固件敏感文件信息分析"><i class="iconfont icon-left"></i>&nbsp;固件敏感文件信息分析</a>
+        <a href="https://anfieldqi.github.io/2020/fact_platform/" class="prev" rel="prev" title="FACT_platform"><i class="iconfont icon-left"></i>&nbsp;FACT_platform</a>
          
         
-        <a href="https://anfieldqi.github.io/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/" class="next" rel="next" title="1.漏洞的概念">1.漏洞的概念&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://anfieldqi.github.io/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="next" rel="next" title="2.漏洞分析基础知识">2.漏洞分析基础知识&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -333,9 +280,8 @@
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
 
