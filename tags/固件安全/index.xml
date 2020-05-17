@@ -6,10 +6,28 @@
     <description>Recent content in 固件安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 May 2020 09:50:50 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 May 2020 09:51:13 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>固件加密解密_DLINK</title>
+      <link>https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
+      <pubDate>Sun, 17 May 2020 09:51:13 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
+      <description>固件解密 1. 利用设备提供的更新机制解密 1.1原理 在固件的版本更新迭代中，会改变加密策略，在研究最新版固件时，如果固件本身是被加密的，那么就需要</description>
+    </item>
+    
+    <item>
+      <title>固件信息熵计算</title>
+      <link>https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</link>
+      <pubDate>Sun, 17 May 2020 09:50:55 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</guid>
+      <description>信息熵 熵（英语：entropy）是接收的每条消息中包含的信息的平均量 规则：熵值越高，所含信息越多；熵值越低，所含的信息也越低，或者说是所含信</description>
+    </item>
     
     <item>
       <title>OWASP固件安全性测试项</title>
