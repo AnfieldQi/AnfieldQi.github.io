@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/" />
-  
+  <link rel="next" href="https://anfieldqi.github.io/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/" />
   <link rel="canonical" href="https://anfieldqi.github.io/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -57,7 +57,7 @@
     "datePublished": "2020-05-11 20:30:37 \x2b0800 CST",
     "dateModified" : "2020-05-11 20:30:37 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3\/",
-    "wordCount" : "1691",
+    "wordCount" : "2822",
     "keywords" : [ "软件漏洞分析", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
                         
                 </span>
-                <span class="post-word-count">, 1691 words</span>
+                <span class="post-word-count">, 2822 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -292,8 +292,99 @@ intfunc_A(<span style="color:#66d9ef">int</span> arg_A1, <span style="color:#66d
 </li>
 <li>跳转：按照函数返回地址跳回母函数中继续执行</li>
 </ol>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200511220906010.png" alt="image-20200511220906010"></p>
-<h3 id="2-修改邻接变量">2. 修改邻接变量</h3>
+<p><!-- raw HTML omitted --></p>
+<h2 id="2-利用手段">2. 利用手段</h2>
+<h3 id="21-修改邻接变量的原理">2.1 修改邻接变量的原理</h3>
+<blockquote>
+<p>函数的局部变量在栈中按顺序排列，如果这些局部变量中有数组之类的缓冲区，并且程序中存在数组越界的缺陷，那么越界的数组元素就有可能破坏栈中相邻变量的值，甚至破坏栈帧中所保存的 EBP 值、返回地址等重要数据。</p>
+</blockquote>
+<p>栈溢出简单实例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt; </span><span style="color:#75715e">
+</span><span style="color:#75715e">#define PASSWORD &#34;1234567&#34; 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">verify_password</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>password) 
+{ 
+ <span style="color:#66d9ef">int</span> authenticated; 
+ <span style="color:#66d9ef">char</span> buffer[<span style="color:#ae81ff">8</span>];<span style="color:#75715e">// 这是个局部变量
+</span><span style="color:#75715e"></span> authenticated<span style="color:#f92672">=</span>strcmp(password,PASSWORD); 
+ strcpy(buffer,password);<span style="color:#75715e">//这里会发生溢出
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">return</span> authenticated; 
+} 
+main() 
+{ 
+ <span style="color:#66d9ef">int</span> valid_flag<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; 
+ <span style="color:#66d9ef">char</span> password[<span style="color:#ae81ff">1024</span>]; 
+ <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>) 
+ { 
+ printf(<span style="color:#e6db74">&#34;please input password: &#34;</span>); 
+ scanf(<span style="color:#e6db74">&#34;%s&#34;</span>,password); 
+ valid_flag <span style="color:#f92672">=</span> verify_password(password); 
+ <span style="color:#66d9ef">if</span>(valid_flag) 
+ { 
+ printf(<span style="color:#e6db74">&#34;incorrect password!</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>); 
+ } 
+ <span style="color:#66d9ef">else</span> 
+ { 
+ printf(<span style="color:#e6db74">&#34;Congratulation! You have passed the </span>
+ verification<span style="color:#f92672">!</span><span style="color:#960050;background-color:#1e0010">\</span>n<span style="color:#e6db74">&#34;); </span>
+ <span style="color:#66d9ef">break</span>; 
+ } 
+ } 
+}
+<span style="color:#75715e">//这段代码有两个地方要注意：
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">1.</span>erify_password()<span style="color:#960050;background-color:#1e0010">函数中的局部变量</span> <span style="color:#66d9ef">char</span> buffer[<span style="color:#ae81ff">8</span>]<span style="color:#960050;background-color:#1e0010">的声明位置，声明为局部变量，这样运行时就会压栈</span>
+<span style="color:#ae81ff">2.</span><span style="color:#960050;background-color:#1e0010">字符串比较后的</span>strcpy<span style="color:#960050;background-color:#1e0010">，这里会出现漏洞</span>
+</code></pre></div><ol>
+<li>
+<p>验证函数：</p>
+<p>authenticated 变量的值来源于 strcmp 函数的返回值，之后会返回给 main 函数作为密码验证成功与否的标志变量：当 authenticated 为 0 时，表示验证成功；反之，验证不成功</p>
+</li>
+<li>
+<p>代码的栈帧布局：</p>
+</li>
+</ol>
+<p><!-- raw HTML omitted --></p>
+<ol start="3">
+<li>漏洞利用思路：在代码中我们知道在验证函数中，要将输入的password复制到buffer里，如果输入一个长度超过7字节的字符串，那么越界的字符将覆盖掉authenticated，如果这个时候把authenticated的值修改为0，那么便绕过了密码验证过程。</li>
+</ol>
+<h4 id="实验验证">实验验证</h4>
+<ol>
+<li>实验环境：吾爱破解专用虚拟机</li>
+</ol>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200513112132214.png" alt="image-20200513112132214"></p>
+<ol start="2">
+<li>
+<p>根据程序设计思路，只有输入1234567才算正确。</p>
+</li>
+<li>
+<p>当我们调试到这一步时，可以看到，正如之前理论学习中的思路，如果输入一个错误的密码，那么经过对比后处于buffer缓冲区下的authenticated已经被赋值为1.图中很清楚的反映了相关情况。同时还可以结合理论看一下栈区调用时的真实情况，如图红框。</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200513113248741.png" alt="image-20200513113248741"></p>
+</li>
+<li>
+<p>栈帧分布情况（“内存数据”中的 DWORD 和我们逻辑上使用的“数值数据”是按字节序逆序过的）</p>
+<p><img src="C:%5CUsers%5C86135%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200513114126895.png" alt="image-20200513114126895"></p>
+</li>
+<li>
+<p>下面我们看一下，如果输入8个字符，那么第九个阶段字符为0x00，按理说应该可以将这个值覆盖为0，就达到了利用栈溢出的目的:</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200513114940226.png" alt="image-20200513114940226"></p>
+</li>
+</ol>
+<p>果然已经被覆盖为0，这样继续执行程序，即使输入错误的数据，也会返回密码正确。但是需要注意的是，这个漏洞只能这样利用，输入8位随机密码或者输入9&ndash;11位，但是第9-11位都必须是0，否则这个值被覆盖为非0数据或者字符除按过长影响返回值数据等。</p>
+<h3 id="22-修改函数返回地址">2.2 修改函数返回地址</h3>
+<h4 id="1-返回地址与程序流程">1. 返回地址与程序流程</h4>
+<p>与修改邻接变量相比，通过缓冲区溢出改写栈帧最下方的 EBP 和函数返回地址等栈帧状态值是一种更强的手段</p>
+<ol>
+<li>
+<p>正如上节结尾所说，当我们输入的密码达到一定的长度后，就会发生继续<strong>向下淹没</strong>的情况，淹没EBP和返回地址，如图所示，此时的EBP已经被淹没。</p>
+<p><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>因此，只要我们构造输入一定长度的密码，就可以达到替换EBP的目的，这样便会造成程序异常，同时也可以继续构造，修改返回地址，这样就达到了控制程序流程的目的，这样，</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200514222345546.png" alt="image-20200514222345546"></p>
+</li>
+<li></li>
+</ol>
+<h4 id="2控制程序的执行流程">2.控制程序的执行流程</h4>
+<h3 id="23-代码植入">2.3 代码植入</h3>
 
     </div>
 
@@ -339,6 +430,8 @@ intfunc_A(<span style="color:#66d9ef">int</span> arg_A1, <span style="color:#66d
         
         <a href="https://anfieldqi.github.io/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/" class="prev" rel="prev" title="Python方法"><i class="iconfont icon-left"></i>&nbsp;Python方法</a>
          
+        
+        <a href="https://anfieldqi.github.io/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/" class="next" rel="next" title="OWASP固件安全性测试项">OWASP固件安全性测试项&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
