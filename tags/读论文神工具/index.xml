@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>读论文神工具 on AnfieldQi`s Blog</title>
+    <link>https://anfieldqi.github.io/tags/%E8%AF%BB%E8%AE%BA%E6%96%87%E7%A5%9E%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 读论文神工具 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 18 May 2020 16:50:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://anfieldqi.github.io/tags/%E8%AF%BB%E8%AE%BA%E6%96%87%E7%A5%9E%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1读论文_HistCite引文分析</title>
+      <link>https://anfieldqi.github.io/2020/1.%E8%AF%BB%E8%AE%BA%E6%96%87_histcite%E5%BC%95%E6%96%87%E5%88%86%E6%9E%90/</link>
+      <pubDate>Mon, 18 May 2020 16:50:59 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/1.%E8%AF%BB%E8%AE%BA%E6%96%87_histcite%E5%BC%95%E6%96%87%E5%88%86%E6%9E%90/</guid>
+      <description>HistCite 1.简介 HistCite是汤森路透旗下的一款引文分析软件，基于Web of Science (WOS)数据库对文献引文进行分析。可是，长期以来官网对该款软件的</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>读论文工具 on AnfieldQi`s Blog</title>
+    <link>https://anfieldqi.github.io/tags/%E8%AF%BB%E8%AE%BA%E6%96%87%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 读论文工具 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 19 May 2020 07:24:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://anfieldqi.github.io/tags/%E8%AF%BB%E8%AE%BA%E6%96%87%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2.copytranslator</title>
+      <link>https://anfieldqi.github.io/2020/2.%E8%AF%BB%E8%AE%BA%E6%96%87_copytranslate%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/</link>
+      <pubDate>Tue, 19 May 2020 07:24:07 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/2.%E8%AF%BB%E8%AE%BA%E6%96%87_copytranslate%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/</guid>
+      <description>Copytranslator 介绍：一款实时翻译软件，拥有监听剪切板，自动翻译等功能 项目地址：https://copytranslator.github.io/ 基本功能</description>
+    </item>
+    
+  </channel>
+</rss>

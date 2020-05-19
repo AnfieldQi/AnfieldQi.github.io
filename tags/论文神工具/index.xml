@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>论文神工具 on AnfieldQi`s Blog</title>
+    <link>https://anfieldqi.github.io/tags/%E8%AE%BA%E6%96%87%E7%A5%9E%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 论文神工具 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 19 May 2020 11:44:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://anfieldqi.github.io/tags/%E8%AE%BA%E6%96%87%E7%A5%9E%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>4.读论文_文献管理软件EndNote</title>
+      <link>https://anfieldqi.github.io/2020/4.%E8%AF%BB%E8%AE%BA%E6%96%87_%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6endnote/</link>
+      <pubDate>Tue, 19 May 2020 11:44:54 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/4.%E8%AF%BB%E8%AE%BA%E6%96%87_%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6endnote/</guid>
+      <description>暂时没用上&amp;hellip;&amp;hellip;.</description>
+    </item>
+    
+    <item>
+      <title>3.读论文_Mathpix公式转换</title>
+      <link>https://anfieldqi.github.io/2020/3.%E8%AF%BB%E8%AE%BA%E6%96%87_mathpix%E5%85%AC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Tue, 19 May 2020 11:40:42 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/3.%E8%AF%BB%E8%AE%BA%E6%96%87_mathpix%E5%85%AC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</guid>
+      <description>Mathpix 功能 假如你在笔记本上写了个公式，又或者想引用一篇文献中的公式，此时你只需将公式截图，Mathpix就能识别该公式并自动生成LaTeX代码，</description>
+    </item>
+    
+  </channel>
+</rss>
