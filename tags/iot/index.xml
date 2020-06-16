@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IOT on AnfieldQi`s Blog</title>
+    <link>https://anfieldqi.github.io/tags/iot/</link>
+    <description>Recent content in IOT on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 Jun 2020 09:54:58 +0800</lastBuildDate>
+    
+	<atom:link href="https://anfieldqi.github.io/tags/iot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IoTFuzzer_note</title>
+      <link>https://anfieldqi.github.io/2020/iotfuzzer_note/</link>
+      <pubDate>Thu, 11 Jun 2020 09:54:58 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/iotfuzzer_note/</guid>
+      <description>1.题目 IOTFUZZER: Discovering Memory Corruptions in IoT Through App-based Fuzzing 2.主要内容 目前IOT安全检测使用的大部分是基于二进制分析的，分析的前提是获取到固件的镜像，但是镜像提取是一个问题</description>
+    </item>
+    
+  </channel>
+</rss>

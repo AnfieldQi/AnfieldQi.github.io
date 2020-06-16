@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/4.%E8%AF%BB%E8%AE%BA%E6%96%87_%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6endnote/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/iotfuzzer_note/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           IoTFuzzer_note | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="IoTFuzzer_note | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "IoTFuzzer_note",
+    "headline" : "IoTFuzzer_note",
+    "description" : "1.题目 IOTFUZZER: Discovering Memory Corruptions in IoT Through App-based Fuzzing 2.主要内容 目前IOT安全检测使用的大部分是基于二进制分析的，分析的前提是获取到固件的镜像，但是镜像提取是一个问题",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-06-11 09:54:58 \x2b0800 CST",
+    "dateModified" : "2020-06-11 09:54:58 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/iotfuzzer_note\/",
+    "wordCount" : "2472",
+    "keywords" : [ "IOT", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">IoTFuzzer_note</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-06-11 itemprop="datePublished">June 11, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 2472 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="1题目">1.题目</h2>
+<p>IOTFUZZER: Discovering Memory Corruptions in IoT Through App-based Fuzzing</p>
+<h3 id="2主要内容">2.主要内容</h3>
+<p>目前IOT安全检测使用的大部分是基于二进制分析的，分析的前提是获取到固件的镜像，但是镜像提取是一个问题。为了应对这一问题，文章提出了一种新的自动化模糊测试框架IoTFUZZER,该框架无需提取固件镜像</p>
+<h4 id="21论文内容">2.1论文内容</h4>
+<p>大多数物联网设备通过配套app进行控制，这些APP包含了其与设备进行通信所需的协议等各种信息，因此通过识别和复用特定的程序逻辑来生成不同的应用测试消息，能够对IOT目标进行不依赖其协议规范的任何知识的有效内存损漏洞探测。</p>
+<h4 id="22-作者的contribution">2.2 作者的contribution</h4>
+<ol>
+<li>新框架。 我们提出了第一个无固件的模糊测试框IOTFUZZER，用于IoT设备的安全性分析。 通过利用官方移动应用程序所携带的信息及其程序逻辑，IOTFUZZER可以自动检测IoT设备中的内存损坏漏洞，而无需直接访问固件。</li>
+<li>新技术。 我们开发了一套新技术来启用自动的黑匣子IoT模糊器，其中包括不带协议规范的协议指导的模糊处理，用于消息生成和传递的上下文内加密和联网功能重播以及用于远程监控目标IoT的轻量级机制。 设备的状态。</li>
+<li>实施和调查结果。 实施了IOTFUZZER的功能齐全的原型，并通过17个现实世界的IoT设备对其进行了评估。 我们的研究发现了15个对安全至关重要的内存漏洞，其中8个从未报告过</li>
+</ol>
+<h3 id="3指导性原则">3.指导性原则</h3>
+<h4 id="31论文的一些关键技术点">3.1论文的一些关键技术点</h4>
+<ol>
+<li>运行协议指导的模糊测试，利用物联网应用程序携带的信息，执行动态分析以识别在应用程序内构成要传递到目标设备的消息的内容，在运行时自动对这些消息内容进行更改生成较为有意义的测试样例，对目标固件进行探测。</li>
+<li>非精确定位缺陷位置，通过测试用例触发的崩溃来报告存在的问题，用于指导后续安全分析以找出缺陷的根本原因。</li>
+</ol>
+<h3 id="4系统设计">4.系统设计</h3>
+<h4 id="41-检测方法">4.1 检测方法</h4>
+<p>自动对应用程序和目标设备之间的通信消息进行改造，生成模糊消息，对目标设备固件程序进行测试。</p>
+<h4 id="42-解决问题">4.2 解决问题</h4>
+<ol>
+<li>使用未知协议来进行消息模糊面临一些困难，需要自动识别和模糊未知协议的协议字段。</li>
+<li>如果IOT设备和应用之间的通信经过加密，则框架也应该以相同的方式发送加密消息，所以设计解决方案对应用中的消息加密功能进行重用。</li>
+<li>对于触发的崩溃进行监控，设计有效的远程机制来远程自动监控设备状态</li>
+</ol>
+<h4 id="43-应对策略">4.3 应对策略</h4>
+<ol>
+<li>数据源处更改协议字段</li>
+<li>运行时重用加密功能</li>
+<li>通过心跳检测检测系统活动状态</li>
+</ol>
+<h4 id="44-详细设计">4.4 详细设计</h4>
+<ol>
+<li>
+<p>应用程序分析阶段</p>
+<p>将物联网应用程序作为输入，分析UI以进行网络事件触发，跟踪与应用程序协议相关的字段的发送与传播。记录所有协议字段和相应功能</p>
+</li>
+<li>
+<p>模糊测试阶段</p>
+<p>根据分析阶段的记录，在此阶段，框架使用物联网应用程序的动态工具对感兴趣的协议字段进行突变。并动态监控物联网设备的崩溃，并根据崩溃指示出潜在的内存设备损坏。</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200616105637347.png" alt="image-20200616105637347"></p>
+<p>1）UI分析：第一步，目标是分析IoT应用程序的代码，并发现将导致发送网络消息的所有UI组件。 利用此类信息，我们可以通过驱动相应的UI控件来触发消息发送事件。
+UI分析的目的是在以下步骤中促进数据流分析和模糊测试。
+2）数据流分析：为了识别其值与要发送到IoT设备的消息内容相关的程序元素（例如，字符串常量，来自系统API的输入等），我们跟踪数据 从一组选定元素中找到这些元素，以找出确实影响某些消息字段的元素。 然后，这些程序元素用于使字段的内容发生突变，以使设备模糊。 请注意，与基于污点的模糊器，[28]寻找可以在程序内部实现已知漏洞功能（例如printf）的程序输入不同，我们的方法利用数据流分析来确定如何命令 IoT应用程序生成有意义的测试输出，以模糊其远程目标。
+3）运行时突变：根据我们定义的模糊策略，一旦识别出协议字段，IOTFUZZER便会在其首次使用位置对原始字段（例如原始字符串）进行突变。 然后，物联网应用将遵循其正常执行逻辑来计算和构建消息，并将其与变异数据一起发送到物联网设备。这部分作者使用hook实现。文中用到的模糊策略为：通过对字段采用以下启发式变异规则来实现带有结构和类型信息的模糊策略：1）更改基于堆栈或基于堆的字符串长度 溢出和越界访问。 在我们的实现中，IOTFUZZER将原始字符串重复几次（从几十个到数千个），或者在原始字符串后附加可变数量的字符“ A”，以构造格式错误的消息。 2）更改整数，双精度或浮点值，以实现整数溢出和越界访问。 因此，我们将原始值突变为边界情况和非常大的值。 同样，为了触发错误计算边界条件的情况，我们还为潜在的一对一误差生成了一对一的值。3）更改类型，或提供空值以错误解释值和未初始化的变量漏洞。 例如，如果将字符串值替换为整数值，则可能会触发空指针取消引用（如第IV-E1节的情况）。 在IOTFUZZER的实现中，我们在Android应用程序的Java级别上更改了对象的类型。 4）响应监控：最后一步是远程监控IoT设备的运行状态并捕获触发的崩溃。 对于基于TCP的通信，IoT应用程序和IoT设备之间的连接将被中断，这很容易检测。 对于基于UDP的通信，我们使用心跳机制来检测在不确定时间发生的崩溃</p>
+</li>
+</ol>
+<h3 id="5论文实验">5.论文实验</h3>
+<h4 id="51-样本数量及来源">5.1 样本数量及来源</h4>
+<p>从不同类别中选择了17种代表性的IoT设备，尤其是智能家居设备，包括网络附加存储（NAS）设备，IP摄像机，智能灯泡，智能插头，打印机，家庭路由器等。这些设备是由 主流制造商，并在亚马逊的每个类别中排名前几。 所有这些设备都可以由官方的IoT移动应用通过本地Wi-Fi网络进行操作。 对通信协议和数据传输格式没有限制。测试设备总数17个。</p>
+<h4 id="52-测试环境">5.2 测试环境</h4>
+<ol>
+<li>
+<p>Intel Core i7四核×2.81 GHz CPU和8 G RAM的Ubuntu 14.04</p>
+</li>
+<li>
+<p>Google的Nexus 4</p>
+</li>
+</ol>
+<h4 id="53-实验效果">5.3 实验效果</h4>
+<p>发现9个设备中有15个严重漏洞（内存损坏）。包括5个基于堆栈的缓冲区溢出，2个基于堆的缓冲区溢出，4个空指针取消引用和4个崩溃。</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20200616113604388.png" alt="image-20200616113604388"></p>
+<h4 id="53-开源工具及地址">5.3 开源工具及地址</h4>
+<p>无</p>
+<h3 id="6论文中存在的继续研究点">6.论文中存在的继续研究点</h3>
+<ol>
+<li>
+<p>框架实现了较高的协议覆盖率，但是代码覆盖率等受限</p>
+</li>
+<li>
+<p>可以发现的漏洞种类有限，可以进一步研究发现例如身份验证绕过等漏洞的高级框架</p>
+</li>
+<li>
+<p>连接模式仅为WIFI，可以研究拓展至其他方式</p>
+</li>
+<li>
+<p>不适用于拥有云中继节点的物联网网络，下一步可以研究拓展如何避免中继阶段对模糊消息进行过滤</p>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/iotfuzzer_note/>https://anfieldqi.github.io/2020/iotfuzzer_note/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/iot/">
+                    #IOT</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/4.%E8%AF%BB%E8%AE%BA%E6%96%87_%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6endnote/" class="prev" rel="prev" title="4.读论文_文献管理软件EndNote"><i class="iconfont icon-left"></i>&nbsp;4.读论文_文献管理软件EndNote</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
