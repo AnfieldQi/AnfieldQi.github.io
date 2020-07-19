@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on AnfieldQi`s Blog</title>
+    <link>https://anfieldqi.github.io/tags/docker/</link>
+    <description>Recent content in docker on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 19 Jul 2020 09:31:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://anfieldqi.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker镜像</title>
+      <link>https://anfieldqi.github.io/2020/docker%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Sun, 19 Jul 2020 09:31:11 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/docker%E9%95%9C%E5%83%8F/</guid>
+      <description>Docker镜像 1.简介 描述：镜像=VM模板=类 组成：镜像=层+层（OS+文件+依赖包） 使用：Docker hub—&amp;gt;本地Docker主</description>
+    </item>
+    
+  </channel>
+</rss>

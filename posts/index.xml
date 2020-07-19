@@ -6,10 +6,28 @@
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 11 Jun 2020 09:54:58 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 09:31:11 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker镜像</title>
+      <link>https://anfieldqi.github.io/2020/docker%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Sun, 19 Jul 2020 09:31:11 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/docker%E9%95%9C%E5%83%8F/</guid>
+      <description>Docker镜像 1.简介 描述：镜像=VM模板=类 组成：镜像=层+层（OS+文件+依赖包） 使用：Docker hub—&amp;gt;本地Docker主</description>
+    </item>
+    
+    <item>
+      <title>《A Large-Scale Analysis of the Security of Embedded Firmwares》</title>
+      <link>https://anfieldqi.github.io/2020/a_large_analysis/</link>
+      <pubDate>Wed, 01 Jul 2020 16:01:14 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/a_large_analysis/</guid>
+      <description>1.题目 A Large-Scale Analysis of the Security of Embedded Firmwares 2.主要内容 这是一篇时间上相对来说比较靠前的文章，主要介绍了针对固件镜像的大规模分析项目。具体为将32000个固件</description>
+    </item>
     
     <item>
       <title>IoTFuzzer_note</title>

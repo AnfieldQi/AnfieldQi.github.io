@@ -6,10 +6,19 @@
     <description>Recent content in 读书笔记 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 May 2020 20:30:37 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 09:31:11 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker镜像</title>
+      <link>https://anfieldqi.github.io/2020/docker%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Sun, 19 Jul 2020 09:31:11 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/docker%E9%95%9C%E5%83%8F/</guid>
+      <description>Docker镜像 1.简介 描述：镜像=VM模板=类 组成：镜像=层+层（OS+文件+依赖包） 使用：Docker hub—&amp;gt;本地Docker主</description>
+    </item>
     
     <item>
       <title>3.栈溢出原理与实践</title>
