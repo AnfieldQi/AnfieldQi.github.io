@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Docker简介及原理 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="Docker简介及原理 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Docker简介及原理",
+    "headline" : "Docker简介及原理",
+    "description" : "Docker 1. Docker简介 docker是一门虚拟化容器技术，其将应用程序与该程序的依赖，打包在一个镜像文件中。将镜像文件导入docker引擎运行，",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-23 10:09:48 \x2b0800 CST",
+    "dateModified" : "2020-07-23 10:09:48 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86\/",
+    "wordCount" : "848",
+    "keywords" : [ "docker", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Docker简介及原理</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-23 itemprop="datePublished">July 23, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 848 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="docker">Docker</h2>
+<h3 id="1-docker简介">1. Docker简介</h3>
+<p>docker是一门虚拟化容器技术，其将应用程序与该程序的依赖，打包在一个镜像文件中。将镜像文件导入docker引擎运行，就会生成一个虚拟容器，程序在这个虚拟容器里运行，与在真实的物理机上运行一样，docker为程序的运行提供了独立的环境。</p>
+<h3 id="2-docker架构">2. Docker架构</h3>
+<p>docker采用的是C/S架构。客户端向服务器发送请求，服务器负责构建、运行和分发容器。客户端和服务器可以运行在同一个Host上，客户端也可以通过socket或者REST API与远程的服务器通信。</p>
+<p><!-- raw HTML omitted --></p>
+<h4 id="21-docker核心组件">2.1 Docker核心组件</h4>
+<p>- docker 客户端 - Client</p>
+<p>- Docker 引擎 - Docker daemon</p>
+<p>- Docker 镜像 - Image</p>
+<p>- Registry 仓库</p>
+<p>- Docker 容器 - Container</p>
+<h4 id="22-docker客户端">2.2 Docker客户端</h4>
+<p>通过客户端使用docker命令进行操作，通过docker可以很快的在host上构建镜像和运行容器，常见的命令为docker pull ,docker run ,docker build.</p>
+<h4 id="23-docker引擎">2.3 Docker引擎</h4>
+<p>Docker daemon 是服务器组件，以 Linux 后台服务的方式运行。 Docker daemon 运行在 Docker host 上，负责创建、运行、监控容器，构建、存储镜像。</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cdocker_daemon.png" alt="docker_daemon"></p>
+<p>引擎架构大致如上图所示，与docker首次发布时不同的是在后面的版本中docker一直在进行拆解与重构工作，容器执行和运行时代码已从引擎中拆解出来。</p>
+<ol>
+<li>Docker daemon：提供API及其他特性</li>
+<li>containerd：所有容器执行逻辑均被重构到此工具中,主要任务为<strong>容器的生命周期管理</strong>，同时新版本中也负责一些镜像管理工作</li>
+<li>shim：<strong>实现无守护进程容器</strong>的工具。主要工作为：（1）保持所有的STDIN和STDOUT流为开启状态，当daemon重启时运行的容器不会因为管道的关闭而终止 （2）将容器的退出状态反馈给daemon</li>
+<li>runc：<strong>容器运行时工具</strong>（内核原语接口），唯一作用为创建容器，是一个轻量级的针对Libcontainer（取代了早期的LXC组件为提供命名空间等服务）进行了包装的<strong>命令行交互工具</strong></li>
+</ol>
+<h5 id="模型优势">模型优势</h5>
+<ol>
+<li>容器运行时与Docker deamon解耦（无守护进程的容器），对Docker deamon的升级维护不会影响容器的运行</li>
+</ol>
+<h5 id="启动新容器的过程">启动新容器的过程</h5>
+<p>为了总结引擎工具的作用，下面简述一个启动新容器的过程</p>
+<p><!-- raw HTML omitted --></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/>https://anfieldqi.github.io/2020/docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/docker/">
+                    #docker</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/" class="prev" rel="prev" title="Docker应用容器化"><i class="iconfont icon-left"></i>&nbsp;Docker应用容器化</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
