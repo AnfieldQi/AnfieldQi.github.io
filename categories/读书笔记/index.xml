@@ -6,44 +6,62 @@
     <description>Recent content in 读书笔记 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 23 Jul 2020 10:09:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 09:24:14 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Docker简介及原理</title>
-      <link>https://anfieldqi.github.io/2020/docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</link>
+      <title>6.Docker_Swarm</title>
+      <link>https://anfieldqi.github.io/2020/6.docker_swarm/</link>
+      <pubDate>Mon, 27 Jul 2020 09:24:14 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/6.docker_swarm/</guid>
+      <description>Docker Swarm 1.简介 Docker Swarm包含2个核心组件：安全集群/编排引擎 企业级安全集群 编排引擎 使用 1.1/多个docker节点连接，用户以集群方式管理 1</description>
+    </item>
+    
+    <item>
+      <title>5.使用Docker_Compose部署</title>
+      <link>https://anfieldqi.github.io/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sun, 26 Jul 2020 22:43:58 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/</guid>
+      <description>使用Docker Compose部署 1.简介 多数现代应用都是由多个更小的服务协调工作而成的，比如： WEB 前端 订单管理 品类管理‘ 后台数据库 多服务的部</description>
+    </item>
+    
+    <item>
+      <title>1.Docker简介及原理</title>
+      <link>https://anfieldqi.github.io/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</link>
       <pubDate>Thu, 23 Jul 2020 10:09:48 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/2020/docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</guid>
+      <guid>https://anfieldqi.github.io/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</guid>
       <description>Docker 1. Docker简介 docker是一门虚拟化容器技术，其将应用程序与该程序的依赖，打包在一个镜像文件中。将镜像文件导入docker引擎运行，</description>
     </item>
     
     <item>
-      <title>Docker应用容器化</title>
-      <link>https://anfieldqi.github.io/2020/docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
+      <title>4.Docker应用容器化</title>
+      <link>https://anfieldqi.github.io/2020/4.docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
       <pubDate>Mon, 20 Jul 2020 19:32:26 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/2020/docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
-      <description>Docker应用容器化 1. 完整步骤 编写应用代码 创建Dockerfile，包括当前应用的描述，依赖，以及如何创建及使用什么命令运行这个应用 对Do</description>
+      <guid>https://anfieldqi.github.io/2020/4.docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
+      <description>Docker应用单体容器化 1. 完整步骤 编写应用代码 创建Dockerfile，包括当前应用的描述，依赖，以及如何创建及使用什么命令运行这个应用 对</description>
     </item>
     
     <item>
-      <title>Docker容器</title>
-      <link>https://anfieldqi.github.io/2020/docker%E5%AE%B9%E5%99%A8/</link>
+      <title>3.Docker容器</title>
+      <link>https://anfieldqi.github.io/2020/3.docker%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Sun, 19 Jul 2020 14:02:19 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/2020/docker%E5%AE%B9%E5%99%A8/</guid>
+      <guid>https://anfieldqi.github.io/2020/3.docker%E5%AE%B9%E5%99%A8/</guid>
       <description>Docker容器 1.简介 docker容器是docker镜像的运行时实例 用户可以在单个镜像上启动一个或多个容器 2.容器VS虚拟机 Docker 虚拟机 资源占</description>
     </item>
     
     <item>
-      <title>Docker镜像</title>
-      <link>https://anfieldqi.github.io/2020/docker%E9%95%9C%E5%83%8F/</link>
+      <title>2.Docker镜像</title>
+      <link>https://anfieldqi.github.io/2020/2.docker%E9%95%9C%E5%83%8F/</link>
       <pubDate>Sun, 19 Jul 2020 09:31:11 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/2020/docker%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://anfieldqi.github.io/2020/2.docker%E9%95%9C%E5%83%8F/</guid>
       <description>Docker镜像 docker镜像是构建docker容器的基础，与常用的VM虚拟机做对比，如果使用VM启动一个操作系统，Dcoker镜像可以理</description>
     </item>
     

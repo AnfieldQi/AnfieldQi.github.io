@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/a_large_analysis/" />
+  <link rel="next" href="https://anfieldqi.github.io/2020/3.docker%E5%AE%B9%E5%99%A8/" />
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/2.docker%E9%95%9C%E5%83%8F/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           2.Docker镜像 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="2.Docker镜像 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "2.Docker镜像",
+    "headline" : "2.Docker镜像",
+    "description" : "Docker镜像 docker镜像是构建docker容器的基础，与常用的VM虚拟机做对比，如果使用VM启动一个操作系统，Dcoker镜像可以理",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-19 09:31:11 \x2b0800 CST",
+    "dateModified" : "2020-07-19 09:31:11 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/2.docker%E9%95%9C%E5%83%8F\/",
+    "wordCount" : "1436",
+    "keywords" : [ "docker", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">2.Docker镜像</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-19 itemprop="datePublished">July 19, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 1436 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="docker镜像">Docker镜像</h3>
+<p>docker镜像是构建docker容器的基础，与常用的VM虚拟机做对比，如果使用VM启动一个操作系统，Dcoker镜像可以理解为此操作系统的ISO文件，即虚拟机运行的模板。</p>
+<h4 id="1简介">1.简介</h4>
+<ol>
+<li>描述：镜像=VM模板=类</li>
+<li>组成：镜像=镜像层+镜像层（OS+文件+依赖包）</li>
+<li>使用：Docker hub拉取—&gt;本地Docker主机—&gt;启动容器</li>
+</ol>
+<h4 id="2镜像拉取">2.镜像拉取</h4>
+<ol>
+<li>本地仓库：/var/lib/docker/&lt;&gt;</li>
+<li>远程查找：docker search NAME</li>
+<li>拉取镜像：docker image pull <!-- raw HTML omitted -->:<!-- raw HTML omitted -->(lastest不保证可以拉取最新镜像)</li>
+<li>拉取全部：docker image pull  -a <!-- raw HTML omitted --></li>
+<li>列出镜像：docker image ls</li>
+<li>注意：将用户加入DOCKER UNIX组中</li>
+</ol>
+<h4 id="3镜像命名和标签">3.镜像命名和标签</h4>
+<ol>
+<li>两个不同标签可以指向相同镜像</li>
+<li>悬虚镜像（dangling）：在仓库中<!-- raw HTML omitted -->:<!-- raw HTML omitted -->存在，原因为构建新镜像，使用了已存在的表情</li>
+<li>输出悬虚：docker image ls &ndash;filter dangling=true</li>
+<li>删除悬虚：docker image prune</li>
+</ol>
+<h4 id="4镜像过滤">4.镜像过滤</h4>
+<ol>
+<li>
+<p>&ndash;filter</p>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dangling</td>
+<td>返回悬虚或非悬虚镜像</td>
+</tr>
+<tr>
+<td>before</td>
+<td>需要镜像名称/ID，返回之前被创建的全部镜像</td>
+</tr>
+<tr>
+<td>since</td>
+<td>返回指定镜像之后创建的全部镜像</td>
+</tr>
+<tr>
+<td>label</td>
+<td>根据标注的名称/值对镜像进行过滤</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>过滤公式</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>&ndash;format</p>
+<p>Go模板：”{{.size .rep .tag}}“</p>
+</li>
+</ol>
+<h4 id="5镜像分层">5.镜像分层</h4>
+<ol>
+<li>
+<p><strong>镜像由松耦合的只读镜像层构成</strong></p>
+<ol>
+<li>查看方法：（1）pull的时候的层次输出 （2）docker image inspect <!-- raw HTML omitted -->:<!-- raw HTML omitted --></li>
+</ol>
+</li>
+<li>
+<p>原理简述：</p>
+<ol>
+<li>所有镜像都基于一个基础镜像层（比如一个系统）</li>
+<li>进行修改或增加内容时，在当前镜像层之上建立新的镜像层</li>
+<li>镜像始终保持是当前所有镜像层的组合</li>
+</ol>
+</li>
+<li>
+<p>实现方式：通过快照方式</p>
+</li>
+<li>
+<p>共享镜像层：镜像拉取时自动识别本地已经存在的镜像层进行共享，因此某一镜像层与镜像不是严格从属关系</p>
+</li>
+<li>
+<p>创建镜像时镜像层的变化问题</p>
+<p>所有的Docker都基于基础镜像层，当进行修改或添加新内容时，就会在当前的镜像层之上创建新的镜像层。<strong>在添加额外镜像层的同时，镜像始终保持当前所有镜像层的集合</strong>。如下图所示，第三层更新文件5时，会对第二层的文件5进行覆盖，整体看了此镜像仍是具有5个文件。</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cdockerlayer.png" alt="dockerlayer"></p>
+</li>
+</ol>
+<h4 id="6镜像散列值">6.镜像散列值</h4>
+<ol>
+<li>为什么用散列值（SHA）：当更新某个已存在的镜像，为新镜像重新打标签，旧镜像成为悬虚镜像被覆盖，表现为&laquo;none:none&raquo;如果生产环境中已经部署了大量镜像，那么仅凭标签已经无法区分,需要使用散列值来区分新老镜像</li>
+<li>查看方式：docker image ls -digests <!-- raw HTML omitted --> —&gt; SHA签名值</li>
+<li>精确拉取：docker image pull <!-- raw HTML omitted -->@sha256</li>
+<li>镜像散列值（摘要）
+<ol>
+<li>背景：镜像（唯一标识为加密ID）=一个或多个镜像层（每个镜像层拥有自身加密ID）+实际存储数据+元数据（加密ID是SHA256串）</li>
+<li>实质：镜像本身和镜像层都有内容hash值校验，保证了不可被篡改</li>
+</ol>
+</li>
+<li>其他作用：镜像上传至仓库需要压缩，对于压缩后散列值改变无法校验的情况，系统中也有一个压缩后的散列值变量，解决了这个问题</li>
+</ol>
+<h4 id="7多架构">7.多架构</h4>
+<ol>
+<li>实现一个镜像支持多种架构</li>
+<li>策略：Manifest列表和Manifest文件</li>
+<li>根据架构选择镜像是Docker自己完成</li>
+</ol>
+<h4 id="8-镜像删除">8. 镜像删除</h4>
+<ol>
+<li>删除某个：docker image rm <!-- raw HTML omitted --></li>
+<li>删除全部：docker image rm ${docker image ls -q} -f</li>
+</ol>
+<h4 id="9镜像的创建">9.镜像的创建</h4>
+<table>
+<thead>
+<tr>
+<th>镜像创建的三种方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 从无到有，写Dockfile结合程序内容上下文进行创建</td>
+</tr>
+<tr>
+<td>2. 用docker commit 通过运行/停止的容器创建，好处是可以在容器中运行时的改变代码，保存更改生成镜像</td>
+</tr>
+<tr>
+<td>3.使用已存在的镜像进行创建，一种做法是在Dockerfile中FROM 已存在的镜像做基础层</td>
+</tr>
+</tbody>
+</table>
+<h4 id="10相关命令">10.相关命令</h4>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker image pull <a href="name:tag">name:tag</a></td>
+<td>拉取镜像</td>
+</tr>
+<tr>
+<td>docker image ls</td>
+<td>列出镜像</td>
+</tr>
+<tr>
+<td>docker image inspect</td>
+<td>查看详细信息</td>
+</tr>
+<tr>
+<td>docker image rm</td>
+<td>删除镜像，有容器依赖不可删除</td>
+</tr>
+<tr>
+<td>docker image prune</td>
+<td>删除悬虚镜像</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/2.docker%E9%95%9C%E5%83%8F/>https://anfieldqi.github.io/2020/2.docker%E9%95%9C%E5%83%8F/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/docker/">
+                    #docker</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/a_large_analysis/" class="prev" rel="prev" title="《A Large-Scale Analysis of the Security of Embedded Firmwares》"><i class="iconfont icon-left"></i>&nbsp;《A Large-Scale Analysis of the Security of Embedded Firmwares》</a>
+         
+        
+        <a href="https://anfieldqi.github.io/2020/3.docker%E5%AE%B9%E5%99%A8/" class="next" rel="next" title="3.Docker容器">3.Docker容器&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

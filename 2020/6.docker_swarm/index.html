@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="https://anfieldqi.github.io/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/" />
-  <link rel="next" href="https://anfieldqi.github.io/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/" />
-  <link rel="canonical" href="https://anfieldqi.github.io/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" />
+  <link rel="prev" href="https://anfieldqi.github.io/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/6.docker_swarm/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Linux设置定时任务 | AnfieldQi`s Blog
+           6.Docker_Swarm | AnfieldQi`s Blog
        
   </title>
-  <meta name="title" content="Linux设置定时任务 | AnfieldQi`s Blog">
+  <meta name="title" content="6.Docker_Swarm | AnfieldQi`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/anfieldqi.github.io"
     },
     "articleSection" : "posts",
-    "name" : "Linux设置定时任务",
-    "headline" : "Linux设置定时任务",
-    "description" : "Crontab 1.简介 crontab是cron table的简写，用来在LINUX上设置定时任务是cron的配置文件，也可以叫它作业列表.cron启动后其",
+    "name" : "6.Docker_Swarm",
+    "headline" : "6.Docker_Swarm",
+    "description" : "Docker Swarm 1.简介 Docker Swarm包含2个核心组件：安全集群\/编排引擎 企业级安全集群 编排引擎 使用 1.1\/多个docker节点连接，用户以集群方式管理 1",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -54,11 +54,11 @@
     "accountablePerson" : "anfieldqi",
     "copyrightHolder" : "anfieldqi",
     "copyrightYear" : "2020",
-    "datePublished": "2020-07-23 10:49:10 \x2b0800 CST",
-    "dateModified" : "2020-07-23 10:49:10 \x2b0800 CST",
-    "url" : "https:\/\/anfieldqi.github.io\/2020\/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1\/",
-    "wordCount" : "274",
-    "keywords" : [ "项目部署", "AnfieldQi`s Blog"]
+    "datePublished": "2020-07-27 09:24:14 \x2b0800 CST",
+    "dateModified" : "2020-07-27 09:24:14 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/6.docker_swarm\/",
+    "wordCount" : "947",
+    "keywords" : [ "docker", "AnfieldQi`s Blog"]
 }
 </script>
 
@@ -122,19 +122,19 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Linux设置定时任务</h1>
+        <h1 class="post-title" itemprop="name headline">6.Docker_Swarm</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-07-23 itemprop="datePublished">July 23, 2020</time>
+                on <time datetime=2020-07-27 itemprop="datePublished">July 27, 2020</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://anfieldqi.github.io/categories/%E6%95%99%E7%A8%8B%E5%B7%A5%E5%85%B7/"> 教程工具 </a>
+                        <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
                         
                 </span>
-                <span class="post-word-count">, 274 words</span>
+                <span class="post-word-count">, 947 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -153,74 +153,94 @@
           
           
 
-          <h2 id="crontab">Crontab</h2>
-<h4 id="1简介">1.简介</h4>
-<p>crontab是cron table的简写，用来在LINUX上设置定时任务是cron的配置文件，也可以叫它作业列表.cron启动后其自动启动。</p>
-<h4 id="2安装">2.安装</h4>
+          <h2 id="docker-swarm">Docker Swarm</h2>
+<h3 id="1简介">1.简介</h3>
+<p>Docker Swarm包含2个核心组件：安全集群/编排引擎</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>企业级安全集群</th>
+<th>编排引擎</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>使用</td>
+<td>1.1/多个docker节点连接，用户以<strong>集群方式管理</strong></td>
+<td>1.将应用定义在声明式配置文件中使用原生docker命令完成<strong>微服务应用</strong>部署等操作</td>
+</tr>
+<tr>
+<td>内置</td>
+<td>2.内置分布式集群存储/加密网络/公用TLS/接入令牌/数字证书管理PKI</td>
+<td>2.提供一套丰富的API部署和管理</td>
+</tr>
+<tr>
+<td>单位</td>
+<td>节点（管理节点/工作节点）</td>
+<td>服务（在API中是一个对象元素，基于容器封装了高级特性），当容器封装在服务中时被称为一个任务/副本</td>
+</tr>
+</tbody>
+</table>
+<p>此外，docker swarm已经从基于引擎之上的独立产品转变成集成于docker引擎中的产品</p>
+<h3 id="2详解">2.详解</h3>
+<p>实例地址：</p>
+<h4 id="21-docker-swarm初步介绍">2.1 Docker Swarm初步介绍</h4>
 <ol>
 <li>
-<p>安装cron</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt-get install cron
-</code></pre></div></li>
+<p>组成：一个Swarm可以由1个或多个节点组成，这些节点可以是虚拟机/物理服务器/树莓派/云实例</p>
+</li>
 <li>
-<p>启动cron</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl start cron
-</code></pre></div></li>
+<p>依赖：节点之间需要有可靠网络保证其运行</p>
+<p><!-- raw HTML omitted --></p>
+<p>Swarm架构中最主要的处理部分是Swarm节点，Swarm管理的对象是Docker Cluster，Docker Cluster由多个Docker Node组成，负责给Swarm发送请求的是Docker Client</p>
+</li>
+</ol>
+<h4 id="22-swarm-集群搭建">2.2 Swarm 集群搭建</h4>
+<h5 id="0-搭建前提">0. 搭建前提</h5>
+<p>需要在路由器和防火墙中开放以下端口</p>
+<ol>
+<li>2377/tcp:用于客户端于Swarm进行安全通信</li>
+<li>7946/tcp与7946/udp：用于控制面gossip分发</li>
+<li>4789/udp:用于基于VXLAN的覆盖网络</li>
+</ol>
+<h5 id="1-初始化管理节点">1. 初始化管理节点</h5>
+<p>单引擎模式节点：不包含在任何Swarm中的docker节点</p>
+<p>Swarm模式：已经加入集群的docker节点</p>
+<ol>
 <li>
-<p>查看cron状态</p>
-<pre><code> systemctl status cron
+<p>切换命令：docker swarm init:将单引擎模式节点切换为swarm模式，<strong>创建新的Swarm,将自身设置为第一个管理节点</strong></p>
+</li>
+<li>
+<p>切换实例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm init <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--advertise-addr 10.0.0.1:2377 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--listen-addr 10.0.0.1:2377
+</code></pre></div><p>&ndash;advertise-addr:指定其他节点用来连接当前管理节点的IP和端口</p>
+<p>&ndash;listen-addr：指定用于承载Swarm流量的IP和端口，一般与前者一致</p>
+<p>2377为默认端口</p>
+<pre><code>docker node ls //列出Swarm中的节点
 </code></pre></li>
 </ol>
-<h4 id="3相关命令">3.相关命令</h4>
+<h5 id="2加入额外的管理节点">2.加入额外的管理节点</h5>
 <ol>
 <li>
-<p>启动服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl start crond
+<p>在当前管理节点获取添加新节点的Swarm命令和Token(一个节点会成为管理还是工作完全取决于使用什么token)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm join-token manager
 </code></pre></div></li>
-<li>
-<p>关闭服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl stop crond
-</code></pre></div></li>
-<li>
-<p>重启服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl restart crond
-</code></pre></div></li>
-<li>
-<p>重新载入配置</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> systemctl reload crond
-</code></pre></div></li>
-<li>
-<p>查看状态</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl status crond
-</code></pre></div></li>
+<li></li>
 </ol>
-<h4 id="4定时任务的设置格式">4.定时任务的设置格式</h4>
+<h5 id="3加入工作节点">3.加入工作节点</h5>
 <ol>
 <li>
-<p>打开任务设置面板</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crontab -e
-</code></pre></div></li>
-<li>
-<p>删除任务时程表</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crontab -r
-</code></pre></div></li>
-<li>
-<p>列出任务时程表</p>
-<pre><code>crontab -l
+<p>在当前管理节点获取添加新节点的Swarm命令和Token</p>
+<pre><code>docker swarm join-token worker
 </code></pre></li>
-<li>
-<p>任务设置格式</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">* * * * * cmd
-*    *    *    *    *
--    -    -    -    -
-|    |    |    |    |
-|    |    |    |    +----- 星期中星期几 <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> - 7<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>星期天 为0<span style="color:#f92672">)</span>
-|    |    |    +---------- 月份 <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> - 12<span style="color:#f92672">)</span> 
-|    |    +--------------- 一个月中的第几天 <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> - 31<span style="color:#f92672">)</span>
-|    +-------------------- 小时 <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> - 23<span style="color:#f92672">)</span>
-+------------------------- 分钟 <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> - 59<span style="color:#f92672">)</span>
-</code></pre></div></li>
+<li></li>
 </ol>
+<h4 id="23-swarm服务部署">2.3 Swarm服务部署</h4>
+<h4 id="24-故障排除">2.4 故障排除</h4>
+<h3 id="3命令">3.命令</h3>
 
     </div>
 
@@ -235,7 +255,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://anfieldqi.github.io/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/>https://anfieldqi.github.io/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</span>
+                    <a href=https://anfieldqi.github.io/2020/6.docker_swarm/>https://anfieldqi.github.io/2020/6.docker_swarm/</span>
             </p>
             
              
@@ -251,8 +271,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://anfieldqi.github.io/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
-                    #项目部署</a></span>
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/docker/">
+                    #docker</a></span>
             
             </section>
         
@@ -264,10 +284,8 @@
 
     <div class="post-nav">
         
-        <a href="https://anfieldqi.github.io/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/" class="prev" rel="prev" title="1.Docker简介及原理"><i class="iconfont icon-left"></i>&nbsp;1.Docker简介及原理</a>
+        <a href="https://anfieldqi.github.io/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/" class="prev" rel="prev" title="5.使用Docker_Compose部署"><i class="iconfont icon-left"></i>&nbsp;5.使用Docker_Compose部署</a>
          
-        
-        <a href="https://anfieldqi.github.io/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/" class="next" rel="next" title="5.使用Docker_Compose部署">5.使用Docker_Compose部署&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
