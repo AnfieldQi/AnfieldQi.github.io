@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           6.Docker_Swarm集群 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="6.Docker_Swarm集群 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "6.Docker_Swarm集群",
+    "headline" : "6.Docker_Swarm集群",
+    "description" : "Docker Swarm 1.简介 Docker Swarm包含2个核心组件：安全集群\/编排引擎 企业级安全集群 编排引擎 使用 1.1\/多个docker节点连接，用户以集群方式管理 1",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-27 09:24:14 \x2b0800 CST",
+    "dateModified" : "2020-07-27 09:24:14 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/6.docker_swarm%E9%9B%86%E7%BE%A4\/",
+    "wordCount" : "1876",
+    "keywords" : [ "docker", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">6.Docker_Swarm集群</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-27 itemprop="datePublished">July 27, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 1876 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="docker-swarm">Docker Swarm</h2>
+<h2 id="1简介">1.简介</h2>
+<p>Docker Swarm包含2个核心组件：安全集群/编排引擎</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>企业级安全集群</th>
+<th>编排引擎</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>使用</td>
+<td>1.1/多个docker节点连接，用户以<strong>集群方式管理</strong></td>
+<td>1.将应用定义在声明式配置文件中使用原生docker命令完成<strong>微服务应用</strong>部署等操作</td>
+</tr>
+<tr>
+<td>内置</td>
+<td>2.内置分布式集群存储/加密网络/公用TLS/接入令牌/数字证书管理PKI</td>
+<td>2.提供一套丰富的API部署和管理</td>
+</tr>
+<tr>
+<td>单位</td>
+<td>节点（管理节点/工作节点）</td>
+<td>服务（在API中是一个对象元素，基于容器封装了高级特性），当容器封装在服务中时被称为一个任务/副本</td>
+</tr>
+</tbody>
+</table>
+<p>此外，docker swarm已经从基于引擎之上的独立产品转变成集成于docker引擎中的产品</p>
+<h2 id="2详解">2.详解</h2>
+<p>实例地址：</p>
+<h3 id="21-docker-swarm初步介绍">2.1 Docker Swarm初步介绍</h3>
+<ol>
+<li>
+<p>组成：一个Swarm可以由1个或多个节点组成，这些节点可以是虚拟机/物理服务器/树莓派/云实例</p>
+</li>
+<li>
+<p>依赖：节点之间需要有可靠网络保证其运行</p>
+<p><!-- raw HTML omitted --></p>
+<p>Swarm架构中最主要的处理部分是Swarm节点，Swarm管理的对象是Docker Cluster，Docker Cluster由多个Docker Node组成，负责给Swarm发送请求的是Docker Client</p>
+</li>
+</ol>
+<h3 id="22-swarm-集群搭建">2.2 Swarm 集群搭建</h3>
+<h4 id="0-搭建前提">0. 搭建前提</h4>
+<p>需要在路由器和防火墙中开放以下端口</p>
+<ol>
+<li>2377/tcp:用于客户端于Swarm进行安全通信</li>
+<li>7946/tcp与7946/udp：用于控制面gossip分发</li>
+<li>4789/udp:用于基于VXLAN的覆盖网络</li>
+</ol>
+<h4 id="1-初始化管理节点">1. 初始化管理节点</h4>
+<p>单引擎模式节点：不包含在任何Swarm中的docker节点</p>
+<p>Swarm模式：已经加入集群的docker节点</p>
+<ol>
+<li>
+<p>切换命令：docker swarm init:将单引擎模式节点切换为swarm模式，<strong>创建新的Swarm,将自身设置为第一个管理节点</strong></p>
+</li>
+<li>
+<p>切换实例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm init <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--advertise-addr 10.0.0.1:2377 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--listen-addr 10.0.0.1:2377
+</code></pre></div><p>&ndash;advertise-addr:指定其他节点用来连接当前管理节点的IP和端口</p>
+<p>&ndash;listen-addr：指定用于承载Swarm流量的IP和端口，一般与前者一致</p>
+<p>2377为默认端口</p>
+<pre><code>docker node ls //列出Swarm中的节点
+</code></pre></li>
+</ol>
+<h4 id="2加入额外的管理节点">2.加入额外的管理节点</h4>
+<ol>
+<li>
+<p>在当前管理节点获取添加新节点的Swarm命令和Token(一个节点会成为管理还是工作完全取决于使用什么token)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm join-token manager
+</code></pre></div></li>
+<li>
+<p>在未加入的主机上输入命令将节点添加至集群</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm join<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--token &lt;token str&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>10.0.0.1:2377 <span style="color:#ae81ff">\ </span> <span style="color:#75715e">#分配token的管理节点的ip和端口</span>
+--advertise-addr 10.0.0.2:2377 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--listen-addr 10.0.0.2:2377
+</code></pre></div></li>
+<li>
+<p>在任意一个管理节点使用<strong>docker node ls</strong>命令查看Swarm节点</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">在输出的信息中，会出现所有节点的信息，其中：
+1.当前执行命令的主机ID后使用*标识
+2.manager status列：非管理节点为空，管理节点分为主管理<span style="color:#f92672">(</span>Leader<span style="color:#f92672">)</span>,从管理<span style="color:#f92672">(</span>reachable<span style="color:#f92672">)</span>
+</code></pre></div></li>
+</ol>
+<h4 id="3加入工作节点">3.加入工作节点</h4>
+<ol>
+<li>
+<p>在当前管理节点获取添加新节点的Swarm命令和Token</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm join-token worker
+</code></pre></div><p>此时会输出分配的Token和添加节点的命令</p>
+</li>
+<li>
+<p>在未加入的主机上输入命令将节点添加至集群</p>
+<pre><code>docker swarm join\
+--token &lt;token str&gt; \
+10.0.0.1:2377 \  #管理节点的ip和端口
+--advertise-addr 10.0.0.2:2377 \
+--listen-addr 10.0.0.2:2377
+</code></pre><p>后两个参数是自选的，但是每次清晰的指定自己的IP总是好的</p>
+</li>
+<li>
+<p>在任意一个管理节点使用docker node ls命令查看Swarm节点</p>
+</li>
+</ol>
+<h4 id="4swarm管理器的高可用性ha">4.Swarm管理器的高可用性（HA）</h4>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cdokcer_swarm_1.gif" alt="dokcer_swarm_1"></p>
+<ol>
+<li>
+<p>如上图所示，1.远程客户端发送命令 2.非主节点将命令转发给主节点 3.主节点对集群执行命令。</p>
+</li>
+<li>
+<p>Swarm实现了一种主从方式的多管理节点的HA，这意味着多个管理节点中只有唯一leader处于活动状态，负责任务分发及变更配置，如果备用管理节点收到命令，会转发给主节点。</p>
+</li>
+<li>
+<p><strong>基于共识算法的管理节点HA支持策略：</strong></p>
+<ol>
+<li>
+<p>**部署奇数个管理节点：**当网络需要分区时，不会出现每个分区拥有相同数目的节点的情况，可以使掌握多个管理节点的分区继续对集群进行管理。管理节点在接到命令后只有确定本方网络拥有大多数才会执行。</p>
+</li>
+<li>
+<p>**部署3/5个管理节点：**更多的参与节点意味着需要花费更多的时间来达成共识</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="5swarm内置安全机制">5.Swarm内置安全机制</h4>
+<h5 id="51-锁定swarm">5.1 锁定Swarm</h5>
+<ol>
+<li>
+<p>为什么：旧的管理节点重启后接入集群网络会得到Raft数据库(支持共识算法的)长时间的访问权，如果进行备份恢复还可能抹除集群中较新的节点配置，所以要加个验证机制证明操作者的权限，禁止非法接入</p>
+</li>
+<li>
+<p>怎么做：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1.新建集群时：docker swarm init --autolock<span style="color:#f92672">=</span>true
+2.更新集群配置：docker swarm update --durolock<span style="color:#f92672">=</span>true
+   
+3.以上操作会给出一个登录凭证（key）
+   
+<span style="color:#75715e">#以一个管理节点的重启为例：</span>
+service docker restart
+   
+docker node ls <span style="color:#75715e">#此时显示这个节点未接入集群</span>
+   
+docker swarm unlock <span style="color:#75715e">#使用这个命令解锁，输入保存的登录凭证</span>
+</code></pre></div></li>
+</ol>
+<h3 id="23-swarm服务部署">2.3 Swarm服务部署</h3>
+<p><strong>Swarm中最小的调度单位为服务</strong>，把容器进行了封装，仍能够提供常规的比如端口映射等服务，同时还增加了额外的特性，比如声明服务需要几个副本，docker会自动在Swarm中的节点上进行<strong>相对均衡的部署</strong></p>
+<h3 id="24-故障排除">2.4 故障排除</h3>
+<h3 id="3命令">3.命令</h3>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/>https://anfieldqi.github.io/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/docker/">
+                    #docker</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/" class="prev" rel="prev" title="5.使用Docker_Compose部署"><i class="iconfont icon-left"></i>&nbsp;5.使用Docker_Compose部署</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

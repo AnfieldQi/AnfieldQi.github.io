@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>6.Docker_Swarm</title>
-      <link>https://anfieldqi.github.io/2020/6.docker_swarm/</link>
+      <title>6.Docker_Swarm集群</title>
+      <link>https://anfieldqi.github.io/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Mon, 27 Jul 2020 09:24:14 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/2020/6.docker_swarm/</guid>
+      <guid>https://anfieldqi.github.io/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/</guid>
       <description>Docker Swarm 1.简介 Docker Swarm包含2个核心组件：安全集群/编排引擎 企业级安全集群 编排引擎 使用 1.1/多个docker节点连接，用户以集群方式管理 1</description>
     </item>
     
