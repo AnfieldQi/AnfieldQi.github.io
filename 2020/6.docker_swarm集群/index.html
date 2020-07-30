@@ -57,7 +57,7 @@
     "datePublished": "2020-07-27 09:24:14 \x2b0800 CST",
     "dateModified" : "2020-07-27 09:24:14 \x2b0800 CST",
     "url" : "https:\/\/anfieldqi.github.io\/2020\/6.docker_swarm%E9%9B%86%E7%BE%A4\/",
-    "wordCount" : "1876",
+    "wordCount" : "2825",
     "keywords" : [ "docker", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
                         
                 </span>
-                <span class="post-word-count">, 1876 words</span>
+                <span class="post-word-count">, 2825 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -309,8 +309,123 @@ docker swarm unlock <span style="color:#75715e">#使用这个命令解锁，输�
 </ol>
 <h3 id="23-swarm服务部署">2.3 Swarm服务部署</h3>
 <p><strong>Swarm中最小的调度单位为服务</strong>，把容器进行了封装，仍能够提供常规的比如端口映射等服务，同时还增加了额外的特性，比如声明服务需要几个副本，docker会自动在Swarm中的节点上进行<strong>相对均衡的部署</strong></p>
+<h4 id="1创建新服务">1.创建新服务</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker service create --name web-fe <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-p 8080:8080 <span style="color:#ae81ff">\ </span>入站模式端口映射
+-publish published<span style="color:#f92672">=</span>80,target<span style="color:#f92672">=</span>80,mode<span style="color:#f92672">=</span>host<span style="color:#ae81ff">\ </span>主机模式端口映射
+--replicas <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>nigepoluation/plur-docker-client <span style="color:#75715e">#服务要使用的镜像，来自于应用容器化得到的image</span>
+
+
+--name:容器的名字
+--replicas:告知docker需要几个此服务的副本同时运行
+最后一行告诉docker服务需要拉取使用哪个镜像
+</code></pre></div><p>启动后Swarm中会实例化5个副本，分配到任务的节点将拉取指定的镜像，以此为例，并会运行一个开放8080端口的容器。Swarm会不断监视5个副本的状态，如果出现某个副本宕机的状况，docker将会立刻实例化一个其他的副本以保持状态，这一特性十分强大，<strong>使服务具有了一定的自愈能力</strong></p>
+<hr>
+<p>-p 8080:8080会<strong>建立Swarm集群范围内的网络流量映射</strong>。到达Swarm任何节点的8080端口的流量都会映射到任何服务副本的内部8080端口</p>
+<p>此处有两个模式可选：</p>
+<ol>
+<li>入站模式（Ingress Mode）：在集群中所有节点开放端口，<strong>所有节点都配置有映射，没有副本的节点接到请求会转发给有副本的节点处理</strong></li>
+<li>主机模式（host Mode）：仅在有副本的主机上开放端口</li>
+</ol>
+<h4 id="2查看服务及副本列表以及副本状态">2.查看服务及副本列表以及副本状态</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#查看服务</span>
+docker service ls
+<span style="color:#75715e">#查看副本及状态</span>
+docker service ps &lt;service-name&gt;
+<span style="color:#75715e">#查看服务详细信息</span>
+docker inspect --pretty &lt;service-name&gt;
+</code></pre></div><h4 id="3副本模式or全局模式">3.副本模式or全局模式</h4>
+<ol>
+<li>
+<p>副本模式：部署时均匀的将副本分配在整个集群中</p>
+</li>
+<li>
+<p>全局模式：每个节点仅部署一个副本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker service create --mode global
+</code></pre></div></li>
+</ol>
+<h4 id="4服务的扩容与删除">4.服务的扩容与删除</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#扩容</span>
+docker service scale &lt;service-name&gt;<span style="color:#f92672">=</span>number
+<span style="color:#75715e">#删除</span>
+docker service rm &lt;service-name&gt;
+</code></pre></div><h4 id="5滚动升级">5.滚动升级</h4>
+<p>当服务拥有多个副本时，手动更新每个副本所依赖的镜像是十分繁琐的，Swarm为我们提供了滚动升级特性</p>
+<h5 id="1创建服务">1.创建服务</h5>
+<p>同上，主要看一下端口映射的知识</p>
+<h5 id="2滚动升级">2.滚动升级</h5>
+<p>需要进行业务升级，已升级的业务代码以及容器化，因此服务的容器副本需要替换掉目前所依赖运行的镜像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker service update <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--image image:v2
+--update-parallelism 2<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--update-delay 20s &lt;service-name&gt;
+</code></pre></div><ol>
+<li>&ndash;image:需要替换的镜像</li>
+<li>&ndash;update-parallelism：每次滚动替换的更新的副本数</li>
+<li>&ndash;update-delay ：每次替换的间隔</li>
+<li>所升级服务的名称</li>
+</ol>
 <h3 id="24-故障排除">2.4 故障排除</h3>
-<h3 id="3命令">3.命令</h3>
+<pre><code>docker service logs
+--follow：跟踪
+--tail：只查看最近的日志
+--details:查看细节
+</code></pre><h3 id="3命令">3.命令</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker swarm init</td>
+<td>初始化集群</td>
+</tr>
+<tr>
+<td>docker swarm join-token &lt;manager/worker&gt;</td>
+<td>申请加入所需的命令和token</td>
+</tr>
+<tr>
+<td>docker node ls</td>
+<td>列出集群的所有节点</td>
+</tr>
+<tr>
+<td>docker service create</td>
+<td>创建服务</td>
+</tr>
+<tr>
+<td>docker service ls</td>
+<td>列出服务</td>
+</tr>
+<tr>
+<td>docker service ps <!-- raw HTML omitted --></td>
+<td>查看服务副本信息</td>
+</tr>
+<tr>
+<td>docker service inspect  <!-- raw HTML omitted --></td>
+<td>查看服务详细信息</td>
+</tr>
+<tr>
+<td>docker service scale</td>
+<td>服务扩容</td>
+</tr>
+<tr>
+<td>docker service update</td>
+<td>更新服务属性，滚动升级等</td>
+</tr>
+<tr>
+<td>docker service logs <!-- raw HTML omitted --></td>
+<td>查看日志</td>
+</tr>
+<tr>
+<td>docker service rm</td>
+<td>删除服务</td>
+</tr>
+</tbody>
+</table>
 
     </div>
 
