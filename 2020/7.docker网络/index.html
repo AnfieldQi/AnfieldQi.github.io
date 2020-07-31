@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="https://anfieldqi.github.io/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/" />
+  
+  <link rel="canonical" href="https://anfieldqi.github.io/2020/7.docker%E7%BD%91%E7%BB%9C/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           7.Docker网络 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="7.Docker网络 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/anfieldqi.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "7.Docker网络",
+    "headline" : "7.Docker网络",
+    "description" : "Docker 网络 docker网络架构源自容器网络模型（CNM）方案，该方案支持插接式连接。libnetwork是CNM在docker中的具体实现，其提",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-31 14:07:34 \x2b0800 CST",
+    "dateModified" : "2020-07-31 14:07:34 \x2b0800 CST",
+    "url" : "https:\/\/anfieldqi.github.io\/2020\/7.docker%E7%BD%91%E7%BB%9C\/",
+    "wordCount" : "2038",
+    "keywords" : [ "docker", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://anfieldqi.github.io">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">7.Docker网络</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://anfieldqi.github.io" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-31 itemprop="datePublished">July 31, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://anfieldqi.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 2038 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="docker-网络">Docker 网络</h2>
+<p>docker网络架构源自容器网络模型（CNM）方案，该方案支持插接式连接。libnetwork是CNM在docker中的具体实现，其提供了docker核心网络架构的全部功能。</p>
+<h3 id="1docker网络简介">1.Docker网络简介</h3>
+<h4 id="11-基础理论">1.1 基础理论</h4>
+<p>Docker网络架构由3个主要部分组成：（1）CNM（2）Libnetwork（3）驱动.</p>
+<ol>
+<li>CNM：设计标准，提供了docker网络架构的基础组成要素</li>
+<li>Libnetwork：CNM的具体实现，实现了CNM中列举的核心组件</li>
+<li>驱动：通过实现特定的网络拓扑的方式来拓展该模型的能力</li>
+</ol>
+<p><!-- raw HTML omitted --></p>
+<h4 id="12-cnm">1.2 CNM</h4>
+<p>在CNM中，三个组件的连接方式为：</p>
+<p><!-- raw HTML omitted --></p>
+<ol>
+<li>沙盒：一个独立的网络栈，其中包括以太网接口，端口，路由表及DNS设置</li>
+<li>终端：虚拟的网络接口，主要功能为创建连接，负责将沙盒连接到网络</li>
+<li>802.1d网桥的软件实现，网络就是需要交换的终端的集合</li>
+</ol>
+<p>Docker环境中<strong>最小的调度单位</strong>为—<strong>容器</strong>，CNM负责为容器提供网络功能，下面展示CNM组件如何与容器关联。</p>
+<p><!-- raw HTML omitted --></p>
+<ol>
+<li>容器A有一个终端接口并连接到网络A</li>
+<li>容器B有两个接口并连接到网络AB</li>
+<li>容器AB可以互相通信，<strong>容器B的两个终端不能通信</strong></li>
+</ol>
+<p><!-- raw HTML omitted --></p>
+<p>可以进行拓展，如图所示，两个容器虽然运行在同一个docker主机上，但是其网络堆栈在操作系统层面是互相独立的，沙盒机制保证了这一点。</p>
+<h4 id="13-libnetwork">1.3 Libnetwork</h4>
+<p>Libnetwork是CNM的标准实现，具有跨平台特点，下面简述一下其发展：</p>
+<ol>
+<li>docker诞生初期，网络有关服务是在docker daemon里的</li>
+<li>后来docker网络功能拆分出来得到了Libnetwork</li>
+<li>除了实现三个组件，其还实现了容器负载均衡，网络控制层和管理层服务。</li>
+</ol>
+<h4 id="13-驱动">1.3 驱动</h4>
+<p>数据层的具体实现，比如网络的联通性和隔离性。</p>
+<h3 id="2-单机桥接网络">2. 单机桥接网络</h3>
+<p>最简单的docker网络就是单机桥接网络，主要特定有：</p>
+<ol>
+<li>该网络只能在单个Docker主机上运行且只能与所在docker主机上的容器进行连接</li>
+<li>桥接意味着这是802.1d桥接的一种实现（二层交换机）</li>
+</ol>
+<p>其中网络的创建上linux与windows不相同：</p>
+<ol>
+<li>LInux采用内置的桥接驱动</li>
+<li>windows使用内置的NAT驱动</li>
+</ol>
+<hr>
+<p><strong>每个docker主机都有一个默认的单机桥接网络，在linux上名为bridge，在windows上名为nat,除非在创建容器时使用&ndash;network指定容器接入的网络，否则默认情况下容器都会连接到这个网络。</strong></p>
+<hr>
+<ol>
+<li>docker network  ls:查看docker主机的网络情况，这里会看到默认网络bridge</li>
+<li>docker network inspect:查看详细的网络情况</li>
+</ol>
+<p>在 Linux Docker 主机之上，默认的“bridge”网络被映射到内核中为“docker0”的 Linux 网桥</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QI242644.gif" alt="4-1Z41QI242644"></p>
+<p>接下来使用 docker network create命令创建新的单机桥接网络，名为“localnet”</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">//Linux
+$ docker network create -d bridge localnet
+
+//Windows
+&gt; docker network create -d nat localnet
+</code></pre></div><p>新的网络创建成功，并且会出现在 docker network ls命名的输出内容当中。如果使用 Linux，那么在主机内核中还会创建一个新的 Linux 网桥。</p>
+<p>接下来通过使用 Linux brctl 工具来查看系统中的 Linux 网桥。可能需要通过命令 <code>apt-get install bridge-utils</code> 来安装 brctl 二进制包，或者根据所使用的 Linux 发行版选择合适的命令。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brctl show
+bridge name bridge id STP enabled interfaces
+docker0 8000.0242aff9eb4f no
+br-20c2e8ae4bbb 8000.02429636237c no
+</code></pre></div><p>输出内容中包含了两个网桥。第一行是前文提过的 docker0 网桥，该网桥对应 Docker 中的默认网络 bridge；第二个网桥（br-20c2e8ae4bbb）与新建的“localnet”Docker 桥接网络相对应。</p>
+<hr>
+<p>目前，主机上的网桥配置如下图所示:</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QI632M1.gif" alt="4-1Z41QI632M1"></p>
+<hr>
+<p>接下来创建一个容器并接入localnet中：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker container run -d --name c1 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--network localnet <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>alpine sleep 1d
+</code></pre></div><p>容器现在接入了 localnet 网络当中,通过 docker network inspect命令来确认:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker network inspect localnet --format
+<span style="color:#e6db74">&#39;{{json .Containers}}&#39;</span> <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;4edcbd...842c3aa&#34;</span>: <span style="color:#f92672">{</span>
+        <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;c1&#34;</span>,
+        <span style="color:#e6db74">&#34;EndpointID&#34;</span>: <span style="color:#e6db74">&#34;43a13b...3219b8c13&#34;</span>,
+        <span style="color:#e6db74">&#34;MacAddress&#34;</span>: <span style="color:#e6db74">&#34;02:42:ac:14:00:02&#34;</span>,
+        <span style="color:#e6db74">&#34;IPv4Address&#34;</span>: <span style="color:#e6db74">&#34;172.20.0.2/16&#34;</span>,
+        <span style="color:#e6db74">&#34;IPv6Address&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>,
+</code></pre></div><p>如果再次运行 brctl show命令，就能看到 c1 的网络接口连接到了 br-20c2e8ae4bbb 网桥:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brctl show
+bridge name bridge id STP enabled interfaces
+br-20c2e8ae4bbb 8000.02429636237c no vethe792ac0
+docker0 8000.0242aff9eb4f no
+</code></pre></div><p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QII0K1.gif" alt="4-1Z41QII0K1"></p>
+<hr>
+<p>如果在相同网络中继续接入新的容器，那么在新接入容器中是可以通过“c1”的容器名称来 ping 通的。这是因为新容器含有本地DNS解析器，并且都注册到了指定的 Docker DNS 服务，所以相同网络中的容器可以解析其他容器的名称</p>
+<blockquote>
+<p>提示：Linux 上默认的 Bridge 网络是不支持通过 Docker DNS 服务进行域名解析的。自定义桥接网络可以</p>
+</blockquote>
+<h5 id="桥接网络限制绕过">桥接网络限制绕过</h5>
+<p>桥接网络中的容器只能与位于相同网络中的容器进行通信。但是，可以使用端口映射（Port Mapping）来绕开这个限制，端口映射允许将某个容器端口映射到 Docker 主机端口上。对于配置中指定的 Docker 主机端口，任何发送到该端口的流量，都会被转发到容器。下图中展示了具体流量动向。</p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QJ509B6.gif" alt="4-1Z41QJ509B6"></p>
+<p>如上图所示，容器内部应用开放端口为 80。该端口被映射到了 Docker 主机的 10.0.0.15 接口的 5000 端口之上。最终结果就是访问 10.0.0.15:5000 的所有流量都被转发到了容器的 80 端口。</p>
+<hr>
+<p>一个例子：</p>
+<ol>
+<li>
+<p>运行一个web服务容器，并将容器 80 端口映射到 Docker 主机的 5000 端口</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker container run -d --name web <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--network localnet <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--publish 5000:80 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>nginx
+</code></pre></div></li>
+<li>
+<p>确认端口映射</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker port web
+80/tcp -&gt; 0.0.0.0:5000
+</code></pre></div><p>这表示容器 80 端口已经映射到 Docker 主机所有接口上的 5000 端口。</p>
+</li>
+<li>
+<p>访问：需要知道<strong>docker主机</strong>的IP地址</p>
+</li>
+</ol>
+<h3 id="3多机覆盖网络">3.多机覆盖网络</h3>
+<p>这里暂时不更新，用到的时候再说</p>
+<h3 id="4命令">4.命令</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker network ls</td>
+<td>列出所有网络</td>
+</tr>
+<tr>
+<td>docker network create</td>
+<td>创建docker网络</td>
+</tr>
+<tr>
+<td>docker network inspect</td>
+<td>docker网络的详细配置信息</td>
+</tr>
+<tr>
+<td>docker network prune</td>
+<td>删除全部未使用的网络</td>
+</tr>
+<tr>
+<td>docker network rm</td>
+<td>删除网络</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://anfieldqi.github.io/2020/7.docker%E7%BD%91%E7%BB%9C/>https://anfieldqi.github.io/2020/7.docker%E7%BD%91%E7%BB%9C/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://anfieldqi.github.io/tags/docker/">
+                    #docker</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://anfieldqi.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://anfieldqi.github.io/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/" class="prev" rel="prev" title="6.Docker_Swarm集群"><i class="iconfont icon-left"></i>&nbsp;6.Docker_Swarm集群</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://anfieldqi.github.io">anfieldqi</a> | </span> 
+         
+
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
