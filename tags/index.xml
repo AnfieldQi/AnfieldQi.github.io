@@ -6,10 +6,19 @@
     <description>Recent content in Tags on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 31 Jul 2020 14:07:34 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2020 07:57:26 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>固件安全</title>
+      <link>https://anfieldqi.github.io/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Mon, 03 Aug 2020 07:57:26 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
@@ -44,15 +53,6 @@
       <pubDate>Tue, 19 May 2020 11:44:54 +0800</pubDate>
       
       <guid>https://anfieldqi.github.io/tags/%E8%AF%BB%E8%AE%BA%E6%96%87%E5%B7%A5%E5%85%B7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>固件安全</title>
-      <link>https://anfieldqi.github.io/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/</link>
-      <pubDate>Sun, 17 May 2020 09:51:13 +0800</pubDate>
-      
-      <guid>https://anfieldqi.github.io/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/</guid>
       <description></description>
     </item>
     
