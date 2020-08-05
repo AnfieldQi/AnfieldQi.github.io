@@ -6,10 +6,19 @@
     <description>Recent content in 固件安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 03 Aug 2020 07:57:26 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 23:39:05 +0800</lastBuildDate>
     
 	<atom:link href="https://anfieldqi.github.io/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>固件模拟之QEMU手动搭桥</title>
+      <link>https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</link>
+      <pubDate>Wed, 05 Aug 2020 23:39:05 +0800</pubDate>
+      
+      <guid>https://anfieldqi.github.io/2020/%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
+      <description>QEMU的网络问题 手动搭建网桥</description>
+    </item>
     
     <item>
       <title>固件动态模拟之网络接口的浅析</title>
