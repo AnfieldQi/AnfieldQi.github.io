@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kali on AnfieldQi`s Blog</title>
-    <link>https://anfieldqi.github.io/tags/kali/</link>
+    <link>http://anfieldqi.top/tags/kali/</link>
     <description>Recent content in kali on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 27 Apr 2020 16:28:40 +0800</lastBuildDate>
     
-	<atom:link href="https://anfieldqi.github.io/tags/kali/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://anfieldqi.top/tags/kali/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>kail_linux安装</title>
-      <link>https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/</link>
+      <link>http://anfieldqi.top/2020/kail_linux%E5%AE%89%E8%A3%85/</link>
       <pubDate>Mon, 27 Apr 2020 16:28:40 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/2020/kail_linux%E5%AE%89%E8%A3%85/</guid>
+      <guid>http://anfieldqi.top/2020/kail_linux%E5%AE%89%E8%A3%85/</guid>
       <description>kali 简介 Kali是一套用于安全渗透(黑客)的Linux发行版，涵盖了安全方面所需的大部分应用，不过倒是没看到IDA和OD什么的，记得之前做逆向</description>
     </item>
     

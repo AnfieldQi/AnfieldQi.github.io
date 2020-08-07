@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AnfieldQi`s Blog on AnfieldQi`s Blog</title>
-    <link>https://anfieldqi.github.io/</link>
+    <link>http://anfieldqi.top/</link>
     <description>Recent content in AnfieldQi`s Blog on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
@@ -10,19 +10,19 @@
     
     <item>
       <title>Posts</title>
-      <link>https://anfieldqi.github.io/posts/</link>
-      <pubDate>Wed, 05 Aug 2020 23:39:05 +0800</pubDate>
+      <link>http://anfieldqi.top/posts/</link>
+      <pubDate>Fri, 07 Aug 2020 15:32:58 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/posts/</guid>
+      <guid>http://anfieldqi.top/posts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://anfieldqi.github.io/about/</link>
+      <link>http://anfieldqi.top/about/</link>
       <pubDate>Sat, 11 Apr 2020 16:28:09 +0800</pubDate>
       
-      <guid>https://anfieldqi.github.io/about/</guid>
+      <guid>http://anfieldqi.top/about/</guid>
       <description>&lt;h1 id=&#34;anfieldqi&#34;&gt;AnfieldQi&lt;/h1&gt;
 &lt;p&gt;一枚菜鸡&lt;/p&gt;
 </description>

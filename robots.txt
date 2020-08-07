@@ -63,4 +63,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://anfieldqi.github.io/sitemap.xml
+Sitemap: http://anfieldqi.top/sitemap.xml
