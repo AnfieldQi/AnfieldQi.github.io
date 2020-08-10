@@ -35,7 +35,7 @@
       <pubDate>Wed, 05 Aug 2020 23:39:05 +0800</pubDate>
       
       <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
-      <description>QEMU的网络问题 手动搭建网桥</description>
+      <description>QEMU的网络问题 使用qemu模拟时虚拟机与外界的网络问题一直是一个比较普遍且令人头疼的问题。直接表现为虚拟机不能与外界网络连通，外界不能访</description>
     </item>
     
     <item>
