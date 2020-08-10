@@ -57,7 +57,7 @@
     "datePublished": "2020-08-05 23:39:05 \x2b0800 CST",
     "dateModified" : "2020-08-05 23:39:05 \x2b0800 CST",
     "url" : "http:\/\/anfieldqi.top\/2020\/%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5\/",
-    "wordCount" : "2794",
+    "wordCount" : "3189",
     "keywords" : [ "固件安全", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/"> IOT安全 </a>
                         
                 </span>
-                <span class="post-word-count">, 2794 words</span>
+                <span class="post-word-count">, 3189 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -162,19 +162,19 @@
 <ol>
 <li>
 <p>User mode stack：实现方式为在qemu进程中实现一个协议栈，负责在虚拟机VLAN和外部网络之间转发数据。此种通信方式由-net user选项启用，<strong>这种方式是qemu默认的通信方式。</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1.可以将该协议栈视为虚拟机与外部网络之间的一个NAT服务器，外部网络不能主动与虚拟机通信。
-2.可以与外部网络进行有限的通信，虚拟机VLAN中的各个网络接口只能置于10.0.2.0子网中
-3.可以用-redir选项为宿主机和虚拟机的两个TCP或UDP端口建立映射，实现宿主机和虚拟机在特殊要求下的通信（例如X-server或ssh）
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">可以将该协议栈视为虚拟机与外部网络之间的一个NAT服务器，外部网络不能主动与虚拟机通信。
+可以与外部网络进行有限的通信，虚拟机VLAN中的各个网络接口只能置于10.0.2.0子网中
+可以用-redir选项为宿主机和虚拟机的两个TCP或UDP端口建立映射，实现宿主机和虚拟机在特殊要求下的通信（例如X-server或ssh）
 </code></pre></div></li>
 <li>
 <p>socket：这种方式又分为TCP和UDP两种类型。</p>
-<pre><code>1.TCP：为一个VLAN创建一个套接字，让该套接字在指定的TCP端口上监听，而其他VLAN连接到该套接字上，从而将多个VLAN连接起来。缺点在于如果监听套接字所在qemu进程崩溃，整个连接就无法工作。监听套接字所在VLAN通过-net socket,listen选项启用，其他VLAN通过-net socket,connect选项启用。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1.TCP：为一个VLAN创建一个套接字，让该套接字在指定的TCP端口上监听，而其他VLAN连接到该套接字上，从而将多  个VLAN连接起来。缺点在于如果监听套接字所在qemu进程崩溃，整个连接就无法工作。监听套接字所在VLAN通过-net socket,listen选项启用，其他VLAN通过-net socket,connect选项启用。
 2.UDP：所有VLAN连接到一个多播套接字上，从而使多个VLAN通过一个总线通信。所有VLAN都通过-net socket,mcast选项启用。
-</code></pre></li>
+</code></pre></div></li>
 <li>
 <p>TAP：此种方式首先在宿主机中创建并配置一个TAP设备，qemu进程将该TAP设备连接到虚拟机VLAN中。<strong>T此种方式由-net tap选项启用</strong></p>
-<p><img src="C:%5CUsers%5C86135%5CDesktop%5CQEMU-networking-3.png" alt=""></p>
 <p><img src="/images/QEMU-networking-3.png" alt=""></p>
+<p><img src="C:%5CUsers%5C86135%5CDesktop%5CQEMU-networking-3.png" alt="~"></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">为了实现虚拟机与外部网络的通信，在宿主机中通常还要创建并配置一个网桥，并将宿主机的网络接口（通常是eth0）作为该网桥的一个接口。最后，只要将TAP设备作为网桥的另一个接口，虚拟机VLAN通过TAP设备就可以与外部网络完全通信了。这是因为，宿主机的eth0接口作为网桥的接口，与外部网络连接；TAP设备作为网桥的另一个接口，与虚拟机VLAN连接，这样两个网络就连通了。此时，网桥在这两个网络之间转发数据帧。
 有两个问题需要注意：
 （1）网桥的转发工作需要得到内核的支持，所以在编译宿主机内核时需要选择与桥接相关的配置选项。使用-kernel
@@ -213,7 +213,7 @@ qemu-img -V
 apt-get install uml-utilities       <span style="color:#75715e"># UML工具</span>
 </code></pre></div><h3 id="14-搭建原理">1.4 搭建原理</h3>
 <p><img src="/images/qemubridge.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge.png" alt="qemubridge"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge.png" alt="~"></p>
 <p>搭建宿主机与QEMU之间的通路，并在网桥上添加名为tap0的接口，在QEMU启动虚拟机时以TAP方式启动并指定连接tap0端口，实现连通</p>
 <h3 id="15-搭建流程">1.5 搭建流程</h3>
 <h4 id="1-建立网桥">1. 建立网桥</h4>
@@ -229,7 +229,7 @@ sudo dhclient br0                        <span style="color:#75715e"># 从 dhcp 
 sudo brctl show br0                      <span style="color:#75715e"># 查看虚拟网桥列表</span>
 sudo brctl showstp br0                   <span style="color:#75715e"># 查看 br0 的各接口信息</span>
 </code></pre></div><p><img src="/images/qemubridge_part.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge_part.png" alt="qemubridge_part"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge_part.png" alt="~"></p>
 <h4 id="2创建qemu端接口">2.创建QEMU端接口</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
 sudo tunctl -t tap0 -u root              <span style="color:#75715e"># 创建一个 tap0 接口，只允许 root 用户访问</span>
@@ -238,38 +238,38 @@ sudo ifconfig tap0 0.0.0.0 promisc up    <span style="color:#75715e"># 启用 ta
 sudo brctl showstp br0                   <span style="color:#75715e"># 显示 br0 的各个接口</span>
 </code></pre></div><p>一般来说这些步骤执行玩并不会有输出（show除外），在申请DHCP时可能会提示empty，不过目前看来不会影响最终模拟效果。</p>
 <p><img src="/images/qemubridge.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge.png" alt="qemubridge"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge.png" alt="~"></p>
 <h3 id="16-效果测试">1.6 效果测试</h3>
-<pre><code>sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append &quot;root=/dev/sda1 console=tty0&quot; -nographic -net nic -net tap,ifname=tap0,script=no,downscript=no
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/sda1 console=tty0&#34;</span> -nographic -net nic -net tap,ifname<span style="color:#f92672">=</span>tap0,script<span style="color:#f92672">=</span>no,downscript<span style="color:#f92672">=</span>no
 
 -net nic 在 QEMU 在虚拟机中创建一张虚拟网卡
--net tap 连接类型为 TAP，并且指定了网卡接口名称(即手动创建的 tap0，将虚拟机接入网桥)。
+-net tap 连接类型为 TAP，并且指定了网卡接口名称<span style="color:#f92672">(</span>即手动创建的 tap0，将虚拟机接入网桥<span style="color:#f92672">)</span>。
 
-script 和 downscript 两个选项的作用是告诉 QEMU 在启动系统的时候是否调用脚本自动配置网络环境，如果这两个选项为空，那么 QEMU 启动和退出时会自动选择第一个不存在的 tap 接口(通常是 tap0)为参数，调用脚本 /etc/qemu-ifup 和 /etc/qemu-ifdown。由于我们已经配置完毕，所以这两个参数设置为 no 即可。
+script 和 downscript 两个选项的作用是告诉 QEMU 在启动系统的时候是否调用脚本自动配置网络环境，如果这两个选项为空，那么 QEMU 启动和退出时会自动选择第一个不存在的 tap 接口<span style="color:#f92672">(</span>通常是 tap0<span style="color:#f92672">)</span>为参数，调用脚本 /etc/qemu-ifup 和 /etc/qemu-ifdown。由于我们已经配置完毕，所以这两个参数设置为 no 即可。
 
-</code></pre><p><img src="/images/qemutest.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemutest.png" alt="image-20200810083402624"></p>
+</code></pre></div><p><img src="/images/qemutest.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemutest.png" alt="~"></p>
 <p>启动后在内部进行ping</p>
 <p><img src="/images/qemutestdata.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemutestdata.png" alt="image-20200810083456234"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemutestdata.png" alt="~"></p>
 <p>退出qemu的方法为Ctrl+A 后迅速按X</p>
-<h2 id="借助fat固件模拟">借助FAT固件模拟</h2>
+<h2 id="2借助fat固件模拟1">2.借助FAT固件模拟（1）</h2>
 <p>前面已经为QEMU创建了正确的网络通路，下面模拟一下固件，看看是否可以在外部访问其web界面</p>
 <h4 id="1-固件下载">1. 固件下载</h4>
 <p>选择一款dlink的固件</p>
 <h4 id="2binwalk分析">2.binwalk分析</h4>
 <p><img src="/images/qemubinwalk.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubinwalk.png" alt="image-20200810090422652"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubinwalk.png" alt="~"></p>
 <p>可以进行解压</p>
 <h4 id="3-解压固件">3. 解压固件</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./sources/extractor/extractor.py -b Dlink -sql 127.0.0.1 -np -nk <span style="color:#e6db74">&#34;DIR846A1_FW100A32.bin&#34;</span> images
 </code></pre></div><p><img src="/images/image-20200810090624978.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810090624978.png" alt="image-20200810090624978"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810090624978.png" alt="~"></p>
 <h4 id="4识别架构">4.识别架构</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scripts/getArch.sh ./images/1.tar.gz
 </code></pre></div><p>后面要用到这个参数的</p>
 <p><img src="/images/image-20200810090809404.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810090809404.png" alt="image-20200810090809404"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810090809404.png" alt="~"></p>
 <h4 id="5-创建数据库">5. 创建数据库</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scripts/tar2db.py -i <span style="color:#ae81ff">1</span> -f ./images/1.tar.gz
 </code></pre></div><h4 id="6-镜像制作">6. 镜像制作</h4>
@@ -314,12 +314,44 @@ sleep 1s
 </span><span style="color:#ae81ff"></span>    -drive <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>ide,format<span style="color:#f92672">=</span>raw,file<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>IMAGE<span style="color:#e6db74">}</span> -append <span style="color:#e6db74">&#34;root=</span><span style="color:#e6db74">${</span>QEMU_ROOTFS<span style="color:#e6db74">}</span><span style="color:#e6db74"> console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31 firmadyne.syscall=0&#34;</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -nographic <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -net nic -net tap,ifname<span style="color:#f92672">=</span>tap0,script<span style="color:#f92672">=</span>no,downscript<span style="color:#f92672">=</span>no | tee <span style="color:#e6db74">${</span>WORK_DIR<span style="color:#e6db74">}</span>/qemu.final.serial.log
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scratch/1/run.sh
+</code></pre></div><p>这里是借助此工具进行动态模拟，需要修改脚本使虚拟机接入已配置好的网桥。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scratch/1/run.sh
 </code></pre></div><h4 id="9-web访问">9. web访问</h4>
 <p>如果启动顺利。则可以访问到WEB界面，同时可以通过查看虚拟机里的网卡设置看一下是不是开起来了</p>
 <p><img src="/images/image-20200810092832821.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810092832821.png" alt="image-20200810092832821"></p>
-<h2 id="文件上传模拟">文件上传模拟</h2>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810092832821.png" alt="~"></p>
+<h2 id="3借助fat固件模拟2">3.借助FAT固件模拟（2）</h2>
+<p>基本步骤与2相同，不过不需要修改脚本，这里给出的一种方式是设置QEMU的网络设置，<strong>未经测试</strong></p>
+<h4 id="下载工具">下载工具</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install bridge-utils 
+sudo apt-get install uml-utilities
+</code></pre></div><h4 id="系统网络配置">系统网络配置</h4>
+<p>修改ubuntu主机网络配置，将ubuntu的网络接口配置文件 /etc/network/interfaces 添加如下内容并保存、关闭：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#auto br0</span>
+iface br0 inet dhcp
+    bridge_ports &lt;本机网卡名称&gt;
+    bridge_maxwait <span style="color:#ae81ff">0</span>
+</code></pre></div><p>修改QEMU的网络接口启动脚本/etc/qemu-ifup，重启网络使配置生效,在文档中添加如下内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;executing /etc/qemu-ifup&#34;</span>
+echo <span style="color:#e6db74">&#34;bringing </span>$1<span style="color:#e6db74"> for bridged mode&#34;</span>
+echo /sbin/ifconfig $1 0.0.0.0 promisc up
+echo <span style="color:#e6db74">&#34;adding </span>$1<span style="color:#e6db74"> to br0&#34;</span>
+echo /sbin/brctl addif br0 $1
+sleep <span style="color:#ae81ff">3</span>
+</code></pre></div><p>保存文件/etc/qemu-ifup 以后，赋予可执行权限，然后重启网络使所有的配置生效：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo chmod a+x /etc/qemu-ifup
+sudo /etc/init.d/networking restart
+</code></pre></div><h4 id="启动网桥">启动网桥</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ifdown &lt;本机网卡名称&gt;
+sudo ifup br0
+</code></pre></div><h4 id="固件模拟">固件模拟</h4>
+<p>重复章节2中的步骤，跳过修改run.sh的一步，firmadyne使用前运行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rm -rf images*
+python3 reset.py
+sudo -u postgres createdb -O firmadyne firmware
+sudo -u postgres psql -d firmware &lt; ./database/schema
+</code></pre></div><h2 id="4文件上传模拟">4.文件上传模拟</h2>
 <h4 id="使用binwalk解压固件">使用binwalk解压固件</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">binwalk -e xxx.bin
 </code></pre></div><h4 id="找到固件文件系统">找到固件文件系统</h4>
@@ -327,10 +359,10 @@ sleep 1s
 </code></pre></div><h4 id="上传至虚拟机">上传至虚拟机</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scp -r squashfs-root root@ip:/root/root
 </code></pre></div><p><img src="/images/image-20200810093558920.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810093558920.png" alt="image-20200810093558920"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810093558920.png" alt="~"></p>
 <p>在虚拟机上看一下，已经有了</p>
 <p><img src="/images/image-20200810093756607.png" alt=""></p>
-<p><img src="C:%5CUsers%5C86135%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200810093756607.png" alt="image-20200810093756607"></p>
+<p><img src="C:%5CUsers%5C86135%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200810093756607.png" alt="~"></p>
 <h4 id="执行">执行</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chroot /root/squashfs-root sh
 </code></pre></div><p>c这里可能会遇到各种chroot无法运行的错误，与架构有关，虚拟机一定要选择与固件架构相应的版本，如果还出现错误可以搜一下关于这方面的issue,比如:https://askubuntu.com/questions/14280/during-a-chroot-attempt-i-got-this-error-chroot-failed-to-run-command-bin</p>
