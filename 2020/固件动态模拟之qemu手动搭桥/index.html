@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/" />
+  <link rel="next" href="http://119.3.182.211/2020/hugo-nginx-%E5%8D%8E%E4%B8%BA%E4%BA%91/" />
+  <link rel="canonical" href="http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           固件动态模拟之QEMU手动搭桥 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="固件动态模拟之QEMU手动搭桥 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/119.3.182.211"
+    },
+    "articleSection" : "posts",
+    "name" : "固件动态模拟之QEMU手动搭桥",
+    "headline" : "固件动态模拟之QEMU手动搭桥",
+    "description" : "QEMU的网络问题 使用qemu模拟时虚拟机与外界的网络问题一直是一个比较普遍且令人头疼的问题。直接表现为虚拟机不能与外界网络连通，外界不能访",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-08-05 23:39:05 \x2b0800 CST",
+    "dateModified" : "2020-08-05 23:39:05 \x2b0800 CST",
+    "url" : "http:\/\/119.3.182.211\/2020\/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5\/",
+    "wordCount" : "3189",
+    "keywords" : [ "固件安全", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://119.3.182.211">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://119.3.182.211">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">固件动态模拟之QEMU手动搭桥</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://119.3.182.211" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-08-05 itemprop="datePublished">August 5, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://119.3.182.211/categories/iot%E5%AE%89%E5%85%A8/"> IOT安全 </a>
+                        
+                </span>
+                <span class="post-word-count">, 3189 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="qemu的网络问题">QEMU的网络问题</h2>
+<p>使用qemu模拟时虚拟机与外界的网络问题一直是一个比较普遍且令人头疼的问题。直接表现为虚拟机不能与外界网络连通，外界不能访问虚拟机内部的内容。下面介绍一种手动搭建网桥的方法，旨在建立虚拟机与外界的网络通路，使得模拟测试可以正常进行。</p>
+<h2 id="1-手动搭建网桥">1. 手动搭建网桥</h2>
+<h3 id="11-qemu的四种通信方式">1.1 QEMU的四种通信方式</h3>
+<ol>
+<li>
+<p>User mode stack：实现方式为在qemu进程中实现一个协议栈，负责在虚拟机VLAN和外部网络之间转发数据。此种通信方式由-net user选项启用，<strong>这种方式是qemu默认的通信方式。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">可以将该协议栈视为虚拟机与外部网络之间的一个NAT服务器，外部网络不能主动与虚拟机通信。
+可以与外部网络进行有限的通信，虚拟机VLAN中的各个网络接口只能置于10.0.2.0子网中
+可以用-redir选项为宿主机和虚拟机的两个TCP或UDP端口建立映射，实现宿主机和虚拟机在特殊要求下的通信（例如X-server或ssh）
+</code></pre></div></li>
+<li>
+<p>socket：这种方式又分为TCP和UDP两种类型。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1.TCP：为一个VLAN创建一个套接字，让该套接字在指定的TCP端口上监听，而其他VLAN连接到该套接字上，从而将多  个VLAN连接起来。缺点在于如果监听套接字所在qemu进程崩溃，整个连接就无法工作。监听套接字所在VLAN通过-net socket,listen选项启用，其他VLAN通过-net socket,connect选项启用。
+2.UDP：所有VLAN连接到一个多播套接字上，从而使多个VLAN通过一个总线通信。所有VLAN都通过-net socket,mcast选项启用。
+</code></pre></div></li>
+<li>
+<p>TAP：此种方式首先在宿主机中创建并配置一个TAP设备，qemu进程将该TAP设备连接到虚拟机VLAN中。<strong>T此种方式由-net tap选项启用</strong></p>
+<p><img src="/images/QEMU-networking-3.png" alt=""></p>
+<p><img src="C:%5CUsers%5C86135%5CDesktop%5CQEMU-networking-3.png" alt="~"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">为了实现虚拟机与外部网络的通信，在宿主机中通常还要创建并配置一个网桥，并将宿主机的网络接口（通常是eth0）作为该网桥的一个接口。最后，只要将TAP设备作为网桥的另一个接口，虚拟机VLAN通过TAP设备就可以与外部网络完全通信了。这是因为，宿主机的eth0接口作为网桥的接口，与外部网络连接；TAP设备作为网桥的另一个接口，与虚拟机VLAN连接，这样两个网络就连通了。此时，网桥在这两个网络之间转发数据帧。
+有两个问题需要注意：
+（1）网桥的转发工作需要得到内核的支持，所以在编译宿主机内核时需要选择与桥接相关的配置选项。使用-kernel
+（2）不为宿主机eth0接口配置IP地址，为网桥配置IP地址
+</code></pre></div></li>
+<li>
+<p>VDE：这种方式首先要启动一个VDE进程，该进程打开一个TAP设备，然后各个虚拟机VLAN与VDE进程连接，这样各个VLAN就可以通过TAP设备连接起来。VDE进程通过执行vde_switch命令启动，各个VLAN所在qemu进程通过执行veqe命令启动，这些VLAN就可以与VDE进程连接了。</p>
+</li>
+</ol>
+<h3 id="12-环境配置">1.2 环境配置</h3>
+<p>模拟需要下载qemu镜像等，需要根据Linux宿主机和QEMU的版本进行选择。因此需要查看系统版本，以及在对应的站点下载相应的依赖包</p>
+<h4 id="1查看系统版本">1.查看系统版本</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#linux</span>
+lsb_release -a
+<span style="color:#75715e">#qemu</span>
+qemu-img -V
+</code></pre></div><h4 id="2下载qemu镜像">2.下载qemu镜像</h4>
+<ol>
+<li>
+<p>下载站点：https://people.debian.org/~aurel32/qemu/mips/</p>
+</li>
+<li>
+<p>下载一下两款即可:下载遇到问题建议使用IDM</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1.debian_squeeze_mips_standard.qcow2
+2.vmlinux-2.6.32-5-4kc-malta
+</code></pre></div></li>
+</ol>
+<h4 id="3置入对应位置">3.置入对应位置</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/usr/bin
+</code></pre></div><h4 id="4测试可用性">4.测试可用性</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/sda1 console=tty0&#34;</span> 
+</code></pre></div><p>出现一个新的窗口，进行QEMU的初始化操作，完毕后登录即可(使用root/root or user/user)</p>
+<p>其他架构的镜像下载或其他使用详见下载站点readme</p>
+<h3 id="13-所需工具">1.3 所需工具</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt-get install bridge-utils        <span style="color:#75715e"># 虚拟网桥工具</span>
+apt-get install uml-utilities       <span style="color:#75715e"># UML工具</span>
+</code></pre></div><h3 id="14-搭建原理">1.4 搭建原理</h3>
+<p><img src="/images/qemubridge.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge.png" alt="~"></p>
+<p>搭建宿主机与QEMU之间的通路，并在网桥上添加名为tap0的接口，在QEMU启动虚拟机时以TAP方式启动并指定连接tap0端口，实现连通</p>
+<h3 id="15-搭建流程">1.5 搭建流程</h3>
+<h4 id="1-建立网桥">1. 建立网桥</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ifconfig &lt;网卡名称:ifconfig查看&gt; down    <span style="color:#75715e"># 首先关闭宿主机网卡接口</span>
+sudo brctl addbr br0                     <span style="color:#75715e"># 添加一座名为 br0 的网桥</span>
+sudo brctl addif br0 &lt;网卡名称&gt;        <span style="color:#75715e"># 在 br0 中添加一个接口</span>
+sudo brctl stp br0 off                   <span style="color:#75715e"># 如果只有一个网桥，则关闭生成树协议</span>
+sudo brctl setfd br0 <span style="color:#ae81ff">1</span>                   <span style="color:#75715e"># 设置 br0 的转发延迟</span>
+sudo brctl sethello br0 <span style="color:#ae81ff">1</span>                <span style="color:#75715e"># 设置 br0 的 hello 时间</span>
+sudo ifconfig br0 0.0.0.0 promisc up     <span style="color:#75715e"># 启用 br0 接口</span>
+sudo ifconfig &lt;网卡名称&gt; 0.0.0.0 promisc up    <span style="color:#75715e"># 启用网卡接口</span>
+sudo dhclient br0                        <span style="color:#75715e"># 从 dhcp 服务器获得 br0 的 IP 地址</span>
+sudo brctl show br0                      <span style="color:#75715e"># 查看虚拟网桥列表</span>
+sudo brctl showstp br0                   <span style="color:#75715e"># 查看 br0 的各接口信息</span>
+</code></pre></div><p><img src="/images/qemubridge_part.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge_part.png" alt="~"></p>
+<h4 id="2创建qemu端接口">2.创建QEMU端接口</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+sudo tunctl -t tap0 -u root              <span style="color:#75715e"># 创建一个 tap0 接口，只允许 root 用户访问</span>
+sudo brctl addif br0 tap0                <span style="color:#75715e"># 在虚拟网桥中增加一个 tap0 接口</span>
+sudo ifconfig tap0 0.0.0.0 promisc up    <span style="color:#75715e"># 启用 tap0 接口</span>
+sudo brctl showstp br0                   <span style="color:#75715e"># 显示 br0 的各个接口</span>
+</code></pre></div><p>一般来说这些步骤执行玩并不会有输出（show除外），在申请DHCP时可能会提示empty，不过目前看来不会影响最终模拟效果。</p>
+<p><img src="/images/qemubridge.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge.png" alt="~"></p>
+<h3 id="16-效果测试">1.6 效果测试</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/sda1 console=tty0&#34;</span> -nographic -net nic -net tap,ifname<span style="color:#f92672">=</span>tap0,script<span style="color:#f92672">=</span>no,downscript<span style="color:#f92672">=</span>no
+
+-net nic 在 QEMU 在虚拟机中创建一张虚拟网卡
+-net tap 连接类型为 TAP，并且指定了网卡接口名称<span style="color:#f92672">(</span>即手动创建的 tap0，将虚拟机接入网桥<span style="color:#f92672">)</span>。
+
+script 和 downscript 两个选项的作用是告诉 QEMU 在启动系统的时候是否调用脚本自动配置网络环境，如果这两个选项为空，那么 QEMU 启动和退出时会自动选择第一个不存在的 tap 接口<span style="color:#f92672">(</span>通常是 tap0<span style="color:#f92672">)</span>为参数，调用脚本 /etc/qemu-ifup 和 /etc/qemu-ifdown。由于我们已经配置完毕，所以这两个参数设置为 no 即可。
+
+</code></pre></div><p><img src="/images/qemutest.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemutest.png" alt="~"></p>
+<p>启动后在内部进行ping</p>
+<p><img src="/images/qemutestdata.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemutestdata.png" alt="~"></p>
+<p>退出qemu的方法为Ctrl+A 后迅速按X</p>
+<h2 id="2借助fat固件模拟1">2.借助FAT固件模拟（1）</h2>
+<p>前面已经为QEMU创建了正确的网络通路，下面模拟一下固件，看看是否可以在外部访问其web界面</p>
+<h4 id="1-固件下载">1. 固件下载</h4>
+<p>选择一款dlink的固件</p>
+<h4 id="2binwalk分析">2.binwalk分析</h4>
+<p><img src="/images/qemubinwalk.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubinwalk.png" alt="~"></p>
+<p>可以进行解压</p>
+<h4 id="3-解压固件">3. 解压固件</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./sources/extractor/extractor.py -b Dlink -sql 127.0.0.1 -np -nk <span style="color:#e6db74">&#34;DIR846A1_FW100A32.bin&#34;</span> images
+</code></pre></div><p><img src="/images/image-20200810090624978.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810090624978.png" alt="~"></p>
+<h4 id="4识别架构">4.识别架构</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scripts/getArch.sh ./images/1.tar.gz
+</code></pre></div><p>后面要用到这个参数的</p>
+<p><img src="/images/image-20200810090809404.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810090809404.png" alt="~"></p>
+<h4 id="5-创建数据库">5. 创建数据库</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scripts/tar2db.py -i <span style="color:#ae81ff">1</span> -f ./images/1.tar.gz
+</code></pre></div><h4 id="6-镜像制作">6. 镜像制作</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ./scripts/makeImage.sh <span style="color:#ae81ff">1</span>
+</code></pre></div><p>生成的固件在scratch/1目录下-image.raw</p>
+<h4 id="7网络配置">7.网络配置</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scripts/inferNetwork.sh <span style="color:#ae81ff">1</span>
+</code></pre></div><p>这里便遇到网络不通的问题，需要我们根据之前的知识手动打搭建网桥并运行，修改的为下面要执行的run.sh，具体原理见上篇</p>
+<h4 id="8-固件启动">8. 固件启动</h4>
+<p>修改脚本：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+set -u
+
+ARCHEND<span style="color:#f92672">=</span>mipsel
+IID<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e ./firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ./firmadyne.config
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -e ../firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ../firmadyne.config
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -e ../../firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ../../firmadyne.config
+<span style="color:#66d9ef">else</span>
+    echo <span style="color:#e6db74">&#34;Error: Could not find &#39;firmadyne.config&#39;!&#34;</span>
+    exit <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">fi</span>
+
+IMAGE<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_fs <span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+KERNEL<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_kernel <span style="color:#e6db74">${</span>ARCHEND<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+QEMU<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_qemu <span style="color:#e6db74">${</span>ARCHEND<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+QEMU_MACHINE<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_qemu_machine <span style="color:#e6db74">${</span>ARCHEND<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+QEMU_ROOTFS<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_qemu_disk <span style="color:#e6db74">${</span>ARCHEND<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+WORK_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_scratch <span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+
+trap cleanup EXIT
+
+echo <span style="color:#e6db74">&#34;Starting firmware emulation... use Ctrl-a + x to exit&#34;</span>
+sleep 1s
+
+ <span style="color:#e6db74">${</span>QEMU<span style="color:#e6db74">}</span> -m <span style="color:#ae81ff">256</span> -M <span style="color:#e6db74">${</span>QEMU_MACHINE<span style="color:#e6db74">}</span> -kernel <span style="color:#e6db74">${</span>KERNEL<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -drive <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>ide,format<span style="color:#f92672">=</span>raw,file<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>IMAGE<span style="color:#e6db74">}</span> -append <span style="color:#e6db74">&#34;root=</span><span style="color:#e6db74">${</span>QEMU_ROOTFS<span style="color:#e6db74">}</span><span style="color:#e6db74"> console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31 firmadyne.syscall=0&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -nographic <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -net nic -net tap,ifname<span style="color:#f92672">=</span>tap0,script<span style="color:#f92672">=</span>no,downscript<span style="color:#f92672">=</span>no | tee <span style="color:#e6db74">${</span>WORK_DIR<span style="color:#e6db74">}</span>/qemu.final.serial.log
+</code></pre></div><p>这里是借助此工具进行动态模拟，需要修改脚本使虚拟机接入已配置好的网桥。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scratch/1/run.sh
+</code></pre></div><h4 id="9-web访问">9. web访问</h4>
+<p>如果启动顺利。则可以访问到WEB界面，同时可以通过查看虚拟机里的网卡设置看一下是不是开起来了</p>
+<p><img src="/images/image-20200810092832821.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810092832821.png" alt="~"></p>
+<h2 id="3借助fat固件模拟2">3.借助FAT固件模拟（2）</h2>
+<p>基本步骤与2相同，不过不需要修改脚本，这里给出的一种方式是设置QEMU的网络设置，<strong>未经测试</strong></p>
+<h4 id="下载工具">下载工具</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install bridge-utils 
+sudo apt-get install uml-utilities
+</code></pre></div><h4 id="系统网络配置">系统网络配置</h4>
+<p>修改ubuntu主机网络配置，将ubuntu的网络接口配置文件 /etc/network/interfaces 添加如下内容并保存、关闭：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#auto br0</span>
+iface br0 inet dhcp
+    bridge_ports &lt;本机网卡名称&gt;
+    bridge_maxwait <span style="color:#ae81ff">0</span>
+</code></pre></div><p>修改QEMU的网络接口启动脚本/etc/qemu-ifup，重启网络使配置生效,在文档中添加如下内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;executing /etc/qemu-ifup&#34;</span>
+echo <span style="color:#e6db74">&#34;bringing </span>$1<span style="color:#e6db74"> for bridged mode&#34;</span>
+echo /sbin/ifconfig $1 0.0.0.0 promisc up
+echo <span style="color:#e6db74">&#34;adding </span>$1<span style="color:#e6db74"> to br0&#34;</span>
+echo /sbin/brctl addif br0 $1
+sleep <span style="color:#ae81ff">3</span>
+</code></pre></div><p>保存文件/etc/qemu-ifup 以后，赋予可执行权限，然后重启网络使所有的配置生效：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo chmod a+x /etc/qemu-ifup
+sudo /etc/init.d/networking restart
+</code></pre></div><h4 id="启动网桥">启动网桥</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ifdown &lt;本机网卡名称&gt;
+sudo ifup br0
+</code></pre></div><h4 id="固件模拟">固件模拟</h4>
+<p>重复章节2中的步骤，跳过修改run.sh的一步，firmadyne使用前运行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rm -rf images*
+python3 reset.py
+sudo -u postgres createdb -O firmadyne firmware
+sudo -u postgres psql -d firmware &lt; ./database/schema
+</code></pre></div><h2 id="4文件上传模拟">4.文件上传模拟</h2>
+<h4 id="使用binwalk解压固件">使用binwalk解压固件</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">binwalk -e xxx.bin
+</code></pre></div><h4 id="找到固件文件系统">找到固件文件系统</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd _xx.bin.extracted
+</code></pre></div><h4 id="上传至虚拟机">上传至虚拟机</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">scp -r squashfs-root root@ip:/root/root
+</code></pre></div><p><img src="/images/image-20200810093558920.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810093558920.png" alt="~"></p>
+<p>在虚拟机上看一下，已经有了</p>
+<p><img src="/images/image-20200810093756607.png" alt=""></p>
+<p><img src="C:%5CUsers%5C86135%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200810093756607.png" alt="~"></p>
+<h4 id="执行">执行</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chroot /root/squashfs-root sh
+</code></pre></div><p>c这里可能会遇到各种chroot无法运行的错误，与架构有关，虚拟机一定要选择与固件架构相应的版本，如果还出现错误可以搜一下关于这方面的issue,比如:https://askubuntu.com/questions/14280/during-a-chroot-attempt-i-got-this-error-chroot-failed-to-run-command-bin</p>
+<h4 id="参考文献">参考文献</h4>
+<p><a href="https://blog.csdn.net/tycoon1988/article/details/43636689">https://blog.csdn.net/tycoon1988/article/details/43636689</a></p>
+<p><a href="https://www.freebuf.com/vuls/228726.html">https://www.freebuf.com/vuls/228726.html</a></p>
+<p><a href="https://blog.csdn.net/u014022631/article/details/53411557">https://blog.csdn.net/u014022631/article/details/53411557</a></p>
+<p><a href="https://shadow-file.blogspot.com/2013/05/running-debian-mips-linux-in-qemu.html">https://shadow-file.blogspot.com/2013/05/running-debian-mips-linux-in-qemu.html</a></p>
+<p><a href="https://wzt.ac.cn/2020/01/08/iot_brief/">https://wzt.ac.cn/2020/01/08/iot_brief/</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://119.3.182.211/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/">
+                    #固件安全</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://119.3.182.211">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/" class="prev" rel="prev" title="固件动态模拟之网络接口的浅析"><i class="iconfont icon-left"></i>&nbsp;固件动态模拟之网络接口的浅析</a>
+         
+        
+        <a href="http://119.3.182.211/2020/hugo-nginx-%E5%8D%8E%E4%B8%BA%E4%BA%91/" class="next" rel="next" title="Hugo&#43;nginx&#43;华为云">Hugo&#43;nginx&#43;华为云&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://119.3.182.211">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="external nofollow">备案号： </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

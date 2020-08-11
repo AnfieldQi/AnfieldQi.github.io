@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>项目部署 on AnfieldQi`s Blog</title>
-    <link>http://anfieldqi.top/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</link>
+    <link>http://119.3.182.211/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</link>
     <description>Recent content in 项目部署 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 23 Jul 2020 10:49:10 +0800</lastBuildDate>
     
-	<atom:link href="http://anfieldqi.top/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://119.3.182.211/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux设置定时任务</title>
-      <link>http://anfieldqi.top/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <link>http://119.3.182.211/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
       <pubDate>Thu, 23 Jul 2020 10:49:10 +0800</pubDate>
       
-      <guid>http://anfieldqi.top/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <guid>http://119.3.182.211/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
       <description>Crontab 1.简介 crontab是cron table的简写，用来在LINUX上设置定时任务是cron的配置文件，也可以叫它作业列表.cron启动后其</description>
     </item>
     
     <item>
       <title>项目部署至服务器</title>
-      <link>http://anfieldqi.top/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>http://119.3.182.211/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Thu, 23 Apr 2020 11:38:44 +0800</pubDate>
       
-      <guid>http://anfieldqi.top/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>http://119.3.182.211/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>写在前面：个人笔记整理，比较简单 项目部署至服务器 1.配置服务端环境 1.1 python环境 一般现在服务器自带2和3环境，根据需要使用即可 1.2 创建虚拟</description>
     </item>
     
     <item>
       <title>项目部署至服务器及设置定时任务</title>
-      <link>http://anfieldqi.top/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <link>http://119.3.182.211/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
       <pubDate>Thu, 23 Apr 2020 11:38:44 +0800</pubDate>
       
-      <guid>http://anfieldqi.top/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <guid>http://119.3.182.211/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
       <description>写在前面：个人笔记整理，比较简单 项目部署至服务器 1.配置服务端环境 1.1 python环境 一般现在服务器自带2和3环境，根据需要使用即可 1.2 创建虚拟</description>
     </item>
     

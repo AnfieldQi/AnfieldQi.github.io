@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>爬虫入门 on AnfieldQi`s Blog</title>
-    <link>http://anfieldqi.top/tags/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8/</link>
+    <link>http://119.3.182.211/tags/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8/</link>
     <description>Recent content in 爬虫入门 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 07 May 2020 13:52:26 +0800</lastBuildDate>
     
-	<atom:link href="http://anfieldqi.top/tags/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://119.3.182.211/tags/%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python_crawler</title>
-      <link>http://anfieldqi.top/2020/python_crawler/</link>
+      <link>http://119.3.182.211/2020/python_crawler/</link>
       <pubDate>Thu, 07 May 2020 13:52:26 +0800</pubDate>
       
-      <guid>http://anfieldqi.top/2020/python_crawler/</guid>
+      <guid>http://119.3.182.211/2020/python_crawler/</guid>
       <description>1. beautifulSoup 1.1 基础 #1.使用beautifulsoup解析html网页/读取a标签的链接 from bs4 import BeautifulSoup from urllib.request import urlopen html=urlopen(&amp;#34;https://baike.baidu.com/item/%E5%AE%81%E5%9F%8E%E9%AB%98%E7%BA%A7%E4%B8%AD%E5%AD%A6/9016318?fr=aladdin&amp;#34;).read().decode() print(html) #%% soup=BeautifulSoup(html,features=&amp;#34;lxml&amp;#34;) print(soup.h1) print(soup.div) #%% all_href=soup.find_all(&amp;#34;a&amp;#34;) for l in enumerate(all_href): if l[1].get(&amp;#39;href&amp;#39;): print(l[0],l[1][&amp;#39;href&amp;#39;]) #2.解析CS</description>
     </item>
     

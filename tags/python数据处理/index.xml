@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python数据处理 on AnfieldQi`s Blog</title>
-    <link>http://anfieldqi.top/tags/python%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
+    <link>http://119.3.182.211/tags/python%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
     <description>Recent content in python数据处理 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 25 Apr 2020 10:20:26 +0800</lastBuildDate>
     
-	<atom:link href="http://anfieldqi.top/tags/python%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://119.3.182.211/tags/python%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python数据分析</title>
-      <link>http://anfieldqi.top/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <link>http://119.3.182.211/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
       <pubDate>Sat, 25 Apr 2020 10:20:26 +0800</pubDate>
       
-      <guid>http://anfieldqi.top/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <guid>http://119.3.182.211/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
       <description>Numpy C语言写的，使用矩阵计算，速度与python相比天差地别 Numpy的属性 import numpy as np array=np.array([[1,2,3],[4,5,6]]) #array有很多固有属性 array.ndim #维度 array.shape #行列数 array.size #元素个数</description>
     </item>
     
