@@ -6,10 +6,19 @@
     <description>Recent content in 固件安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 05 Aug 2020 23:39:05 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2020 09:52:40 +0800</lastBuildDate>
     
 	<atom:link href="http://119.3.182.211/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>固件文件系统</title>
+      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 12 Aug 2020 09:52:40 +0800</pubDate>
+      
+      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</guid>
+      <description>固件文件系统 动态分析固件的第一件事是使用binwalk等工具提取固件的文件系统，然后通过FAT等工具进行使用qemu等模拟器进行模拟运行。固</description>
+    </item>
     
     <item>
       <title>固件动态模拟之QEMU手动搭桥</title>

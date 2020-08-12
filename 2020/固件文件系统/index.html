@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="http://119.3.182.211/2020/4.docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/" />
-  <link rel="next" href="http://119.3.182.211/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" />
-  <link rel="canonical" href="http://119.3.182.211/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/" />
+  <link rel="prev" href="http://119.3.182.211/2020/webshell%E7%BC%96%E5%86%99_4/" />
+  
+  <link rel="canonical" href="http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           1.Docker简介及原理 | AnfieldQi`s Blog
+           固件文件系统 | AnfieldQi`s Blog
        
   </title>
-  <meta name="title" content="1.Docker简介及原理 | AnfieldQi`s Blog">
+  <meta name="title" content="固件文件系统 | AnfieldQi`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "http:\/\/119.3.182.211"
     },
     "articleSection" : "posts",
-    "name" : "1.Docker简介及原理",
-    "headline" : "1.Docker简介及原理",
-    "description" : "Docker 1. Docker简介 docker是一门虚拟化容器技术，其将应用程序与该程序的依赖，打包在一个镜像文件中。将镜像文件导入docker引擎运行，",
+    "name" : "固件文件系统",
+    "headline" : "固件文件系统",
+    "description" : "固件文件系统 动态分析固件的第一件事是使用binwalk等工具提取固件的文件系统，然后通过FAT等工具进行使用qemu等模拟器进行模拟运行。固",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -54,11 +54,11 @@
     "accountablePerson" : "anfieldqi",
     "copyrightHolder" : "anfieldqi",
     "copyrightYear" : "2020",
-    "datePublished": "2020-07-23 10:09:48 \x2b0800 CST",
-    "dateModified" : "2020-07-23 10:09:48 \x2b0800 CST",
-    "url" : "http:\/\/119.3.182.211\/2020\/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86\/",
-    "wordCount" : "848",
-    "keywords" : [ "docker", "AnfieldQi`s Blog"]
+    "datePublished": "2020-08-12 09:52:40 \x2b0800 CST",
+    "dateModified" : "2020-08-12 09:52:40 \x2b0800 CST",
+    "url" : "http:\/\/119.3.182.211\/2020\/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F\/",
+    "wordCount" : "107",
+    "keywords" : [ "固件安全", "AnfieldQi`s Blog"]
 }
 </script>
 
@@ -122,26 +122,24 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">1.Docker简介及原理</h1>
+        <h1 class="post-title" itemprop="name headline">固件文件系统</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="http://119.3.182.211" rel="author">anfieldqi</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-07-23 itemprop="datePublished">July 23, 2020</time>
+                on <time datetime=2020-08-12 itemprop="datePublished">August 12, 2020</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="http://119.3.182.211/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+                        <a href="http://119.3.182.211/categories/iot%E5%AE%89%E5%85%A8/"> IOT安全 </a>
                         
                 </span>
-                <span class="post-word-count">, 848 words</span>
+                <span class="post-word-count">, 107 words</span>
         </div>
     </header>
     <div class="post-content">
         
 
-        
-            
         
 
         
@@ -155,37 +153,11 @@
           
           
 
-          <h2 id="docker">Docker</h2>
-<h3 id="1-docker简介">1. Docker简介</h3>
-<p>docker是一门虚拟化容器技术，其将应用程序与该程序的依赖，打包在一个镜像文件中。将镜像文件导入docker引擎运行，就会生成一个虚拟容器，程序在这个虚拟容器里运行，与在真实的物理机上运行一样，docker为程序的运行提供了独立的环境。</p>
-<h3 id="2-docker架构">2. Docker架构</h3>
-<p>docker采用的是C/S架构。客户端向服务器发送请求，服务器负责构建、运行和分发容器。客户端和服务器可以运行在同一个Host上，客户端也可以通过socket或者REST API与远程的服务器通信。</p>
-<p><!-- raw HTML omitted --></p>
-<h4 id="21-docker核心组件">2.1 Docker核心组件</h4>
-<p>- docker 客户端 - Client</p>
-<p>- Docker 引擎 - Docker daemon</p>
-<p>- Docker 镜像 - Image</p>
-<p>- Registry 仓库</p>
-<p>- Docker 容器 - Container</p>
-<h4 id="22-docker客户端">2.2 Docker客户端</h4>
-<p>通过客户端使用docker命令进行操作，通过docker可以很快的在host上构建镜像和运行容器，常见的命令为docker pull ,docker run ,docker build.</p>
-<h4 id="23-docker引擎">2.3 Docker引擎</h4>
-<p>Docker daemon 是服务器组件，以 Linux 后台服务的方式运行。 Docker daemon 运行在 Docker host 上，负责创建、运行、监控容器，构建、存储镜像。</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cdocker_daemon.png" alt="docker_daemon"></p>
-<p>引擎架构大致如上图所示，与docker首次发布时不同的是在后面的版本中docker一直在进行拆解与重构工作，容器执行和运行时代码已从引擎中拆解出来。</p>
-<ol>
-<li>Docker daemon：提供API及其他特性</li>
-<li>containerd：所有容器执行逻辑均被重构到此工具中,主要任务为<strong>容器的生命周期管理</strong>，同时新版本中也负责一些镜像管理工作</li>
-<li>shim：<strong>实现无守护进程容器</strong>的工具。主要工作为：（1）保持所有的STDIN和STDOUT流为开启状态，当daemon重启时运行的容器不会因为管道的关闭而终止 （2）将容器的退出状态反馈给daemon</li>
-<li>runc：<strong>容器运行时工具</strong>（内核原语接口），唯一作用为创建容器，是一个轻量级的针对Libcontainer（取代了早期的LXC组件为提供命名空间等服务）进行了包装的<strong>命令行交互工具</strong></li>
-</ol>
-<h5 id="模型优势">模型优势</h5>
-<ol>
-<li>容器运行时与Docker deamon解耦（无守护进程的容器），对Docker deamon的升级维护不会影响容器的运行</li>
-</ol>
-<h5 id="启动新容器的过程">启动新容器的过程</h5>
-<p>为了总结引擎工具的作用，下面简述一个启动新容器的过程</p>
-<p><!-- raw HTML omitted --></p>
+          <h2 id="固件文件系统">固件文件系统</h2>
+<p>动态分析固件的第一件事是使用binwalk等工具提取固件的文件系统，然后通过FAT等工具进行使用qemu等模拟器进行模拟运行。固件文件系统种类比较繁多，linux的启动需要对根目录进行挂载，</p>
+<h4 id="参考文献">参考文献</h4>
+<p><a href="https://zh.wikipedia.org/wiki/SquashFS">https://zh.wikipedia.org/wiki/SquashFS</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/128601549">https://zhuanlan.zhihu.com/p/128601549</a></p>
 
     </div>
 
@@ -200,7 +172,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=http://119.3.182.211/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/>http://119.3.182.211/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</span>
+                    <a href=http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</span>
             </p>
             
              
@@ -216,8 +188,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="http://119.3.182.211/tags/docker/">
-                    #docker</a></span>
+            <span class="tag"><a href="http://119.3.182.211/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/">
+                    #固件安全</a></span>
             
             </section>
         
@@ -229,10 +201,8 @@
 
     <div class="post-nav">
         
-        <a href="http://119.3.182.211/2020/4.docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/" class="prev" rel="prev" title="4.Docker应用容器化"><i class="iconfont icon-left"></i>&nbsp;4.Docker应用容器化</a>
+        <a href="http://119.3.182.211/2020/webshell%E7%BC%96%E5%86%99_4/" class="prev" rel="prev" title="4.webshell编写"><i class="iconfont icon-left"></i>&nbsp;4.webshell编写</a>
          
-        
-        <a href="http://119.3.182.211/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" class="next" rel="next" title="Linux设置定时任务">Linux设置定时任务&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -300,9 +270,8 @@
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
 
