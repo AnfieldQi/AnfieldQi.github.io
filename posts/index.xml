@@ -2,525 +2,534 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on AnfieldQi`s Blog</title>
-    <link>http://119.3.182.211/posts/</link>
+    <link>http://anfieldqi.top/posts/</link>
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Aug 2020 09:52:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2020 21:13:37 +0800</lastBuildDate>
     
-	<atom:link href="http://119.3.182.211/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://anfieldqi.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>生活随笔—_如今倾尽入海流</title>
+      <link>http://anfieldqi.top/2020/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94_%E5%A6%82%E4%BB%8A%E5%80%BE%E5%B0%BD%E5%85%A5%E6%B5%B7%E6%B5%81/</link>
+      <pubDate>Wed, 12 Aug 2020 21:13:37 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94_%E5%A6%82%E4%BB%8A%E5%80%BE%E5%B0%BD%E5%85%A5%E6%B5%B7%E6%B5%81/</guid>
+      <description>如今倾尽入海流 生活才不是一锤子买卖，没有哪个选择做出后就能兜底/毁掉一生。我们只不过是利用过往经历所带来的资源选出当下最优解，然后向着另一个</description>
+    </item>
+    
+    <item>
       <title>固件文件系统</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Wed, 12 Aug 2020 09:52:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</guid>
       <description>固件文件系统 动态分析固件的第一件事是使用binwalk等工具提取固件的文件系统，然后通过FAT等工具进行使用qemu等模拟器进行模拟运行。固</description>
     </item>
     
     <item>
       <title>4.webshell编写</title>
-      <link>http://119.3.182.211/2020/webshell%E7%BC%96%E5%86%99_4/</link>
+      <link>http://anfieldqi.top/2020/webshell%E7%BC%96%E5%86%99_4/</link>
       <pubDate>Fri, 07 Aug 2020 18:29:14 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/webshell%E7%BC%96%E5%86%99_4/</guid>
+      <guid>http://anfieldqi.top/2020/webshell%E7%BC%96%E5%86%99_4/</guid>
       <description>webshell</description>
     </item>
     
     <item>
       <title>Hugo&#43;nginx&#43;华为云</title>
-      <link>http://119.3.182.211/2020/hugo-nginx-%E5%8D%8E%E4%B8%BA%E4%BA%91/</link>
+      <link>http://anfieldqi.top/2020/hugo-nginx-%E5%8D%8E%E4%B8%BA%E4%BA%91/</link>
       <pubDate>Fri, 07 Aug 2020 15:32:58 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/hugo-nginx-%E5%8D%8E%E4%B8%BA%E4%BA%91/</guid>
+      <guid>http://anfieldqi.top/2020/hugo-nginx-%E5%8D%8E%E4%B8%BA%E4%BA%91/</guid>
       <description>hugo+nginx+华为云 监控webhook情况 PM2 logs start</description>
     </item>
     
     <item>
       <title>固件动态模拟之QEMU手动搭桥</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</link>
       <pubDate>Wed, 05 Aug 2020 23:39:05 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
       <description>QEMU的网络问题 使用qemu模拟时虚拟机与外界的网络问题一直是一个比较普遍且令人头疼的问题。直接表现为虚拟机不能与外界网络连通，外界不能访</description>
     </item>
     
     <item>
       <title>固件动态模拟之网络接口的浅析</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</link>
       <pubDate>Mon, 03 Aug 2020 07:57:26 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</guid>
       <description>网络端口浅析 因为在做固件模拟的时候，遇到了QEMU模拟时因为模拟运行的固件内部·端口未开放导致不能访问管理界面的问题，So简单学习一下关于网</description>
     </item>
     
     <item>
       <title>7.Docker网络</title>
-      <link>http://119.3.182.211/2020/7.docker%E7%BD%91%E7%BB%9C/</link>
+      <link>http://anfieldqi.top/2020/7.docker%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Fri, 31 Jul 2020 14:07:34 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/7.docker%E7%BD%91%E7%BB%9C/</guid>
+      <guid>http://anfieldqi.top/2020/7.docker%E7%BD%91%E7%BB%9C/</guid>
       <description>Docker 网络 docker网络架构源自容器网络模型（CNM）方案，该方案支持插接式连接。libnetwork是CNM在docker中的具体实现，其提</description>
     </item>
     
     <item>
       <title>6.Docker_Swarm集群</title>
-      <link>http://119.3.182.211/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/</link>
+      <link>http://anfieldqi.top/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Mon, 27 Jul 2020 09:24:14 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/</guid>
+      <guid>http://anfieldqi.top/2020/6.docker_swarm%E9%9B%86%E7%BE%A4/</guid>
       <description>Docker Swarm 1.简介 Docker Swarm包含2个核心组件：安全集群/编排引擎 企业级安全集群 编排引擎 使用 1.1/多个docker节点连接，用户以集群方式管理 1</description>
     </item>
     
     <item>
       <title>5.使用Docker_Compose部署</title>
-      <link>http://119.3.182.211/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/</link>
+      <link>http://anfieldqi.top/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Sun, 26 Jul 2020 22:43:58 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/</guid>
+      <guid>http://anfieldqi.top/2020/5.%E4%BD%BF%E7%94%A8docker_compose%E9%83%A8%E7%BD%B2/</guid>
       <description>使用Docker Compose部署 1.简介 多数现代应用都是由多个更小的服务协调工作而成的，比如： WEB 前端 订单管理 品类管理‘ 后台数据库 多服务的部</description>
     </item>
     
     <item>
       <title>Linux设置定时任务</title>
-      <link>http://119.3.182.211/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <link>http://anfieldqi.top/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
       <pubDate>Thu, 23 Jul 2020 10:49:10 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <guid>http://anfieldqi.top/2020/linux%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
       <description>Crontab 1.简介 crontab是cron table的简写，用来在LINUX上设置定时任务是cron的配置文件，也可以叫它作业列表.cron启动后其</description>
     </item>
     
     <item>
       <title>1.Docker简介及原理</title>
-      <link>http://119.3.182.211/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</link>
+      <link>http://anfieldqi.top/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</link>
       <pubDate>Thu, 23 Jul 2020 10:09:48 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</guid>
+      <guid>http://anfieldqi.top/2020/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86/</guid>
       <description>Docker 1. Docker简介 docker是一门虚拟化容器技术，其将应用程序与该程序的依赖，打包在一个镜像文件中。将镜像文件导入docker引擎运行，</description>
     </item>
     
     <item>
       <title>4.Docker应用容器化</title>
-      <link>http://119.3.182.211/2020/4.docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
+      <link>http://anfieldqi.top/2020/4.docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
       <pubDate>Mon, 20 Jul 2020 19:32:26 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/4.docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
+      <guid>http://anfieldqi.top/2020/4.docker%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
       <description>Docker应用单体容器化 1. 完整步骤 编写应用代码 创建Dockerfile，包括当前应用的描述，依赖，以及如何创建及使用什么命令运行这个应用 对</description>
     </item>
     
     <item>
       <title>3.Docker容器</title>
-      <link>http://119.3.182.211/2020/3.docker%E5%AE%B9%E5%99%A8/</link>
+      <link>http://anfieldqi.top/2020/3.docker%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Sun, 19 Jul 2020 14:02:19 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/3.docker%E5%AE%B9%E5%99%A8/</guid>
+      <guid>http://anfieldqi.top/2020/3.docker%E5%AE%B9%E5%99%A8/</guid>
       <description>Docker容器 1.简介 docker容器是docker镜像的运行时实例 用户可以在单个镜像上启动一个或多个容器 2.容器VS虚拟机 Docker 虚拟机 资源占</description>
     </item>
     
     <item>
       <title>2.Docker镜像</title>
-      <link>http://119.3.182.211/2020/2.docker%E9%95%9C%E5%83%8F/</link>
+      <link>http://anfieldqi.top/2020/2.docker%E9%95%9C%E5%83%8F/</link>
       <pubDate>Sun, 19 Jul 2020 09:31:11 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/2.docker%E9%95%9C%E5%83%8F/</guid>
+      <guid>http://anfieldqi.top/2020/2.docker%E9%95%9C%E5%83%8F/</guid>
       <description>Docker镜像 docker镜像是构建docker容器的基础，与常用的VM虚拟机做对比，如果使用VM启动一个操作系统，Dcoker镜像可以理</description>
     </item>
     
     <item>
       <title>《A Large-Scale Analysis of the Security of Embedded Firmwares》</title>
-      <link>http://119.3.182.211/2020/a_large_analysis/</link>
+      <link>http://anfieldqi.top/2020/a_large_analysis/</link>
       <pubDate>Wed, 01 Jul 2020 16:01:14 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/a_large_analysis/</guid>
+      <guid>http://anfieldqi.top/2020/a_large_analysis/</guid>
       <description>1.题目 A Large-Scale Analysis of the Security of Embedded Firmwares 2.主要内容 这是一篇时间上相对来说比较靠前的文章，主要介绍了针对固件镜像的大规模分析项目。具体为将32000个固件</description>
     </item>
     
     <item>
       <title>IoTFuzzer_note</title>
-      <link>http://119.3.182.211/2020/iotfuzzer_note/</link>
+      <link>http://anfieldqi.top/2020/iotfuzzer_note/</link>
       <pubDate>Thu, 11 Jun 2020 09:54:58 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/iotfuzzer_note/</guid>
+      <guid>http://anfieldqi.top/2020/iotfuzzer_note/</guid>
       <description>1.题目 IOTFUZZER: Discovering Memory Corruptions in IoT Through App-based Fuzzing 2.主要内容 目前IOT安全检测使用的大部分是基于二进制分析的，分析的前提是获取到固件的镜像，但是镜像提取是一个问题</description>
     </item>
     
     <item>
       <title>4.读论文_文献管理软件EndNote</title>
-      <link>http://119.3.182.211/2020/4.%E8%AF%BB%E8%AE%BA%E6%96%87_%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6endnote/</link>
+      <link>http://anfieldqi.top/2020/4.%E8%AF%BB%E8%AE%BA%E6%96%87_%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6endnote/</link>
       <pubDate>Tue, 19 May 2020 11:44:54 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/4.%E8%AF%BB%E8%AE%BA%E6%96%87_%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6endnote/</guid>
+      <guid>http://anfieldqi.top/2020/4.%E8%AF%BB%E8%AE%BA%E6%96%87_%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6endnote/</guid>
       <description>暂时没用上&amp;hellip;&amp;hellip;.</description>
     </item>
     
     <item>
       <title>3.读论文_Mathpix公式转换</title>
-      <link>http://119.3.182.211/2020/3.%E8%AF%BB%E8%AE%BA%E6%96%87_mathpix%E5%85%AC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</link>
+      <link>http://anfieldqi.top/2020/3.%E8%AF%BB%E8%AE%BA%E6%96%87_mathpix%E5%85%AC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</link>
       <pubDate>Tue, 19 May 2020 11:40:42 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/3.%E8%AF%BB%E8%AE%BA%E6%96%87_mathpix%E5%85%AC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</guid>
+      <guid>http://anfieldqi.top/2020/3.%E8%AF%BB%E8%AE%BA%E6%96%87_mathpix%E5%85%AC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</guid>
       <description>Mathpix 功能 假如你在笔记本上写了个公式，又或者想引用一篇文献中的公式，此时你只需将公式截图，Mathpix就能识别该公式并自动生成LaTeX代码，</description>
     </item>
     
     <item>
       <title>2.读论文_copytranslate文献翻译</title>
-      <link>http://119.3.182.211/2020/2.%E8%AF%BB%E8%AE%BA%E6%96%87_copytranslate%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/</link>
+      <link>http://anfieldqi.top/2020/2.%E8%AF%BB%E8%AE%BA%E6%96%87_copytranslate%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/</link>
       <pubDate>Tue, 19 May 2020 07:24:07 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/2.%E8%AF%BB%E8%AE%BA%E6%96%87_copytranslate%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/</guid>
+      <guid>http://anfieldqi.top/2020/2.%E8%AF%BB%E8%AE%BA%E6%96%87_copytranslate%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/</guid>
       <description>Copytranslator 介绍：一款实时翻译软件，拥有监听剪切板，自动翻译等功能 项目地址：https://copytranslator.github.io/ 基本功能</description>
     </item>
     
     <item>
       <title>1.读论文_HistCite引文分析</title>
-      <link>http://119.3.182.211/2020/1.%E8%AF%BB%E8%AE%BA%E6%96%87_histcite%E5%BC%95%E6%96%87%E5%88%86%E6%9E%90/</link>
+      <link>http://anfieldqi.top/2020/1.%E8%AF%BB%E8%AE%BA%E6%96%87_histcite%E5%BC%95%E6%96%87%E5%88%86%E6%9E%90/</link>
       <pubDate>Mon, 18 May 2020 16:50:59 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/1.%E8%AF%BB%E8%AE%BA%E6%96%87_histcite%E5%BC%95%E6%96%87%E5%88%86%E6%9E%90/</guid>
+      <guid>http://anfieldqi.top/2020/1.%E8%AF%BB%E8%AE%BA%E6%96%87_histcite%E5%BC%95%E6%96%87%E5%88%86%E6%9E%90/</guid>
       <description>HistCite 1.简介 HistCite是汤森路透旗下的一款引文分析软件，基于Web of Science (WOS)数据库对文献引文进行分析。可是，长期以来官网对该款软件的</description>
     </item>
     
     <item>
       <title>固件加密解密_DLINK</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
       <pubDate>Sun, 17 May 2020 09:51:13 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
       <description>固件解密 1. 利用设备提供的更新机制解密 1.1原理 在固件的版本更新迭代中，会改变加密策略，在研究最新版固件时，如果固件本身是被加密的，那么就需要</description>
     </item>
     
     <item>
       <title>固件信息熵计算</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</link>
       <pubDate>Sun, 17 May 2020 09:50:55 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</guid>
       <description>信息熵 熵（英语：entropy）是接收的每条消息中包含的信息的平均量 规则：熵值越高，所含信息越多；熵值越低，所含的信息也越低，或者说是所含信</description>
     </item>
     
     <item>
       <title>OWASP固件安全性测试项</title>
-      <link>http://119.3.182.211/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</link>
+      <link>http://anfieldqi.top/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</link>
       <pubDate>Fri, 15 May 2020 09:50:50 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</guid>
+      <guid>http://anfieldqi.top/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</guid>
       <description>固件安全评估 英文名称 firmware security testing methodology 简称 FSTM 测试流程 id 阶段 描述 1 信息收集 固件的相关技术文档的详细使用说明 2 获取固件 使用本文中介绍的多种办法获取固件 3 分</description>
     </item>
     
     <item>
       <title>3.栈溢出原理与实践</title>
-      <link>http://119.3.182.211/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/</link>
+      <link>http://anfieldqi.top/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/</link>
       <pubDate>Mon, 11 May 2020 20:30:37 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/</guid>
+      <guid>http://anfieldqi.top/2020/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5_3/</guid>
       <description>栈溢出原理与实践 1. 系统栈的工作原理 1.1内存的用途 进程使用的内存都可以按照功能大致分成以下 4 个部分 代码区：这个区域存储着被装入执行的二进制机</description>
     </item>
     
     <item>
       <title>Python方法</title>
-      <link>http://119.3.182.211/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</link>
+      <link>http://anfieldqi.top/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</link>
       <pubDate>Mon, 11 May 2020 13:54:49 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://anfieldqi.top/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</guid>
       <description>普通方法 调用：类名调用，不可使用实例化对象，关于类没啥用 class Num: def one(): print (&amp;#39;1&amp;#39;) 实例方法 所属：实例对象 调用：用实例化对象调用 类中最常用的方法是实例方法,</description>
     </item>
     
     <item>
       <title>2.漏洞分析基础知识</title>
-      <link>http://119.3.182.211/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/</link>
+      <link>http://anfieldqi.top/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/</link>
       <pubDate>Sun, 10 May 2020 16:22:19 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/</guid>
+      <guid>http://anfieldqi.top/2020/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86_2/</guid>
       <description>二进制文件概述 1. PE文件格式 PE（Portable Exec utable）是 Win32 平台下可执行文件遵守的数据格式。常见的可执行文件（如*.exe文件和*</description>
     </item>
     
     <item>
       <title>1.漏洞的概念</title>
-      <link>http://119.3.182.211/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/</link>
+      <link>http://anfieldqi.top/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/</link>
       <pubDate>Sun, 10 May 2020 15:38:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/</guid>
+      <guid>http://anfieldqi.top/2020/%E8%BD%AF%E4%BB%B6%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF_1/</guid>
       <description>1.Vulnerability 定义 通常把能够引起软件做一些“超出设计范围的事情”的 bug 称为漏洞（vulnerability） 种类 功能性逻辑缺陷（bug）：影响软件的正常功</description>
     </item>
     
     <item>
       <title>FACT_platform</title>
-      <link>http://119.3.182.211/2020/fact_platform/</link>
+      <link>http://anfieldqi.top/2020/fact_platform/</link>
       <pubDate>Thu, 07 May 2020 18:29:16 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/fact_platform/</guid>
+      <guid>http://anfieldqi.top/2020/fact_platform/</guid>
       <description>FACT 一款基于Flask开发的自动化固件检测平台 1.基本功能 1.软件识别 （1）使用哪个操作系统？ （2）哪些节目存在？ （3）使用哪些版本？ （4）哪</description>
     </item>
     
     <item>
       <title>固件敏感文件信息分析</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</link>
       <pubDate>Thu, 07 May 2020 15:39:48 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</guid>
       <description>固件信息 固件被顺利提取后，就可以进入分析流程 1.工具：file hexdump string 2.本章使用固件：TL-WR841Nv14_EU_0.9.1_4.16_u</description>
     </item>
     
     <item>
       <title>Python_crawler</title>
-      <link>http://119.3.182.211/2020/python_crawler/</link>
+      <link>http://anfieldqi.top/2020/python_crawler/</link>
       <pubDate>Thu, 07 May 2020 13:52:26 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python_crawler/</guid>
+      <guid>http://anfieldqi.top/2020/python_crawler/</guid>
       <description>1. beautifulSoup 1.1 基础 #1.使用beautifulsoup解析html网页/读取a标签的链接 from bs4 import BeautifulSoup from urllib.request import urlopen html=urlopen(&amp;#34;https://baike.baidu.com/item/%E5%AE%81%E5%9F%8E%E9%AB%98%E7%BA%A7%E4%B8%AD%E5%AD%A6/9016318?fr=aladdin&amp;#34;).read().decode() print(html) #%% soup=BeautifulSoup(html,features=&amp;#34;lxml&amp;#34;) print(soup.h1) print(soup.div) #%% all_href=soup.find_all(&amp;#34;a&amp;#34;) for l in enumerate(all_href): if l[1].get(&amp;#39;href&amp;#39;): print(l[0],l[1][&amp;#39;href&amp;#39;]) #2.解析CS</description>
     </item>
     
     <item>
       <title>Matplotlib</title>
-      <link>http://119.3.182.211/2020/matplotlib/</link>
+      <link>http://anfieldqi.top/2020/matplotlib/</link>
       <pubDate>Sun, 03 May 2020 15:45:57 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/matplotlib/</guid>
+      <guid>http://anfieldqi.top/2020/matplotlib/</guid>
       <description>不同的画图方式 scatter散点 import matplotlib.pyplot as plt import numpy as np n=1024 X=np.random.normal(0,1,n) Y=np.random.normal(0,1,n) #透明度 plt.scatter(X,Y,c=T,alpha=0.5) plt.xlim((-1.5,1.5)) plt.ylim((-1.5,1.5)) plt.xticks(()) plt.yticks(()) plt.show() bar柱状图 import matplotlib.pyplot as plt import numpy as np n = 12 X = np.arange(n) Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n) Y2 =</description>
     </item>
     
     <item>
       <title>确定固件的加载地址</title>
-      <link>http://119.3.182.211/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</link>
+      <link>http://anfieldqi.top/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</link>
       <pubDate>Wed, 29 Apr 2020 16:50:58 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</guid>
+      <guid>http://anfieldqi.top/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</guid>
       <description>确定固件的加载地址 1. 固件的识别与解压 binwalk **.bin 为压缩包格式，直接使用binwalk进行解包提取 提取后会得到一个以固件起始位置来命名的文件目录，本例</description>
     </item>
     
     <item>
       <title>IoT固件模拟运行</title>
-      <link>http://119.3.182.211/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</link>
+      <link>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</link>
       <pubDate>Tue, 28 Apr 2020 15:06:30 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</guid>
+      <guid>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</guid>
       <description>模拟运行和调试技术 1.分析环境 QEMU 安装： sudo apt-get install qemu-user-static 用户模式：能启动那些为不同处理架构编译的独立的 Linux 程序 使用对应的QEMU提供的程序，执行相应架构</description>
     </item>
     
     <item>
       <title>IoT固件提取与解包</title>
-      <link>http://119.3.182.211/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</link>
+      <link>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</link>
       <pubDate>Tue, 28 Apr 2020 10:42:17 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</guid>
+      <guid>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</guid>
       <description>1.IoT Firmware 1.IoT设备 IoT 设备是一类特殊的嵌入式设备，基于智能单元与网络提升了传统硬件功能的设备 IoT Device = Embedded Device + Network = Hardware Device + Computation Intelligence + Network 2.IoT固件 IoT Fi</description>
     </item>
     
     <item>
       <title>QCA9533提取固件练习</title>
-      <link>http://119.3.182.211/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</link>
+      <link>http://anfieldqi.top/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</link>
       <pubDate>Mon, 27 Apr 2020 17:56:00 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</guid>
+      <guid>http://anfieldqi.top/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</guid>
       <description>QCA9533固件解包 1.依赖 kali linux 2020 QCA9533路由器原厂固件、 通用的linux re工具：file hexdump string dd lzma(都在kali里了) 第三方</description>
     </item>
     
     <item>
       <title>kail_linux安装</title>
-      <link>http://119.3.182.211/2020/kail_linux%E5%AE%89%E8%A3%85/</link>
+      <link>http://anfieldqi.top/2020/kail_linux%E5%AE%89%E8%A3%85/</link>
       <pubDate>Mon, 27 Apr 2020 16:28:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/kail_linux%E5%AE%89%E8%A3%85/</guid>
+      <guid>http://anfieldqi.top/2020/kail_linux%E5%AE%89%E8%A3%85/</guid>
       <description>kali 简介 Kali是一套用于安全渗透(黑客)的Linux发行版，涵盖了安全方面所需的大部分应用，不过倒是没看到IDA和OD什么的，记得之前做逆向</description>
     </item>
     
     <item>
       <title>Python数据分析</title>
-      <link>http://119.3.182.211/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <link>http://anfieldqi.top/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
       <pubDate>Sat, 25 Apr 2020 10:20:26 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <guid>http://anfieldqi.top/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
       <description>Numpy C语言写的，使用矩阵计算，速度与python相比天差地别 Numpy的属性 import numpy as np array=np.array([[1,2,3],[4,5,6]]) #array有很多固有属性 array.ndim #维度 array.shape #行列数 array.size #元素个数</description>
     </item>
     
     <item>
       <title>项目部署至服务器</title>
-      <link>http://119.3.182.211/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>http://anfieldqi.top/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Thu, 23 Apr 2020 11:38:44 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>http://anfieldqi.top/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>写在前面：个人笔记整理，比较简单 项目部署至服务器 1.配置服务端环境 1.1 python环境 一般现在服务器自带2和3环境，根据需要使用即可 1.2 创建虚拟</description>
     </item>
     
     <item>
       <title>项目部署至服务器及设置定时任务</title>
-      <link>http://119.3.182.211/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <link>http://anfieldqi.top/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
       <pubDate>Thu, 23 Apr 2020 11:38:44 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <guid>http://anfieldqi.top/2020/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
       <description>写在前面：个人笔记整理，比较简单 项目部署至服务器 1.配置服务端环境 1.1 python环境 一般现在服务器自带2和3环境，根据需要使用即可 1.2 创建虚拟</description>
     </item>
     
     <item>
       <title>PythonTkinter</title>
-      <link>http://119.3.182.211/2020/pythontkinter/</link>
+      <link>http://anfieldqi.top/2020/pythontkinter/</link>
       <pubDate>Wed, 22 Apr 2020 09:42:58 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythontkinter/</guid>
+      <guid>http://anfieldqi.top/2020/pythontkinter/</guid>
       <description>TKinter python提供的一个图形界面的库 1. 窗口主体框架 import tkinter as tk windows=tk.TK() windows.title() windows=geometry(&amp;#39;num x num &amp;#39;) #windows上面的label,多参数可选,定义一个变量 var=tk.StringVar() l=tk.Label(windows,text=var,bg=&amp;#39;&amp;#39;,font=(&amp;#34;Arial&amp;#34;,12),width=,height= ) #安置</description>
     </item>
     
     <item>
       <title>Database</title>
-      <link>http://119.3.182.211/2020/database/</link>
+      <link>http://anfieldqi.top/2020/database/</link>
       <pubDate>Tue, 21 Apr 2020 14:45:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/database/</guid>
+      <guid>http://anfieldqi.top/2020/database/</guid>
       <description>redis MySQL MongoDB</description>
     </item>
     
     <item>
       <title>Python网络</title>
-      <link>http://119.3.182.211/2020/pythonnet/</link>
+      <link>http://anfieldqi.top/2020/pythonnet/</link>
       <pubDate>Tue, 21 Apr 2020 14:45:18 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythonnet/</guid>
+      <guid>http://anfieldqi.top/2020/pythonnet/</guid>
       <description>1. TCP 客户端 import socket # 创建一个socket: s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) //指定IPV4面向流 # 建立连接: s.connect((ipv4, 80)) s.send(&amp;#34;&amp;#34;)#发送请求 s.recv(nums) #每次接</description>
     </item>
     
     <item>
       <title>PythonSampleModule</title>
-      <link>http://119.3.182.211/2020/pythonsamplemodule/</link>
+      <link>http://anfieldqi.top/2020/pythonsamplemodule/</link>
       <pubDate>Tue, 21 Apr 2020 14:44:57 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythonsamplemodule/</guid>
+      <guid>http://anfieldqi.top/2020/pythonsamplemodule/</guid>
       <description>有一些还是没有常用到，没有常用的东西就容易忘，还是梳理一下 1. struct 解决字节与其他二进制数据类型（整数等）的转换 python没有专门处理字节的数据</description>
     </item>
     
     <item>
       <title>PythonProcessandThread</title>
-      <link>http://119.3.182.211/2020/pythonprocessandthread/</link>
+      <link>http://anfieldqi.top/2020/pythonprocessandthread/</link>
       <pubDate>Mon, 20 Apr 2020 19:56:52 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythonprocessandthread/</guid>
+      <guid>http://anfieldqi.top/2020/pythonprocessandthread/</guid>
       <description>进程 1.多进程 os.fork():返回两次：1.父进程返回子进程id 2.子进程返回0 3.子进程调用getppid()得到父进程id mutip</description>
     </item>
     
     <item>
       <title>Android_Monkey</title>
-      <link>http://119.3.182.211/2020/android_monkey/</link>
+      <link>http://anfieldqi.top/2020/android_monkey/</link>
       <pubDate>Sun, 19 Apr 2020 22:48:19 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/android_monkey/</guid>
+      <guid>http://anfieldqi.top/2020/android_monkey/</guid>
       <description>什么是Monkey 一只猴子？ Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(</description>
     </item>
     
     <item>
       <title>Python错误处理的细节</title>
-      <link>http://119.3.182.211/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</link>
+      <link>http://anfieldqi.top/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</link>
       <pubDate>Sun, 19 Apr 2020 20:48:27 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</guid>
+      <guid>http://anfieldqi.top/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</guid>
       <description>错误处理的一些可记细节 try except finally continue和break不会影响异常处理机制 def test(): while True: try: a = 1/0 except Exception as e: print (&amp;#34;exception&amp;#34;) continue finally: print (&amp;#34;finally&amp;#34;) print (&amp;#34;out of try&amp;#34;) if __name__ == &amp;#39;__main__&amp;#39;: test() //输出 exception</description>
     </item>
     
     <item>
       <title>PythonIO</title>
-      <link>http://119.3.182.211/2020/pythonio/</link>
+      <link>http://anfieldqi.top/2020/pythonio/</link>
       <pubDate>Sun, 19 Apr 2020 19:49:06 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythonio/</guid>
+      <guid>http://anfieldqi.top/2020/pythonio/</guid>
       <description>文件的读写 f = open(&amp;#39;path&amp;#39;, &amp;#39;r&amp;#39;, encoding=&amp;#39;&amp;#39;, errors=&amp;#39;ignore&amp;#39;) f = open(&amp;#39;/Users/michael/test.txt&amp;#39;, &amp;#39;r&amp;#39;) f = read() //读入内存存为str对象 f.close() //关掉 //最好是调用finally，不然万一read出了错就关不掉了 //这</description>
     </item>
     
     <item>
       <title>Python测试</title>
-      <link>http://119.3.182.211/2020/python%E6%B5%8B%E8%AF%95/</link>
+      <link>http://anfieldqi.top/2020/python%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 19 Apr 2020 19:48:30 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E6%B5%8B%E8%AF%95/</guid>
+      <guid>http://anfieldqi.top/2020/python%E6%B5%8B%E8%AF%95/</guid>
       <description>单元测试和文档测试 1.单元测试 单元测试的意义 单元测试在未来项目重构中有十分重要的作用，单元测试包含了对某功能测试的一切边际条件，未来重构时，</description>
     </item>
     
     <item>
       <title>Python面向对象</title>
-      <link>http://119.3.182.211/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <link>http://anfieldqi.top/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
       <pubDate>Sun, 19 Apr 2020 14:39:14 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <guid>http://anfieldqi.top/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
       <description>一些面向对象的知识 1.访问限制 算了其实跟其他的都一样但是还是写一下 // 使用__ class Student(object): def __init__(self, name, score): self.__name = name self.__score = score def print_score(self): print(&amp;#39;%s: %s&amp;#39; % (self.__name, self.__score)) //外部的实例变量已经无法</description>
     </item>
     
     <item>
       <title>Python函数式</title>
-      <link>http://119.3.182.211/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</link>
+      <link>http://anfieldqi.top/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</link>
       <pubDate>Sun, 19 Apr 2020 10:07:01 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</guid>
+      <guid>http://anfieldqi.top/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</guid>
       <description>python函数式 1.四个高阶函数 1.map map(func,Iterable) //fnuc依次作用至每一个Iterable元素,并将结果作为Iterator返回 2.filter filter(func,Iterable) //fnuc依次</description>
     </item>
     
     <item>
       <title>Android逆向入门</title>
-      <link>http://119.3.182.211/2020/android%E5%9F%BA%E7%A1%80/</link>
+      <link>http://anfieldqi.top/2020/android%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sat, 18 Apr 2020 20:52:47 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/android%E5%9F%BA%E7%A1%80/</guid>
+      <guid>http://anfieldqi.top/2020/android%E5%9F%BA%E7%A1%80/</guid>
       <description>[TOC] Android相关文件结构 1. APK的组成 AndroidManifest.xml: Android的基础配置文件，包含了与apk相关的大量信息 asserts:资源文件目录，在jav</description>
     </item>
     
     <item>
       <title>Python变量作用域</title>
-      <link>http://119.3.182.211/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
+      <link>http://anfieldqi.top/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:53 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
+      <guid>http://anfieldqi.top/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
       <description>python 变量及其作用域 四个作用域 LEGB原则： L(local)：局部作用域 E(Enclosing)：闭包函数外的函数中 G(global)：全局作用</description>
     </item>
     
     <item>
       <title>Python嵌套函数</title>
-      <link>http://119.3.182.211/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</link>
+      <link>http://anfieldqi.top/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:44 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</guid>
+      <guid>http://anfieldqi.top/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</guid>
       <description>python嵌套函数 在 Python 中，函数高级用法都与嵌套函数紧密相关，所以有必要先熟悉一下嵌套函数。 使用场景 封装 - 数据隐藏 贯彻 DRY 原则 闭包 1.封装，数</description>
     </item>
     
     <item>
       <title>Python装饰器</title>
-      <link>http://119.3.182.211/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
+      <link>http://anfieldqi.top/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:36 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
+      <guid>http://anfieldqi.top/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
       <description>Python装饰器 1.概念 装饰器是可调用的对象，其参数是另外一个函数，装饰器可能会处理被装饰的函数然后把它返回，或者将其替换成另外一个函数或</description>
     </item>
     
     <item>
       <title>Shell学习</title>
-      <link>http://119.3.182.211/2020/shell%E5%AD%A6%E4%B9%A0/</link>
+      <link>http://anfieldqi.top/2020/shell%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:28 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>http://anfieldqi.top/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
       <description>shell 开始 #!/bin/bash 与python一样，告诉其路径 Shell 变量 变量名和=之间不准有空格 命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头 中</description>
     </item>
     
     <item>
       <title>Typora使用</title>
-      <link>http://119.3.182.211/2020/typora%E4%BD%BF%E7%94%A8/</link>
+      <link>http://anfieldqi.top/2020/typora%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 15 Apr 2020 21:47:51 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/typora%E4%BD%BF%E7%94%A8/</guid>
+      <guid>http://anfieldqi.top/2020/typora%E4%BD%BF%E7%94%A8/</guid>
       <description>我觉得最好用的一款markdown编辑器</description>
     </item>
     
     <item>
       <title>Hugo&#43;Github Pages</title>
-      <link>http://119.3.182.211/2020/hugo-github-pages/</link>
+      <link>http://anfieldqi.top/2020/hugo-github-pages/</link>
       <pubDate>Sun, 12 Apr 2020 13:10:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/hugo-github-pages/</guid>
+      <guid>http://anfieldqi.top/2020/hugo-github-pages/</guid>
       <description>Hugo简介 Hugo是由Steve Francis基于Go语言开发的静态网站构建工具。 Hugo博客搭建流程 准备工作 github账号：使用git</description>
     </item>
     
     <item>
       <title>Flask框架学习</title>
-      <link>http://119.3.182.211/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+      <link>http://anfieldqi.top/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Sat, 11 Apr 2020 16:28:09 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+      <guid>http://anfieldqi.top/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
       <description>Flask框架 1.安装flask 安装flask框架并在项目中导入 2.基本文件结构 static:存放静态资源，图片，js,css等 templa</description>
     </item>
     

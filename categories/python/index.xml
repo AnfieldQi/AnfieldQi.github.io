@@ -2,183 +2,183 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on AnfieldQi`s Blog</title>
-    <link>http://119.3.182.211/categories/python/</link>
+    <link>http://anfieldqi.top/categories/python/</link>
     <description>Recent content in python on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 11 May 2020 13:54:49 +0800</lastBuildDate>
     
-	<atom:link href="http://119.3.182.211/categories/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://anfieldqi.top/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python方法</title>
-      <link>http://119.3.182.211/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</link>
+      <link>http://anfieldqi.top/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</link>
       <pubDate>Mon, 11 May 2020 13:54:49 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://anfieldqi.top/2020/python%E7%B1%BB%E6%96%B9%E6%B3%95/</guid>
       <description>普通方法 调用：类名调用，不可使用实例化对象，关于类没啥用 class Num: def one(): print (&amp;#39;1&amp;#39;) 实例方法 所属：实例对象 调用：用实例化对象调用 类中最常用的方法是实例方法,</description>
     </item>
     
     <item>
       <title>Python_crawler</title>
-      <link>http://119.3.182.211/2020/python_crawler/</link>
+      <link>http://anfieldqi.top/2020/python_crawler/</link>
       <pubDate>Thu, 07 May 2020 13:52:26 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python_crawler/</guid>
+      <guid>http://anfieldqi.top/2020/python_crawler/</guid>
       <description>1. beautifulSoup 1.1 基础 #1.使用beautifulsoup解析html网页/读取a标签的链接 from bs4 import BeautifulSoup from urllib.request import urlopen html=urlopen(&amp;#34;https://baike.baidu.com/item/%E5%AE%81%E5%9F%8E%E9%AB%98%E7%BA%A7%E4%B8%AD%E5%AD%A6/9016318?fr=aladdin&amp;#34;).read().decode() print(html) #%% soup=BeautifulSoup(html,features=&amp;#34;lxml&amp;#34;) print(soup.h1) print(soup.div) #%% all_href=soup.find_all(&amp;#34;a&amp;#34;) for l in enumerate(all_href): if l[1].get(&amp;#39;href&amp;#39;): print(l[0],l[1][&amp;#39;href&amp;#39;]) #2.解析CS</description>
     </item>
     
     <item>
       <title>Matplotlib</title>
-      <link>http://119.3.182.211/2020/matplotlib/</link>
+      <link>http://anfieldqi.top/2020/matplotlib/</link>
       <pubDate>Sun, 03 May 2020 15:45:57 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/matplotlib/</guid>
+      <guid>http://anfieldqi.top/2020/matplotlib/</guid>
       <description>不同的画图方式 scatter散点 import matplotlib.pyplot as plt import numpy as np n=1024 X=np.random.normal(0,1,n) Y=np.random.normal(0,1,n) #透明度 plt.scatter(X,Y,c=T,alpha=0.5) plt.xlim((-1.5,1.5)) plt.ylim((-1.5,1.5)) plt.xticks(()) plt.yticks(()) plt.show() bar柱状图 import matplotlib.pyplot as plt import numpy as np n = 12 X = np.arange(n) Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n) Y2 =</description>
     </item>
     
     <item>
       <title>Python数据分析</title>
-      <link>http://119.3.182.211/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <link>http://anfieldqi.top/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
       <pubDate>Sat, 25 Apr 2020 10:20:26 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <guid>http://anfieldqi.top/2020/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
       <description>Numpy C语言写的，使用矩阵计算，速度与python相比天差地别 Numpy的属性 import numpy as np array=np.array([[1,2,3],[4,5,6]]) #array有很多固有属性 array.ndim #维度 array.shape #行列数 array.size #元素个数</description>
     </item>
     
     <item>
       <title>PythonTkinter</title>
-      <link>http://119.3.182.211/2020/pythontkinter/</link>
+      <link>http://anfieldqi.top/2020/pythontkinter/</link>
       <pubDate>Wed, 22 Apr 2020 09:42:58 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythontkinter/</guid>
+      <guid>http://anfieldqi.top/2020/pythontkinter/</guid>
       <description>TKinter python提供的一个图形界面的库 1. 窗口主体框架 import tkinter as tk windows=tk.TK() windows.title() windows=geometry(&amp;#39;num x num &amp;#39;) #windows上面的label,多参数可选,定义一个变量 var=tk.StringVar() l=tk.Label(windows,text=var,bg=&amp;#39;&amp;#39;,font=(&amp;#34;Arial&amp;#34;,12),width=,height= ) #安置</description>
     </item>
     
     <item>
       <title>Database</title>
-      <link>http://119.3.182.211/2020/database/</link>
+      <link>http://anfieldqi.top/2020/database/</link>
       <pubDate>Tue, 21 Apr 2020 14:45:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/database/</guid>
+      <guid>http://anfieldqi.top/2020/database/</guid>
       <description>redis MySQL MongoDB</description>
     </item>
     
     <item>
       <title>Python网络</title>
-      <link>http://119.3.182.211/2020/pythonnet/</link>
+      <link>http://anfieldqi.top/2020/pythonnet/</link>
       <pubDate>Tue, 21 Apr 2020 14:45:18 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythonnet/</guid>
+      <guid>http://anfieldqi.top/2020/pythonnet/</guid>
       <description>1. TCP 客户端 import socket # 创建一个socket: s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) //指定IPV4面向流 # 建立连接: s.connect((ipv4, 80)) s.send(&amp;#34;&amp;#34;)#发送请求 s.recv(nums) #每次接</description>
     </item>
     
     <item>
       <title>PythonSampleModule</title>
-      <link>http://119.3.182.211/2020/pythonsamplemodule/</link>
+      <link>http://anfieldqi.top/2020/pythonsamplemodule/</link>
       <pubDate>Tue, 21 Apr 2020 14:44:57 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythonsamplemodule/</guid>
+      <guid>http://anfieldqi.top/2020/pythonsamplemodule/</guid>
       <description>有一些还是没有常用到，没有常用的东西就容易忘，还是梳理一下 1. struct 解决字节与其他二进制数据类型（整数等）的转换 python没有专门处理字节的数据</description>
     </item>
     
     <item>
       <title>PythonProcessandThread</title>
-      <link>http://119.3.182.211/2020/pythonprocessandthread/</link>
+      <link>http://anfieldqi.top/2020/pythonprocessandthread/</link>
       <pubDate>Mon, 20 Apr 2020 19:56:52 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythonprocessandthread/</guid>
+      <guid>http://anfieldqi.top/2020/pythonprocessandthread/</guid>
       <description>进程 1.多进程 os.fork():返回两次：1.父进程返回子进程id 2.子进程返回0 3.子进程调用getppid()得到父进程id mutip</description>
     </item>
     
     <item>
       <title>Python错误处理的细节</title>
-      <link>http://119.3.182.211/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</link>
+      <link>http://anfieldqi.top/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</link>
       <pubDate>Sun, 19 Apr 2020 20:48:27 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</guid>
+      <guid>http://anfieldqi.top/2020/python%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%86%E8%8A%82/</guid>
       <description>错误处理的一些可记细节 try except finally continue和break不会影响异常处理机制 def test(): while True: try: a = 1/0 except Exception as e: print (&amp;#34;exception&amp;#34;) continue finally: print (&amp;#34;finally&amp;#34;) print (&amp;#34;out of try&amp;#34;) if __name__ == &amp;#39;__main__&amp;#39;: test() //输出 exception</description>
     </item>
     
     <item>
       <title>PythonIO</title>
-      <link>http://119.3.182.211/2020/pythonio/</link>
+      <link>http://anfieldqi.top/2020/pythonio/</link>
       <pubDate>Sun, 19 Apr 2020 19:49:06 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/pythonio/</guid>
+      <guid>http://anfieldqi.top/2020/pythonio/</guid>
       <description>文件的读写 f = open(&amp;#39;path&amp;#39;, &amp;#39;r&amp;#39;, encoding=&amp;#39;&amp;#39;, errors=&amp;#39;ignore&amp;#39;) f = open(&amp;#39;/Users/michael/test.txt&amp;#39;, &amp;#39;r&amp;#39;) f = read() //读入内存存为str对象 f.close() //关掉 //最好是调用finally，不然万一read出了错就关不掉了 //这</description>
     </item>
     
     <item>
       <title>Python测试</title>
-      <link>http://119.3.182.211/2020/python%E6%B5%8B%E8%AF%95/</link>
+      <link>http://anfieldqi.top/2020/python%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 19 Apr 2020 19:48:30 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E6%B5%8B%E8%AF%95/</guid>
+      <guid>http://anfieldqi.top/2020/python%E6%B5%8B%E8%AF%95/</guid>
       <description>单元测试和文档测试 1.单元测试 单元测试的意义 单元测试在未来项目重构中有十分重要的作用，单元测试包含了对某功能测试的一切边际条件，未来重构时，</description>
     </item>
     
     <item>
       <title>Python面向对象</title>
-      <link>http://119.3.182.211/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <link>http://anfieldqi.top/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
       <pubDate>Sun, 19 Apr 2020 14:39:14 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <guid>http://anfieldqi.top/2020/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
       <description>一些面向对象的知识 1.访问限制 算了其实跟其他的都一样但是还是写一下 // 使用__ class Student(object): def __init__(self, name, score): self.__name = name self.__score = score def print_score(self): print(&amp;#39;%s: %s&amp;#39; % (self.__name, self.__score)) //外部的实例变量已经无法</description>
     </item>
     
     <item>
       <title>Python函数式</title>
-      <link>http://119.3.182.211/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</link>
+      <link>http://anfieldqi.top/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</link>
       <pubDate>Sun, 19 Apr 2020 10:07:01 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</guid>
+      <guid>http://anfieldqi.top/2020/python%E5%87%BD%E6%95%B0%E5%BC%8F/</guid>
       <description>python函数式 1.四个高阶函数 1.map map(func,Iterable) //fnuc依次作用至每一个Iterable元素,并将结果作为Iterator返回 2.filter filter(func,Iterable) //fnuc依次</description>
     </item>
     
     <item>
       <title>Python变量作用域</title>
-      <link>http://119.3.182.211/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
+      <link>http://anfieldqi.top/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:53 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
+      <guid>http://anfieldqi.top/2020/python%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
       <description>python 变量及其作用域 四个作用域 LEGB原则： L(local)：局部作用域 E(Enclosing)：闭包函数外的函数中 G(global)：全局作用</description>
     </item>
     
     <item>
       <title>Python嵌套函数</title>
-      <link>http://119.3.182.211/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</link>
+      <link>http://anfieldqi.top/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:44 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</guid>
+      <guid>http://anfieldqi.top/2020/python%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0/</guid>
       <description>python嵌套函数 在 Python 中，函数高级用法都与嵌套函数紧密相关，所以有必要先熟悉一下嵌套函数。 使用场景 封装 - 数据隐藏 贯彻 DRY 原则 闭包 1.封装，数</description>
     </item>
     
     <item>
       <title>Python装饰器</title>
-      <link>http://119.3.182.211/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
+      <link>http://anfieldqi.top/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:36 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
+      <guid>http://anfieldqi.top/2020/python%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
       <description>Python装饰器 1.概念 装饰器是可调用的对象，其参数是另外一个函数，装饰器可能会处理被装饰的函数然后把它返回，或者将其替换成另外一个函数或</description>
     </item>
     
     <item>
       <title>Shell学习</title>
-      <link>http://119.3.182.211/2020/shell%E5%AD%A6%E4%B9%A0/</link>
+      <link>http://anfieldqi.top/2020/shell%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:28 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>http://anfieldqi.top/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
       <description>shell 开始 #!/bin/bash 与python一样，告诉其路径 Shell 变量 变量名和=之间不准有空格 命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头 中</description>
     </item>
     
     <item>
       <title>Flask框架学习</title>
-      <link>http://119.3.182.211/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+      <link>http://anfieldqi.top/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Sat, 11 Apr 2020 16:28:09 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+      <guid>http://anfieldqi.top/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
       <description>Flask框架 1.安装flask 安装flask框架并在项目中导入 2.基本文件结构 static:存放静态资源，图片，js,css等 templa</description>
     </item>
     

@@ -2,129 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IoT安全 on AnfieldQi`s Blog</title>
-    <link>http://119.3.182.211/categories/iot%E5%AE%89%E5%85%A8/</link>
+    <link>http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/</link>
     <description>Recent content in IoT安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 12 Aug 2020 09:52:40 +0800</lastBuildDate>
     
-	<atom:link href="http://119.3.182.211/categories/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>固件文件系统</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Wed, 12 Aug 2020 09:52:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</guid>
       <description>固件文件系统 动态分析固件的第一件事是使用binwalk等工具提取固件的文件系统，然后通过FAT等工具进行使用qemu等模拟器进行模拟运行。固</description>
     </item>
     
     <item>
       <title>固件动态模拟之QEMU手动搭桥</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</link>
       <pubDate>Wed, 05 Aug 2020 23:39:05 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
       <description>QEMU的网络问题 使用qemu模拟时虚拟机与外界的网络问题一直是一个比较普遍且令人头疼的问题。直接表现为虚拟机不能与外界网络连通，外界不能访</description>
     </item>
     
     <item>
       <title>固件动态模拟之网络接口的浅析</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</link>
       <pubDate>Mon, 03 Aug 2020 07:57:26 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</guid>
       <description>网络端口浅析 因为在做固件模拟的时候，遇到了QEMU模拟时因为模拟运行的固件内部·端口未开放导致不能访问管理界面的问题，So简单学习一下关于网</description>
     </item>
     
     <item>
       <title>固件加密解密_DLINK</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
       <pubDate>Sun, 17 May 2020 09:51:13 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
       <description>固件解密 1. 利用设备提供的更新机制解密 1.1原理 在固件的版本更新迭代中，会改变加密策略，在研究最新版固件时，如果固件本身是被加密的，那么就需要</description>
     </item>
     
     <item>
       <title>固件信息熵计算</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</link>
       <pubDate>Sun, 17 May 2020 09:50:55 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</guid>
       <description>信息熵 熵（英语：entropy）是接收的每条消息中包含的信息的平均量 规则：熵值越高，所含信息越多；熵值越低，所含的信息也越低，或者说是所含信</description>
     </item>
     
     <item>
       <title>OWASP固件安全性测试项</title>
-      <link>http://119.3.182.211/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</link>
+      <link>http://anfieldqi.top/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</link>
       <pubDate>Fri, 15 May 2020 09:50:50 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</guid>
+      <guid>http://anfieldqi.top/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</guid>
       <description>固件安全评估 英文名称 firmware security testing methodology 简称 FSTM 测试流程 id 阶段 描述 1 信息收集 固件的相关技术文档的详细使用说明 2 获取固件 使用本文中介绍的多种办法获取固件 3 分</description>
     </item>
     
     <item>
       <title>FACT_platform</title>
-      <link>http://119.3.182.211/2020/fact_platform/</link>
+      <link>http://anfieldqi.top/2020/fact_platform/</link>
       <pubDate>Thu, 07 May 2020 18:29:16 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/fact_platform/</guid>
+      <guid>http://anfieldqi.top/2020/fact_platform/</guid>
       <description>FACT 一款基于Flask开发的自动化固件检测平台 1.基本功能 1.软件识别 （1）使用哪个操作系统？ （2）哪些节目存在？ （3）使用哪些版本？ （4）哪</description>
     </item>
     
     <item>
       <title>固件敏感文件信息分析</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</link>
       <pubDate>Thu, 07 May 2020 15:39:48 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/</guid>
       <description>固件信息 固件被顺利提取后，就可以进入分析流程 1.工具：file hexdump string 2.本章使用固件：TL-WR841Nv14_EU_0.9.1_4.16_u</description>
     </item>
     
     <item>
       <title>确定固件的加载地址</title>
-      <link>http://119.3.182.211/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</link>
+      <link>http://anfieldqi.top/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</link>
       <pubDate>Wed, 29 Apr 2020 16:50:58 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</guid>
+      <guid>http://anfieldqi.top/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</guid>
       <description>确定固件的加载地址 1. 固件的识别与解压 binwalk **.bin 为压缩包格式，直接使用binwalk进行解包提取 提取后会得到一个以固件起始位置来命名的文件目录，本例</description>
     </item>
     
     <item>
       <title>IoT固件模拟运行</title>
-      <link>http://119.3.182.211/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</link>
+      <link>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</link>
       <pubDate>Tue, 28 Apr 2020 15:06:30 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</guid>
+      <guid>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</guid>
       <description>模拟运行和调试技术 1.分析环境 QEMU 安装： sudo apt-get install qemu-user-static 用户模式：能启动那些为不同处理架构编译的独立的 Linux 程序 使用对应的QEMU提供的程序，执行相应架构</description>
     </item>
     
     <item>
       <title>IoT固件提取与解包</title>
-      <link>http://119.3.182.211/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</link>
+      <link>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</link>
       <pubDate>Tue, 28 Apr 2020 10:42:17 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</guid>
+      <guid>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</guid>
       <description>1.IoT Firmware 1.IoT设备 IoT 设备是一类特殊的嵌入式设备，基于智能单元与网络提升了传统硬件功能的设备 IoT Device = Embedded Device + Network = Hardware Device + Computation Intelligence + Network 2.IoT固件 IoT Fi</description>
     </item>
     
     <item>
       <title>QCA9533提取固件练习</title>
-      <link>http://119.3.182.211/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</link>
+      <link>http://anfieldqi.top/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</link>
       <pubDate>Mon, 27 Apr 2020 17:56:00 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</guid>
+      <guid>http://anfieldqi.top/2020/qca9533%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6%E7%BB%83%E4%B9%A0/</guid>
       <description>QCA9533固件解包 1.依赖 kali linux 2020 QCA9533路由器原厂固件、 通用的linux re工具：file hexdump string dd lzma(都在kali里了) 第三方</description>
     </item>
     
     <item>
       <title>kail_linux安装</title>
-      <link>http://119.3.182.211/2020/kail_linux%E5%AE%89%E8%A3%85/</link>
+      <link>http://anfieldqi.top/2020/kail_linux%E5%AE%89%E8%A3%85/</link>
       <pubDate>Mon, 27 Apr 2020 16:28:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/kail_linux%E5%AE%89%E8%A3%85/</guid>
+      <guid>http://anfieldqi.top/2020/kail_linux%E5%AE%89%E8%A3%85/</guid>
       <description>kali 简介 Kali是一套用于安全渗透(黑客)的Linux发行版，涵盖了安全方面所需的大部分应用，不过倒是没看到IDA和OD什么的，记得之前做逆向</description>
     </item>
     

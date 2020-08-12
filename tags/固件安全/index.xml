@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>固件安全 on AnfieldQi`s Blog</title>
-    <link>http://119.3.182.211/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/</link>
+    <link>http://anfieldqi.top/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/</link>
     <description>Recent content in 固件安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 12 Aug 2020 09:52:40 +0800</lastBuildDate>
     
-	<atom:link href="http://119.3.182.211/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://anfieldqi.top/tags/%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>固件文件系统</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Wed, 12 Aug 2020 09:52:40 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</guid>
       <description>固件文件系统 动态分析固件的第一件事是使用binwalk等工具提取固件的文件系统，然后通过FAT等工具进行使用qemu等模拟器进行模拟运行。固</description>
     </item>
     
     <item>
       <title>固件动态模拟之QEMU手动搭桥</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</link>
       <pubDate>Wed, 05 Aug 2020 23:39:05 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
       <description>QEMU的网络问题 使用qemu模拟时虚拟机与外界的网络问题一直是一个比较普遍且令人头疼的问题。直接表现为虚拟机不能与外界网络连通，外界不能访</description>
     </item>
     
     <item>
       <title>固件动态模拟之网络接口的浅析</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</link>
       <pubDate>Mon, 03 Aug 2020 07:57:26 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</guid>
       <description>网络端口浅析 因为在做固件模拟的时候，遇到了QEMU模拟时因为模拟运行的固件内部·端口未开放导致不能访问管理界面的问题，So简单学习一下关于网</description>
     </item>
     
     <item>
       <title>固件加密解密_DLINK</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
       <pubDate>Sun, 17 May 2020 09:51:13 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
       <description>固件解密 1. 利用设备提供的更新机制解密 1.1原理 在固件的版本更新迭代中，会改变加密策略，在研究最新版固件时，如果固件本身是被加密的，那么就需要</description>
     </item>
     
     <item>
       <title>固件信息熵计算</title>
-      <link>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</link>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</link>
       <pubDate>Sun, 17 May 2020 09:50:55 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</guid>
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF%E7%86%B5%E8%AE%A1%E7%AE%97/</guid>
       <description>信息熵 熵（英语：entropy）是接收的每条消息中包含的信息的平均量 规则：熵值越高，所含信息越多；熵值越低，所含的信息也越低，或者说是所含信</description>
     </item>
     
     <item>
       <title>OWASP固件安全性测试项</title>
-      <link>http://119.3.182.211/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</link>
+      <link>http://anfieldqi.top/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</link>
       <pubDate>Fri, 15 May 2020 09:50:50 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</guid>
+      <guid>http://anfieldqi.top/2020/owasp%E5%9B%BA%E4%BB%B6%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95%E9%A1%B9/</guid>
       <description>固件安全评估 英文名称 firmware security testing methodology 简称 FSTM 测试流程 id 阶段 描述 1 信息收集 固件的相关技术文档的详细使用说明 2 获取固件 使用本文中介绍的多种办法获取固件 3 分</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shell on AnfieldQi`s Blog</title>
-    <link>http://119.3.182.211/tags/shell/</link>
+    <link>http://anfieldqi.top/tags/shell/</link>
     <description>Recent content in shell on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 16 Apr 2020 21:52:28 +0800</lastBuildDate>
     
-	<atom:link href="http://119.3.182.211/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://anfieldqi.top/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Shell学习</title>
-      <link>http://119.3.182.211/2020/shell%E5%AD%A6%E4%B9%A0/</link>
+      <link>http://anfieldqi.top/2020/shell%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 16 Apr 2020 21:52:28 +0800</pubDate>
       
-      <guid>http://119.3.182.211/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>http://anfieldqi.top/2020/shell%E5%AD%A6%E4%B9%A0/</guid>
       <description>shell 开始 #!/bin/bash 与python一样，告诉其路径 Shell 变量 变量名和=之间不准有空格 命名规则 规则 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头 中</description>
     </item>
     
