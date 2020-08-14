@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Hugo\x2bnginx\x2b华为云",
     "headline" : "Hugo\x2bnginx\x2b华为云",
-    "description" : "hugo\x2bnginx\x2b华为云 监控webhook情况 PM2 logs start",
+    "description" : "hugo\x2bnginx\x2bwebhook\x2b华为云 之前博客页面一直托管在gitpage,不过觉得速度太慢了，现在简述一种利用webhook将博客自",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -57,7 +57,7 @@
     "datePublished": "2020-08-07 15:32:58 \x2b0800 CST",
     "dateModified" : "2020-08-07 15:32:58 \x2b0800 CST",
     "url" : "http:\/\/anfieldqi.top\/2020\/hugo-nginx-%E5%8D%8E%E4%B8%BA%E4%BA%91\/",
-    "wordCount" : "28",
+    "wordCount" : "2618",
     "keywords" : [ "blog", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,12 +134,14 @@
                         <a href="http://anfieldqi.top/categories/%E6%95%99%E7%A8%8B%E5%B7%A5%E5%85%B7/"> 教程工具 </a>
                         
                 </span>
-                <span class="post-word-count">, 28 words</span>
+                <span class="post-word-count">, 2618 words</span>
         </div>
     </header>
     <div class="post-content">
         
 
+        
+            
         
 
         
@@ -153,15 +155,481 @@
           
           
 
-          <h3 id="hugonginx华为云">hugo+nginx+华为云</h3>
+          <h2 id="hugonginxwebhook华为云">hugo+nginx+webhook+华为云</h2>
+<p>之前博客页面一直托管在gitpage,不过觉得速度太慢了，现在简述一种利用webhook将博客自动部署到云服务器上的方法。因为相关知识有限，所以博文技术水平有限，不过可以作为一篇基础教程。</p>
+<h4 id="1流程概述">1.流程概述</h4>
+<p><img src="/images/hugo/hugo_webhook.png" alt=""></p>
+<p><!-- raw HTML omitted --></p>
+<ol>
+<li>本地使用HUGO在站点文件夹下创建并编写静态页面</li>
+<li>编写后在站点文件夹下使用&quot;hugo&quot;命令生成</li>
+<li>进入public目录，使用git 三连将当前目录下的文件push到github上</li>
+<li>push事件触发webhook，向服务器发送请求</li>
+<li>服务器接收到webhook的请求，运行脚本将文件pull到指定文件夹</li>
+<li>nginx展示静态文件</li>
+</ol>
+<h4 id="2资源准备">2.资源准备</h4>
 <ol>
 <li>
-<p>监控webhook情况</p>
-<p>PM2  logs</p>
+<p>本地：hugo环境/git</p>
 </li>
 <li>
-<p>start</p>
+<p>服务器：</p>
+<table>
+<thead>
+<tr>
+<th>所需工具</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pm2</td>
+<td>node进程管理工具</td>
+</tr>
+<tr>
+<td>nginx</td>
+<td>web服务器框架</td>
+</tr>
+<tr>
+<td>git</td>
+<td>代码管理工具</td>
+</tr>
+<tr>
+<td>nodejs</td>
+<td>JS运行环境</td>
+</tr>
+</tbody>
+</table>
 </li>
+</ol>
+<h4 id="3本地环境配置">3.本地环境配置</h4>
+<ol>
+<li>安装hugo，参考官网安装教程</li>
+<li>安装git工具，参考官网安装教程</li>
+</ol>
+<h4 id="4github-配置">4.github 配置</h4>
+<ol>
+<li>在github上以GithubUserName.github.io为命名规则建立存储仓库</li>
+</ol>
+<h4 id="5-服务器环境配置">5. 服务器环境配置</h4>
+<p>在配置前需要进行常规的换源更新等操作</p>
+<h5 id="1-安装git">1. 安装git</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install git
+</code></pre></div><h5 id="2安装nginx">2.安装Nginx</h5>
+<p><strong>1.基于apt的快速安装模式</strong></p>
+<pre><code>sudo apt-get install nginx
+</code></pre><p>安装完成后相关文件信息如下：</p>
+<ol>
+<li>/usr/sbin/nginx：主程序</li>
+<li>/etc/nginx：存放配置文件</li>
+<li>/usr/share/nginx：存放静态文件</li>
+<li>/var/log/nginx：存放日志</li>
+</ol>
+<p><strong>2.通过源码编译安装最新版</strong></p>
+<p>官方下载页面：http://nginx.org/en/download.html</p>
+<p>configure配置文件详解：http://nginx.org/en/docs/configure.html</p>
+<p>1.安装gcc g++依赖库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install build-essential
+sudo apt-get install libtool
+</code></pre></div><p>2.安装pcre依赖</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get update
+sudo apt-get install libpcre3 libpcre3-dev
+</code></pre></div><p>3.安装zlib依赖库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install zlib1g-dev
+</code></pre></div><p>4.安装SSL依赖库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install openssl
+</code></pre></div><p>5.安装nginx</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#下载最新版本：</span>
+wget http://nginx.org/download/nginx-1.13.6.tar.gz
+<span style="color:#75715e">#解压：</span>
+tar -zxvf nginx-1.13.6.tar.gz
+<span style="color:#75715e">#进入解压目录：</span>
+cd nginx-1.13.6
+<span style="color:#75715e">#配置：</span>
+./configure --prefix<span style="color:#f92672">=</span>/usr/local/nginx 
+<span style="color:#75715e">#编译：</span>
+make
+<span style="color:#75715e">#安装：</span>
+sudo make install
+<span style="color:#75715e">#启动：</span>
+sudo /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+注意：-c 指定配置文件的路径，不加的话，nginx会自动加载默认路径的配置文件，可以通过-h查看帮助命令。
+<span style="color:#75715e">#查看进程：</span>
+ps -ef | grep nginx
+<span style="color:#75715e">#配置软连接</span>
+sudo ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
+</code></pre></div><p>现在就可以不用路径直接输入nginx启动。</p>
+<p>配置开机启动服务：</p>
+<p>在/etc/init.d/下创建nginx文件，sudo vim /etc/init.d/nginx，内容如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">### BEGIN INIT INFO</span>
+<span style="color:#75715e"># Provides:      nginx</span>
+<span style="color:#75715e"># Required-Start:    $local_fs $remote_fs $network $syslog $named</span>
+<span style="color:#75715e"># Required-Stop:     $local_fs $remote_fs $network $syslog $named</span>
+<span style="color:#75715e"># Default-Start:     2 3 4 5</span>
+<span style="color:#75715e"># Default-Stop:      0 1 6</span>
+<span style="color:#75715e"># Short-Description: starts the nginx web server</span>
+<span style="color:#75715e"># Description:       starts nginx using start-stop-daemon</span>
+<span style="color:#75715e">### END INIT INFO</span>
+
+PATH<span style="color:#f92672">=</span>/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON<span style="color:#f92672">=</span>/usr/local/nginx/sbin/nginx
+NAME<span style="color:#f92672">=</span>nginx
+DESC<span style="color:#f92672">=</span>nginx
+
+<span style="color:#75715e"># Include nginx defaults if available</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -r /etc/default/nginx <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    . /etc/default/nginx
+<span style="color:#66d9ef">fi</span>
+
+STOP_SCHEDULE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>STOP_SCHEDULE<span style="color:#66d9ef">:-</span>QUIT/5/TERM/5/KILL/5<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+test -x $DAEMON <span style="color:#f92672">||</span> exit <span style="color:#ae81ff">0</span>
+
+. /lib/init/vars.sh
+. /lib/lsb/init-functions
+
+<span style="color:#75715e"># Try to extract nginx pidfile</span>
+PID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /usr/local/nginx/conf/nginx.conf | grep -Ev <span style="color:#e6db74">&#39;^\s*#&#39;</span> | awk <span style="color:#e6db74">&#39;BEGIN { RS=&#34;[;{}]&#34; } { if ($1 == &#34;pid&#34;) print $2 }&#39;</span> | head -n1<span style="color:#66d9ef">)</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span>$PID<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    PID<span style="color:#f92672">=</span>/run/nginx.pid
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span>$ULIMIT<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    <span style="color:#75715e"># Set ulimit if it is set in /etc/default/nginx</span>
+    ulimit $ULIMIT
+<span style="color:#66d9ef">fi</span>
+
+start_nginx<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e"># Start the daemon/service</span>
+    #
+    <span style="color:#75715e"># Returns:</span>
+    <span style="color:#75715e">#   0 if daemon has been started</span>
+    <span style="color:#75715e">#   1 if daemon was already running</span>
+    <span style="color:#75715e">#   2 if daemon could not be started</span>
+    start-stop-daemon --start --quiet --pidfile $PID --exec $DAEMON --test &gt; /dev/null <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        <span style="color:#f92672">||</span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    start-stop-daemon --start --quiet --pidfile $PID --exec $DAEMON -- <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        $DAEMON_OPTS 2&gt;/dev/null <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        <span style="color:#f92672">||</span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>
+<span style="color:#f92672">}</span>
+
+test_config<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e"># Test the nginx configuration</span>
+    $DAEMON -t $DAEMON_OPTS &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
+<span style="color:#f92672">}</span>
+
+stop_nginx<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e"># Stops the daemon/service</span>
+    #
+    <span style="color:#75715e"># Return</span>
+    <span style="color:#75715e">#   0 if daemon has been stopped</span>
+    <span style="color:#75715e">#   1 if daemon was already stopped</span>
+    <span style="color:#75715e">#   2 if daemon could not be stopped</span>
+    <span style="color:#75715e">#   other if a failure occurred</span>
+    start-stop-daemon --stop --quiet --retry<span style="color:#f92672">=</span>$STOP_SCHEDULE --pidfile $PID --name $NAME
+    RETVAL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$?<span style="color:#e6db74">&#34;</span>
+    sleep <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;</span>$RETVAL<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
+
+reload_nginx<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e"># Function that sends a SIGHUP to the daemon/service</span>
+    start-stop-daemon --stop --signal HUP --quiet --pidfile $PID --name $NAME
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">}</span>
+
+rotate_logs<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e"># Rotate log files</span>
+    start-stop-daemon --stop --signal USR1 --quiet --pidfile $PID --name $NAME
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">}</span>
+
+upgrade_nginx<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e"># Online upgrade nginx executable</span>
+    <span style="color:#75715e"># http://nginx.org/en/docs/control.html</span>
+    #
+    <span style="color:#75715e"># Return</span>
+    <span style="color:#75715e">#   0 if nginx has been successfully upgraded</span>
+    <span style="color:#75715e">#   1 if nginx is not running</span>
+    <span style="color:#75715e">#   2 if the pid files were not created on time</span>
+    <span style="color:#75715e">#   3 if the old master could not be killed</span>
+    <span style="color:#66d9ef">if</span> start-stop-daemon --stop --signal USR2 --quiet --pidfile $PID --name $NAME; <span style="color:#66d9ef">then</span>
+        <span style="color:#75715e"># Wait for both old and new master to write their pid file</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> ! -s <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PID<span style="color:#e6db74">}</span><span style="color:#e6db74">.oldbin&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[</span> ! -s <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">do</span>
+            cnt<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>expr $cnt + 1<span style="color:#e6db74">`</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $cnt -gt <span style="color:#ae81ff">10</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+                <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>
+            <span style="color:#66d9ef">fi</span>
+            sleep <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">done</span>
+        <span style="color:#75715e"># Everything is ready, gracefully stop the old master</span>
+        <span style="color:#66d9ef">if</span> start-stop-daemon --stop --signal QUIT --quiet --pidfile <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PID<span style="color:#e6db74">}</span><span style="color:#e6db74">.oldbin&#34;</span> --name $NAME; <span style="color:#66d9ef">then</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">else</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span>
+        <span style="color:#66d9ef">fi</span>
+    <span style="color:#66d9ef">else</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> in
+    start<span style="color:#f92672">)</span>
+        log_daemon_msg <span style="color:#e6db74">&#34;Starting </span>$DESC<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$NAME<span style="color:#e6db74">&#34;</span>
+        start_nginx
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$?<span style="color:#e6db74">&#34;</span> in
+            0|1<span style="color:#f92672">)</span> log_end_msg <span style="color:#ae81ff">0</span> ;;
+            2<span style="color:#f92672">)</span>   log_end_msg <span style="color:#ae81ff">1</span> ;;
+        <span style="color:#66d9ef">esac</span>
+        ;;
+    stop<span style="color:#f92672">)</span>
+        log_daemon_msg <span style="color:#e6db74">&#34;Stopping </span>$DESC<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$NAME<span style="color:#e6db74">&#34;</span>
+        stop_nginx
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$?<span style="color:#e6db74">&#34;</span> in
+            0|1<span style="color:#f92672">)</span> log_end_msg <span style="color:#ae81ff">0</span> ;;
+            2<span style="color:#f92672">)</span>   log_end_msg <span style="color:#ae81ff">1</span> ;;
+        <span style="color:#66d9ef">esac</span>
+        ;;
+    restart<span style="color:#f92672">)</span>
+        log_daemon_msg <span style="color:#e6db74">&#34;Restarting </span>$DESC<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$NAME<span style="color:#e6db74">&#34;</span>
+
+        <span style="color:#75715e"># Check configuration before stopping nginx</span>
+        <span style="color:#66d9ef">if</span> ! test_config; <span style="color:#66d9ef">then</span>
+            log_end_msg <span style="color:#ae81ff">1</span> <span style="color:#75715e"># Configuration error</span>
+            exit $?
+        <span style="color:#66d9ef">fi</span>
+
+        stop_nginx
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$?<span style="color:#e6db74">&#34;</span> in
+            0|1<span style="color:#f92672">)</span>
+                start_nginx
+                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$?<span style="color:#e6db74">&#34;</span> in
+                    0<span style="color:#f92672">)</span> log_end_msg <span style="color:#ae81ff">0</span> ;;
+                    1<span style="color:#f92672">)</span> log_end_msg <span style="color:#ae81ff">1</span> ;; <span style="color:#75715e"># Old process is still running</span>
+                    *<span style="color:#f92672">)</span> log_end_msg <span style="color:#ae81ff">1</span> ;; <span style="color:#75715e"># Failed to start</span>
+                <span style="color:#66d9ef">esac</span>
+                ;;
+            *<span style="color:#f92672">)</span>
+                <span style="color:#75715e"># Failed to stop</span>
+                log_end_msg <span style="color:#ae81ff">1</span>
+                ;;
+        <span style="color:#66d9ef">esac</span>
+        ;;
+    reload|force-reload<span style="color:#f92672">)</span>
+        log_daemon_msg <span style="color:#e6db74">&#34;Reloading </span>$DESC<span style="color:#e6db74"> configuration&#34;</span> <span style="color:#e6db74">&#34;</span>$NAME<span style="color:#e6db74">&#34;</span>
+
+        <span style="color:#75715e"># Check configuration before stopping nginx</span>
+        #
+        <span style="color:#75715e"># This is not entirely correct since the on-disk nginx binary</span>
+        <span style="color:#75715e"># may differ from the in-memory one, but that&#39;s not common.</span>
+        <span style="color:#75715e"># We prefer to check the configuration and return an error</span>
+        <span style="color:#75715e"># to the administrator.</span>
+        <span style="color:#66d9ef">if</span> ! test_config; <span style="color:#66d9ef">then</span>
+            log_end_msg <span style="color:#ae81ff">1</span> <span style="color:#75715e"># Configuration error</span>
+            exit $?
+        <span style="color:#66d9ef">fi</span>
+
+        reload_nginx
+        log_end_msg $?
+        ;;
+    configtest|testconfig<span style="color:#f92672">)</span>
+        log_daemon_msg <span style="color:#e6db74">&#34;Testing </span>$DESC<span style="color:#e6db74"> configuration&#34;</span>
+        test_config
+        log_end_msg $?
+        ;;
+    status<span style="color:#f92672">)</span>
+        status_of_proc -p $PID <span style="color:#e6db74">&#34;</span>$DAEMON<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$NAME<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> exit <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> exit $?
+        ;;
+    upgrade<span style="color:#f92672">)</span>
+        log_daemon_msg <span style="color:#e6db74">&#34;Upgrading binary&#34;</span> <span style="color:#e6db74">&#34;</span>$NAME<span style="color:#e6db74">&#34;</span>
+        upgrade_nginx
+        log_end_msg $?
+        ;;
+    rotate<span style="color:#f92672">)</span>
+        log_daemon_msg <span style="color:#e6db74">&#34;Re-opening </span>$DESC<span style="color:#e6db74"> log files&#34;</span> <span style="color:#e6db74">&#34;</span>$NAME<span style="color:#e6db74">&#34;</span>
+        rotate_logs
+        log_end_msg $?
+        ;;
+    *<span style="color:#f92672">)</span>
+        echo <span style="color:#e6db74">&#34;Usage: </span>$NAME<span style="color:#e6db74"> {start|stop|restart|reload|force-reload|status|configtest|rotate|upgrade}&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+        exit <span style="color:#ae81ff">3</span>
+        ;;
+<span style="color:#66d9ef">esac</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#设置服务脚本有执行权限</span>
+sudo chmod +x /etc/init.d/nginx
+<span style="color:#75715e">#注册服务</span>
+cd /etc/init.d/
+sudo update-rc.d nginx defaults
+</code></pre></div><p>启动nginx:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  sudo /etc/init.d/nginx start
+</code></pre></div><h5 id="3安装nodejs">3.安装nodejs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install nodejs -y
+</code></pre></div><p>安装npm</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install npm -y
+</code></pre></div><p>查看当前安装版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo node -v
+sudo npm -v
+</code></pre></div><p>修改npm源，提高下载速度</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo npm config set registry https://registry.npm.taobao.org
+sudo npm config list　
+</code></pre></div><p>升级npm版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo npm install npm@latest -g
+</code></pre></div><h5 id="4安装pm2">4.安装PM2</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install pm2@latest -g
+</code></pre></div><h4 id="6服务器配置文件">6.服务器配置文件</h4>
+<h5 id="1配置网站根目录">1.配置网站根目录</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#  创建网站根目录,在root目录或其他均可</span>
+mkdir anfi
+
+<span style="color:#75715e"># cd 到目录blog2</span>
+cd anfi
+
+<span style="color:#75715e"># git 初始化</span>
+git init
+git remote add origin https://github.com/&lt;&gt;.github.io.git
+
+<span style="color:#75715e"># 拉取</span>
+git pull origin master
+</code></pre></div><h5 id="2-配置webhook服务">2. 配置webhook服务</h5>
+<ol>
+<li>
+<p>服务端创建webhook目录</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#创建目录</span>
+mkdir webhook
+<span style="color:#75715e">#进入目录</span>
+cd webhook
+<span style="color:#75715e"># 创建脚本</span>
+vim git_pull.sh
+</code></pre></div></li>
+<li>
+<p>脚本内容如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /anfi
+git pull origin master
+exit <span style="color:#ae81ff">0</span>
+</code></pre></div><p>以上是收到监听请求后需要运行的脚本，即在站点文件目录下重新拉取github内容,下面简述如何完成监听任务</p>
+</li>
+</ol>
+<h5 id="3-github_webhook">3. github_webhook</h5>
+<p>需要用到nodejs来监听来自GitHub的消息,安装中间件：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install github-webhook-handler
+</code></pre></div><p>新建脚本github_webhook.js</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">var http <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;http&#39;</span><span style="color:#f92672">)</span>
+  var exec <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;child_process&#39;</span><span style="color:#f92672">)</span>.exec
+  var createHandler <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;github-webhook-handler&#39;</span><span style="color:#f92672">)</span>
+  var handler <span style="color:#f92672">=</span> createHandler<span style="color:#f92672">({</span> path: <span style="color:#e6db74">&#39;/webhook&#39;</span>, secret: <span style="color:#e6db74">&#39;xxxxxxx&#39;</span> <span style="color:#f92672">})</span>
+
+  http.createServer<span style="color:#f92672">(</span><span style="color:#66d9ef">function</span> <span style="color:#f92672">(</span>req, res<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  handler<span style="color:#f92672">(</span>req, res, <span style="color:#66d9ef">function</span> <span style="color:#f92672">(</span>err<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      res.statusCode <span style="color:#f92672">=</span> <span style="color:#ae81ff">404</span>
+      res.end<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;no such location&#39;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">})</span>
+  <span style="color:#f92672">})</span>.listen<span style="color:#f92672">(</span>7777<span style="color:#f92672">)</span>
+
+  handler.on<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;push&#39;</span>, <span style="color:#66d9ef">function</span> <span style="color:#f92672">(</span>event<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      let currentTime <span style="color:#f92672">=</span> new Date<span style="color:#f92672">()</span>;
+      console.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;\n--&gt; &#39;</span> + currentTime.toLocaleString<span style="color:#f92672">())</span>;
+      console.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Received a push event for %s to %s&#39;</span>, event.payload.repository.name, event.payload.ref<span style="color:#f92672">)</span>;
+      exec<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;sh ./webhook/git_pull.sh&#39;</span>, <span style="color:#66d9ef">function</span> <span style="color:#f92672">(</span>error, stdout, stderr<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>error<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              console.error<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;error:\n&#39;</span> + error<span style="color:#f92672">)</span>;
+              <span style="color:#66d9ef">return</span>;
+          <span style="color:#f92672">}</span>
+          console.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;stdout:\n&#39;</span> + stdout<span style="color:#f92672">)</span>;
+          console.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;stderr:\n&#39;</span> + stderr<span style="color:#f92672">)</span>;
+      <span style="color:#f92672">})</span>;
+  <span style="color:#f92672">})</span>
+</code></pre></div><p>secret需要用到</p>
+<h5 id="4pm2启动脚本">4.PM2启动脚本</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pm2 start github-webhook.js
+pm2 startup //开机自启
+pm2  logs //查看请求日志
+</code></pre></div><h5 id="5nginx配置">5.nginx配置</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim /etc/nginx/conf.d/default.conf
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">#
+<span style="color:#75715e"># The default server</span>
+#
+
+server <span style="color:#f92672">{</span>
+<span style="color:#75715e">#    listen       80 default_server;</span>
+<span style="color:#75715e">#   listen       [::]:80 default_server;</span>
+  listen       80;
+  server_name  _;
+    root         /usr/share/nginx/html;
+
+    <span style="color:#75715e"># Load configuration files for the default server block.</span>
+    include /etc/nginx/default.d/*.conf;
+
+    location / <span style="color:#f92672">{</span>
+
+    <span style="color:#f92672">}</span>
+
+    error_page <span style="color:#ae81ff">404</span> /404.html;
+        location <span style="color:#f92672">=</span> /40x.html <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
+
+    error_page <span style="color:#ae81ff">500</span> <span style="color:#ae81ff">502</span> <span style="color:#ae81ff">503</span> <span style="color:#ae81ff">504</span> /50x.html;
+        location <span style="color:#f92672">=</span> /50x.html <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>新建blog.conf</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /etc/nginx/conf.d/
+vim blog.conf
+</code></pre></div><pre><code>server {
+    listen       80 default_server;
+#   listen       [::]:80 default_server;
+#   listen     80;
+    server_name  域名/ip;
+    root         /anfi; # 重新指定根目录
+
+    # Load configuration files for the default server block.
+    # include /etc/nginx/default.d/*.conf;
+
+    location / {
+       index index.html index.htm index.php;
+       autoindex on;
+    }
+
+    # NodeJS 将 Web 服务跑在了 7777 端口，我们可以用 Nginx 反向代理到 80 端口
+    location /webhook {
+      alias /root/webhook;
+      proxy_pass http://127.0.0.1:7777;  
+    }
+    error_page 404 /404.html;
+        location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+    }
+
+}
+</code></pre><p>修改用户</p>
+<pre><code class="language-sell" data-lang="sell">vim /etc/nginx/nginx.conf
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#user nginx;  #将nginx改为root</span>
+user root;
+</code></pre></div><p>重启nginx</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/etc/init.d/nginx restart
+</code></pre></div><h4 id="6github配置">6.github配置</h4>
+<ol>
+<li>点击仓库的设置-&gt;webhook-&gt;新建</li>
+<li>输出http://域名/ip:port/webhook</li>
+<li>密钥输入刚才的secret</li>
+<li>选择application/json</li>
+<li>选择push event</li>
+<li>勾选active</li>
+<li>点击确定，如果正确的话状态显示正常，否则显示警告图标</li>
+</ol>
+<h4 id="7使用">7.使用</h4>
+<p>目前为止简单的配置已经全部完成，后续还需要对nginx进行设置以增强安全性。</p>
+<ol>
+<li>使用hugo在本地用markdown写文章</li>
+<li>在站点文件下使用hugo命令完成</li>
+<li>进入public,git三连推送至github</li>
+<li>自动触发webhook，服务器拉取github仓库对内容进行更新。</li>
 </ol>
 
     </div>
@@ -277,8 +745,9 @@
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 
