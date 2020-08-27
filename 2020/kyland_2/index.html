@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="http://anfieldqi.top/2020/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94_%E5%A6%82%E4%BB%8A%E5%80%BE%E5%B0%BD%E5%85%A5%E6%B5%B7%E6%B5%81/" />
-  <link rel="next" href="http://anfieldqi.top/2020/kyland_2/" />
-  <link rel="canonical" href="http://anfieldqi.top/2020/kyland_test/" />
+  <link rel="prev" href="http://anfieldqi.top/2020/kyland_test/" />
+  
+  <link rel="canonical" href="http://anfieldqi.top/2020/kyland_2/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Vulnerability verification for Kyland | AnfieldQi`s Blog
+           Kyland_sensitive information disclosure vulnerability | AnfieldQi`s Blog
        
   </title>
-  <meta name="title" content="Vulnerability verification for Kyland | AnfieldQi`s Blog">
+  <meta name="title" content="Kyland_sensitive information disclosure vulnerability | AnfieldQi`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "http:\/\/anfieldqi.top"
     },
     "articleSection" : "posts",
-    "name" : "Vulnerability verification for Kyland",
-    "headline" : "Vulnerability verification for Kyland",
-    "description" : "Below we briefly describe the vulnerability verification process with a simple example. Run the firmware to be tested in the simulation environment, we open its http service, and the running script is in \/sbin\/httpd or run the device directly Then we use the browser to request the http service of the firmware. There are many interactive interfaces found among them. Find its html source code and cgi script by viewing",
+    "name" : "Kyland_sensitive information disclosure vulnerability",
+    "headline" : "Kyland_sensitive information disclosure vulnerability",
+    "description" : "Below we briefly describe the vulnerability verification process with a simple example. In kyland\x26rsquo;s http service, when we audit its webadminget.cgi file, there is an instruction to print the password. The source code is as follows: We request the cgi script through the browser. The details are shown in the following figure. You can see that the user name and password are all displayed in plain text, so there is",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -54,10 +54,10 @@
     "accountablePerson" : "anfieldqi",
     "copyrightHolder" : "anfieldqi",
     "copyrightYear" : "2020",
-    "datePublished": "2020-08-27 19:17:39 \x2b0800 CST",
-    "dateModified" : "2020-08-27 19:17:39 \x2b0800 CST",
-    "url" : "http:\/\/anfieldqi.top\/2020\/kyland_test\/",
-    "wordCount" : "224",
+    "datePublished": "2020-08-27 20:27:02 \x2b0800 CST",
+    "dateModified" : "2020-08-27 20:27:02 \x2b0800 CST",
+    "url" : "http:\/\/anfieldqi.top\/2020\/kyland_2\/",
+    "wordCount" : "76",
     "keywords" : [ "IoT", "AnfieldQi`s Blog"]
 }
 </script>
@@ -122,7 +122,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Vulnerability verification for Kyland</h1>
+        <h1 class="post-title" itemprop="name headline">Kyland_sensitive information disclosure vulnerability</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
                 <span class="post-time">
@@ -134,7 +134,7 @@
                         <a href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/"> IoT安全 </a>
                         
                 </span>
-                <span class="post-word-count">, 224 words</span>
+                <span class="post-word-count">, 76 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -158,36 +158,14 @@
           <p>Below we briefly describe the vulnerability verification process with a simple example.</p>
 <ol>
 <li>
-<p>Run the firmware to be tested in the simulation environment, we open its http service, and the running script is in /sbin/httpd  or  run the device directly</p>
+<p>In kyland&rsquo;s http service, when we audit its webadminget.cgi file, there is an instruction to print the password. The source code is as follows:</p>
+<p><img src="/images/image-20200827202917125.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827202917125.png" alt="~"></p>
 </li>
 <li>
-<p>Then we use the browser to request the http service of the firmware. There are many interactive interfaces found among them.</p>
-</li>
-<li>
-<p>Find its html source code and cgi script by viewing the /www/ directory. The running code in the background is locked, mainly in the form of cgi script.</p>
-</li>
-<li>
-<p>We manually audited the cgi scripts and found that many of them are statements executed by instructions. The code in 3005webget.cgi is as follows. You can clearly see that some of the parameters passed by the web are received and passed to the eval function.</p>
-<p><img src="/images/image-20200827192336469.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192336469.png" alt="~"></p>
-</li>
-<li>
-<p>We request the cgi script directly from the browser, because we did not pass the parameters correctly, so the error message was returned.</p>
-<p><img src="/images/image-20200827192518549.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192518549.png" alt="~"></p>
-</li>
-<li>
-<p>The method of constructing the request is &ldquo;POST&rdquo;. In the request parameters, we write a payload as a file instruction.</p>
-<p><img src="/images/image-20200827192600518.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192600518.png" alt="~"></p>
-</li>
-<li>
-<p>Visit the file we constructed through the browser and found that it can be accessed normally. It shows that there is an arbitrary command execution vulnerability, which can upload malicious scripts.</p>
-<p><img src="/images/image-20200827192646368.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192646368.png" alt="image-20200827192646368"></p>
-</li>
-<li>
-<p>Similar affected files are 3005webset.cgi, firmware_fix_submit.cgi, networkset.cgi, oem.cgi, setautostartprg.cgi, setfactory.cgi, upgrade.cgi and webadminset.cgi in the /www/cgi-bin/ directory</p>
+<p>We request the cgi script through the browser. The details are shown in the following figure. You can see that the user name and password are all displayed in plain text, so there is a risk of sensitive information leakage.</p>
+<p><img src="/images/image-20200827203043555.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827203043555.png" alt="image-20200827203043555"></p>
 </li>
 </ol>
 
@@ -204,7 +182,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=http://anfieldqi.top/2020/kyland_test/>http://anfieldqi.top/2020/kyland_test/</span>
+                    <a href=http://anfieldqi.top/2020/kyland_2/>http://anfieldqi.top/2020/kyland_2/</span>
             </p>
             
              
@@ -233,10 +211,8 @@
 
     <div class="post-nav">
         
-        <a href="http://anfieldqi.top/2020/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94_%E5%A6%82%E4%BB%8A%E5%80%BE%E5%B0%BD%E5%85%A5%E6%B5%B7%E6%B5%81/" class="prev" rel="prev" title="生活随笔_如今倾尽入海流"><i class="iconfont icon-left"></i>&nbsp;生活随笔_如今倾尽入海流</a>
+        <a href="http://anfieldqi.top/2020/kyland_test/" class="prev" rel="prev" title="Vulnerability verification for Kyland"><i class="iconfont icon-left"></i>&nbsp;Vulnerability verification for Kyland</a>
          
-        
-        <a href="http://anfieldqi.top/2020/kyland_2/" class="next" rel="next" title="Kyland_sensitive information disclosure vulnerability">Kyland_sensitive information disclosure vulnerability&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
