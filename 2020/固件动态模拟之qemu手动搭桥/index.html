@@ -57,7 +57,7 @@
     "datePublished": "2020-08-05 23:39:05 \x2b0800 CST",
     "dateModified" : "2020-08-05 23:39:05 \x2b0800 CST",
     "url" : "http:\/\/anfieldqi.top\/2020\/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5\/",
-    "wordCount" : "3189",
+    "wordCount" : "4246",
     "keywords" : [ "固件安全", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/"> IOT安全 </a>
                         
                 </span>
-                <span class="post-word-count">, 3189 words</span>
+                <span class="post-word-count">, 4246 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -157,7 +157,7 @@
 
           <h2 id="qemu的网络问题">QEMU的网络问题</h2>
 <p>使用qemu模拟时虚拟机与外界的网络问题一直是一个比较普遍且令人头疼的问题。直接表现为虚拟机不能与外界网络连通，外界不能访问虚拟机内部的内容。下面介绍一种手动搭建网桥的方法，旨在建立虚拟机与外界的网络通路，使得模拟测试可以正常进行。</p>
-<h2 id="1-手动搭建网桥">1. 手动搭建网桥</h2>
+<h2 id="1-手动搭建网桥两种方式">1. 手动搭建网桥(两种方式)</h2>
 <h3 id="11-qemu的四种通信方式">1.1 QEMU的四种通信方式</h3>
 <ol>
 <li>
@@ -192,21 +192,37 @@ lsb_release -a
 <span style="color:#75715e">#qemu</span>
 qemu-img -V
 </code></pre></div><h4 id="2下载qemu镜像">2.下载qemu镜像</h4>
+<h5 id="mips">mips</h5>
 <ol>
 <li>
 <p>下载站点：https://people.debian.org/~aurel32/qemu/mips/</p>
 </li>
 <li>
-<p>下载一下两款即可:下载遇到问题建议使用IDM</p>
+<p>下载以下两款即可:下载遇到问题建议使用IDM</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1.debian_squeeze_mips_standard.qcow2
 2.vmlinux-2.6.32-5-4kc-malta
+</code></pre></div></li>
+</ol>
+<h5 id="arm">arm</h5>
+<ol>
+<li>
+<p>下载站点：https://people.debian.org/~aurel32/qemu/、</p>
+</li>
+<li>
+<p>下载以下三款启动所需的虚拟机镜像与内核文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1.vmlinuz-3.2.0-4-vexpress
+2.initrd.img-3.2.0-4-vexpress
+3debian_wheezy_armhf_standard.qcow2
 </code></pre></div></li>
 </ol>
 <h4 id="3置入对应位置">3.置入对应位置</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/usr/bin
 </code></pre></div><h4 id="4测试可用性">4.测试可用性</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/sda1 console=tty0&#34;</span> 
-</code></pre></div><p>出现一个新的窗口，进行QEMU的初始化操作，完毕后登录即可(使用root/root or user/user)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#mips</span>
+sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/sda1 console=tty0&#34;</span> 
+<span style="color:#75715e">#arm</span>
+qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -drive <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>sd,file<span style="color:#f92672">=</span>debian_wheezy_armhf_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/mmcblk0p2 console=ttyAMA0&#34;</span>
+</code></pre></div><p>出现一个新的窗口，进行QEMU的初始化操作，完毕后登录即可(使用<strong>root/root</strong> or user/user)</p>
 <p>其他架构的镜像下载或其他使用详见下载站点readme</p>
 <h3 id="13-所需工具">1.3 所需工具</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt-get install bridge-utils        <span style="color:#75715e"># 虚拟网桥工具</span>
@@ -215,7 +231,7 @@ apt-get install uml-utilities       <span style="color:#75715e"># UML工具</spa
 <p><img src="/images/qemubridge.png" alt=""></p>
 <p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge.png" alt="~"></p>
 <p>搭建宿主机与QEMU之间的通路，并在网桥上添加名为tap0的接口，在QEMU启动虚拟机时以TAP方式启动并指定连接tap0端口，实现连通</p>
-<h3 id="15-搭建流程">1.5 搭建流程</h3>
+<h3 id="15-搭建流程方法1">1.5 搭建流程（方法1）</h3>
 <h4 id="1-建立网桥">1. 建立网桥</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ifconfig &lt;网卡名称:ifconfig查看&gt; down    <span style="color:#75715e"># 首先关闭宿主机网卡接口</span>
 sudo brctl addbr br0                     <span style="color:#75715e"># 添加一座名为 br0 的网桥</span>
@@ -239,8 +255,33 @@ sudo brctl showstp br0                   <span style="color:#75715e"># 显示 br
 </code></pre></div><p>一般来说这些步骤执行玩并不会有输出（show除外），在申请DHCP时可能会提示empty，不过目前看来不会影响最终模拟效果。</p>
 <p><img src="/images/qemubridge.png" alt=""></p>
 <p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemubridge.png" alt="~"></p>
-<h3 id="16-效果测试">1.6 效果测试</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/sda1 console=tty0&#34;</span> -nographic -net nic -net tap,ifname<span style="color:#f92672">=</span>tap0,script<span style="color:#f92672">=</span>no,downscript<span style="color:#f92672">=</span>no
+<h3 id="16-搭建流程方法2">1.6 搭建流程（方法2）</h3>
+<p>基本步骤与1.5相同，不过不需要手动设置这么多命令行，这里给出的一种方式是修改QEMU的网络配置文件的方法。个人倾向于用第一种</p>
+<h4 id="1修改ubuntu主机网络配置">1.修改ubuntu主机网络配置</h4>
+<p>将ubuntu的网络接口配置文件 /etc/network/interfaces 添加如下内容并保存、关闭：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#auto br0</span>
+iface br0 inet dhcp
+    bridge_ports &lt;本机网卡名称&gt;
+    bridge_maxwait <span style="color:#ae81ff">0</span>
+</code></pre></div><p>修改QEMU的网络接口启动脚本/etc/qemu-ifup，重启网络使配置生效,在文档中添加如下内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;executing /etc/qemu-ifup&#34;</span>
+echo <span style="color:#e6db74">&#34;bringing </span>$1<span style="color:#e6db74"> for bridged mode&#34;</span>
+echo /sbin/ifconfig $1 0.0.0.0 promisc up
+echo <span style="color:#e6db74">&#34;adding </span>$1<span style="color:#e6db74"> to br0&#34;</span>
+echo /sbin/brctl addif br0 $1
+sleep <span style="color:#ae81ff">3</span>
+</code></pre></div><p>保存文件/etc/qemu-ifup 以后，赋予可执行权限，然后重启网络使所有的配置生效：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo chmod a+x /etc/qemu-ifup
+sudo /etc/init.d/networking restart
+</code></pre></div><h4 id="2启动网桥">2.启动网桥</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ifdown &lt;本机网卡名称&gt;
+sudo ifup br0
+</code></pre></div><h3 id="17-效果测试">1.7 效果测试</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#mips</span>
+sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/sda1 console=tty0&#34;</span> -nographic -net nic -net tap,ifname<span style="color:#f92672">=</span>tap0,script<span style="color:#f92672">=</span>no,downscript<span style="color:#f92672">=</span>no
+<span style="color:#75715e">#arm</span>
+qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -drive <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>sd,file<span style="color:#f92672">=</span>debian_wheezy_armhf_standard.qcow2 -append <span style="color:#e6db74">&#34;root=/dev/mmcblk0p2 console=ttyAMA0&#34;</span>  -net nic -net tap -nographic
 
 -net nic 在 QEMU 在虚拟机中创建一张虚拟网卡
 -net tap 连接类型为 TAP，并且指定了网卡接口名称<span style="color:#f92672">(</span>即手动创建的 tap0，将虚拟机接入网桥<span style="color:#f92672">)</span>。
@@ -254,7 +295,7 @@ script 和 downscript 两个选项的作用是告诉 QEMU 在启动系统的时�
 <p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cqemutestdata.png" alt="~"></p>
 <p>退出qemu的方法为Ctrl+A 后迅速按X</p>
 <h2 id="2借助fat固件模拟1">2.借助FAT固件模拟（1）</h2>
-<p>前面已经为QEMU创建了正确的网络通路，下面模拟一下固件，看看是否可以在外部访问其web界面</p>
+<p>前面已经为QEMU创建了正确的网络通路，下面模拟一下固件，看看是否可以在外部访问其web界面，例子为mips，个人倾向于使用第二种</p>
 <h4 id="1-固件下载">1. 固件下载</h4>
 <p>选择一款dlink的固件</p>
 <h4 id="2binwalk分析">2.binwalk分析</h4>
@@ -321,7 +362,7 @@ sleep 1s
 <p><img src="/images/image-20200810092832821.png" alt=""></p>
 <p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200810092832821.png" alt="~"></p>
 <h2 id="3借助fat固件模拟2">3.借助FAT固件模拟（2）</h2>
-<p>基本步骤与2相同，不过不需要修改脚本，这里给出的一种方式是设置QEMU的网络设置，<strong>未经测试</strong></p>
+<p>基本步骤与2相同，不过不需要修改脚本，这里给出的一种方式是设置QEMU的网络设置</p>
 <h4 id="下载工具">下载工具</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install bridge-utils 
 sudo apt-get install uml-utilities
@@ -364,9 +405,55 @@ sudo -u postgres psql -d firmware &lt; ./database/schema
 <p><img src="/images/image-20200810093756607.png" alt=""></p>
 <p><img src="C:%5CUsers%5C86135%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200810093756607.png" alt="~"></p>
 <h4 id="执行">执行</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chroot /root/squashfs-root sh
-</code></pre></div><p>c这里可能会遇到各种chroot无法运行的错误，与架构有关，虚拟机一定要选择与固件架构相应的版本，如果还出现错误可以搜一下关于这方面的issue,比如:https://askubuntu.com/questions/14280/during-a-chroot-attempt-i-got-this-error-chroot-failed-to-run-command-bin</p>
-<h4 id="参考文献">参考文献</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chmod <span style="color:#ae81ff">777</span> -R kyland
+chroot kyland/  /bin/sh
+</code></pre></div><p>此步骤要先为固件文件系统赋权</p>
+<h4 id="开启服务">开启服务</h4>
+<p>切换至文件系统后，某些固件需手动 启动sbin下的http服务,即可访问web管理界面，进行相关测试。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd sbin/
+./httpd
+</code></pre></div><p>具体实例见佳豪的kyland测试记录。</p>
+<h2 id="5-需要注意的细节问题">5. 需要注意的细节问题</h2>
+<h4 id="1chroot时的问题">1.chroot时的问题</h4>
+<p>这里可能会遇到各种chroot无法运行的错误，与架构有关，虚拟机一定要选择与固件架构相应的版本，如果还出现错误可以搜一下关于这方面的issue,比如:https://askubuntu.com/questions/14280/during-a-chroot-attempt-i-got-this-error-chroot-failed-to-run-command-bin</p>
+<h4 id="2scp上传时密钥问题">2.scp上传时密钥问题</h4>
+<p>每测试一个固件，理论上来说应该重新初始化启动虚拟机，启动后使用scp将固件上传至虚拟机时密钥会出现问题 ，需要把宿主机上的密钥文件删除重新获取。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#具体命令见命令行输出提示</span>
+</code></pre></div><h4 id="3-重启qemu后获取不到ip地址的问题">3. 重启QEMU后获取不到IP地址的问题</h4>
+<p>个人倾向于使用手动搭桥第一种方法来构建测试所需的网络环境，在测试过程中，如果重复初始化开启QEMU虚拟机，无论是使用方式还是正常退出，再次开启后会出现虚拟机无法获取IP地址的问题，下面给出一种非普适性解决方案</p>
+<ol>
+<li>
+<p>查看网桥接口状态</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">bridge link show
+</code></pre></div><p>一般这个时候网桥所连接的网卡和另一端的接口状态都是DOWN，原因未知，可能是QEMU每次退出都会将网络down掉，这个时候网桥是无效的</p>
+</li>
+<li>
+<p>手动开启并获取IP</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ifconfig br0 0.0.0.0 promisc up     <span style="color:#75715e"># 启用 br0 接口</span>
+sudo ifconfig &lt;网卡名称&gt; 0.0.0.0 promisc up    <span style="color:#75715e"># 启用网卡接口</span>
+sudo dhclient br0                        <span style="color:#75715e"># 从 dhcp 服务器获得 br0 的 IP 地址</span>
+</code></pre></div><p>这也就是之前手动搭建网桥的时候使用的命令</p>
+</li>
+<li>
+<p>使用QEMU命令行启动虚拟机，此时发现已重新获取IP并与外界联通</p>
+</li>
+</ol>
+<h4 id="4停止qemu后再次启动失败的问题">4.停止QEMU后再次启动失败的问题</h4>
+<ol>
+<li>
+<p>解决方案为杀死进程</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo netstat -anpt 
+kill &lt;pid&gt;
+</code></pre></div></li>
+</ol>
+<h2 id="6个人建议的测试流程">6.个人建议的测试流程</h2>
+<ol>
+<li>获取固件</li>
+<li>使用手动搭桥第一种方法搭建网桥通路</li>
+<li>使用上传文件系统的方法进行固件模拟</li>
+<li>相关细节问题查询相关章节，新遇到的问题记录至相关章节</li>
+</ol>
+<h2 id="参考文献">参考文献</h2>
 <p><a href="https://blog.csdn.net/tycoon1988/article/details/43636689">https://blog.csdn.net/tycoon1988/article/details/43636689</a></p>
 <p><a href="https://www.freebuf.com/vuls/228726.html">https://www.freebuf.com/vuls/228726.html</a></p>
 <p><a href="https://blog.csdn.net/u014022631/article/details/53411557">https://blog.csdn.net/u014022631/article/details/53411557</a></p>

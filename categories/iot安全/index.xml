@@ -6,10 +6,19 @@
     <description>Recent content in IoT安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Aug 2020 09:52:40 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2020 19:17:39 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vulnerability verification for Kyland</title>
+      <link>http://anfieldqi.top/2020/kyland_test/</link>
+      <pubDate>Thu, 27 Aug 2020 19:17:39 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/kyland_test/</guid>
+      <description>Below we briefly describe the vulnerability verification process with a simple example. Run the firmware to be tested in the simulation environment, we open its http service, and the running script is in /sbin/httpd or run the device directly Then we use the browser to request the http service of the firmware. There are many interactive interfaces found among them. Find its html source code and cgi script by viewing</description>
+    </item>
     
     <item>
       <title>固件文件系统</title>
