@@ -6,10 +6,19 @@
     <description>Recent content in IOT on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 01 Jul 2020 16:01:14 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2020 14:56:35 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/tags/iot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Discovering_and_understanding_the_security_hazards_in_the_interactions</title>
+      <link>http://anfieldqi.top/2020/discovering_and_understanding_the_security_hazards_in_the_interactions/</link>
+      <pubDate>Mon, 31 Aug 2020 14:56:35 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/discovering_and_understanding_the_security_hazards_in_the_interactions/</guid>
+      <description>1.题目 Discovering and Understanding the Security Hazards in the Interactions between IoT Devices, Mobile Apps, and Clouds on Smart Home Platforms 2.主要内容 2.1 论文内容 本论文研究的主要内容集中在**(1)物联网设备(2)移动APP(3)物</description>
+    </item>
     
     <item>
       <title>《A Large-Scale Analysis of the Security of Embedded Firmwares》</title>
