@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>A_Case_Study_on_Embedded_Web_Interfaces</title>
+      <title>论文:A_Case_Study_on_Embedded_Web_Interfaces</title>
       <link>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</link>
       <pubDate>Tue, 08 Sep 2020 17:24:47 +0800</pubDate>
       
@@ -21,7 +21,7 @@
     </item>
     
     <item>
-      <title>Avatar1</title>
+      <title>论文:Avatar动态测试框架1</title>
       <link>http://anfieldqi.top/2020/avatar1/</link>
       <pubDate>Tue, 08 Sep 2020 08:42:29 +0800</pubDate>
       
@@ -30,7 +30,7 @@
     </item>
     
     <item>
-      <title>Discovering_and_understanding_the_security_hazards_in_the_interactions</title>
+      <title>论文:Discovering_and_understanding_the_security_hazards_in_the_interactions</title>
       <link>http://anfieldqi.top/2020/discovering_and_understanding_the_security_hazards_in_the_interactions/</link>
       <pubDate>Mon, 31 Aug 2020 14:56:35 +0800</pubDate>
       
@@ -48,7 +48,25 @@
     </item>
     
     <item>
-      <title>《A Large-Scale Analysis of the Security of Embedded Firmwares》</title>
+      <title>论文:Design_and_implementation_of_automated_iot_security_testbed</title>
+      <link>http://anfieldqi.top/2020/design_and_implementation_of_automated_iot_security_testbed/</link>
+      <pubDate>Tue, 14 Jul 2020 10:35:11 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/design_and_implementation_of_automated_iot_security_testbed/</guid>
+      <description>1.题目 Design and Implementation of Automated IoT Security Testbed 2020 2.主要内容 对以前有关IOT设备安全性的研究进行了全面分析，重点是用于测试IOT设备的各种工具以及已发现的漏洞，此</description>
+    </item>
+    
+    <item>
+      <title>论文:Towards_automated_classification_of_firmware</title>
+      <link>http://anfieldqi.top/2020/towards_automated_classification_of_firmware/</link>
+      <pubDate>Fri, 10 Jul 2020 15:11:21 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/towards_automated_classification_of_firmware/</guid>
+      <description>1.题目 Towards Automated Classification of Firmware Images and Identification of Embedded Devices 2.主要内容 目前没有集中式或者标准化的固件分发机制，各个厂商之间的分发标准通常有很大区别，1.研究人员很难跟踪</description>
+    </item>
+    
+    <item>
+      <title>论文:A Large-Scale Analysis of the Security of Embedded Firmwares</title>
       <link>http://anfieldqi.top/2020/a_large_analysis/</link>
       <pubDate>Wed, 01 Jul 2020 16:01:14 +0800</pubDate>
       
@@ -57,7 +75,7 @@
     </item>
     
     <item>
-      <title>IoTFuzzer_note</title>
+      <title>论文:IoTFuzzer_note</title>
       <link>http://anfieldqi.top/2020/iotfuzzer_note/</link>
       <pubDate>Thu, 11 Jun 2020 09:54:58 +0800</pubDate>
       

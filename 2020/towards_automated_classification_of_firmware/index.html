@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="http://anfieldqi.top/2020/a_large_analysis/" />
+  <link rel="next" href="http://anfieldqi.top/2020/design_and_implementation_of_automated_iot_security_testbed/" />
+  <link rel="canonical" href="http://anfieldqi.top/2020/towards_automated_classification_of_firmware/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           论文:Towards_automated_classification_of_firmware | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="论文:Towards_automated_classification_of_firmware | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/anfieldqi.top"
+    },
+    "articleSection" : "posts",
+    "name" : "论文:Towards_automated_classification_of_firmware",
+    "headline" : "论文:Towards_automated_classification_of_firmware",
+    "description" : "1.题目 Towards Automated Classification of Firmware Images and Identification of Embedded Devices 2.主要内容 目前没有集中式或者标准化的固件分发机制，各个厂商之间的分发标准通常有很大区别，1.研究人员很难跟踪",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-10 15:11:21 \x2b0800 CST",
+    "dateModified" : "2020-07-10 15:11:21 \x2b0800 CST",
+    "url" : "http:\/\/anfieldqi.top\/2020\/towards_automated_classification_of_firmware\/",
+    "wordCount" : "3940",
+    "keywords" : [ "IoT", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">论文:Towards_automated_classification_of_firmware</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-10 itemprop="datePublished">July 10, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 3940 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="1题目">1.题目</h1>
+<p>Towards Automated Classification of Firmware Images and Identification of Embedded Devices</p>
+<h1 id="2主要内容">2.主要内容</h1>
+<p>目前没有集中式或者标准化的固件分发机制，各个厂商之间的分发标准通常有很大区别，1.研究人员很难跟踪固件包属于哪个供应商或设备或很难识别已部署的固件版本。2.研究人员很难进一步发现在私有和公有网络中有多少设备在运行此危险固件，本文提出了两种互补但不相同的方法来解决分类问题。</p>
+<h2 id="21论文内容">2.1论文内容</h2>
+<ol>
+<li>
+<p>固件分类：根据文件类型将固件与其他类型的文件区分开，根据供应商或设备类型对固件镜像进行分类。</p>
+</li>
+<li>
+<p>嵌入式WEB界面指纹识别：对物理设备和仿真设备的嵌入式WEB界面进行指纹识别，由此识别连接到网络的WEB设备（被作者定义为辅助方法，在某种情况下可以WEB在线设备与设备上运行的相应固件包进行逻辑链接）</p>
+</li>
+</ol>
+<h2 id="22-作者的contribution">2.2 作者的contribution</h2>
+<p>•提出了一种在固件分类中使用机器学习的方法
+•提出了一种针对启动WEB的嵌入式设备的指纹识别和版本识别的方法，并为物理和仿真设备的嵌入式WEB界面引入指纹功能。
+•介绍了以上两种技术的直接实际应用</p>
+<h1 id="3指导性原则">3.指导性原则</h1>
+<h2 id="31论文的一些关键技术点">3.1论文的一些关键技术点</h2>
+<ol>
+<li>应用机器学习根据固件文件的供应商或设备类型对其进行分类，首先从固件集合中根据固件特征派生出几个功能集，然后针对某固件的分类提供对应的特征集进行匹配，最后通过科学统计方法，评估分类器对大型数据集的分类性能</li>
+<li>使用模拟的固件镜像，(本篇文章的参考文献11 13)和物理设备来构建WEB界面的指纹数据库，将未知的嵌入式WEB界面与数据库中已知的指纹列表进行匹配，最后使用多种评分系统对网络指纹匹配进行排名以验证准确率</li>
+</ol>
+<h1 id="4系统设计">4.系统设计</h1>
+<h2 id="41-检测方法">4.1 检测方法</h2>
+<ol>
+<li>使用有监督的分类器（决策树和随机森林）在供应商和设备类型级别对固件文件进行分类</li>
+</ol>
+<h2 id="42-面临挑战">4.2 面临挑战</h2>
+<ol>
+<li>分类器分类阶段:
+<ol>
+<li>如何选择恰当的固件特征进行分类</li>
+<li>机器学习的泛化准确性得不到保障</li>
+<li>理想训练集的构建</li>
+</ol>
+</li>
+<li>设备指纹识别阶段：
+<ol>
+<li>许多用于指纹识别的识别设备的方法[6.4，14，19]对真实环境要求较高无法有效模拟。进行了两个尝试：1.在创建和验证嵌入式界面指纹的尝试中，使用专用网络物理设备或使用公共IP 链接到internet的设备上，失败的，原因为在专用网络中操作IOT设备几乎不可行以及第二种方法是非法的。2.检查唯一文件/URL或这web界面的字符串存在，这也不可行，会有误报等问题。</li>
+</ol>
+</li>
+</ol>
+<h2 id="43-详细设计">4.3 详细设计</h2>
+<h3 id="1分类器分类阶段供应商或设备类型级别">1.分类器分类阶段（<strong>供应商或设备类型级别</strong>）：</h3>
+<h4 id="11-特征的选择">1.1 特征的选择</h4>
+<p>分类器和特征选择均在供应商或设备类型级别进行，</p>
+<ol>
+<li>尝试：<strong>固件文件名+文件哈希值</strong>效果差，没有标准指定文件名命名标准</li>
+<li>尝试：<strong>基于固件信息（比如：供应商-产品-版本）建立字典，在试图获取信息时检索字典中有没有对应的条目</strong>。没有一个包含所有固件镜像的列表，固件版本和更新没有标准化，即使此数据库可以自己建立，但是对于将来遵循新规则的固件此方法不能准确分类</li>
+<li>作者使用：
+<ol>
+<li>固件文件大小：固件升级文件大小不可以超出目标设备有限内存</li>
+<li>固件文件内容：<strong>（文件熵，文件字节算数平均值，文件可压缩率，序列相关值，蒙特卡洛值及其估计误差，卡方分布及其过量误差）</strong>，固件中包含特定的信息部分和密度</li>
+<li>固件文件字符串：软件包中均存在可能反应供应商或设备信息的字符串，但是<strong>一般的字符串筛选存在问题</strong>，比如固件均有的Linux内核或openssl库等信息。因此，训练集每个分类都加上此属性下两个不同的特征：<strong>类别字符串，类别唯一字符串</strong></li>
+<li>固件文件内容的模糊哈希：<strong>模糊哈希值反映了两个固件是否相似</strong>，使用上下文触发的<strong>CTPH分段哈希[20],</strong> <em>为每个训练分类建立包含该类别所有文件的模糊哈希列表</em></li>
+</ol>
+</li>
+</ol>
+<h4 id="12-算法选择">1.2 算法选择</h4>
+<p>决策树（DT）</p>
+<p>随机森林（RF）算法</p>
+<h4 id="13-特征选取及分类阶段的校准方式">1.3 特征选取及分类阶段的校准方式</h4>
+<ol>
+<li>
+<p>对于与特征选取阶段，可以使用亚马逊的<strong>Mechanical Turk</strong>构建一个相对干净的训练集</p>
+</li>
+<li>
+<p>对于算法的泛化校准：使用置信区间评估对机器学习算法造成的泛化进行弥补</p>
+</li>
+</ol>
+<h4 id="14-本阶段所用数据集及处理方式">1.4 本阶段所用数据集及处理方式</h4>
+<p>13家不同厂商处选择的215个固件镜像，将<strong>应用厂商</strong>作为分类类别每个类别包括不同数量的固件镜像。每个类别包括5-54个固件镜像。每个供应商平均有16个固件</p>
+<h3 id="2设备指纹识别">2.设备指纹识别</h3>
+<p>为了弥补固件指纹的不准确性，引进更细粒度的WEB指纹识别，从通用管理接口WEB来入手。解决方案受益于固件内容和<strong>基于固件映像的设备仿真</strong></p>
+<h4 id="21-角度选取的尝试">2.1 角度选取的尝试</h4>
+<ol>
+<li>使用专用网络中的物理设备或使用公共ip连接到Internet的设备：不道德且非法</li>
+<li>检查web界面页面或HTTP身份验证提示中是否存在唯一的文件/url或特定字符串：不能很好的辨别真伪、</li>
+</ol>
+<h4 id="22-数据集">2.2. 数据集</h4>
+<ol>
+<li>使用了27个固件映像的仿真web界面，这些映像来自于3个供应商，分为7个功能类别。其中9个固件也是固件ML分类的一部分：它们是根据我们的ML固件模型进行分类的，使用RF的准确率为100%（使用DT的准确率约为99.5%）</li>
+<li><strong>为什么与ML阶段用的数据集不同？1.并非每一个固件镜像都能使用模拟器成功模拟 2.作者认为此数据集已足够</strong></li>
+</ol>
+<h4 id="23-特征选取">2.3 特征选取</h4>
+<p>选取了6个特征</p>
+<ol>
+<li>
+<p>站点结构：访问训练数据集中存在的URL和文件？？？？（存疑，我觉得模拟起来用御剑等工具更加准确），并表示已知web应用程序的站点地图。<strong>如果未知web界面的站点地图与数据库中的已知站点地图匹配，将其归类为属于运行特定固件版本的嵌入式设备</strong></p>
+</li>
+<li>
+<p>HTTP有限状态机：关注<strong>服务器响应内容</strong>，通过分析它们交换的消息来对它们进行指纹识别[31,34]。利用这些差异来<strong>识别特定HTTP会话中涉及的服务器类型</strong>。因此，作者创建一个模型，该模型能够<strong>学习HTTP响应的报头顺序，然后使用该顺序对未知的HTTP会话进行分类</strong>。本质上，我们实现了一个httpfsm，其中头表示这个FSM的状态和从一个状态到另一个状态的转换的头的顺序。</p>
+</li>
+<li>
+<p>HTML内容和HTTP头的加密哈希：</p>
+<p>尽管某些标头将始终显示相同的信息（例如，标头服务器），但其他标头很少会随时间（例如，标头日期）保持不变。响应中如此微小的变化会导致头的加密哈希发生重大变化。对于两个不同的静态哈希值，在同一个示例中，两个不同的静态哈希值将生成完全不匹配的web消息头。为了克服这种“噪音”，我们动态地创建一个正则表达式，而不是检索这种头的实际值。因此，像日期这样的标题不会影响我们的特性和匹配。我们从一个完整的HTTP响应创建两个加密哈希值。第一个包含如上所述的消息的哈希头，第二个包含哈希消息体。如果未知响应与数据库中包含的响应之间存在匹配，则可以成功地为发送此响应的设备提取指纹。</p>
+</li>
+<li>
+<p>HTML内容和HTTP头的模糊哈希</p>
+<p>即使指纹来自同一个设备，也不可能总是基于加密哈希值的指纹。这是因为修改大字节流中的单个字节会导致加密哈希函数生成完全不同的哈希值。为了对抗这种行为，我们使用模糊散列。在我们的方法中，我们使用上下文触发的分段哈希（CTPH）[20]。使用模糊哈希，我们计算未知HTTP响应（HTTP头、HTML内容）与数据库中HTTP响应列表之间的相似性，我们知道这些响应的模糊哈希值。我们所遵循的过程与加密哈希的过程非常相似，但在这种方法中，我们使用的是完全不同的哈希函数。如果未知和已知的HTTP响应之间的相似性超过经验计算的阈值，我们可以成功地对未知设备进行分类。</p>
+</li>
+</ol>
+<h4 id="特征评价标准">特征评价标准</h4>
+<ol>
+<li>多数票计分。 每个指纹匹配的每个特征都按降序排列。 在大多数功能上排名最高的指纹匹配被认为是与未知样本最准确的匹配。</li>
+<li>均匀和不均匀的称重计分。 为指纹的每个特征值分配一个权重。 然后，对于每个指纹的每个特征，所有加权值被求和成指纹的总值。 最后，所有总值均按降序排列。 总值最高的匹配项被认为是与未知样本最准确的匹配项。 为了进行评估，我们使用了16.6％的统一权重（即对六个要素中的每一个均进行100％匹配的统一划分）。 对于非均匀评分，我们使用以下凭经验找到的权重：Web站点地图为4％，HTTP FSM为4％，模糊哈希HTTP标头为1％，模糊哈希HTML内容为1％，加密哈希HTTP标头为10％  ，其中80％用于加密哈希HTML内容。</li>
+<li>得分融合。 在评估中，使用了分数融合技术来提高识别的准确性。 分数融合技术已广泛应用于各种研究领域，例如生物识别和传感器数据[18]。 它用于增加结果的置信度，并抵消不精确近似的数据（例如，生物识别技术中的指纹）和不稳定的数据读数（例如，传感器数据）的影响。 从上述每个评分系统中获取降序排列的排名作为输入。 然后，对这三个评分系统的每个排名应用多数投票。 这使系统可以根据使用上述三种不同评分系统计算出的分数来决定最匹配的匹配项。</li>
+</ol>
+<h3 id="使用场景">使用场景</h3>
+<ol>
+<li>
+<p>固件的分类</p>
+</li>
+<li>
+<p>利用设备指纹识别技术进行黑盒测试</p>
+</li>
+<li>
+<p><strong>自动化的端到端方案具有一个可以在端到端的自治过程中解决固件漏洞发现和易受攻击的设备发现的系统是很实际的，所提出的技术是固件漏洞发现技术的理想补充[11 13]。 首先，搜寻器收集固件映像。 然后，第2节中的ML技术对固件进行分类。 使用静态和动态分析以及通用和固件特定处理的仿真技术，我们可以发现固件中的漏洞。 一旦固件仿真器开始运行，第3节中的技术就会为仿真设备和固件版本创建指纹。 最后，使用诸如Shodan.io和Censys.io（Internet）或nmap和Nessus（Intranet）之类的扫描工具，可以根据设备的指纹来识别设备，并根据发现的漏洞立即对其进行标记和隔离。 这样，可以自动覆盖整个漏洞的生命周期。</strong></p>
+</li>
+</ol>
+<h3 id="5论文实验">5.论文实验</h3>
+<h4 id="51-数据集及来源">5.1 数据集及来源</h4>
+<p>见详细设计模块，两者使用的数据集不同。</p>
+<h4 id="52-测试环境">5.2 测试环境</h4>
+<ol>
+<li>无</li>
+</ol>
+<h4 id="53-结果概述">5.3 结果概述</h4>
+<p>在本文中，作者提出了两种互补技术，即嵌入式固件训练的分类和嵌入式Web界面指纹识别。 针对固件分类挑战提出了ML方法，并探索了功能和分数融合来解决Web界面指纹识别问题。 对现实世界中的大规模数据集具有很高的置信度，测试表明，作者提出的分类器和功能在固件分类中的准确度达到93.5％，在设备识别中的准确度为89.4％。</p>
+<h4 id="54-开源">5.4 开源</h4>
+<p><a href="http://firmware.re">http://firmware.re</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://anfieldqi.top/2020/towards_automated_classification_of_firmware/>http://anfieldqi.top/2020/towards_automated_classification_of_firmware/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://anfieldqi.top/tags/iot/">
+                    #IoT</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://anfieldqi.top">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://anfieldqi.top/2020/a_large_analysis/" class="prev" rel="prev" title="论文:A Large-Scale Analysis of the Security of Embedded Firmwares"><i class="iconfont icon-left"></i>&nbsp;论文:A Large-Scale Analysis of the Security of Embedded Firmwares</a>
+         
+        
+        <a href="http://anfieldqi.top/2020/design_and_implementation_of_automated_iot_security_testbed/" class="next" rel="next" title="论文:Design_and_implementation_of_automated_iot_security_testbed">论文:Design_and_implementation_of_automated_iot_security_testbed&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://anfieldqi.top">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备20032128号 </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
