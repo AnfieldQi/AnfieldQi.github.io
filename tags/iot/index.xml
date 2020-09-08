@@ -6,10 +6,37 @@
     <description>Recent content in IOT on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 31 Aug 2020 14:56:35 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 17:24:47 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/tags/iot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A_Case_Study_on_Embedded_Web_Interfaces</title>
+      <link>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</link>
+      <pubDate>Tue, 08 Sep 2020 17:24:47 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</guid>
+      <description>1.题目 Automated Dynamic Firmware Analysis at Scale: A Case Study on Embedded Web Interfaces 2.主要内容 2.1 论文内容 提出了第一个完全自动化的框架，它应用动态固件分析技术，以可扩展的方式实现嵌入式固件映</description>
+    </item>
+    
+    <item>
+      <title>Avatar1</title>
+      <link>http://anfieldqi.top/2020/avatar1/</link>
+      <pubDate>Tue, 08 Sep 2020 08:42:29 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/avatar1/</guid>
+      <description>1.题目 Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares 2.主要内容 2.1 论文内容 动态分析是安全分析的主要基础之一，例如，通过动态污点跟踪或符号执行。 与静</description>
+    </item>
+    
+    <item>
+      <title>固件供给面总结</title>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 01 Sep 2020 19:30:29 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93/</guid>
+      <description>固件攻击面总结 攻击面 设备WEB界面 设备固件 本地数据存储 更新机制 移动应用程序 网络流量 认证与授权 隐私泄露 1.设备Web界面 这里主要是针对固件的w</description>
+    </item>
     
     <item>
       <title>Discovering_and_understanding_the_security_hazards_in_the_interactions</title>
@@ -18,6 +45,15 @@
       
       <guid>http://anfieldqi.top/2020/discovering_and_understanding_the_security_hazards_in_the_interactions/</guid>
       <description>1.题目 Discovering and Understanding the Security Hazards in the Interactions between IoT Devices, Mobile Apps, and Clouds on Smart Home Platforms 2.主要内容 2.1 论文内容 本论文研究的主要内容集中在**(1)物联网设备(2)移动APP(3)物</description>
+    </item>
+    
+    <item>
+      <title>Avatar</title>
+      <link>http://anfieldqi.top/2020/avatar/</link>
+      <pubDate>Tue, 14 Jul 2020 20:53:19 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/avatar/</guid>
+      <description>1.题目 Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares 2.主要内容 没有源代码或硬件文档，准确地分析固件二进制文件也很重要。 动态分析是安全分析的主要基</description>
     </item>
     
     <item>

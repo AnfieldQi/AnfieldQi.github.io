@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="http://anfieldqi.top/2020/a_large_analysis/" />
+  <link rel="next" href="http://anfieldqi.top/2020/2.docker%E9%95%9C%E5%83%8F/" />
+  <link rel="canonical" href="http://anfieldqi.top/2020/avatar/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Avatar | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="Avatar | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/anfieldqi.top"
+    },
+    "articleSection" : "posts",
+    "name" : "Avatar",
+    "headline" : "Avatar",
+    "description" : "1.题目 Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares 2.主要内容 没有源代码或硬件文档，准确地分析固件二进制文件也很重要。 动态分析是安全分析的主要基",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-14 20:53:19 \x2b0800 CST",
+    "dateModified" : "2020-07-14 20:53:19 \x2b0800 CST",
+    "url" : "http:\/\/anfieldqi.top\/2020\/avatar\/",
+    "wordCount" : "8763",
+    "keywords" : [ "IOT", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Avatar</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-14 itemprop="datePublished">July 14, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 8763 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="1题目">1.题目</h2>
+<p>Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares</p>
+<h3 id="2主要内容">2.主要内容</h3>
+<p>没有源代码或硬件文档，准确地分析固件二进制文件也很重要。 动态分析是安全分析的主要基础之一，例如，通过动态污点跟踪或符号执行。 与静态分析不同，动态分析依赖于在受控环境（通常是仪器仿真器）中执行软件的能力。 但是，仿真嵌入式设备的固件需要分析中的系统使用的所有硬件组件的准确模型, 不幸的是，缺乏文档和市场上各种各样的硬件使这]种方法在实践中不可行。在本文中，介绍了Avatar，该框架可通过<strong>协调仿真器和实际硬件</strong>的执行来对嵌入式设备进行复杂的动态分析。</p>
+<h4 id="21论文内容">2.1论文内容</h4>
+<p>提出了一种技术克服了纯固件仿真的局限性。工具名为Avatar，<strong>充当物理设备和外部模拟器之间的编排引擎</strong>。<strong>通过在嵌入式设备中注入一个特殊的软件代理，Avatar可以在模拟器内部执行固件指令，同时将I/O操作引导到物理硬件</strong>。由于无法完美地模拟整个嵌入式系统，而且目前不可能通过在设备本身上运行代码来执行高级动态分析，因此Avatar采用了一种混合方法。它利用真实的硬件来处理I/O操作，但是从嵌入式设备中提取固件代码并在外部计算机上进行仿真。</p>
+<h4 id="22-作者的contribution">2.2 作者的contribution</h4>
+<ol>
+<li>介绍了Avatar的设计和实现，Avatar是一种新颖的动态分析框架，可让用户仿真嵌入式设备的固件。</li>
+<li>讨论了可用于优化系统性能并使Avatar适应用户需求的几种技术。 展示了如何在Avatar之上实现复杂的动态分析应用程序（例如，<strong>condicolic</strong>执行）。</li>
+<li>通过将Avatar应用于三种不同的安全方案来评估Avatar，包括逆向工程，漏洞发现和后门检测。 为了展示我们系统的灵活性，每个测试都是在完全不同类别的设备上执行的。</li>
+</ol>
+<h3 id="3指导性原则">3.指导性原则</h3>
+<h4 id="31论文的一些关键技术点">3.1论文的一些关键技术点</h4>
+<ol>
+<li>市场上大量不同的系统均依赖于ARM内核</li>
+</ol>
+<h4 id="32-嵌入式动态分析现存解决方案">3.2 嵌入式动态分析现存解决方案</h4>
+<ol>
+<li>完全硬件仿真[14]：对于嵌入式系统来说需要完整模拟固件硬件设备，大规模分析不可行，或开发出来的设备只允许开发人员自行使用</li>
+<li>使用通用的硬件仿真模型[49]，例如QEMU：对于涉及到IO的操作进行返回值处理从而避免仿真崩溃，但是缺点在于无法整体分析，通常用于拥有几百行代码的小程序</li>
+<li>固件适配：对固件系统进行部分仿真，但对于无法轻易拆分成独立部分的固件不适用</li>
+</ol>
+<h3 id="4系统设计">4.系统设计</h3>
+<h4 id="41-检测方法">4.1 检测方法</h4>
+<p>Avatar协调物理设备与仿真模拟器。</p>
+<h4 id="42-解决问题">4.2 解决问题</h4>
+<ol>
+<li>使用未知协议来进行消息模糊面临一些困难，需要自动识别和模糊未知协议的协议字段。</li>
+<li>如果IOT设备和应用之间的通信经过加密，则框架也应该以相同的方式发送加密消息，所以设计解决方案对应用中的消息加密功能进行重用。</li>
+<li>对于触发的崩溃进行监控，设计有效的远程机制来远程自动监控设备状态</li>
+</ol>
+<h4 id="43-应对策略">4.3 应对策略</h4>
+<ol>
+<li>设计全新的仿真器与真实固件仿真的模拟测试框架，可用于逆向工程，恶意软件分析，漏洞发现，漏洞评估，行为回溯等</li>
+</ol>
+<h4 id="44-系统架构">4.4 系统架构</h4>
+<p><img src="C:%5CUsers%5C86135%5CDesktop%5Cimage-20200715091617488.png" alt=""></p>
+<p>具体思路：固件设备仿真执行于QEMU中，遇到IO访问等强硬件依赖的步骤通过AVATOR转发至真实硬件设备，同时真实硬件的信息和中断等行为将收集后注入仿真器，内部架构完全基于时间，允许用户进行数据流利用，甚至在仿真器和目标之间进行数据流修改。</p>
+<p><strong>1.所用工具</strong>：QEMU/S2E</p>
+<p><strong>2.后端模块</strong>：</p>
+<ol>
+<li>GDB：使用GDB串行协议与GDB服务器进行通信</li>
+<li>通过telnetlike协议对OpenOCD的JTAG调试接口进行低级访问</li>
+<li>通过优化的二进制协议与自定义Avatar调试器代理进行对话，可以安装在却上调试硬件支持的情况下</li>
+</ol>
+<p>**3.使用：**用户选择合适的后端，分析固件需要使用JTAG和UART等设备调试接口</p>
+<p>**4.完全分离模式：**整个固件代码在仿真器中执行，而整个（内存）状态保留在物理设备中。 换句话说，对于由仿真器执行的每条指令，将从嵌入式系统的实际内存中提取并写入访问的内存地址。 同时，物理系统中的调试存根会拦截中断，并将中断转发回仿真器。 代码和内存完全分开，并且Avatar负责将它们链接在一起。这种方式执行速度很慢，效率很低。（串行调试通道不支持每秒访问存储器太多次）<strong>Avatar可以在仿真与模拟器之间进行任意上下文切换</strong></p>
+<p>**5.上下文切换：**固件会在物理设备上开始执行并本地运行，直到发生某个预定义的事件（例如，达到断点或引发异常）。 此时，物理设备上的执行被冻结，并且状态（例如，CPU寄存器的内容）被传送到仿真器，在仿真器处恢复执行。</p>
+<p><strong>6.中断处理</strong>：</p>
+<ol>
+<li>表示任务已完成的中断：这些中断由设备发出，以指示由代码启动的特定任务已完成。 例如，UART发送中断表示发送缓冲区已成功发送。 这种中断很容易处理，因为它只需要从目标转发到仿真器即可。</li>
+<li>定期的硬件中断，例如定时器通知。 这些中断可以转发给仿真器，但是它们的频率需要按比例缩小到仿真器中的实际执行速度。 应该在仿真器中执行两个中断之间等效数量的指令，就像在纯模式下运行的目标上一样。 在我们当前的实现中，Avatar插件检测定期中断并将其信息报告给用户，用户可以决定如何处理每个类。 例如，用户可以指示Avatar丢弃设备上的时钟中断，并在仿真器上生成时钟中断（以正确的频率），从而节省带宽并提高分析性能。</li>
+<li>通知外部事件的硬件中断。
+例如，UART的接收中断指示UART缓冲区上的新数据可用。这些中断的仿真策略取决于外部事件的频率。 对于需要先前活动的事件（例如，响应触发中断的请求-响应协议），可以使用简单的转发策略。 对于非常频繁发生的无关事件（即，仿真器中的处理程序无法在生成下一个中断之前及时处理中断），用户可以选择是否要抑制某些事件或通过迁移处理程序来处理中断本身返回到嵌入式设备</li>
+</ol>
+<p>7.重放交互：在这种情况下，I / O操作可以由Avatar记录并在固件的下一次执行期间透明地重放。</p>
+<h4 id="5-完全分离技术">5. 完全分离技术</h4>
+<ol>
+<li>**内存优化：**为了应对仿真器硬件与物理设备通过串行接口交互时带宽过低导致的低效问题，使用内存转发（不同嵌入式地址具有不同的地址到存储区域的映射）与自动优化内存插件（动态监视并控制不需要访问的硬件区域），实际核心是仅允许IO等操作使用物理设备内存，其他全部搞到仿真器</li>
+<li>**选择性代码分析：**对于固件要么在全仿真情况下运行，要么在全物理设备上运行，针对这一点，仅允许用户将固件代码的一部分转移至物理设备，可以客服完全分离模式的两个限制（具体为将代码复制到目标内存中的相应位置并打断点）并将虚拟机寄存器状态从仿真器转移到目标。 在目标上继续执行，直到触发了出口断点之一，然后将状态转移回仿真器。 这种转换比完整的上下文切换要快得多</li>
+</ol>
+<h4 id="6avatar扩展读">6.Avatar扩展（读）</h4>
+<ol>
+<li>
+<p>扩展Avatar Avatar的体系结构设计成模块化的，其基础框架可以轻松定制以适应不同的分析场景。 我们选择S2E作为默认的Avatar仿真器后端，因为它在QEMU之上提供了许多挂钩和操作工具，从而促进了自定义动态分析插件的开发。 在本节中，我们显示一个Avatar扩展的示例：我们基于其核心功能来支持选择性符号执行。 为此，我们向S2E的ARM端口添加了几个功能和插件。 而且，我们相信符号执行引擎提供了实现污点分析所需功能的超集，即使可能需要目标插件来以更轻量的方式执行具体的数据跟踪和污点分析。 在本节的其余部分中，我们将介绍Avatar用来充分利用S2E的符号引擎并对固件Blob的未修改部分执行选择性符号执行的技术。 此外，我们展示了如何使用Avatar中的扩展版本的S2E通过注入和跟踪符号输入来动态检测潜在的控制流损坏漏洞。  A.将符号值注入到固件的执行流程中在程序测试领域，符号执行是一种通过使用符号作为输入数据（而不是具体值）并跟踪对操作或比较的约束来提高代码覆盖率的技术（ 参见[51]）。 符号评估的结果是一个执行树，其中每个路径都是可能的执行状态，可以通过满足与每个符号值相关的约束来达到该状态。
+S2E通过执行选择性的符号执行，即通过将符号执行的区域限制为特定的代码部分并将仅特定的输入数据视为符号[15]，进一步发展了这一概念。 这极大地有助于加快分析过程（因为代码的符号执行会导致显着的减慢），并推动详尽的符号探索进入选定的代码区域。 此过程需要Avatar来控制将符号值引入S2E中，以代替现有的实际值。
+第三部分介绍了S2E和Avatar之间的远程内存接口，可确保只有具体的值才能通过Avatar到达实际硬件。 因此，符号值保留在仿真域之内。 如果符号值将要写入目标硬件，则S2E中的远程内存接口在转发它之前执行强制具体化。 这样的象征性价值具体化分两个阶段进行。 首先，由集成的SATsolver检索和评估与该值关联的所有约束。 其次，将满足所有约束条件的单个示例值转发给Avatar，以写入目标。
+一方面，使Avatar仅处理具体值使它成为具有S2E外部视图的控制器，并且避免了两次跟踪执行路径和路径条件。 另一方面，此选择带来了一个次要的缺点，即Avatar无法直接控制符号执行，而直接控制在S2E / KLEE的控制之下。
+我们设计了一个简单的插件来检测任意执行条件。 它依赖于以下启发式方法作为可能利用条件的标志：•符号地址用作加载或存储指令的目标，•符号地址泄漏到程序计数器中（例如，作为分支的目标），  •将符号地址移入堆栈指针寄存器。 为了有选择地将某些输入数据标记为符号，可以采用两种不同的方法：修改二进制代码（或源代码，如果可用）以将自定义指令注入到固件中，或者动态地模拟仿真环境以指定范围 在运行时进行符号分析。 第一种方法需要对所分析的固件有一定的高级了解（例如，访问源代码），并保证将自定义指令注入到固件代码中不会影响其行为。
+例子包括Android Dalvik VM，其源代码可以修改和重建，从而可以使用S2E透明分析原始Java字节码[36]。
+由于我们不想将Avatar限制在这种情况下，因此我们决定采用第二种方法，该方法需要扩展符号引擎和Avatar框架。 这样的扩展应该知道何时必须执行符号执行以及应在哪里注入符号值。 这种选择具有两个主要优点：•固件完整性二进制代码按原样进行仿真，而无需注入自定义操作码或执行重新编译。 这样可以确保仿真代码遵循原始固件行为（即，中间工具链不会引入副作用或错误）•程序化注释可以强制性地使用符号元数据来操纵和注释固件仿真的控制和数据流。 方式。 高级语言（Lua）用于动态编写脚本并与当前仿真环境进行交互，以及引入和跟踪符号元数据。 为此，我们首先将S2E移植到ARM体系结构以具有完整的符号执行功能，然后将Annotation插件移植到ARM体系结构。  Annotation插件使用户可以指定触发事件（例如，调用/返回特定子例程或在特定地址执行代码），以及在事件发生时执行的Lua函数。 然后提供一个简单的API，以允许直接从Lua代码中操纵S2E仿真环境。  Avatar提供了直接通道，可通过QMP命令消息动态控制仿真流程。 这些通道还可用于在运行时注入Lua代码，以便动态生成依赖于当前仿真流程的注释并将其注入S2E。 一旦在执行流程中引入了符号值，S2E就会跟踪它们并传播约束。
+通过Lua批注的符号分析旨在用作后期分析的工具，通常是通过用户直接提供的手工制作的Lua分析代码来简化逻辑处理代码中的缺陷发现。 一旦代码执行可以安全地移到仿真器中（例如，在原始I / O设置例程之外，传感器轮询），就可以在完全分离模式和上下文切换中使用它。 通常，在使用Avatar进行了初步分析以检测有趣的代码和内存映射之后，通常会发生这种情况。
+在特定于x86的上下文中，已经使用了类似的非侵入性方法来测试和逆向工程网卡的Windows驱动程序[14]。 据我们所知，此技术以前从未应用于嵌入式设备。 在固件安全性测试的上下文中，注释可用于多种情况。 在第六节中，我们介绍了如何将此技术应用于不同的技术和设备，以对广泛的嵌入式系统（例如硬盘驱动器，GSM电话和无线传感器）进行动态分析。</p>
+</li>
+<li>
+<p>以符号方式检测任意执行条件在处理现代操作系统时，通常会检测到用户空间程序中的错误行为，因为该程序本身执行了无效操作。 这样的操作可以是例如对存储器页面的未授权访问，或者对未映射到存储器中的页面的访问。 在这些情况下，内核将捕获错误的行为并终止程序，可以选择触发一些分析工具来注册事件并收集更多信息，这些信息以后可用于识别和调试问题。
+此外，由于当今采用了广泛的漏洞利用缓解技术（DEP，金丝雀，沙盒等），因此该系统通常能够检测到用户空间进程执行的最常见的无效操作。
+但是，在处理嵌入式系统时，检测固件代码中的异常行为可能会更加困难。 可观察到的症状并不总是直接指向代码的某些特定部分。 例如，许多固件是为没有内存管理单元（MMU）或内存保护单元（MPU）或不使用它们的设备设计的。 在这种情况下，错误的内存访问通常会导致细微的数据损坏，这有时会导致行为不稳定和罕见的软件错误，例如随机事件触发，UI故障，系统锁定或运行速度降低[18]。
+因此，对于嵌入式设备来说，通常有一个硬件监视程序来负责在任何不稳定行为（例如，对定时监视程序探测未得到答复）的情况下重置设备执行。
+由于这些原因，当可以使用某些OS支持进行合作时（例如，在S2E中实现了针对Windows内核错误的Blue Screen Of Death拦截器），可以更容易地在仿真中检测错误执行。 另一方面，在嵌入式设备固件仿真期间捕获此类条件会受到许多特定于系统的约束，并且需要有关所分析固件的内部详细信息的其他知识。但是，Avatar并不依赖于任何特定操作系统的知识 或使用MMU的事实。
+相反，它旨在通过使用类似于AEG [6]的技术，检测更大范围的潜在紧急情况，这些情况可能导致固件代码的控制流劫持。
+当变量是符号但受到严格限制时，这三个条件都可能导致误报。 因此，一旦检测到这种情况，就必须分析对符号变量施加的约束：结果约束越小，控制流损坏的机会就越大。
+直观地，如果约束非常宽松（例如，没有上限的符号程序计数器），则攻击者可以对代码获得足够的控制权，以轻松利用行为。 除此之外，在合法情况下有时会遇到严格的约束（例如，访问具有符号但受约束的索引的数组，例如跳转表），并且与安全性分析无关。
+当通过上述试探法检测到有趣的执行路径时，记录与错误操作相关的状态，并终止仿真。 此时，将生成一个带有示例输入以达到此状态的测试用例，并将与每个符号值关联的约束条件存储起来，以检查误报（即，严格限制的值）。
+自动区分正常的约束和那些表明漏洞的约束是一项复杂的任务。 实际上，这将需要了解在编译期间丢失的程序语义（例如，数组边界）。 可以从源代码中提取此类知识（如果可用），或者可以从可执行文件本身或构建环境中的二进制工件中推论得出。 在这种情况下，可以通过编写适当的插件来解析特定约束，例如通过在未剥离的固件中扫描调试符号（例如，用于ELF固件的DWARF解析器）或读取其他类似符号信息，将其输入到Avatar中。
+最后，Avatar可以从与动态数据挖掘机的紧密结合中受益匪浅，从而有助于对固件数据结构进行反向工程[17]。 特别是，在霍华德[52]中提出的通过观察几个执行周期下的访问模式来恢复数据结构的启发式方法可以轻松地导入到Avatar框架中。 两种工具都在QEMU动态转换的基础上执行二进制检测，并使用符号引擎来扩展分析的代码覆盖范围。</p>
+</li>
+</ol>
+<h3 id="6论文中存在的继续研究点">6.论文中存在的继续研究点</h3>
+<ol>
+<li>更好的分析与中间处理技术提高错误检测率例如，使用类似于Howard [52]中使用的技术来增强Avatar将允许恢复内存结构并因此改善错误检测，而AEG [6]中使用的其他技术也可以适用。 可以实现显着改进的另一个领域是提供改进的状态探索启发法，从而导致更好的覆盖范围或更多易出错代码的分析[30]。、</li>
+<li>提供改进的状态探索启发法，从而导致更好的覆盖范围或更多易出错代码的分析。</li>
+</ol>
+<h4 id="1题目-1">1.题目</h4>
+<p>Discovering and Understanding the Security Hazards in the Interactions between IoT Devices, Mobile Apps, and Clouds on Smart Home Platforms</p>
+<h4 id="2主要内容-1">2.主要内容</h4>
+<h5 id="21-论文内容">2.1 论文内容</h5>
+<p>本论文研究的主要内容集中在**(1)物联网设备(2)移动APP(3)物联网云**三者**交互过程**中可能存在的安全问题上。针对几种目前被广泛使用的物联网平台，首先，通过**固件逆向工程**和交互过程**MITM监控**来分析出交互流程，基于三个实体的相互作用推导每个实体的**状态转移图**，以此状态转移为基础，识别三者在状态转移时的意外转换，最后通过模拟真实物理设备，介入交互过程，探测分析的意外转换是否真实存在。</p>
+<h5 id="22-作者的contribution-1">2.2 作者的contribution</h5>
+<p>发现了针对固件检测的攻击面：</p>
+<ol>
+<li>攻击人员可以用他控制下的不存在的幻影设备远程替换受害者的真实设备。结果，来自受害者用户的所有控制命令都暴露在虚拟设备中，并进一步暴露给对手，从而导致隐私泄露。对手还可以利用虚拟设备操纵要发送给受害者用户的数据，从而欺骗或误导受害者用户。</li>
+<li>对手可以远程接管设备。因此，他可以采集传感器读数来监控受害者的家，甚至操纵智能家居设备，导致数据泄露，危及受害者。</li>
+<li>对手可以通过虚拟设备远程解除授权用户的绑定。因此，用户无法再使用其帐户控制设备</li>
+<li>对手可以利用虚拟设备误导物联网云，并在设备出售前占用真实设备的身份。当消费者购买设备时，他无法将设备与他的帐户绑定。</li>
+<li>对手可以利用虚拟设备自动向物联网云发送更新请求，大规模窃取各种专有固件</li>
+</ol>
+<h4 id="3技术背景">3.技术背景</h4>
+<ol>
+<li>不同于基于网络的攻击（MITM）和基于固件的逆向工程。本论文所关注的是试图利用物联网中三种实体交互过程的缺陷。</li>
+</ol>
+<h4 id="4-攻击模型设计">4. 攻击模型设计</h4>
+<h5 id="41-系统功能">4.1 系统功能</h5>
+<p>利用家用物联网平台中物联网设备，移动APP 和物联网云服务之间交互运行时可能导致的意外状态。模拟物联网实体设备接入交互，进行漏洞验证。</p>
+<h5 id="42-前提条件">4.2 前提条件</h5>
+<p>为了虚拟设备的模拟，需要拿到物联网设备的设备身份/合法性信息，一般为mac地址/云生成的唯一ID等信息，论文中针对5大厂商的合法性信息和获取难度已经列在表中，在论文第三章。</p>
+<ol>
+<li>对于以京东joylink为代表的1型平台，其标识ID是由云服务器传递给设备的，可以通过中间人攻击等进行探测获取，具体方法也在第三章，不过均为一些社会工程学方法。</li>
+<li>对于以米家为首的2型设备，其身份信息为硬编码模式，获取方式相对于1更加单一一些，主要就是需要本人可以接触到这个设备，或者在同一个局域网内进行嗅探。不过其在本地设备中存在的漏洞在被发现后可以运程进行利用，仍是一大威胁。</li>
+</ol>
+<h5 id="43系统结构设计">4.3系统结构设计</h5>
+<p>图后面补，还未做</p>
+<h5 id="44-系统工作流程">4.4 系统工作流程</h5>
+<p>目标平台—&gt;目标设备—&gt;建立基本状态转换关系—&gt;建立设备身份/合法性识别获取—&gt;漏洞分析（关键技术）—&gt;虚拟设备模拟—&gt;介入交互，验证漏洞。</p>
+<h4 id="5关键技术实现">5.关键技术实现</h4>
+<h5 id="51-解密通信">5.1 解密通信</h5>
+<p><strong>云与应用通信</strong>要想获得信息，特别是对于1型设备，对于通信的解密是必须的。一般有以下几种方式。、</p>
+<ol>
+<li>对于云应用通信，一般平台都采用TLS，可以通过在移动端发起MITM攻击来破译通信，替换云证书</li>
+<li>对于移动端硬编码证书的物联网设计，可以通过Xposed动态的对证书进行更换。</li>
+</ol>
+<p><strong>应用与设备通信</strong>例子：</p>
+<ol>
+<li>joylink，MIjia:对称加密方式，可以通过分析APK来获取密钥</li>
+<li>SmartTing等：TLS传输方式，使用1中的方式进行破译</li>
+</ol>
+<p><strong>云与设备通信：</strong></p>
+<ol>
+<li>无法向移动端一样进行证书替换</li>
+<li>对设备固件进行动态分析，将固件镜像提取，手动跟踪加密函数的数据和控制流。在固件中定位硬编码证书</li>
+<li>在固件镜像中替换硬编码证书，对于固件执行时的强制完整性检测，本论文中涉及的固件都是CRC，我们手动改变CRC的值就行了。</li>
+</ol>
+<h5 id="52-理解交互信息">5.2 理解交互信息</h5>
+<p>使用1中的方法，可以识别移动应用程序与云服务器之间的通信，一般为json字段，这样可以继续进行下一步。</p>
+<h5 id="53-模拟设备">5.3 模拟设备</h5>
+<p>虚拟设备的构造方法：</p>
+<p>（1）利用厂商开源的设备端和演示程序（京东，阿里），他们的通信逻辑与真实的相同，重复使用来制造模拟请求</p>
+<p>（2）还有复杂一些的，在真实设备上获得固件进行逆向工程，实现 程序来模拟原始通信功能（目前来说我做不到，所设计的系统中也应该没有这方面的需求）</p>
+<p><strong>目前可以做的实验（阿里的（model、MAC和CID）元组和设备ID之间存在一对一的映射）</strong></p>
+<h5 id="54-确定设备缺陷">5.4 确定设备缺陷</h5>
+<ol>
+<li>
+<p>边界保护不足</p>
+<p>1.1. 1型平台特有，拥有设备标识的攻击者可以使用虚拟设备向云端发送请求。云端会被欺骗，返回信息给攻击者。</p>
+<p>1.2. 2型平台特有，攻击者可以使用虚拟设备进行绑定，将设备与攻击者的账户绑定。绑定请求由设备发出，云无条件接受</p>
+<p>1.3 云端接受设备注册请求</p>
+</li>
+<li>
+<p>进入非预期状态</p>
+<p>2.1. 当用户退出智能家居设备时，应该重置并解除设备的绑定，但对于1型设备，用户在没有重置的时候解除绑定，与云的链接仍然会被保留。攻击者再次发送注册绑定等信息时会直接跳到非预期状态</p>
+</li>
+<li>
+<p>未经授权的设备登录</p>
+<p>3.1 设备登录后，设备和物联网之间保持连接，理想情况下如果请求是从绑定所有者帐户的设备发出的，云应该只允许登录请求。但是，我们发现物联网云在设备登录期间不执行任何基于账户的授权检查。换句话说，连接与用户帐户分离。因此，当攻击者使用幻象设备以受害者设备的设备ID登录时，云会被欺骗，从而与幻影设备建立连接</p>
+</li>
+<li>
+<p>未经授权的设备解除绑定</p>
+<p>只有拥有当前绑定到设备的帐户的用户才有权解除设备绑定。如果在移动应用程序上执行解除绑定操作，这是真的，这确实包括解除绑定消息中的用户凭据。不幸的是，对于I型平台，设备解除绑定也可以在设备端实现。根据我们的分析，设备端解除绑定命令不包括任何用户凭证。因此，攻击者可以构建一个虚拟设备，使用设备端API伪造解除绑定请求。受害者用户的帐户和设备之间的绑定关系在用户不知情的情况下被撤销</p>
+</li>
+</ol>
+<h4 id="6实验过程">6.实验过程</h4>
+<ol>
+<li>
+<p>实验装置</p>
+<p>1型：Alink设备（型号为SPS9011A的飞利浦智能插头）</p>
+<p>2型：一个TP-LINK设备（型号为LB110的WiFi灯泡）</p>
+</li>
+<li>
+<p>实验过程（具体见论文）</p>
+<p>1.远程恶意注册</p>
+<p>2.远程设备替代</p>
+<p>3.远程设备劫持</p>
+<p>4.远程设备Dos</p>
+<p>5.非法占用设备</p>
+</li>
+</ol>
+<h4 id="7可继续研究的点">7.可继续研究的点</h4>
+<p>未提供</p>
+<h4 id="8-开源信息">8. 开源信息</h4>
+<p>未开源</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://anfieldqi.top/2020/avatar/>http://anfieldqi.top/2020/avatar/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://anfieldqi.top/tags/iot/">
+                    #IOT</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://anfieldqi.top">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://anfieldqi.top/2020/a_large_analysis/" class="prev" rel="prev" title="《A Large-Scale Analysis of the Security of Embedded Firmwares》"><i class="iconfont icon-left"></i>&nbsp;《A Large-Scale Analysis of the Security of Embedded Firmwares》</a>
+         
+        
+        <a href="http://anfieldqi.top/2020/2.docker%E9%95%9C%E5%83%8F/" class="next" rel="next" title="2.Docker镜像">2.Docker镜像&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://anfieldqi.top">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备20032128号 </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

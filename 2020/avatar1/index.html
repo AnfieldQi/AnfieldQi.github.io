@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93/" />
+  <link rel="next" href="http://anfieldqi.top/2020/avatar2/" />
+  <link rel="canonical" href="http://anfieldqi.top/2020/avatar1/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Avatar1 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="Avatar1 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/anfieldqi.top"
+    },
+    "articleSection" : "posts",
+    "name" : "Avatar1",
+    "headline" : "Avatar1",
+    "description" : "1.题目 Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares 2.主要内容 2.1 论文内容 动态分析是安全分析的主要基础之一，例如，通过动态污点跟踪或符号执行。 与静",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-09-08 08:42:29 \x2b0800 CST",
+    "dateModified" : "2020-09-08 08:42:29 \x2b0800 CST",
+    "url" : "http:\/\/anfieldqi.top\/2020\/avatar1\/",
+    "wordCount" : "3917",
+    "keywords" : [ "IoT", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Avatar1</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-09-08 itemprop="datePublished">September 8, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 3917 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="1题目">1.题目</h3>
+<p>Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares</p>
+<h3 id="2主要内容">2.主要内容</h3>
+<h4 id="21-论文内容">2.1 论文内容</h4>
+<p>动态分析是安全分析的主要基础之一，例如，通过动态污点跟踪或符号执行。 与静态分析不同，动态分析依赖于在受控环境（通常是仪器仿真器）中执行软件的能力。 但是，仿真嵌入式设备的固件需要分析中的系统使用的所有硬件组件的准确模型, 不幸的是，缺乏文档和市场上各种各样的硬件使这]种方法在实践中不可行。在本文中，介绍了Avatar，该框架可通过<strong>协调仿真器和实际硬件</strong>的执行来对嵌入式设备进行复杂的动态分析。 提出了一种技术克服了纯固件仿真的局限性。工具名为Avatar，<strong>充当物理设备和外部模拟器之间的编排引擎</strong>。<strong>通过在嵌入式设备中注入一个特殊的软件代理，Avatar可以在模拟器内部执行固件指令，同时将I/O操作引导到物理硬件</strong>。由于无法完美地模拟整个嵌入式系统，而且目前不可能通过在设备本身上运行代码来执行高级动态分析，因此Avatar采用了一种混合方法。它利用真实的硬件来处理I/O操作，但是从嵌入式设备中提取固件代码并在外部计算机上进行仿真。</p>
+<h4 id="22-作者的contribution">2.2 作者的contribution</h4>
+<ol>
+<li>介绍了Avatar的设计和实现，Avatar是一种新颖的动态分析框架，可让用户仿真嵌入式设备的固件。</li>
+<li>讨论了可用于优化系统性能并使Avatar适应用户需求的几种技术。 展示了如何在Avatar之上实现复杂的动态分析应用程序（例如，<strong>condicolic</strong>执行）。</li>
+<li>通过将Avatar应用于三种不同的安全方案来评估Avatar，包括逆向工程，漏洞发现和后门检测。 为了展示我们系统的灵活性，每个测试都是在完全不同类别的设备上执行的。</li>
+</ol>
+<h3 id="3论文背景知识">3.论文背景知识</h3>
+<h4 id="31-动态分析的现有解决方案">3.1 动态分析的现有解决方案</h4>
+<p>过去已经有一些研究者提出了一些针对嵌入式系统调试和故障排除的解决方案，下面进行简单叙述：</p>
+<ol>
+<li>
+<p>现有功能：<strong>硬件调试功能（研究人员内部为某款应用定制的高度仿真模拟器/基于JTAG调试接口来调试）</strong>：需要专用的硬件以及找到相关调试接口，一般允许用户访问、复制和操作内存和CPU内核的状态、插入断点、单步执行代码以及收集指令或数据跟踪。但是分析依然受限——&gt;不允许执行复杂的操作（污点分析，符号执行）</p>
+</li>
+<li>
+<p>解决方向：不仅需要对CPU状态进行仿真，也需要对外围设备进行仿真，否则很容易崩溃</p>
+</li>
+<li>
+<p>现有解决方案及局限性：</p>
+<ol>
+<li>通过PCI总线来分析驱动程序——不可用于嵌入式设备</li>
+<li>开发精确的模拟仿真器——大规模测试不可用</li>
+<li>开发硬件的近似模拟环境，在涉及到IO操作时全部默认返回值为1——导致大量误报</li>
+<li>对固件局部进行仿真——方法不可能用于不容易分割成独立部分的单片固件</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-avatar设计">4. Avatar设计</h3>
+<h4 id="41-系统功能">4.1 系统功能</h4>
+<p>一个基于事件的仲裁框架，基于实际硬件和通用CPU仿真器的新型混合技术。我们的方法允许对嵌入式系统执行高级动态分析</p>
+<h4 id="42-前提条件">4.2 前提条件</h4>
+<ol>
+<li>需要获取固件的实际设备及找到设备的调试接口</li>
+<li>用户根据嵌入式设备的特点和提供的调试功能来选择合适的后端接口连接方式</li>
+<li>所有系统必须是ARM</li>
+</ol>
+<h4 id="43系统架构">4.3系统架构</h4>
+<p><img src="../../../../static/images/avatar.png" alt="avatar"></p>
+<p>固件代码在一个经过修改的仿真器中执行，在传统的个人计算机上运行。然后拦截任何IO访问并将其转发到物理设备，同时在设备上收集信号和中断并将其注入模拟器</p>
+<h4 id="44-系统工作流程">4.4 系统工作流程</h4>
+<p>结合上图说明：</p>
+<p>Avatar：与定制版QEMU仿真器连接，与真实设备相连，可以添加更多的插件来自动化、定制和增强固件分析</p>
+<p>后端：负责连接物理设备以及QEMU模拟器，并负责任何消息传递和转发</p>
+<h3 id="5关键技术实现">5.关键技术实现</h3>
+<h4 id="51-后端连接">5.1 后端连接</h4>
+<ol>
+<li>使用GDB串行协议与GDB服务器通信的后端</li>
+<li>OpenOCD的JTAG调试接口，通过telnet后端支持对类似协议的低级访问</li>
+<li>与自定义调试器对话的后端，比GDB使用的冗长协议更有效）、</li>
+</ol>
+<h4 id="52-avatar设计">5.2 Avatar设计</h4>
+<ol>
+<li>它建立在QEMU的基础上，QEMU是一个开源系统仿真器，其控制<strong>二进制选择性符号执行平台SE</strong></li>
+</ol>
+<h5 id="se的基本流程">SE的基本流程</h5>
+<ol>
+<li>SE利用Qemu的中间二进制代码表示，称为微型代码生成器（TCG），并**在符号执行处于活动状态时，将TCG字节码动态转换为低级虚拟机（LLVM）字节码[**39]。实际上的符号执行引擎KLEE负责探索不同的执行路径，并跟踪每个符号值的路径约束[10]。对于一些符号输入，对可能的状态进行穷尽性的评估可以被理解为模型检查，并且可以证明一个软件的某些属性[38</li>
+<li>SE使用二进制代码的TCG表示来生成LLVM代码，但每个处理器体系结构都有其自身的复杂性，因此必须编写特定于体系结构的扩展</li>
+</ol>
+<h5 id="se的连接">SE的连接</h5>
+<p>SE通过三个不同的控制接口与Avatar连接：</p>
+<p>1.第一个接口是使用GDB串行协议的GDB调试连接。Avatar使用通过GDB/MI协议控制的GDB实例连接到此接口，此连接用于对执行进行细粒度控制，例如设置断点、单步执行和检查寄存器值</p>
+<p>2.Qemu的管理协议（QMP）接口，一个基于json的请求-响应协议。虽然可以通过此接口进行详细的虚拟机控制，但目前仅用于在运行时动态更改SE的配置</p>
+<p>3.第三个接口是一个SE插件，每当执行内存访问时都会触发该插件。这个SE插件然后将这个请求转发给Avatar，Avatar反过来处理内存访问（例如，将其发送到Avatar的插件），或者将其转发给目标</p>
+<h4 id="53-阶段过程">5.3 阶段过程</h4>
+<h5 id="1-完全分离模式">1. 完全分离模式</h5>
+<p>当Avatar在之前未知的固件上首次启动时，它可以在我们称之为“完全分离模式”下运行。在这种配置中，整个固件代码在模拟器中执行，整个（内存）状态保存在物理设备中。换句话说，对于模拟器执行的每个指令，访问的内存地址将从嵌入式系统的实际内存中获取并写入。同时，中断被物理系统中的调试存根截获并转发回模拟器。代码和内存是完全分离的，化身负责将它们连接在一起。</p>
+<h5 id="2上下文切换">2.上下文切换</h5>
+<p>**虽然可以在模拟器中从头到尾运行固件代码，但有时让固件在目标设备上本机运行一定时间会更有效。**例重要的是让目标设备运行固件，同时仍然监视与当前分析相关的代码区域的执行。**Avatar执行任意上下文切换的能力使用户能够快速地将分析集中在代码的特定部分，而不存在模拟整个固件执行的慢的缺点。**固件在物理设备上开始执行，并在本机运行，直到发生某个预定义的事件（例如，达到断点或引发异常）。此时，物理设备上的执行被冻结，状态（例如，CPU寄存器的内容）被传输到仿真器，在那里继续执行</p>
+<h5 id="3中断处理">3.中断处理</h5>
+<p><strong>软件中断</strong>模拟器直接处理</p>
+<p><strong>硬件中断</strong>：嵌入式系统中的脚本接收到中断并将其转发到Avatar的目标后端。最后，使用仿真器后端，Avatar暂停固件执行，并在模拟器中注入中断</p>
+<p>根据产生中断的情况，我们区分三种不同的情况：</p>
+<p>1.指示atask完成的硬件中断。这些中断是由设备发出的，以指示由代码启动的特定任务已完成。例如，UART发送中断表示发送缓冲区已成功发送。这种类型的中断很容易处理，因为它只需要从目标转发到模拟器</p>
+<p>2.定期硬件中断，例如定时器通知。这些中断可以转发给模拟器，但是它们的频率需要缩小到模拟器中的实际执行速度。在模拟器中执行两个中断之间相等数量的指令，就像在目标系统上以本机模式运行一样。在我们当前的实现中，Avatar插件检测周期性中断并将其信息报告给用户，用户可以决定如何处理每个类。例如，用户可以指示Avatar丢弃设备上的时钟中断，并在模拟器上生成它们（以正确的频率），从而节省带宽并提高分析性能。</p>
+<p>3.硬件中断通知外部事件。用于示例UART的接收中断表示UART缓冲区上的新数据可用。这些中断的仿真策略取决于外部事件的频率。对于需要先前活动的事件（例如，响应触发中断的请求-响应协议），可以使用简单的转发策略。对于频繁发生的不相关事件（即仿真器中的处理程序无法在下一个中断生成之前及时处理该中断），用户可以选择是否要抑制其中一些事件，或者通过将处理程序本身迁移回嵌入式设备来处理中断</p>
+<h5 id="4回放硬件交互">4.回放硬件交互</h5>
+<p>I/O操作可以记录并且在固件的下一次执行期间透明地重放</p>
+<h4 id="54-克服完全分离的限制">5.4 克服完全分离的限制</h4>
+<h5 id="1-内存优化">1. 内存优化</h5>
+<p>分别处理其只读部分以及分配给IO的部分</p>
+<h5 id="2选择性代码迁移">2.选择性代码迁移</h5>
+<p>整体代码在物理设备或者虚拟机上进行上下文切换都非常耗时，</p>
+<h4 id="55-虚拟镜像的拓展">5.5 虚拟镜像的拓展</h4>
+<p>模块化的Avatar可以进行拓展。</p>
+<p>1.<strong>在固件中注入符号</strong>：符号执行是一种通过使用符号作为输入数据（而不是具体的值）来提高代码覆盖率的技术，Avatar控制SE引入符号值。</p>
+<p>试探：1.加载或存储指令目标的符号地址 2.一个符号地址被泄漏到程序计数器中（例如，作为分支的目标）3. 一个符号地址被移到堆栈指针寄存器中，</p>
+<p>为了有选择地将一些输入数据标记为符号，可以采取两种不同的方法：<strong>修改二进制代码</strong>（或源代码，如果可用）以将自定义指令注入固件，或者<strong>动态地向仿真环境发送指令</strong>，以在运行时指定符号分析的范围，采用第二种，<strong>必须知道在哪里插桩，怎么触发</strong></p>
+<p>作者解法为将SE适配ARM结构，将注释插件移植到ARM中，这个可以定义触发点。人工分析还可以直接用Lua来动态执行，一旦插桩触发，SE就直接进行跟踪其传播。</p>
+<p><strong>2.任意条件执行检查</strong></p>
+<p>使用类似于AEG[6]所采用的技术来检测可能导致固件代码控制流劫持等漏洞。</p>
+<p>作者使用上述启发式方法检测到感兴趣的执行路径时，记录与错误操作相关联的状态并终止仿真。此时，将生成一个带有示例输入以达到该状态的测试用例，并存储与每个符号值相关联的约束，以检查是否存在误报</p>
+<h5 id="3状态同步">3.状态同步</h5>
+<p>固件可以向外围设备发送内存地址并请求在那里写入数据。然后外围设备将使用中断通知固件请求的完成。由于Avatar不知道固件和外围设备之间的协议，它将不知道哪些内存区域已被更改。</p>
+<p>作者通过使用校验和来检测内存区域的变化，并通过二进制搜索来识别变化最小的区域来最小化传输的数据。</p>
+<h3 id="6实验过程">6.实验过程</h3>
+<p>无</p>
+<h3 id="7可继续研究的点">7.可继续研究的点</h3>
+<p>1.提供改进的状态探索启发式方法，从而提高覆盖率或分析更容易出错的代码</p>
+<p>2.探索更好的内存恢复机制</p>
+<h3 id="8-开源信息">8. 开源信息</h3>
+<p><a href="http://s3.eurecom.fr/tools/avatar">http://s3.eurecom.fr/tools/avatar</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://anfieldqi.top/2020/avatar1/>http://anfieldqi.top/2020/avatar1/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://anfieldqi.top/tags/iot/">
+                    #IoT</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://anfieldqi.top">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93/" class="prev" rel="prev" title="固件供给面总结"><i class="iconfont icon-left"></i>&nbsp;固件供给面总结</a>
+         
+        
+        <a href="http://anfieldqi.top/2020/avatar2/" class="next" rel="next" title="Avatar2">Avatar2&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://anfieldqi.top">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备20032128号 </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

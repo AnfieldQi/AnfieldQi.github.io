@@ -6,7 +6,7 @@
     <description>Recent content in Categories on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 31 Aug 2020 14:56:35 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 17:24:47 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>论文笔记</title>
       <link>http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Mon, 31 Aug 2020 14:56:35 +0800</pubDate>
+      <pubDate>Tue, 08 Sep 2020 17:24:47 +0800</pubDate>
       
       <guid>http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IoT安全</title>
+      <link>http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Tue, 01 Sep 2020 19:30:29 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/</guid>
       <description></description>
     </item>
     
@@ -26,15 +35,6 @@
       <pubDate>Wed, 12 Aug 2020 21:13:37 +0800</pubDate>
       
       <guid>http://anfieldqi.top/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IoT安全</title>
-      <link>http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/</link>
-      <pubDate>Wed, 12 Aug 2020 09:52:40 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/</guid>
       <description></description>
     </item>
     

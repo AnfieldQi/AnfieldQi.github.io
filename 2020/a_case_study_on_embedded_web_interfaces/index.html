@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="http://anfieldqi.top/2020/avatar2/" />
+  
+  <link rel="canonical" href="http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           A_Case_Study_on_Embedded_Web_Interfaces | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="A_Case_Study_on_Embedded_Web_Interfaces | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/anfieldqi.top"
+    },
+    "articleSection" : "posts",
+    "name" : "A_Case_Study_on_Embedded_Web_Interfaces",
+    "headline" : "A_Case_Study_on_Embedded_Web_Interfaces",
+    "description" : "1.题目 Automated Dynamic Firmware Analysis at Scale: A Case Study on Embedded Web Interfaces 2.主要内容 2.1 论文内容 提出了第一个完全自动化的框架，它应用动态固件分析技术，以可扩展的方式实现嵌入式固件映",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-09-08 17:24:47 \x2b0800 CST",
+    "dateModified" : "2020-09-08 17:24:47 \x2b0800 CST",
+    "url" : "http:\/\/anfieldqi.top\/2020\/a_case_study_on_embedded_web_interfaces\/",
+    "wordCount" : "1589",
+    "keywords" : [ "IoT", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">A_Case_Study_on_Embedded_Web_Interfaces</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-09-08 itemprop="datePublished">September 8, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 1589 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h4 id="1题目">1.题目</h4>
+<p>Automated Dynamic Firmware Analysis at Scale: A Case Study on Embedded Web Interfaces</p>
+<h4 id="2主要内容">2.主要内容</h4>
+<h5 id="21-论文内容">2.1 论文内容</h5>
+<p>提出了第一个完全自动化的框架，它应用动态固件分析技术，以可扩展的方式实现嵌入式固件映像中的自动漏洞发现，介绍了一种方法，并实现了一个可伸缩的框架，用于发现嵌入式web接口中的漏洞，而不考虑供应商、设备或体系结构。为了实现这一目标，框架执行完整的系统仿真，以实现固件映像在仅软件环境中的执行，即不涉及任何物理嵌入式设备。然后使用静态和动态工具分析固件中的web接口。</p>
+<h5 id="22-作者的contribution">2.2 作者的contribution</h5>
+<ol>
+<li>提出了一个动静态分析结合的自动化测试框架</li>
+<li>介绍了如何动态发现嵌入式WEB接口的框架方法</li>
+</ol>
+<h4 id="3技术背景">3.技术背景</h4>
+<ol>
+<li>
+<p>静态分析：不需要依赖过于复杂的模拟环境，静态分析的缺点是FN和FP，二进制静态分析可用于分析CGI等二进制文件以发现漏洞。</p>
+</li>
+<li>
+<p>动态分析：web界面的动态分析大多独立于所使用的服务器端技术。例如，同样的工具可以测试用PHP、原生CGIs或自定义web脚本引擎实现的web接口。其次，它可以用来确认在静态分析阶段发现的漏洞。·</p>
+</li>
+<li>
+<p>web界面的运行：固件中70%的问题是在WEB层，对WEB界面进行测试需要web服务正常启动，但是并不是非要整个固件系统都跑起来。</p>
+<p>仿真方式有几种（1）全模拟 （2）重用固件文件中的内核 （3） 进入固件的文件系统，在启动从目录下启动web服务</p>
+</li>
+</ol>
+<h4 id="4-分析框架设计">4. 分析框架设计</h4>
+<h5 id="41-固件的分析过滤">4.1 固件的分析过滤</h5>
+<p>可以直接解包的/包内包含二进制相关文件的/选择具有与WEB服务相关的文件的</p>
+<h5 id="42-文件系统的准备">4.2 文件系统的准备</h5>
+<p>解包之后拿到文件系统，确定是否为文件系统的方法是进行相关敏感文件检测，这一步需要对一些解压后的文件系统进行修复，这一阶段主要包含两步：1.文件系统的修复 2. web服务器的存在性探测（<strong>可拓展的点：开发工具自动探测相关内容/文中通过目录结构来引导分析，但是现在的会漏掉对动态生成内容的测试）</strong></p>
+<h5 id="43分析阶段">4.3分析阶段</h5>
+<p>使用模拟器进行独立分析</p>
+<h5 id="44-结果的收集与分析">4.4 结果的收集与分析</h5>
+<p>在动态和静态分析阶段完成后从安全分析工具中获得分析报告。还收集了一些日志，这些日志可以帮助进一步的分析以及改进框架。这些通常是调试分析工具或我们的仿真环境所必需的。例如，收集与模拟器主机的SSH通信日志、固件文件系统中的更改，并捕获与web接口交互的网络流量。</p>
+<ol>
+<li>**文件系统改变：**在以下节点收集快照（i）在开始仿真之前，（ii）在仿真开始之后，以及（iii）在动态分析完成之后，我们在这些快照之间执行文件系统差异。新文件可能是操作系统命令注入的结果，或者更常见的是在动态分析阶段触发的远程代码执行（RCE）漏洞。当动态测试工具尝试插入命令时（例如，touch<!-- raw HTML omitted -->），通常会发生这种情况。有时，命令注入可以成功，但分析工具无法检测到。但是，使用文件系统diff很容易检测到这种情况</li>
+<li>**通信捕获：**执行动态分析涉及（仿真）设备和动态分析工具之间的大量输入和输出数据。捕获通信的原始输入和输出可以增加可信性例如，成功的操作系统命令注入可以不被工具检测到。此外，即使采用“白盒”测试方法（第II-C节），也很难验证此类漏洞。一旦测试阶段结束，就可以发现命令注入实际上是成功的。在这种情况下，需要回滚所有的HTTP事务，以找到触发特定漏洞的输入，然后可以寻找导致此结果的输入和参数（<strong>可改进的点：直接使用这部分数据对固件整体进行黑盒测试</strong>）</li>
+</ol>
+<h5 id="45-结果验证">4.5 结果验证</h5>
+<p>我们手动验证高影响漏洞，并尝试创建一个概念攻击的证据。<strong>（近两年已有类似自动化的概念出现，此处可以尝试改进）</strong></p>
+<h4 id="5关键技术实现">5.关键技术实现</h4>
+<h5 id="52-理解交互信息">5.2 理解交互信息</h5>
+<h5 id="53-模拟设备">5.3 模拟设备</h5>
+<h5 id="54-确定设备缺陷">5.4 确定设备缺陷</h5>
+<h4 id="6实验过程">6.实验过程</h4>
+<h5 id="61-数据集">6.1 数据集</h5>
+<p>来自54个不同供应商的1925个固件映像上测试</p>
+<h4 id="7可继续研究的点">7.可继续研究的点</h4>
+<ol>
+<li>开发工具自动探测相关内容/文中通过目录结构来引导分析，现在的会漏掉对动态生成内容的测试</li>
+<li>增加物理设备选项，直接使用抓到的通信数据对固件整体进行黑盒测试</li>
+<li>结果验证时自动创建攻击验证POC</li>
+<li>与固件关联结合，将web指纹当作分类的特征之一。</li>
+</ol>
+<h4 id="8-开源信息">8. 开源信息</h4>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://anfieldqi.top/tags/iot/">
+                    #IoT</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://anfieldqi.top">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://anfieldqi.top/2020/avatar2/" class="prev" rel="prev" title="Avatar2"><i class="iconfont icon-left"></i>&nbsp;Avatar2</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://anfieldqi.top">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备20032128号 </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

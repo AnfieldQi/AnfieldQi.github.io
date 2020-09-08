@@ -6,10 +6,19 @@
     <description>Recent content in IoT安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Aug 2020 09:52:40 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2020 19:30:29 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>固件供给面总结</title>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 01 Sep 2020 19:30:29 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93/</guid>
+      <description>固件攻击面总结 攻击面 设备WEB界面 设备固件 本地数据存储 更新机制 移动应用程序 网络流量 认证与授权 隐私泄露 1.设备Web界面 这里主要是针对固件的w</description>
+    </item>
     
     <item>
       <title>固件文件系统</title>
