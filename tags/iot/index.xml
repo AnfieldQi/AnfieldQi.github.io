@@ -6,10 +6,19 @@
     <description>Recent content in IoT on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 08 Sep 2020 17:24:47 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 20:38:09 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/tags/iot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis</title>
+      <link>http://anfieldqi.top/2020/firmfuzz/</link>
+      <pubDate>Sun, 13 Sep 2020 20:38:09 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/firmfuzz/</guid>
+      <description>1.题目 FirmFuzz:Automated IoT Firmware Introspection and Analysis 2.主要内容 2.1 论文内容 针对物联网固件漏洞的搜索，本文提出一个用于基于Linux的固件映像的自动化设备独立仿真和动态分析框</description>
+    </item>
     
     <item>
       <title>论文:A_Case_Study_on_Embedded_Web_Interfaces</title>
@@ -75,7 +84,7 @@
     </item>
     
     <item>
-      <title>论文:IoTFuzzer_note</title>
+      <title>论文:Discovering Memory Corruptions in IoT Through App-based Fuzzing</title>
       <link>http://anfieldqi.top/2020/iotfuzzer_note/</link>
       <pubDate>Thu, 11 Jun 2020 09:54:58 +0800</pubDate>
       

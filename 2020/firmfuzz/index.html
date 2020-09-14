@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/" />
+  
+  <link rel="canonical" href="http://anfieldqi.top/2020/firmfuzz/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/anfieldqi.top"
+    },
+    "articleSection" : "posts",
+    "name" : "论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis",
+    "headline" : "论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis",
+    "description" : "1.题目 FirmFuzz:Automated IoT Firmware Introspection and Analysis 2.主要内容 2.1 论文内容 针对物联网固件漏洞的搜索，本文提出一个用于基于Linux的固件映像的自动化设备独立仿真和动态分析框",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-09-13 20:38:09 \x2b0800 CST",
+    "dateModified" : "2020-09-13 20:38:09 \x2b0800 CST",
+    "url" : "http:\/\/anfieldqi.top\/2020\/firmfuzz\/",
+    "wordCount" : "3838",
+    "keywords" : [ "IoT", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-09-13 itemprop="datePublished">September 13, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
+                        
+                </span>
+                <span class="post-word-count">, 3838 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="1题目">1.题目</h2>
+<p>FirmFuzz:Automated IoT Firmware Introspection and Analysis</p>
+<h2 id="2主要内容">2.主要内容</h2>
+<h3 id="21-论文内容">2.1 论文内容</h3>
+<p>针对物联网固件漏洞的搜索，本文提出一个用于基于Linux的固件映像的自动化设备独立仿真和动态分析框架</p>
+<h3 id="22-作者的contribution">2.2 作者的contribution</h3>
+<ol>
+<li>开发FirmFuzz（开放源代码可在https://github.com/HexHive/FirmFuzz)，一个自动仿真和动态分析框架，用于发现嵌入式固件中的深层漏洞。</li>
+<li>为语法合法的输入生成开发了一个分代模糊器，它利用静态分析来帮助对仿真固件映像进行模糊化，同时监视固件运行时（帮助程序二进制文件和内核监视器，以实现确定的错误发现）</li>
+<li>自动从7个供应商网站上自动找到未知的固件漏洞</li>
+</ol>
+<h2 id="3技术背景">3.技术背景</h2>
+<h3 id="31基于linux的固件软肋">3.1基于Linux的固件软肋：</h3>
+<p>（1）定制版Linux内核</p>
+<p>（2）开发过程中所用到的开源软件包</p>
+<p>（3）<strong>供应商开发的自定义应用程序</strong>（本文专注于应用程序，即固件包本身）</p>
+<h3 id="32评估嵌入式固件程序的三个主要挑战">3.2评估嵌入式固件程序的三个主要挑战：</h3>
+<ol>
+<li>程序只会接受合法的输入，需要从二进制文件中进行分析</li>
+<li>在fuzz时需要对运行时环境进行细粒度的动态监控</li>
+<li>固件应用程序的功能依赖于物理设备（比如传感器）</li>
+</ol>
+<h3 id="33-本文中针对跳转的策略">3.3 本文中针对跳转的策略</h3>
+<ol>
+<li>利用这些嵌入式设备的<strong>web应用程序接口</strong>作为入口点来生成语法上合法的输入</li>
+<li>将运行时监视器注入到嵌入式固件的运行时环境来允许上下文环境感知和监控</li>
+<li>独立的模拟固件运行时，为了进一步增强我们基于greybox的代模糊测试能力，我们利用从<strong>静态分析</strong>中收集的信息来指导我们的fuzzer。</li>
+</ol>
+<h2 id="4-已有研究">4. 已有研究</h2>
+<ol>
+<li>封闭源代码固件的大规模仿真,将通用的方法应用到大规模的分析，已有的分布可能会漏掉很多漏洞。使用含有web的应用程序来作为动态分析的端点。他们使用扫描器进行扫描；通过仿真固件可以自由的定义优化运行时环境，fuzz过程中对固件进行环境重置，可以为固件的FUZZ提供更好的覆盖范围。</li>
+</ol>
+<h2 id="5-分析框架设计">5. 分析框架设计</h2>
+<p>适用范围：MIPS架构和基于little-endian-ARM架构的固件映像</p>
+<h3 id="51-固件预处理">5.1 固件预处理</h3>
+<p>FirmFuzz是一个框架，用于通过基于QEMU的仿真层对基于Linux的IoT固件进行自动分析和模糊测试。它分三个阶段分析固件：信息收集、准备和模糊化。</p>
+<h4 id="1信息收集">1.信息收集</h4>
+<ol>
+<li>
+<p>找出web应用程序进行身份验证所需的用户名和密码对。增加模糊测试的覆盖范围</p>
+</li>
+<li>
+<p>对攻击面进行静态分析，例：找出PHP中易受攻击的代码输入路径，<strong>FirmFuzz-brute通过一个认证库强制认证一个固件</strong>[11]。</p>
+<p><em>基于PHP的应用程序中的CI漏洞是由于未经初始化的用户输入被传递给不安全的PHP函数（如system或shell_exec）而引起的。FirmFuzz执行PHP脚本的过程内静态污染分析。它会污染用户控制的变量、$\u GET、$\u POST，并记录污点流向不安全函数的代码路径。对于每一个代码路径，都会构建一个约束集。FirmFuzz使用此集生成可以触发易受攻击的代码路径的输入。</em></p>
+</li>
+</ol>
+<h4 id="2固件准备">2.固件准备</h4>
+<ol>
+<li>
+<p><strong>仿真阶段：<strong>提取创建固件镜像使用仿真器进行仿真，对于外围设备，使用相应的策略创建固件所期望的</strong>运行时环境近似值（将有关外围设备的都搞成true）</strong>,如果固件请求一个未知的外设，FirmFuzz会提供该外设到一个假的外设驱动程序的映射，该外设驱动程序在被查询时总是返回True,固件映像在带有我们的自定义内核的仿真器下运行。内核配置为在访问不受支持的设备时死机。</p>
+</li>
+<li>
+<p><strong>辅助分析：<strong>helper二进制文件允许firmfuzz在仿真期间检查固件，helpers在固件的运行时环境中运行，并且检测</strong>CI漏洞</strong>，<strong>BO漏洞检测：<strong>利用Linux内核类似firmdyne的异常处理机制，利用</strong>npfirm</strong>进一步检测漏洞。使用自定义模糊程序，自动触发固件中的BO漏洞**XSS漏洞检测：**从主机端进行监控即可</p>
+</li>
+<li>
+<p><strong>网络配置</strong>：</p>
+<p><img src="../../../../static/images/image-20200914150035274.png" alt="image-20200914150035274"></p>
+<p>使用与Firmadyne相同的方法来推断这些网络配置。我们首先在**“网络推理”**模式下运行仿真，FirmFuzz记录固件与内核网络接口的所有交互。使用这些日志，FirmFuzz推断网络配置并创建适当的虚拟网络接口，以允许与仿真固件进行交互。</p>
+</li>
+</ol>
+<h3 id="52固件模糊化">5.2固件模糊化</h3>
+<p><img src="../../../../static/images/image-20200914150908685.png" alt="image-20200914150908685"></p>
+<p>（i）上下文驱动的输入生成-它在与攻击面的不同部分交互时合并固件提供的上下文信息</p>
+<p>（ii）确定性漏洞检测-漏洞监视器在guest系统（即仿真固件）和主机允许确定性的漏洞检测</p>
+<p>（iii）“模糊副作用”消除-FirmFuzz在其仿真框架的帮助下，自动将固件恢复到稳定状态，如果固件在被模糊化时达到不一致的状态。</p>
+<p>FirmFuzz在模糊化阶段针对的四种漏洞类型是：CI、BO、NPD和XSS。首先将这些漏洞作为一个web应用程序的fuzz-seed部分进行检测。然后，它根据针对的漏洞使用有效负载对合法请求进行变异，并将其发送到固件。在发送一个变更的请求时，firmfulz会监视固件以检测漏洞。如果检测到漏洞，则会将更改的请求作为概念证明（PoC）输入与收件人URL一起记录，以允许重现性。</p>
+<h4 id="1-语法合成输入生成">1 语法合成输入生成</h4>
+<p>使用WEB应用接口来生成语法上合法的输入，基于我们模糊化的镜像，创建与大部分web界面交互的模板。</p>
+<h4 id="2-确定性错误发现">2 确定性错误发现</h4>
+<p>目前像ZAP[16]这样的扫描器所采用的检测漏洞的自动化方法（CI、BO和NPD）依赖于服务器端的响应来检测它们。这种方法是不精确的</p>
+<p>为了确定地检测到上述漏洞，FirmFuzz修改了固件的仿真环境和固件本身。FirmFuzz通过在执行测试输入时监视增强固件生成的日志来检测CI、BO和NPD漏洞。</p>
+<ol>
+<li>对于CI，它监视execve系统调用，以记录有害二进制文件的执行（请参阅第2.2.2节）。</li>
+<li>对于BO和NPD，它监视内核日志以查看是否有固件进程试图访问未映射的内存。</li>
+<li>检测XSS漏洞不需要任何客户端协助；FirmFuzz的主机端监控足以检测到它，类似于现有的漏洞扫描程序。这种监视的形式是检测在请求中作为有效负载发送的JavaScript代码片段是否在机器中执行。</li>
+</ol>
+<h4 id="3-消除干扰">3 消除干扰</h4>
+<p>由于在FUZZ过程中可能会遇到进入无限循环等，firmfulzz采用了“快照和回滚”策略。在动态分析过程中，如果固件被推到不一致的状态，FirmFuzz会将仿真固件恢复到稳定状态（在初始化完成之后），以便为下一个请求做好准备。</p>
+<h4 id="4-有效playload">4 有效playload</h4>
+<p>web应用程序对输入值执行客户端验证检查，例如检查输入值是否按照应用程序预期的语法格式化。FirmFuzz利用headless浏览器从固件加载网页，然后遍历DOM，通过迭代web页面上的所有按钮元素来触发所有可能的状态更改（通常在过程中触发JavaScript事件）。此外，宿主组件用语法上合法的值填充输入字段，这些值是通过字段名称和一组可能的数据范围推断出来的。</p>
+<p>如果FirmFuzz推断出合法的输入值，那么通过与button元素交互来生成种子请求。此种子请求已更改为模糊。FirmFuzz之后的变异策略是一种替换策略，其中修改请求的相关参数以包含恶意负载。这种替代策略被用于firmfulz的所有漏洞检测模块。根据测试的漏洞调整替代负载</p>
+<h3 id="6关键技术实现">6.关键技术实现</h3>
+<ol>
+<li>与传统扫描器不同，FirmFuzz利用仿真固件提供的自由度来增强漏洞检测过程。它将<strong>运行时监视器集成到固件文件系统</strong>中，修改固件本身以改进错误查找过程。使用我们的语法输入生成策略和运行时监视器，<strong>我们根据每个固件定制分析（怎么定制的？？？？）</strong>，允许触发固件中的深层错误</li>
+</ol>
+<h3 id="7实验过程">7.实验过程</h3>
+<h4 id="71-数据集">7.1 数据集</h4>
+<p>**（Dlink Netgear TRENDnet）**爬来的三家供应商的6427个固件；其中1013个拥有基于linux的文件系统；并且203个图片的网络配置被推断了出来；32个镜像具有可以访问的WEB界面。firmfulzz使用这些界面作为模糊图像的入口点</p>
+<p><img src="../../../../static/images/image-20200914160144776.png" alt="image-20200914160144776"></p>
+<h4 id="72-实验结论">7.2 实验结论</h4>
+<ol>
+<li>通过仿真和动态分析32个镜像（来自27个独特的设备）来评估FirmFuzz，网络可以从执行仿真的主机访问。</li>
+<li>FirmFuzz在6个不同的设备上发现了7个以前未公开的漏洞:2个IP摄像头和4个路由器，已经分配了4个CVE</li>
+</ol>
+<h4 id="8与其他比较">8.与其他比较</h4>
+<ol>
+<li>
+<p><strong>firmadyne</strong>:不是为大规模分析设计的，在自动动态分析期间运行一组Metasploit模块，这些模块包含嵌入式设备的已知漏洞</p>
+</li>
+<li>
+<p>**w3af:**无法预测管理接口。配置后页不能对固件进行自动身份验证</p>
+</li>
+<li>
+<p>**zed攻击代理：**为了确保ZAP能够访问与FirmFuzz相同的攻击面，向ZAP提供了用于管理访问的固件的凭据，因为它不具有firmfulz的身份验证发现功能。利用提供的凭证，我们在模拟图像上运行ZAP的主动扫描功能，这是一种自动扫描功能，它通过部署已知的攻击（包括firmfulz目标）来查找漏洞。只发现了XSS漏洞。</p>
+</li>
+</ol>
+<h5 id="精度比较">精度比较</h5>
+<p>很多web测试的东西会产生假阴性（FN）的现，主要是由于盲目的固件扫描造成的</p>
+<ol>
+<li>FirmFuzz在检测BO、NPD和CI时，使用其对被测固件的运行时监控以及上下文输入生成来降低FN错误的数量。firmfulzz依赖于模板请求生成来进行模糊化，<strong>如果没有使用启发式方法为特定页面生成请求，则可能会错过一个bug，firmfulzz清楚地记录了这样的实例，分析师可以向firmfulz提供关于页面可接受输入的反馈，这可以用来降低FN bug的几率</strong>。</li>
+<li>FirmFuzz监视内核中一个毒二进制和内存访问违规处理程序的执行情况，分别用于检测CI和BO、NPD。这些检测方法不仅保证了FirmFuzz捕捉到的属于CI、BO和NPD类的错误都不是误报（falseposities，FP），而且还提供了固件资源有缺陷的信息。</li>
+</ol>
+<h4 id="9开源信息">9.开源信息</h4>
+<p><a href="https://github.com/HexHive/FirmFuzz">https://github.com/HexHive/FirmFuzz</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://anfieldqi.top/2020/firmfuzz/>http://anfieldqi.top/2020/firmfuzz/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://anfieldqi.top/tags/iot/">
+                    #IoT</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://anfieldqi.top">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/" class="prev" rel="prev" title="论文:A_Case_Study_on_Embedded_Web_Interfaces"><i class="iconfont icon-left"></i>&nbsp;论文:A_Case_Study_on_Embedded_Web_Interfaces</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://anfieldqi.top">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备20032128号 </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

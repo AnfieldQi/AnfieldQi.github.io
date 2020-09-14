@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="http://anfieldqi.top/2020/avatar2/" />
-  
+  <link rel="next" href="http://anfieldqi.top/2020/firmfuzz/" />
   <link rel="canonical" href="http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -57,7 +57,7 @@
     "datePublished": "2020-09-08 17:24:47 \x2b0800 CST",
     "dateModified" : "2020-09-08 17:24:47 \x2b0800 CST",
     "url" : "http:\/\/anfieldqi.top\/2020\/a_case_study_on_embedded_web_interfaces\/",
-    "wordCount" : "1589",
+    "wordCount" : "1762",
     "keywords" : [ "IoT", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,12 +134,14 @@
                         <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
                         
                 </span>
-                <span class="post-word-count">, 1589 words</span>
+                <span class="post-word-count">, 1762 words</span>
         </div>
     </header>
     <div class="post-content">
         
 
+        
+            
         
 
         
@@ -166,10 +168,10 @@
 <h4 id="3技术背景">3.技术背景</h4>
 <ol>
 <li>
-<p>静态分析：不需要依赖过于复杂的模拟环境，静态分析的缺点是FN和FP，二进制静态分析可用于分析CGI等二进制文件以发现漏洞。</p>
+<p>静态分析：不需要依赖过于复杂的模拟环境，静态分析的缺点是FN和FP，<strong>二进制静态分析</strong>可用于分析CGI等二进制文件以发现漏洞。</p>
 </li>
 <li>
-<p>动态分析：web界面的动态分析大多独立于所使用的服务器端技术。例如，同样的工具可以测试用PHP、原生CGIs或自定义web脚本引擎实现的web接口。其次，它可以用来确认在静态分析阶段发现的漏洞。·</p>
+<p>动态分析：web界面的动态分析大多独立于所使用的服务器端技术。例如，同样的工具可以测试用PHP、原生CGIs或自定义web脚本引擎实现的web接口。其次，它可以用来确认在静态分析阶段发现的漏洞。<strong>·Arachni[1]、Zed攻击代理（ZAP）[2]和w3af[3]</strong></p>
 </li>
 <li>
 <p>web界面的运行：固件中70%的问题是在WEB层，对WEB界面进行测试需要web服务正常启动，但是并不是非要整个固件系统都跑起来。</p>
@@ -182,7 +184,8 @@
 <h5 id="42-文件系统的准备">4.2 文件系统的准备</h5>
 <p>解包之后拿到文件系统，确定是否为文件系统的方法是进行相关敏感文件检测，这一步需要对一些解压后的文件系统进行修复，这一阶段主要包含两步：1.文件系统的修复 2. web服务器的存在性探测（<strong>可拓展的点：开发工具自动探测相关内容/文中通过目录结构来引导分析，但是现在的会漏掉对动态生成内容的测试）</strong></p>
 <h5 id="43分析阶段">4.3分析阶段</h5>
-<p>使用模拟器进行独立分析</p>
+<p>使用模拟器进行独立分析，分析环境如下：</p>
+<p><img src="../../../../static/images/web_interace.png" alt="web_interace"></p>
 <h5 id="44-结果的收集与分析">4.4 结果的收集与分析</h5>
 <p>在动态和静态分析阶段完成后从安全分析工具中获得分析报告。还收集了一些日志，这些日志可以帮助进一步的分析以及改进框架。这些通常是调试分析工具或我们的仿真环境所必需的。例如，收集与模拟器主机的SSH通信日志、固件文件系统中的更改，并捕获与web接口交互的网络流量。</p>
 <ol>
@@ -192,18 +195,23 @@
 <h5 id="45-结果验证">4.5 结果验证</h5>
 <p>我们手动验证高影响漏洞，并尝试创建一个概念攻击的证据。<strong>（近两年已有类似自动化的概念出现，此处可以尝试改进）</strong></p>
 <h4 id="5关键技术实现">5.关键技术实现</h4>
-<h5 id="52-理解交互信息">5.2 理解交互信息</h5>
-<h5 id="53-模拟设备">5.3 模拟设备</h5>
-<h5 id="54-确定设备缺陷">5.4 确定设备缺陷</h5>
+<p>没怎么提及，估计是用简单的文件探测，不过作者给出了改进的方向。</p>
 <h4 id="6实验过程">6.实验过程</h4>
 <h5 id="61-数据集">6.1 数据集</h5>
 <p>来自54个不同供应商的1925个固件映像上测试</p>
+<p>数据特征：1.可以使用工具解包 2.明确包含web服务器二进制文件</p>
+<p>结果：对<strong>1580</strong>候选固件应用此方法，只能chroot <strong>488</strong>个，只能为<strong>246</strong>个启动web接口</p>
+<h5 id="62-静态分析漏洞">6.2 静态分析漏洞</h5>
+<p>若干</p>
+<h5 id="63-动态分析漏洞">6.3 动态分析漏洞</h5>
+<p>若干</p>
 <h4 id="7可继续研究的点">7.可继续研究的点</h4>
 <ol>
 <li>开发工具自动探测相关内容/文中通过目录结构来引导分析，现在的会漏掉对动态生成内容的测试</li>
+<li>使用此功能自动推断配置文件ConfigRE[82]</li>
 <li>增加物理设备选项，直接使用抓到的通信数据对固件整体进行黑盒测试</li>
 <li>结果验证时自动创建攻击验证POC</li>
-<li>与固件关联结合，将web指纹当作分类的特征之一。</li>
+<li>与固件关联结合，将web指纹当作分类的特征之一</li>
 </ol>
 <h4 id="8-开源信息">8. 开源信息</h4>
 
@@ -251,6 +259,8 @@
         
         <a href="http://anfieldqi.top/2020/avatar2/" class="prev" rel="prev" title="论文：Avatar动态测试框架2"><i class="iconfont icon-left"></i>&nbsp;论文：Avatar动态测试框架2</a>
          
+        
+        <a href="http://anfieldqi.top/2020/firmfuzz/" class="next" rel="next" title="论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis">论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -318,8 +328,9 @@
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 
