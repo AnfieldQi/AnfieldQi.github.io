@@ -6,10 +6,19 @@
     <description>Recent content in Posts on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 13 Sep 2020 20:38:09 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2020 16:22:55 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>论文:Firmdyne</title>
+      <link>http://anfieldqi.top/2020/firmdyne/</link>
+      <pubDate>Wed, 16 Sep 2020 16:22:55 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/firmdyne/</guid>
+      <description>1.题目 Towards Automated Dynamic Analysis forLinux-based Embedded Firmware 2.主要内容 2.1 论文内容 针对市场上嵌入式设备固件种类繁多，严重影响模拟动态分析执行的问题，本文提出了一个不依赖于物理设备</description>
+    </item>
     
     <item>
       <title>论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis</title>

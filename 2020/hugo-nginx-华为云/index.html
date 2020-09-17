@@ -218,8 +218,8 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install git
 </code></pre></div><h5 id="2安装nginx">2.安装Nginx</h5>
 <p><strong>1.基于apt的快速安装模式</strong></p>
-<pre><code>sudo apt-get install nginx
-</code></pre><p>安装完成后相关文件信息如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install nginx
+</code></pre></div><p>安装完成后相关文件信息如下：</p>
 <ol>
 <li>/usr/sbin/nginx：主程序</li>
 <li>/etc/nginx：存放配置文件</li>
@@ -578,36 +578,36 @@ server <span style="color:#f92672">{</span>
 </code></pre></div><p>新建blog.conf</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /etc/nginx/conf.d/
 vim blog.conf
-</code></pre></div><pre><code>server {
-    listen       80 default_server;
-#   listen       [::]:80 default_server;
-#   listen     80;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">server <span style="color:#f92672">{</span>
+    listen       <span style="color:#ae81ff">80</span> default_server;
+<span style="color:#75715e">#   listen       [::]:80 default_server;</span>
+<span style="color:#75715e">#   listen     80;</span>
     server_name  域名/ip;
-    root         /anfi; # 重新指定根目录
+    root         /anfi; <span style="color:#75715e"># 重新指定根目录</span>
 
-    # Load configuration files for the default server block.
-    # include /etc/nginx/default.d/*.conf;
+    <span style="color:#75715e"># Load configuration files for the default server block.</span>
+    <span style="color:#75715e"># include /etc/nginx/default.d/*.conf;</span>
 
-    location / {
+    location / <span style="color:#f92672">{</span>
        index index.html index.htm index.php;
        autoindex on;
-    }
+    <span style="color:#f92672">}</span>
 
-    # NodeJS 将 Web 服务跑在了 7777 端口，我们可以用 Nginx 反向代理到 80 端口
-    location /webhook {
+    <span style="color:#75715e"># NodeJS 将 Web 服务跑在了 7777 端口，我们可以用 Nginx 反向代理到 80 端口</span>
+    location /webhook <span style="color:#f92672">{</span>
       alias /root/webhook;
       proxy_pass http://127.0.0.1:7777;  
-    }
-    error_page 404 /404.html;
-        location = /40x.html {
-    }
+    <span style="color:#f92672">}</span>
+    error_page <span style="color:#ae81ff">404</span> /404.html;
+        location <span style="color:#f92672">=</span> /40x.html <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
 
-    error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-    }
+    error_page <span style="color:#ae81ff">500</span> <span style="color:#ae81ff">502</span> <span style="color:#ae81ff">503</span> <span style="color:#ae81ff">504</span> /50x.html;
+        location <span style="color:#f92672">=</span> /50x.html <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
 
-}
-</code></pre><p>修改用户</p>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>修改用户</p>
 <pre><code class="language-sell" data-lang="sell">vim /etc/nginx/nginx.conf
 </code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#user nginx;  #将nginx改为root</span>
 user root;
