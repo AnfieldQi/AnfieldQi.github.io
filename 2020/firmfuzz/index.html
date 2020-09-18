@@ -57,7 +57,7 @@
     "datePublished": "2020-09-13 20:38:09 \x2b0800 CST",
     "dateModified" : "2020-09-13 20:38:09 \x2b0800 CST",
     "url" : "http:\/\/anfieldqi.top\/2020\/firmfuzz\/",
-    "wordCount" : "3838",
+    "wordCount" : "3839",
     "keywords" : [ "IoT", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
                         
                 </span>
-                <span class="post-word-count">, 3838 words</span>
+                <span class="post-word-count">, 3839 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -185,7 +185,7 @@
 </ol>
 <h2 id="4-已有研究">4. 已有研究</h2>
 <ol>
-<li>封闭源代码固件的大规模仿真,将通用的方法应用到大规模的分析，已有的分布可能会漏掉很多漏洞。使用含有web的应用程序来作为动态分析的端点。他们使用扫描器进行扫描；通过仿真固件可以自由的定义优化运行时环境，fuzz过程中对固件进行环境重置，可以为固件的FUZZ提供更好的覆盖范围。</li>
+<li>封闭源代码固件的大规模仿真,将通用的方法应用到大规模的分析，已有的分析可能会漏掉很多漏洞。使用含有web的应用程序来作为动态分析的端点。他们使用扫描器进行扫描；通过仿真固件可以自由的定义优化运行时环境，fuzz过程中对固件进行环境重置，可以为固件的FUZZ提供更好的覆盖范围。</li>
 </ol>
 <h2 id="5-分析框架设计">5. 分析框架设计</h2>
 <p>适用范围：MIPS架构和基于little-endian-ARM架构的固件映像</p>
@@ -211,12 +211,14 @@
 </li>
 <li>
 <p><strong>网络配置</strong>：</p>
-<p><img src="../../../../static/images/image-20200914150035274.png" alt="image-20200914150035274"></p>
-<p>使用与Firmadyne相同的方法来推断这些网络配置。我们首先在**“网络推理”**模式下运行仿真，FirmFuzz记录固件与内核网络接口的所有交互。使用这些日志，FirmFuzz推断网络配置并创建适当的虚拟网络接口，以允许与仿真固件进行交互。</p>
+<p><img src="/images/image-20200914150035274.png" alt=""></p>
+<p><img src="../../../../static/images/image-20200914150035274.png" alt="~"></p>
+<p><strong>使用与Firmadyne相同的方法来推断这些网络配置</strong>。我们首先在**“网络推理”**模式下运行仿真，FirmFuzz记录固件与内核网络接口的所有交互。使用这些日志，FirmFuzz推断网络配置并创建适当的虚拟网络接口，以允许与仿真固件进行交互。</p>
 </li>
 </ol>
 <h3 id="52固件模糊化">5.2固件模糊化</h3>
-<p><img src="../../../../static/images/image-20200914150908685.png" alt="image-20200914150908685"></p>
+<p><img src="/images/image-20200914150908685.png" alt=""></p>
+<p><img src="../../../../static/images/image-20200914150908685.png" alt="~"></p>
 <p>（i）上下文驱动的输入生成-它在与攻击面的不同部分交互时合并固件提供的上下文信息</p>
 <p>（ii）确定性漏洞检测-漏洞监视器在guest系统（即仿真固件）和主机允许确定性的漏洞检测</p>
 <p>（iii）“模糊副作用”消除-FirmFuzz在其仿真框架的帮助下，自动将固件恢复到稳定状态，如果固件在被模糊化时达到不一致的状态。</p>
@@ -232,7 +234,7 @@
 <li>检测XSS漏洞不需要任何客户端协助；FirmFuzz的主机端监控足以检测到它，类似于现有的漏洞扫描程序。这种监视的形式是检测在请求中作为有效负载发送的JavaScript代码片段是否在机器中执行。</li>
 </ol>
 <h4 id="3-消除干扰">3 消除干扰</h4>
-<p>由于在FUZZ过程中可能会遇到进入无限循环等，firmfulzz采用了“快照和回滚”策略。在动态分析过程中，如果固件被推到不一致的状态，FirmFuzz会将仿真固件恢复到稳定状态（在初始化完成之后），以便为下一个请求做好准备。</p>
+<p>由于在FUZZ过程中可能会遇到进入无限循环等，firmfuzz采用了“快照和回滚”策略。在动态分析过程中，如果固件被推到错误的状态，FirmFuzz会将仿真固件恢复到稳定状态（在初始化完成之后），以便为下一个请求做好准备。</p>
 <h4 id="4-有效playload">4 有效playload</h4>
 <p>web应用程序对输入值执行客户端验证检查，例如检查输入值是否按照应用程序预期的语法格式化。FirmFuzz利用headless浏览器从固件加载网页，然后遍历DOM，通过迭代web页面上的所有按钮元素来触发所有可能的状态更改（通常在过程中触发JavaScript事件）。此外，宿主组件用语法上合法的值填充输入字段，这些值是通过字段名称和一组可能的数据范围推断出来的。</p>
 <p>如果FirmFuzz推断出合法的输入值，那么通过与button元素交互来生成种子请求。此种子请求已更改为模糊。FirmFuzz之后的变异策略是一种替换策略，其中修改请求的相关参数以包含恶意负载。这种替代策略被用于firmfulz的所有漏洞检测模块。根据测试的漏洞调整替代负载</p>
@@ -243,7 +245,8 @@
 <h3 id="7实验过程">7.实验过程</h3>
 <h4 id="71-数据集">7.1 数据集</h4>
 <p>**（Dlink Netgear TRENDnet）**爬来的三家供应商的6427个固件；其中1013个拥有基于linux的文件系统；并且203个图片的网络配置被推断了出来；32个镜像具有可以访问的WEB界面。firmfulzz使用这些界面作为模糊图像的入口点</p>
-<p><img src="../../../../static/images/image-20200914160144776.png" alt="image-20200914160144776"></p>
+<p><img src="/images/image-20200914160144776.png" alt=""></p>
+<p><img src="../../../../static/images/image-20200914160144776.png" alt="~"></p>
 <h4 id="72-实验结论">7.2 实验结论</h4>
 <ol>
 <li>通过仿真和动态分析32个镜像（来自27个独特的设备）来评估FirmFuzz，网络可以从执行仿真的主机访问。</li>
@@ -252,7 +255,7 @@
 <h4 id="8与其他比较">8.与其他比较</h4>
 <ol>
 <li>
-<p><strong>firmadyne</strong>:不是为大规模分析设计的，在自动动态分析期间运行一组Metasploit模块，这些模块包含嵌入式设备的已知漏洞</p>
+<p><strong>firmadyne</strong>:不是为大规模漏洞分析设计的，在自动动态分析期间运行一组Metasploit模块，这些模块包含嵌入式设备的已知漏洞</p>
 </li>
 <li>
 <p>**w3af:**无法预测管理接口。配置后页不能对固件进行自动身份验证</p>
@@ -265,7 +268,7 @@
 <p>很多web测试的东西会产生假阴性（FN）的现，主要是由于盲目的固件扫描造成的</p>
 <ol>
 <li>FirmFuzz在检测BO、NPD和CI时，使用其对被测固件的运行时监控以及上下文输入生成来降低FN错误的数量。firmfulzz依赖于模板请求生成来进行模糊化，<strong>如果没有使用启发式方法为特定页面生成请求，则可能会错过一个bug，firmfulzz清楚地记录了这样的实例，分析师可以向firmfulz提供关于页面可接受输入的反馈，这可以用来降低FN bug的几率</strong>。</li>
-<li>FirmFuzz监视内核中一个毒二进制和内存访问违规处理程序的执行情况，分别用于检测CI和BO、NPD。这些检测方法不仅保证了FirmFuzz捕捉到的属于CI、BO和NPD类的错误都不是误报（falseposities，FP），而且还提供了固件资源有缺陷的信息。</li>
+<li>FirmFuzz监视内核中一个有害二进制和内存访问错误处理程序的执行情况，分别用于检测CI和BO、NPD。这些检测方法不仅保证了FirmFuzz捕捉到的属于CI、BO和NPD类的错误都不是误报（falseposities，FP），而且还提供了固件资源有缺陷的信息。</li>
 </ol>
 <h4 id="9开源信息">9.开源信息</h4>
 <p><a href="https://github.com/HexHive/FirmFuzz">https://github.com/HexHive/FirmFuzz</a></p>
