@@ -194,6 +194,7 @@
 </li>
 <li>
 <p>依赖：节点之间需要有可靠网络保证其运行</p>
+<p><img src="/images/docker_swarm.png" alt=""></p>
 <p><!-- raw HTML omitted --></p>
 <p>Swarm架构中最主要的处理部分是Swarm节点，Swarm管理的对象是Docker Cluster，Docker Cluster由多个Docker Node组成，负责给Swarm发送请求的是Docker Client</p>
 </li>
@@ -266,7 +267,8 @@
 </li>
 </ol>
 <h4 id="4swarm管理器的高可用性ha">4.Swarm管理器的高可用性（HA）</h4>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cdokcer_swarm_1.gif" alt="dokcer_swarm_1"></p>
+<p><img src="/images/dokcer_swarm_1.gif" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cdokcer_swarm_1.gif" alt=""></p>
 <ol>
 <li>
 <p>如上图所示，1.远程客户端发送命令 2.非主节点将命令转发给主节点 3.主节点对集群执行命令。</p>

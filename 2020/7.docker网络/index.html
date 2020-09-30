@@ -161,9 +161,16 @@
 <h4 id="11-基础理论">1.1 基础理论</h4>
 <p>Docker网络架构由3个主要部分组成：（1）CNM（2）Libnetwork（3）驱动.</p>
 <ol>
-<li>CNM：设计标准，提供了docker网络架构的基础组成要素</li>
-<li>Libnetwork：CNM的具体实现，实现了CNM中列举的核心组件</li>
-<li>驱动：通过实现特定的网络拓扑的方式来拓展该模型的能力</li>
+<li>
+<p>CNM：设计标准，提供了docker网络架构的基础组成要素</p>
+</li>
+<li>
+<p>Libnetwork：CNM的具体实现，实现了CNM中列举的核心组件</p>
+</li>
+<li>
+<p>驱动：通过实现特定的网络拓扑的方式来拓展该模型的能力</p>
+<p><img src="/images/4-1Z41Q55633c8.gif" alt=""></p>
+</li>
 </ol>
 <p><!-- raw HTML omitted --></p>
 <h4 id="12-cnm">1.2 CNM</h4>
@@ -181,6 +188,7 @@
 <li>容器B有两个接口并连接到网络AB</li>
 <li>容器AB可以互相通信，<strong>容器B的两个终端不能通信</strong></li>
 </ol>
+<p><img src="/images/4-1Z41Q6012XJ.gif" alt=""></p>
 <p><!-- raw HTML omitted --></p>
 <p>可以进行拓展，如图所示，两个容器虽然运行在同一个docker主机上，但是其网络堆栈在操作系统层面是互相独立的，沙盒机制保证了这一点。</p>
 <h4 id="13-libnetwork">1.3 Libnetwork</h4>
@@ -211,7 +219,8 @@
 <li>docker network inspect:查看详细的网络情况</li>
 </ol>
 <p>在 Linux Docker 主机之上，默认的“bridge”网络被映射到内核中为“docker0”的 Linux 网桥</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QI242644.gif" alt="4-1Z41QI242644"></p>
+<p><img src="/images/4-1Z41QI242644.gif" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QI242644.gif" alt=""></p>
 <p>接下来使用 docker network create命令创建新的单机桥接网络，名为“localnet”</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">//Linux
 $ docker network create -d bridge localnet
@@ -227,7 +236,8 @@ br-20c2e8ae4bbb 8000.02429636237c no
 </code></pre></div><p>输出内容中包含了两个网桥。第一行是前文提过的 docker0 网桥，该网桥对应 Docker 中的默认网络 bridge；第二个网桥（br-20c2e8ae4bbb）与新建的“localnet”Docker 桥接网络相对应。</p>
 <hr>
 <p>目前，主机上的网桥配置如下图所示:</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QI632M1.gif" alt="4-1Z41QI632M1"></p>
+<p><img src="/images/4-1Z41QI632M1.gif" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QI632M1.gif" alt=""></p>
 <hr>
 <p>接下来创建一个容器并接入localnet中：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker container run -d --name c1 <span style="color:#ae81ff">\
@@ -249,7 +259,8 @@ br-20c2e8ae4bbb 8000.02429636237c no
 bridge name bridge id STP enabled interfaces
 br-20c2e8ae4bbb 8000.02429636237c no vethe792ac0
 docker0 8000.0242aff9eb4f no
-</code></pre></div><p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QII0K1.gif" alt="4-1Z41QII0K1"></p>
+</code></pre></div><p><img src="/images/4-1Z41QII0K1.gif" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QII0K1.gif" alt=""></p>
 <hr>
 <p>如果在相同网络中继续接入新的容器，那么在新接入容器中是可以通过“c1”的容器名称来 ping 通的。这是因为新容器含有本地DNS解析器，并且都注册到了指定的 Docker DNS 服务，所以相同网络中的容器可以解析其他容器的名称</p>
 <blockquote>
@@ -257,7 +268,8 @@ docker0 8000.0242aff9eb4f no
 </blockquote>
 <h5 id="桥接网络限制绕过">桥接网络限制绕过</h5>
 <p>桥接网络中的容器只能与位于相同网络中的容器进行通信。但是，可以使用端口映射（Port Mapping）来绕开这个限制，端口映射允许将某个容器端口映射到 Docker 主机端口上。对于配置中指定的 Docker 主机端口，任何发送到该端口的流量，都会被转发到容器。下图中展示了具体流量动向。</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QJ509B6.gif" alt="4-1Z41QJ509B6"></p>
+<p><img src="/images/4-1Z41QJ509B6.gif" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5C4-1Z41QJ509B6.gif" alt=""></p>
 <p>如上图所示，容器内部应用开放端口为 80。该端口被映射到了 Docker 主机的 10.0.0.15 接口的 5000 端口之上。最终结果就是访问 10.0.0.15:5000 的所有流量都被转发到了容器的 80 端口。</p>
 <hr>
 <p>一个例子：</p>

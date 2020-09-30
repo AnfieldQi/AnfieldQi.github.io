@@ -212,13 +212,13 @@
 <li>
 <p><strong>网络配置</strong>：</p>
 <p><img src="/images/image-20200914150035274.png" alt=""></p>
-<p><img src="../../../../static/images/image-20200914150035274.png" alt="~"></p>
+<p><img src="../../../../static/images/image-20200914150035274.png" alt=""></p>
 <p><strong>使用与Firmadyne相同的方法来推断这些网络配置</strong>。我们首先在**“网络推理”**模式下运行仿真，FirmFuzz记录固件与内核网络接口的所有交互。使用这些日志，FirmFuzz推断网络配置并创建适当的虚拟网络接口，以允许与仿真固件进行交互。</p>
 </li>
 </ol>
 <h3 id="52固件模糊化">5.2固件模糊化</h3>
 <p><img src="/images/image-20200914150908685.png" alt=""></p>
-<p><img src="../../../../static/images/image-20200914150908685.png" alt="~"></p>
+<p><img src="../../../../static/images/image-20200914150908685.png" alt=""></p>
 <p>（i）上下文驱动的输入生成-它在与攻击面的不同部分交互时合并固件提供的上下文信息</p>
 <p>（ii）确定性漏洞检测-漏洞监视器在guest系统（即仿真固件）和主机允许确定性的漏洞检测</p>
 <p>（iii）“模糊副作用”消除-FirmFuzz在其仿真框架的帮助下，自动将固件恢复到稳定状态，如果固件在被模糊化时达到不一致的状态。</p>
@@ -246,7 +246,7 @@
 <h4 id="71-数据集">7.1 数据集</h4>
 <p>**（Dlink Netgear TRENDnet）**爬来的三家供应商的6427个固件；其中1013个拥有基于linux的文件系统；并且203个图片的网络配置被推断了出来；32个镜像具有可以访问的WEB界面。firmfulzz使用这些界面作为模糊图像的入口点</p>
 <p><img src="/images/image-20200914160144776.png" alt=""></p>
-<p><img src="../../../../static/images/image-20200914160144776.png" alt="~"></p>
+<p><img src="../../../../static/images/image-20200914160144776.png" alt=""></p>
 <h4 id="72-实验结论">7.2 实验结论</h4>
 <ol>
 <li>通过仿真和动态分析32个镜像（来自27个独特的设备）来评估FirmFuzz，网络可以从执行仿真的主机访问。</li>

@@ -57,7 +57,7 @@
     "datePublished": "2020-07-23 10:09:48 \x2b0800 CST",
     "dateModified" : "2020-07-23 10:09:48 \x2b0800 CST",
     "url" : "http:\/\/anfieldqi.top\/2020\/1.docker%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%8E%9F%E7%90%86\/",
-    "wordCount" : "848",
+    "wordCount" : "849",
     "keywords" : [ "docker", "AnfieldQi`s Blog"]
 }
 </script>
@@ -134,7 +134,7 @@
                         <a href="http://anfieldqi.top/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
                         
                 </span>
-                <span class="post-word-count">, 848 words</span>
+                <span class="post-word-count">, 849 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -159,7 +159,8 @@
 <h3 id="1-docker简介">1. Docker简介</h3>
 <p>docker是一门虚拟化容器技术，其将应用程序与该程序的依赖，打包在一个镜像文件中。将镜像文件导入docker引擎运行，就会生成一个虚拟容器，程序在这个虚拟容器里运行，与在真实的物理机上运行一样，docker为程序的运行提供了独立的环境。</p>
 <h3 id="2-docker架构">2. Docker架构</h3>
-<p>docker采用的是C/S架构。客户端向服务器发送请求，服务器负责构建、运行和分发容器。客户端和服务器可以运行在同一个Host上，客户端也可以通过socket或者REST API与远程的服务器通信。</p>
+<p>docker采用的是C/S架构。客户端向服务器发送请求，服务器负责构建、运行和分发容器。客户端和服务器可以运行在同一个Host上，客户端也可以通过socket或者REST API与远程的服务器通信。\</p>
+<p><img src="/images/16e11d4da211ac76.jpg" alt=""></p>
 <p><!-- raw HTML omitted --></p>
 <h4 id="21-docker核心组件">2.1 Docker核心组件</h4>
 <p>- docker 客户端 - Client</p>
@@ -171,7 +172,8 @@
 <p>通过客户端使用docker命令进行操作，通过docker可以很快的在host上构建镜像和运行容器，常见的命令为docker pull ,docker run ,docker build.</p>
 <h4 id="23-docker引擎">2.3 Docker引擎</h4>
 <p>Docker daemon 是服务器组件，以 Linux 后台服务的方式运行。 Docker daemon 运行在 Docker host 上，负责创建、运行、监控容器，构建、存储镜像。</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cdocker_daemon.png" alt="docker_daemon"></p>
+<p><img src="/images/docker_daemon.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cdocker_daemon.png" alt=""></p>
 <p>引擎架构大致如上图所示，与docker首次发布时不同的是在后面的版本中docker一直在进行拆解与重构工作，容器执行和运行时代码已从引擎中拆解出来。</p>
 <ol>
 <li>Docker daemon：提供API及其他特性</li>
@@ -185,6 +187,7 @@
 </ol>
 <h5 id="启动新容器的过程">启动新容器的过程</h5>
 <p>为了总结引擎工具的作用，下面简述一个启动新容器的过程</p>
+<p><img src="/images/daemon.png" alt=""></p>
 <p><!-- raw HTML omitted --></p>
 
     </div>

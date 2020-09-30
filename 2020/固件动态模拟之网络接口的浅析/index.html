@@ -159,7 +159,8 @@
 <p>因为在做固件模拟的时候，遇到了QEMU模拟时因为模拟运行的固件内部·端口未开放导致不能访问管理界面的问题，So简单学习一下关于网卡和开放端口的知识，总结如下。</p>
 <h3 id="1-结构图">1. 结构图</h3>
 <p>OpenWrt的网络配置很丰富，在我看来几乎可以完成任何网络结构。下图为一个支持OpenWrt的路由器网络结构：这个路由器内部交换机有6个口，其中1个WAN口、4个LAN口、Port5默认连接内部网卡eth0，还有连接Wifi的无线网卡接eth2，eth3保留，其主要通过VLAN和Bridging实现</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cfirmadyne-2.png" alt="firmadyne-2"></p>
+<p><img src="/images/firmadyne-2.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cfirmadyne-2.png" alt=""></p>
 <h4 id="11-vlanvirtual-local-area-network">1.1 VLAN（Virtual Local Area Network）</h4>
 <ol>
 <li>
@@ -180,7 +181,8 @@
 <li>作用：连接vlan0和vlan1。这就是采用VLAN的<a href="http://wiki.openwrt.org/doc/networking/network.interfaces#vlan.trunking">Trunking</a>技术，在Trunk Port(port5)经过的以太网帧上打标签(Tagging)用以区分来自那个VLAN，然后路由器用网卡eth0接收并处理标签从而处理（在CPU中处理）</li>
 </ol>
 <h4 id="13-bridging">1.3 Bridging</h4>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cnet_bridge.png" alt="net_bridge"></p>
+<p><img src="/images/net_bridge.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cnet_bridge.png" alt=""></p>
 <ol>
 <li>主要功能：用软件模拟以太网交换机，连接多个以太网网卡（虚拟的或物理的）分享同一个IP子网</li>
 <li>在openWrt中，<strong>主要用来连接无线WIFI网络和LAN，组成一个统一的内部局域网</strong></li>

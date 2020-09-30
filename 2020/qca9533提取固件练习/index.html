@@ -181,10 +181,12 @@
 </code></pre></div></li>
 <li>
 <p>使用：看下固件的文件信息，mime类别等</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587981854764.png" alt="1587981854764"></p>
+<p><img src="/images/blog/1587981854764.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587981854764.png" alt=""></p>
 </li>
 </ol>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587981966194.png" alt="1587981966194"></p>
+<p><img src="/images/blog/1587981966194.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587981966194.png" alt=""></p>
 <p>会显示一些信息，可以看到是TP的东西，发现MIME不是文本文件， 为application/octet-stream，包含二进制数据 ，依据思路，下一步用查二进制文件的命令看一下</p>
 <ol start="4">
 <li>大致看一下信息，file利用结束</li>
@@ -209,10 +211,12 @@
 </code></pre></div></li>
 <li>
 <p>使用：利用这个命令，把16进制文件拿出来分析下</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587982507585.png" alt="1587982507585"></p>
+<p><img src="/images/blog/1587982507585.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587982507585.png" alt=""></p>
 </li>
 </ol>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587982571134.png" alt="1587982571134"></p>
+<p><img src="/images/blog/1587982571134.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587982571134.png" alt=""></p>
 <p>可以看到的是里面包含的信息，不过这会儿不清楚这个文件的格式，是不是像之前分析图片一样，有固定的文件头代表不同信息。先梳理一遍简单的分析思路，再深入学习一下吧,这里之后我的思路理解为：我们能看到的文件内容有限，所以下一步用string搜索所有可打印的字符串看看</p>
 <h4 id="4strings">4.Strings</h4>
 <p>strings命令在对象文件或二进制文件中查找可打印的字符串</p>
@@ -234,7 +238,8 @@
 </code></pre></div></li>
 <li>
 <p>使用：把整个文件字符串打印出来</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587982943420.png" alt="1587982943420"></p>
+<p><img src="/images/blog/1587982943420.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587982943420.png" alt=""></p>
 </li>
 </ol>
 <h4 id="5binwalk">5.binwalk</h4>
@@ -302,7 +307,8 @@
 </code></pre></div></li>
 <li>
 <p>使用：先整体扫描一下</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587983179008.png" alt="1587983179008"></p>
+<p><img src="/images/blog/1587983179008.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587983179008.png" alt=""></p>
 </li>
 </ol>
 <p>​        基本所有信息都在了</p>
@@ -310,7 +316,8 @@
 <li>
 <p>接下来用-e命令提取固件（这个会提取嵌入的已知文件类型）</p>
 <p>tips:从固件镜像中分离出文件系统的内容。因为是linux系统，可以预见一些标准的linux文件比如passwd和shadow可能会有一些敏感信息 ,dd或者firemware都可以干这个，不过binwalk最简单</p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587983368204.png" alt="1587983368204"></p>
+<p><img src="/images/blog/1587983368204.png" alt=""></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5C1587983368204.png" alt=""></p>
 </li>
 </ol>
 <p>​             提取到的信息如上</p>

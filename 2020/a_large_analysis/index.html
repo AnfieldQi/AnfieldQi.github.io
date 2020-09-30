@@ -141,6 +141,8 @@
         
 
         
+            
+        
 
         
         
@@ -209,6 +211,7 @@
 <ol>
 <li>
 <p><strong>架构设计</strong></p>
+<p><img src="/images/image-20200702102859210.png" alt=""></p>
 <p><!-- raw HTML omitted --></p>
 <p>分为固件数据存储/云分析和数据存储（只存储有效镜像和分析结果）/关联引擎和数据三个大部分</p>
 </li>
@@ -225,8 +228,10 @@
 <p><strong>固件拆包解压缩</strong></p>
 <p><strong>此处使用的工具：binwalk,Binary Analysisi Toolkit,FRAK</strong></p>
 <p>binwalk:最常用/FRAK：文章发出时未公开代码，必须根据FRAK支持的设备供应商和模型来评估其性能。/<strong>Binary Analysisi Toolkit：以递归的方式提取文件并讲字符串与GPL数据库已知字符串进行匹配</strong></p>
+<p><img src="/images/blog/image-20200702115309746.png" alt=""></p>
 <p><!-- raw HTML omitted --></p>
 <p>综合性能作者选择了BAT，并使用distributed-python-for-scripting framework [65]并行执行解包操作  ，数据通过itory和使用<em>rsync</em>的节点*（通过ssh）*在存储库之间同步</p>
+<p><img src="/images/blog/image-20200702144128309.png" alt=""></p>
 <p><!-- raw HTML omitted --></p>
 <p>作者为BAT提供了多种插件，包括对版本信息和密码哈希的提取，拆包方法的添加，信息的收集以及敏感文件的收集等，作者一共向本系统添加了35个固件。</p>
 <p>哈希密码破解是将分析阶段发现的密码哈希传递到哈希破解节点（<strong>Nvidia Tesla GPU[56]</strong>）这些主机运行使用了CUDA的**John The Ripper[60]**版本（检测大多数编码的密码哈希并检测所使用的哈希类型），同时对于使用蛮力法破解，提供一个常用密码字典。</p>
@@ -285,6 +290,7 @@
 </li>
 <li>
 <p>专用SSL密钥：许多固件包含公用和专业RSA密钥对，平台会自动提取出公钥，私钥和SSL证书指纹，然后在zmap的https数据库中搜索这些关键字**（参考文献36，37）**，可以发现供应商的SSL被多少个IP使用，通过地址可用ip可以拿到登陆页面。</p>
+<p><img src="/images/image-20200703105336927.png" alt=""></p>
 <p><!-- raw HTML omitted --></p>
 </li>
 </ol>
@@ -414,8 +420,9 @@
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 
