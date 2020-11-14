@@ -6,10 +6,19 @@
     <description>Recent content in Tags on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 25 Oct 2020 16:04:13 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2020 15:30:16 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IoT</title>
+      <link>http://anfieldqi.top/tags/iot/</link>
+      <pubDate>Sat, 14 Nov 2020 15:30:16 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/tags/iot/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>医学</title>
@@ -17,15 +26,6 @@
       <pubDate>Sun, 25 Oct 2020 16:04:13 +0800</pubDate>
       
       <guid>http://anfieldqi.top/tags/%E5%8C%BB%E5%AD%A6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IoT</title>
-      <link>http://anfieldqi.top/tags/iot/</link>
-      <pubDate>Sun, 20 Sep 2020 16:19:36 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/tags/iot/</guid>
       <description></description>
     </item>
     
