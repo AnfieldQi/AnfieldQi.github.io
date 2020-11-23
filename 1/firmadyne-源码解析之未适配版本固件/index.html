@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  
+  <link rel="next" href="http://anfieldqi.top/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" />
+  <link rel="canonical" href="http://anfieldqi.top/1/firmadyne-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%AA%E9%80%82%E9%85%8D%E7%89%88%E6%9C%AC%E5%9B%BA%E4%BB%B6/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+            | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content=" | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/anfieldqi.top"
+    },
+    "articleSection" : "posts",
+    "name" : "",
+    "headline" : "",
+    "description" : "Firmadyne 源码解析之未适配版本固件 1. Firmadyne的效果 firmadyne是目前效果最好的固件模拟工具，z但随着固件版本的更新迭代，其适配范围也",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "http:\/\/anfieldqi.top\/1\/firmadyne-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%AA%E9%80%82%E9%85%8D%E7%89%88%E6%9C%AC%E5%9B%BA%E4%BB%B6\/",
+    "wordCount" : "3092",
+    "keywords" : [  "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"></h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=0001-01-01 itemprop="datePublished">January 1, 0001</time>
+                </span>
+                in
+                
+                <span class="post-word-count">, 3092 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="firmadyne-源码解析之未适配版本固件">Firmadyne 源码解析之未适配版本固件</h2>
+<h3 id="1-firmadyne的效果">1. Firmadyne的效果</h3>
+<p>firmadyne是目前效果最好的固件模拟工具，z但随着固件版本的更新迭代，其适配范围也逐步降低，</p>
+<p><img src="/images/image-20201120085147922.png" alt="result"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cblog%5Cimage-20201120085147922.png" alt=""></p>
+<p>在firmadyne所附带的论文中，其最终效果也不是很好，其中Netgear，D-link的模拟成功率较高，其他品牌均可以忽略不计，所以其策略应该是针对Netgear所展开。</p>
+<h3 id="2源码策略">2.源码策略</h3>
+<h4 id="21-固件解包与文件系统重打包">2.1 固件解包与文件系统重打包</h4>
+<p>1.功能模块：/sources/extractor/extractor.py</p>
+<p>2.使用命令:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./sources/extractor/extractor.py -b Netgear -sql 127.0.0.1 -np -nk <span style="color:#e6db74">&#34;WNAP320 Firmware Version 2.0.3.zip&#34;</span> images
+</code></pre></div><p>3.相关代码:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">extract</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">        Perform the actual extraction of firmware updates, recursively. Returns
+</span><span style="color:#e6db74">        True if extraction complete, otherwise False.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>item<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>, <span style="color:#e6db74">&#34;replace&#34;</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+
+        <span style="color:#75715e"># check if item is complete</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>get_status():
+            self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;&gt;&gt; Skipping: completed!&#34;</span>)
+            <span style="color:#66d9ef">return</span> True
+
+        <span style="color:#75715e"># check if exceeding recursion depth</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>depth <span style="color:#f92672">&gt;</span> ExtractionItem<span style="color:#f92672">.</span>RECURSION_DEPTH:
+            self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;&gt;&gt; Skipping: recursion depth </span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>depth)
+            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>get_status()
+
+        <span style="color:#75715e"># check if checksum is in visited set</span>
+        self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;&gt;&gt; MD5: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>checksum)
+        <span style="color:#66d9ef">with</span> Extractor<span style="color:#f92672">.</span>visited_lock:
+            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>checksum <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>extractor<span style="color:#f92672">.</span>visited:
+                self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;&gt;&gt; Skipping: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">...&#34;</span> <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>checksum)
+                <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>get_status()
+            <span style="color:#66d9ef">else</span>:
+                self<span style="color:#f92672">.</span>extractor<span style="color:#f92672">.</span>visited<span style="color:#f92672">.</span>add(self<span style="color:#f92672">.</span>checksum)
+
+        <span style="color:#75715e"># check if filetype is blacklisted</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>_check_blacklist():
+            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>get_status()
+
+        <span style="color:#75715e"># create working directory</span>
+        self<span style="color:#f92672">.</span>temp <span style="color:#f92672">=</span> tempfile<span style="color:#f92672">.</span>mkdtemp()
+
+        <span style="color:#66d9ef">try</span>:
+            self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;&gt;&gt; Tag: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>tag)
+            self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;&gt;&gt; Temp: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>temp)
+            self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;&gt;&gt; Status: Kernel: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">, Rootfs: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">, Do_Kernel: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">, \</span>
+                Do_Rootfs: <span style="color:#f92672">%</span>s<span style="color:#e6db74">&#34; % (self.get_kernel_status(),</span>
+                                  self<span style="color:#f92672">.</span>get_rootfs_status(),
+                                  self<span style="color:#f92672">.</span>extractor<span style="color:#f92672">.</span>do_kernel,
+                                  self<span style="color:#f92672">.</span>extractor<span style="color:#f92672">.</span>do_rootfs))
+
+            <span style="color:#66d9ef">for</span> analysis <span style="color:#f92672">in</span> [self<span style="color:#f92672">.</span>_check_archive, self<span style="color:#f92672">.</span>_check_encryption, self<span style="color:#f92672">.</span>_check_firmware,
+                             self<span style="color:#f92672">.</span>_check_kernel, self<span style="color:#f92672">.</span>_check_rootfs,
+                             self<span style="color:#f92672">.</span>_check_compressed]:
+                <span style="color:#75715e"># Move to temporary directory so binwalk does not write to input</span>
+                os<span style="color:#f92672">.</span>chdir(self<span style="color:#f92672">.</span>temp)
+
+                <span style="color:#75715e"># Update status only if analysis changed state</span>
+                <span style="color:#66d9ef">if</span> analysis():
+                    <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>update_status():
+                        self<span style="color:#f92672">.</span>printf(<span style="color:#e6db74">&#34;&gt;&gt; Skipping: completed!&#34;</span>)
+                        <span style="color:#66d9ef">return</span> True
+
+        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span>:
+            traceback<span style="color:#f92672">.</span>print_exc()
+
+        <span style="color:#66d9ef">return</span> False
+</code></pre></div><p>逻辑为循环解压，直到解压读取到文件系统的标识，即获取整个文件系统，获取后存储在工具目录images目录下。形式为tar.gz压缩包</p>
+<p>2.接下来是根据文件系统推断架构以及大小端问题</p>
+<p>使用命令:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scripts/getArch.sh ./images/1.tar.gz
+</code></pre></div><p>相关代码:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+set -e
+set -u
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e ./firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ./firmadyne.config
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -e ../firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ../firmadyne.config
+<span style="color:#66d9ef">else</span>
+    echo <span style="color:#e6db74">&#34;Error: Could not find &#39;firmadyne.config&#39;!&#34;</span>
+    exit 1
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">function</span> getArch<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;MIPS64&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mips64&#34;</span>
+    <span style="color:#66d9ef">elif</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;MIPS&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mips&#34;</span>
+    <span style="color:#66d9ef">elif</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;ARM64&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arm64&#34;</span>
+    <span style="color:#66d9ef">elif</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;ARM&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arm&#34;</span>
+    <span style="color:#66d9ef">elif</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;Intel 80386&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;intel&#34;</span>
+    <span style="color:#66d9ef">elif</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;x86-64&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;intel64&#34;</span>
+    <span style="color:#66d9ef">elif</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;PowerPC&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ppc&#34;</span>
+    <span style="color:#66d9ef">else</span>
+        ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">function</span> getEndian<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;LSB&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        END<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;el&#34;</span>
+    <span style="color:#66d9ef">elif</span> <span style="color:#f92672">(</span>echo <span style="color:#e6db74">${</span>FILETYPE<span style="color:#e6db74">}</span> | grep -q <span style="color:#e6db74">&#34;MSB&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">then</span>
+        END<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;eb&#34;</span>
+    <span style="color:#66d9ef">else</span>
+        END<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span>
+
+INFILE<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span>
+BASE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>basename <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+IID<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>BASE%.tar.gz<span style="color:#e6db74">}</span>
+
+mkdir -p <span style="color:#e6db74">&#34;/tmp/</span><span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+set +e
+FILES<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>tar -tf $INFILE | grep -e <span style="color:#e6db74">&#34;/busybox\$&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74"> &#34;</span>
+FILES<span style="color:#f92672">+=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>tar -tf $INFILE | grep -E <span style="color:#e6db74">&#34;/sbin/[[:alpha:]]+&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+FILES<span style="color:#f92672">+=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>tar -tf $INFILE | grep -E <span style="color:#e6db74">&#34;/bin/[[:alpha:]]+&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+set -e
+
+<span style="color:#66d9ef">for</span> TARGET in <span style="color:#e6db74">${</span>FILES<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">do</span>
+    SKIP<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | fgrep -o / | wc -l<span style="color:#66d9ef">)</span>
+    tar -xf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>INFILE<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -C <span style="color:#e6db74">&#34;/tmp/</span><span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">/&#34;</span> --strip-components<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>SKIP<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span>
+    TARGETLOC<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/</span>$IID<span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>TARGET##*/<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -h <span style="color:#e6db74">${</span>TARGETLOC<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[</span> ! -f <span style="color:#e6db74">${</span>TARGETLOC<span style="color:#e6db74">}</span> <span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">then</span>
+        <span style="color:#66d9ef">continue</span>
+    <span style="color:#66d9ef">fi</span>
+
+    FILETYPE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>file <span style="color:#e6db74">${</span>TARGETLOC<span style="color:#e6db74">}</span><span style="color:#66d9ef">)</span>
+
+    echo -n <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>TARGET<span style="color:#e6db74">}</span><span style="color:#e6db74">: &#34;</span>
+    getArch
+    getEndian
+
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ARCH<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>END<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">then</span>
+        ARCHEND<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>ARCH<span style="color:#e6db74">}${</span>END<span style="color:#e6db74">}</span>
+        echo <span style="color:#e6db74">${</span>ARCHEND<span style="color:#e6db74">}</span>
+
+        psql -d firmware -U firmadyne -h 127.0.0.1 -q -c <span style="color:#e6db74">&#34;UPDATE image SET arch = &#39;</span>$ARCHEND<span style="color:#e6db74">&#39; WHERE id = </span>$IID<span style="color:#e6db74">;&#34;</span>
+
+        rm -fr <span style="color:#e6db74">&#34;/tmp/</span><span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+        exit 0
+    <span style="color:#66d9ef">else</span>
+        echo -n <span style="color:#e6db74">${</span>ARCH<span style="color:#e6db74">}</span>
+        echo <span style="color:#e6db74">${</span>END<span style="color:#e6db74">}</span>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">done</span>
+rm -fr <span style="color:#e6db74">&#34;/tmp/</span><span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+exit 1
+</code></pre></div><p>这些中间信息都会以值的方式存入数据库.</p>
+<h4 id="22-固件文件系统修复与制作qemu镜像">2.2 固件文件系统修复与制作QEMU镜像</h4>
+<p>功能模块:makeImage.sh/fixImage.sh</p>
+<p>相关命令:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ./scripts/makeImage.sh 1
+</code></pre></div><p>工具提取的文件系统中有些部分会缺失,比如外围设备的注册等,如果这些东西没有的话在启动时也会遇到很多问题,所以作者的策略是修复文件系统,手动注册一些设备并创建相关文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$BUSYBOX mknod -m <span style="color:#ae81ff">660</span> /dev/mem c <span style="color:#ae81ff">1</span> 1
+$BUSYBOX mknod -m <span style="color:#ae81ff">640</span> /dev/kmem c <span style="color:#ae81ff">1</span> 2
+$BUSYBOX mknod -m <span style="color:#ae81ff">666</span> /dev/null c <span style="color:#ae81ff">1</span> 3
+$BUSYBOX mknod -m <span style="color:#ae81ff">666</span> /dev/zero c <span style="color:#ae81ff">1</span> 5
+$BUSYBOX mknod -m <span style="color:#ae81ff">444</span> /dev/random c <span style="color:#ae81ff">1</span> 8
+$BUSYBOX mknod -m <span style="color:#ae81ff">444</span> /dev/urandom c <span style="color:#ae81ff">1</span> 9
+$BUSYBOX mknod -m <span style="color:#ae81ff">666</span> /dev/armem c <span style="color:#ae81ff">1</span> 13
+</code></pre></div><p>此步骤为直接向格式为raw的固件镜像中写入.</p>
+<h4 id="23-首次网络推断">2.3 首次网络推断</h4>
+<p>功能模块:inferNetwork.sh</p>
+<p>使用命令:</p>
+<pre><code>./scripts/inferNetwork.sh 1
+</code></pre><p>相关代码:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+set -e
+set -u
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e ./firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ./firmadyne.config
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -e ../firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ../firmadyne.config
+<span style="color:#66d9ef">else</span>
+    echo <span style="color:#e6db74">&#34;Error: Could not find &#39;firmadyne.config&#39;!&#34;</span>
+    exit 1
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">if</span> check_number $1; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;Usage: inferNetwork.sh &lt;image ID&gt; [&lt;architecture&gt;]&#34;</span>
+    exit 1
+<span style="color:#66d9ef">fi</span>
+IID<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -gt <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    <span style="color:#66d9ef">if</span> check_arch <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">then</span>
+        echo <span style="color:#e6db74">&#34;Error: Invalid architecture!&#34;</span>
+        exit 1
+    <span style="color:#66d9ef">fi</span>
+
+    ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>2<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">else</span>
+    echo -n <span style="color:#e6db74">&#34;Querying database for architecture... &#34;</span>
+    ARCH<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>psql -d firmware -U firmadyne -h 127.0.0.1 -t -q -c <span style="color:#e6db74">&#34;SELECT arch from image WHERE id=</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span><span style="color:#e6db74">;&#34;</span><span style="color:#66d9ef">)</span>
+    ARCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ARCH#<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ARCH%%[![:space:]]*<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ARCH<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ARCH<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+        echo <span style="color:#e6db74">&#34;Error: Unable to lookup architecture. Please specify {armel,mipseb,mipsel} as the second argument!&#34;</span>
+        exit 1
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">fi</span>
+
+echo <span style="color:#e6db74">&#34;Running firmware </span><span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">: terminating after 60 secs...&#34;</span>
+timeout --preserve-status --signal SIGINT <span style="color:#ae81ff">60</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SCRIPT_DIR<span style="color:#e6db74">}</span><span style="color:#e6db74">/run.</span><span style="color:#e6db74">${</span>ARCH<span style="color:#e6db74">}</span><span style="color:#e6db74">.sh&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+sleep 1
+
+echo <span style="color:#e6db74">&#34;Inferring network...&#34;</span>
+<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SCRIPT_DIR<span style="color:#e6db74">}</span><span style="color:#e6db74">/makeNetwork.py&#34;</span> -i <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -q -o -a <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ARCH<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -S <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SCRATCH_DIR<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+echo <span style="color:#e6db74">&#34;Done!&#34;</span>
+</code></pre></div><p>以上代码中,第一次启动,针对不同架构,分别调用run_<!-- raw HTML omitted -->_.进行启动,以mipseb架构为例:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+set -e
+set -u
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e ./firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ./firmadyne.config
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -e ../firmadyne.config <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    source ../firmadyne.config
+<span style="color:#66d9ef">else</span>
+    echo <span style="color:#e6db74">&#34;Error: Could not find &#39;firmadyne.config&#39;!&#34;</span>
+    exit 1
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">if</span> check_number $1; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;Usage: run.mipseb.sh &lt;image ID&gt;&#34;</span>
+    exit 1
+<span style="color:#66d9ef">fi</span>
+IID<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>1<span style="color:#e6db74">}</span>
+
+WORK_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_scratch <span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+IMAGE<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_fs <span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+KERNEL<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>get_kernel <span style="color:#e6db74">&#34;mipseb&#34;</span><span style="color:#e6db74">`</span>
+
+qemu-system-mips -m <span style="color:#ae81ff">256</span> -M malta -kernel <span style="color:#e6db74">${</span>KERNEL<span style="color:#e6db74">}</span> -drive <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>ide,format<span style="color:#f92672">=</span>raw,file<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>IMAGE<span style="color:#e6db74">}</span> -append <span style="color:#e6db74">&#34;firmadyne.syscall=1 root=/dev/sda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1&#34;</span> -serial file:<span style="color:#e6db74">${</span>WORK_DIR<span style="color:#e6db74">}</span>/qemu.initial.serial.log -serial unix:/tmp/qemu.<span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span>.S1,server,nowait -monitor unix:/tmp/qemu.<span style="color:#e6db74">${</span>IID<span style="color:#e6db74">}</span>,server,nowait -display none -netdev socket,id<span style="color:#f92672">=</span>s0,listen<span style="color:#f92672">=</span>:2000 -device e1000,netdev<span style="color:#f92672">=</span>s0 -netdev socket,id<span style="color:#f92672">=</span>s1,listen<span style="color:#f92672">=</span>:2001 -device e1000,netdev<span style="color:#f92672">=</span>s1 -netdev socket,id<span style="color:#f92672">=</span>s2,listen<span style="color:#f92672">=</span>:2002 -device e1000,netdev<span style="color:#f92672">=</span>s2 -netdev socket,id<span style="color:#f92672">=</span>s3,listen<span style="color:#f92672">=</span>:2003 -device e1000,netdev<span style="color:#f92672">=</span>s3
+
+</code></pre></div><p>在这个地方使用-seriel将内核交互日志全部输出,以便下一步针对日志文件进行正则匹配以生成固件二次启动的脚本.</p>
+<h4 id="24-固件二次启动脚本生成及启动">2.4 固件二次启动脚本生成及启动</h4>
+<p>功能模块:makeNetwork.py</p>
+<p>使用命令:不需要,上一个脚本直接调用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> outfile <span style="color:#f92672">and</span> iid:
+        outfile <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">/</span><span style="color:#e6db74">%i</span><span style="color:#e6db74">/run.sh&#34;&#34;&#34;</span> <span style="color:#f92672">%</span> (SCRATCHDIR, iid)
+    <span style="color:#66d9ef">if</span> debug:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;processing </span><span style="color:#e6db74">%i</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> iid)
+    <span style="color:#66d9ef">if</span> infile:
+        process(infile, iid, arch, endianness, makeQemuCmd, outfile)
+</code></pre></div><p>process为主要功能方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process</span>(infile, iid, arch, endianness<span style="color:#f92672">=</span>None, makeQemuCmd<span style="color:#f92672">=</span>False, outfile<span style="color:#f92672">=</span>None):
+    brifs <span style="color:#f92672">=</span> []
+    vlans <span style="color:#f92672">=</span> []
+    data <span style="color:#f92672">=</span> open(infile)<span style="color:#f92672">.</span>read()
+    network <span style="color:#f92672">=</span> set()
+    success <span style="color:#f92672">=</span> False
+
+    <span style="color:#75715e">#find interfaces with non loopback ip addresses</span>
+    ifacesWithIps <span style="color:#f92672">=</span> findNonLoInterfaces(data, endianness)
+
+    <span style="color:#75715e">#find changes of mac addresses for devices</span>
+    macChanges <span style="color:#f92672">=</span> findMacChanges(data, endianness)
+
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Interfaces: </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> ifacesWithIps)
+
+    deviceHasBridge <span style="color:#f92672">=</span> False
+    <span style="color:#66d9ef">for</span> iwi <span style="color:#f92672">in</span> ifacesWithIps:
+        <span style="color:#75715e">#find all interfaces that are bridged with that interface</span>
+        brifs <span style="color:#f92672">=</span> findIfacesForBridge(data, iwi[<span style="color:#ae81ff">0</span>])
+        <span style="color:#66d9ef">if</span> debug:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;brifs for </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (iwi[<span style="color:#ae81ff">0</span>], brifs))
+        <span style="color:#66d9ef">for</span> dev <span style="color:#f92672">in</span> brifs:
+            <span style="color:#75715e">#find vlan_ids for all interfaces in the bridge</span>
+            vlans <span style="color:#f92672">=</span> findVlanInfoForDev(data, dev)
+            <span style="color:#75715e">#create a config for each tuple</span>
+            network<span style="color:#f92672">.</span>add((buildConfig(iwi, dev, vlans, macChanges)))
+            deviceHasBridge <span style="color:#f92672">=</span> True
+
+        <span style="color:#75715e">#if there is no bridge just add the interface</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> brifs <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> deviceHasBridge:
+            vlans <span style="color:#f92672">=</span> findVlanInfoForDev(data, iwi[<span style="color:#ae81ff">0</span>])
+            network<span style="color:#f92672">.</span>add((buildConfig(iwi, iwi[<span style="color:#ae81ff">0</span>], vlans, macChanges)))
+
+    ips <span style="color:#f92672">=</span> set()
+    pruned_network <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> network:
+        <span style="color:#66d9ef">if</span> n[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> ips:
+            ips<span style="color:#f92672">.</span>add(n[<span style="color:#ae81ff">0</span>])
+            pruned_network<span style="color:#f92672">.</span>append(n)
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">if</span> debug:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;duplicate ip address for interface: &#34;</span>, n)
+
+    <span style="color:#66d9ef">if</span> makeQemuCmd:
+        qemuCommandLine <span style="color:#f92672">=</span> qemuCmd(iid, pruned_network, arch, endianness)
+    <span style="color:#66d9ef">if</span> qemuCommandLine:
+        success <span style="color:#f92672">=</span> True
+    <span style="color:#66d9ef">if</span> outfile:
+        <span style="color:#66d9ef">with</span> open(outfile, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> out:
+            out<span style="color:#f92672">.</span>write(qemuCommandLine)
+        os<span style="color:#f92672">.</span>chmod(outfile, stat<span style="color:#f92672">.</span>S_IRWXU <span style="color:#f92672">|</span> stat<span style="color:#f92672">.</span>S_IRGRP <span style="color:#f92672">|</span> stat<span style="color:#f92672">.</span>S_IXGRP <span style="color:#f92672">|</span> stat<span style="color:#f92672">.</span>S_IROTH <span style="color:#f92672">|</span> stat<span style="color:#f92672">.</span>S_IXOTH)
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">print</span>(qemuCommandLine)
+
+    <span style="color:#66d9ef">return</span> success
+</code></pre></div><p>最终结果会在scrath/id/下生成一个run.sh脚本，即为二次启动所需要的脚本。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./scratch/1/run.sh
+</code></pre></div><h4 id="25-使用简单的工具进行安全检测">2.5 使用简单的工具进行安全检测</h4>
+<p>功能模块:./analyses/snmpwalk.sh    ./analyses/webAccess.py    sudo nmap -O -sV</p>
+<p>使用命令:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./analyses/snmpwalk.sh 192.168.0.100
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./analyses/webAccess.py <span style="color:#ae81ff">1</span> 192.168.0.100 log.txt
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo nmap -O -sV 192.168.0.100
+</code></pre></div><p>相关代码:</p>
+<p>snmapwalk.sh</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+TARGET_IP<span style="color:#f92672">=</span>$1
+
+snmpwalk -v2c -c public $1 .iso &gt; snmp.public.txt 2&gt;&amp;1
+snmpwalk -v2c -c private $1 .iso &gt; snmp.private.txt 2&gt;&amp;1
+
+echo <span style="color:#e6db74">&#34;Dumped to snmp.public.txt and snmp.private.txt!&#34;</span>
+</code></pre></div><p>webAccess.py</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
+
+<span style="color:#f92672">import</span> argparse
+<span style="color:#f92672">import</span> traceback
+<span style="color:#f92672">import</span> urllib.request
+<span style="color:#f92672">import</span> http.client
+<span style="color:#f92672">import</span> socket
+
+<span style="color:#f92672">import</span> psycopg2
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+    parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser(
+        description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Test accesses of files over HTTP versus filesystem&#34;</span>)
+    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;id&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store&#34;</span>, type<span style="color:#f92672">=</span>int, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Input image id&#34;</span>)
+    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;ip&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store&#34;</span>,
+                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IP address of emulated image&#34;</span>)
+    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;log&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store&#34;</span>,
+                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Output list of accessible URLs&#34;</span>)
+    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;sql&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store&#34;</span>, default<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;127.0.0.1&#34;</span>, nargs<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;?&#34;</span>,
+                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hostname of SQL server&#34;</span>)
+    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-p&#34;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store&#34;</span>, dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pattern&#34;</span>, default<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/www/&#34;</span>,
+                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Filename pattern of files to access&#34;</span>)
+    cmd <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+
+    db <span style="color:#f92672">=</span> psycopg2<span style="color:#f92672">.</span>connect(database<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firmware&#34;</span>, user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firmadyne&#34;</span>,
+                          password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firmadyne&#34;</span>, host<span style="color:#f92672">=</span>cmd<span style="color:#f92672">.</span>sql)
+
+    files <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">try</span>:
+        cur <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>cursor()
+        cur<span style="color:#f92672">.</span>execute(
+            <span style="color:#e6db74">&#34;SELECT filename FROM object_to_image WHERE iid=</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> AND filename LIKE </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span>,
+            (cmd<span style="color:#f92672">.</span>id, <span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#f92672">+</span> cmd<span style="color:#f92672">.</span>pattern <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;%&#39;</span>))
+        files <span style="color:#f92672">=</span> cur<span style="color:#f92672">.</span>fetchall()
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">BaseException</span>:
+        traceback<span style="color:#f92672">.</span>print_exc()
+    <span style="color:#66d9ef">finally</span>:
+        <span style="color:#66d9ef">if</span> cur:
+            cur<span style="color:#f92672">.</span>close()
+        <span style="color:#66d9ef">if</span> db:
+            db<span style="color:#f92672">.</span>close()
+
+    accessible <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> file <span style="color:#f92672">in</span> files:
+        head, sep, tail <span style="color:#f92672">=</span> file[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>partition(cmd<span style="color:#f92672">.</span>pattern)
+        <span style="color:#66d9ef">if</span> tail <span style="color:#f92672">and</span> (<span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> tail <span style="color:#f92672">or</span> any(tail<span style="color:#f92672">.</span>endswith(ext) \
+            <span style="color:#66d9ef">for</span> ext <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#34;.htm&#34;</span>, <span style="color:#e6db74">&#34;.html&#34;</span>, <span style="color:#e6db74">&#34;.cgi&#34;</span>, <span style="color:#e6db74">&#34;.asp&#34;</span>, <span style="color:#e6db74">&#34;.php&#34;</span>,
+                        <span style="color:#e6db74">&#34;.bin&#34;</span>, <span style="color:#e6db74">&#34;.xml&#34;</span>, <span style="color:#e6db74">&#34;.rg&#34;</span>])):
+            <span style="color:#66d9ef">try</span>:
+                url <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>urlunsplit(
+                    (<span style="color:#e6db74">&#34;http&#34;</span>, cmd<span style="color:#f92672">.</span>ip, tail, None, None))
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Accessing: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">...&#34;</span> <span style="color:#f92672">%</span> url)
+                req <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlopen(url, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+                data <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span>read()
+                <span style="color:#66d9ef">if</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;location.href&#34;</span> <span style="color:#f92672">in</span> data <span style="color:#f92672">or</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;window.location&#34;</span> <span style="color:#f92672">in</span> data:
+                    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;-&gt; Redirect&#34;</span>)
+                    accessible<span style="color:#f92672">.</span>append(tail <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; (REDIR)&#34;</span>)
+                <span style="color:#66d9ef">else</span>:
+                    accessible<span style="color:#f92672">.</span>append(tail)
+            <span style="color:#66d9ef">except</span> socket<span style="color:#f92672">.</span>timeout <span style="color:#66d9ef">as</span> exc:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;-&gt; Socket Timeout: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> exc)
+            <span style="color:#66d9ef">except</span> http<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>IncompleteRead <span style="color:#66d9ef">as</span> exc:
+                data <span style="color:#f92672">=</span> exc<span style="color:#f92672">.</span>partial
+            <span style="color:#66d9ef">except</span> urllib<span style="color:#f92672">.</span>error<span style="color:#f92672">.</span>HTTPError <span style="color:#66d9ef">as</span> exc:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;-&gt; HTTPError: </span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> exc<span style="color:#f92672">.</span>code)
+            <span style="color:#66d9ef">except</span> urllib<span style="color:#f92672">.</span>error<span style="color:#f92672">.</span>URLError <span style="color:#66d9ef">as</span> exc:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;-&gt; URLError: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> exc<span style="color:#f92672">.</span>reason)
+        <span style="color:#66d9ef">elif</span> tail:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Skipping: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">...&#34;</span> <span style="color:#f92672">%</span> tail)
+
+    <span style="color:#66d9ef">with</span> open(cmd<span style="color:#f92672">.</span>log, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> file:
+        <span style="color:#66d9ef">for</span> url <span style="color:#f92672">in</span> accessible:
+            file<span style="color:#f92672">.</span>write(url <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+    main()
+</code></pre></div><hr>
+<p>省去了将固件的数据库存储过程,不影响正常理解使用,存储处理也相对简单,相关功能模块为tar2db.py</p>
+<hr>
+<h3 id="3不适配固件的问题">3.不适配固件的问题</h3>
+<table>
+<thead>
+<tr>
+<th>固件品牌</th>
+<th>固件版本</th>
+<th>不适配原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Netgear</td>
+<td>WNAP320_V3.5.20.0_</td>
+<td>未得到IP</td>
+</tr>
+<tr>
+<td>Netgear</td>
+<td>WNAP320_V3.7.11.4</td>
+<td>未得到IP</td>
+</tr>
+<tr>
+<td>Dlink</td>
+<td>DIR-816A2_v1.10CNB03_D77137</td>
+<td>未得到IP</td>
+</tr>
+<tr>
+<td>Dlink</td>
+<td>DIR816_A1_FW101CNB04</td>
+<td>未得到IP</td>
+</tr>
+</tbody>
+</table>
+<p>此表列举了四款,同系列不同版本的固件,同一品牌发布顺序从上到下排列,发现的问题均为不能够正确的获取到IP ,我们定位一下出现问题的代码区:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findNonLoInterfaces</span>(data, endianness):
+    <span style="color:#75715e">#lines = data.split(&#34;\r\n&#34;)</span>
+    lines <span style="color:#f92672">=</span> stripTimestamps(data)
+    candidates <span style="color:#f92672">=</span> filter(<span style="color:#66d9ef">lambda</span> l: l<span style="color:#f92672">.</span>startswith(<span style="color:#e6db74">&#34;__inet_insert_ifa&#34;</span>), lines) <span style="color:#75715e"># logs for the inconfig process</span>
+    <span style="color:#66d9ef">if</span> debug:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Candidate ifaces: </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> candidates)
+    result <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">if</span> endianness <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;eb&#34;</span>:
+        fmt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&gt;I&#34;</span>
+    <span style="color:#66d9ef">elif</span> endianness <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;el&#34;</span>:
+        fmt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;I&#34;</span>
+    <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> candidates:
+        g <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;^__inet_insert_ifa\[[^\]]+\]: device:([^ ]+) ifa:0x([0-9a-f]+)&#34;</span>, c)
+        <span style="color:#66d9ef">if</span> g:
+            (iface, addr) <span style="color:#f92672">=</span> g<span style="color:#f92672">.</span>groups()
+            addr <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>inet_ntoa(struct<span style="color:#f92672">.</span>pack(fmt, int(addr, <span style="color:#ae81ff">16</span>)))
+            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">not</span> addr<span style="color:#f92672">.</span>startswith(<span style="color:#e6db74">&#34;127.&#34;</span>)) <span style="color:#f92672">and</span> addr <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;0.0.0.0&#34;</span>:
+                result<span style="color:#f92672">.</span>append((iface, addr))
+    <span style="color:#66d9ef">return</span> result
+</code></pre></div><p>这个方法在找系统日志里的非环回IP,所以如果返回的list中只会返回例如192.168.0.100这种非环回IP,我们使用firmadyne时控制台输出:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Setting up the network connection, please standby...
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Network interfaces: <span style="color:#f92672">[]</span>
+</code></pre></div><p>这个原因就是其未在日志中获取到IP,这是为什么呢?同一品牌同系列的固件在启动时应该没有差别才对,所以看了下二次启动策略给两个固件生成的run.sh</p>
+<p>正常启动的:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">echo <span style="color:#e6db74">&#34;Starting firmware emulation... use Ctrl-a + x to exit&#34;</span>
+sleep 1s
+
+ <span style="color:#e6db74">${</span>QEMU<span style="color:#e6db74">}</span> -m <span style="color:#ae81ff">256</span> -M <span style="color:#e6db74">${</span>QEMU_MACHINE<span style="color:#e6db74">}</span> -kernel <span style="color:#e6db74">${</span>KERNEL<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\</span>
+    -drive <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>ide,format<span style="color:#f92672">=</span>raw,file<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>IMAGE<span style="color:#e6db74">}</span> -append <span style="color:#e6db74">&#34;root=</span><span style="color:#e6db74">${</span>QEMU_ROOTFS<span style="color:#e6db74">}</span><span style="color:#e6db74"> console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31 firmadyne.syscall=0&#34;</span> <span style="color:#ae81ff">\</span>
+    -nographic <span style="color:#ae81ff">\</span>
+    -netdev tap,id<span style="color:#f92672">=</span>net0,ifname<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>TAPDEV_0<span style="color:#e6db74">}</span>,script<span style="color:#f92672">=</span>no -device e1000,netdev<span style="color:#f92672">=</span>net0 -netdev socket,id<span style="color:#f92672">=</span>net1,listen<span style="color:#f92672">=</span>:2001 -device e1000,netdev<span style="color:#f92672">=</span>net1 -netdev socket,id<span style="color:#f92672">=</span>net2,listen<span style="color:#f92672">=</span>:2002 -device e1000,netdev<span style="color:#f92672">=</span>net2 -netdev socket,id<span style="color:#f92672">=</span>net3,listen<span style="color:#f92672">=</span>:2003 -device e1000,netdev<span style="color:#f92672">=</span>net3 | tee <span style="color:#e6db74">${</span>WORK_DIR<span style="color:#e6db74">}</span>/qemu.final.serial.log
+
+</code></pre></div><p>非正常启动的:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">echo <span style="color:#e6db74">&#34;Starting firmware emulation... use Ctrl-a + x to exit&#34;</span>
+sleep 1s
+
+ <span style="color:#e6db74">${</span>QEMU<span style="color:#e6db74">}</span> -m <span style="color:#ae81ff">256</span> -M <span style="color:#e6db74">${</span>QEMU_MACHINE<span style="color:#e6db74">}</span> -kernel <span style="color:#e6db74">${</span>KERNEL<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\</span>
+    -drive <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>ide,format<span style="color:#f92672">=</span>raw,file<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>IMAGE<span style="color:#e6db74">}</span> -append <span style="color:#e6db74">&#34;root=</span><span style="color:#e6db74">${</span>QEMU_ROOTFS<span style="color:#e6db74">}</span><span style="color:#e6db74"> console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31 firmadyne.syscall=0&#34;</span> <span style="color:#ae81ff">\</span>
+    -nographic <span style="color:#ae81ff">\</span>
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Setting up the network connection, please standby...
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Network interfaces: <span style="color:#f92672">[]</span>
+    -netdev socket,id<span style="color:#f92672">=</span>net0,listen<span style="color:#f92672">=</span>:2000 -device e1000,netdev<span style="color:#f92672">=</span>net0 -netdev socket,id<span style="color:#f92672">=</span>net1,listen<span style="color:#f92672">=</span>:2001 -device e1000,netdev<span style="color:#f92672">=</span>net1 -netdev socket,id<span style="color:#f92672">=</span>net2,listen<span style="color:#f92672">=</span>:2002 -device e1000,netdev<span style="color:#f92672">=</span>net2 -netdev socket,id<span style="color:#f92672">=</span>net3,listen<span style="color:#f92672">=</span>:2003 -device e1000,netdev<span style="color:#f92672">=</span>net3 | tee <span style="color:#e6db74">${</span>WORK_DIR<span style="color:#e6db74">}</span>/qemu.final.serial.log
+
+</code></pre></div><p>看出正常启动的固件使用tap模式搭建了网桥通路,而未正常启动的固件则没有,使用的为socket,推测应该是启动策略发生了变化.</p>
+<h3 id="下一步">下一步</h3>
+<p>1.网桥搭建的问题前面已经探究过,也保存了一份完整的文档,所以看起来会方便些,本工具网络推断的一个重要内容就是去系统日志中匹配QEMU启动固件时搭建网桥的一些记录,然后重新写入二次启动的脚本中.</p>
+<p>2.除了使用tap方式搭建网桥外,对qemu以及linux系统启动的详细过程不是很了解,所以下一步需要去学习并记录一下,<strong>总的来说先要解决这几个问题:</strong></p>
+<p>1.系统启动的详细过程是什么,整个过程都做了哪些与网络相关的操作?</p>
+<p>2.为什么同款固件首次运行所获得的系统日志会有差异?造成差异的逻辑是什么?</p>
+<p>3.qemu的系统态启动的过程是怎样的?</p>
+<p>4.相关参数设置的操作有什么不同?</p>
+<p><strong>然后基于此去寻找解决方案:</strong></p>
+<p>1.二次启动时能否以不同模式启动?</p>
+<p>2.基于目前这种模式有什么方法可以使WEB客户端启动?</p>
+<p><strong>如果以上问题可以解决,那么探究一下:</strong></p>
+<p>1.是否其他厂商的firmadyne非适配固件也都是由这个原因造成的,能否将解决方案进行拓展?</p>
+<p>2.适用性比firmadyne高多少?</p>
+<p><strong>总的来说短期目标是先解决前两部分问题并记录相关内容.</strong></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://anfieldqi.top/1/firmadyne-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%AA%E9%80%82%E9%85%8D%E7%89%88%E6%9C%AC%E5%9B%BA%E4%BB%B6/>http://anfieldqi.top/1/firmadyne-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%AA%E9%80%82%E9%85%8D%E7%89%88%E6%9C%AC%E5%9B%BA%E4%BB%B6/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://anfieldqi.top">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+         
+        
+        <a href="http://anfieldqi.top/2020/flask%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="next" rel="next" title="Flask框架学习">Flask框架学习&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://anfieldqi.top">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备20032128号 </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
