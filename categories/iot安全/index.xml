@@ -6,10 +6,19 @@
     <description>Recent content in IoT安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Nov 2020 15:30:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2020 16:17:32 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Firmadyne源码解析之未适配固件</title>
+      <link>http://anfieldqi.top/2020/firmadyne%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%AA%E9%80%82%E9%85%8D%E5%9B%BA%E4%BB%B6/</link>
+      <pubDate>Mon, 23 Nov 2020 16:17:32 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/firmadyne%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%AA%E9%80%82%E9%85%8D%E5%9B%BA%E4%BB%B6/</guid>
+      <description>Firmadyne 源码解析之未适配版本固件 1. Firmadyne的效果 firmadyne是目前效果最好的固件模拟工具，z但随着固件版本的更新迭代，其适配范围也</description>
+    </item>
     
     <item>
       <title>基于同源性分析的嵌入式设备固件漏洞检测</title>
