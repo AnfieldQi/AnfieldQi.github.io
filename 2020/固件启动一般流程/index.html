@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="http://anfieldqi.top/2020/%E5%9F%BA%E4%BA%8E%E5%90%8C%E6%BA%90%E6%80%A7%E5%88%86%E6%9E%90%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%AE%BE%E5%A4%87%E5%9B%BA%E4%BB%B6%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/" />
+  <link rel="next" href="http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/" />
+  <link rel="canonical" href="http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           固件启动一般流程 | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="固件启动一般流程 | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/anfieldqi.top"
+    },
+    "articleSection" : "posts",
+    "name" : "固件启动一般流程",
+    "headline" : "固件启动一般流程",
+    "description" : "固件启动的一般流程 物联网设备的系统大多数是基于LINUX的，因此其启动过程与linux系统相似，但具体涉及的处理细节可能存在一些不同。本文梳",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-11-25 14:26:24 \x2b0800 CST",
+    "dateModified" : "2020-11-25 14:26:24 \x2b0800 CST",
+    "url" : "http:\/\/anfieldqi.top\/2020\/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B\/",
+    "wordCount" : "2833",
+    "keywords" : [ "IoT", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">固件启动一般流程</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-11-25 itemprop="datePublished">November 25, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/"> IoT安全 </a>
+                        
+                </span>
+                <span class="post-word-count">, 2833 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="固件启动的一般流程">固件启动的一般流程</h3>
+<p>物联网设备的系统大多数是基于LINUX的，因此其启动过程与linux系统相似，但具体涉及的处理细节可能存在一些不同。本文梳理一下两款同一品牌不同版本的固件的具体启动逻辑，其目的为寻找新老版本之间处理逻辑有什么不同，解决为什么firmadyne在二者的适用性上不同的问题。</p>
+<h3 id="1-linux系统启动过程">1. Linux系统启动过程</h3>
+<p>在BIOS阶段，计算机的行为基本上被写死了，可以做的事情并不多；一般就是通电、BIOS、主引导记录、操作系统这四步。所以我们一般认为加载内核是linux启动流程的第一步</p>
+<p><img src="../../../../static/images/blog/Linux_boot_1.png" alt="Linux_boot_1"></p>
+<p><strong>第一步、加载内核</strong></p>
+<p>操作系统接管硬件以后，首先读入 /boot 目录下的内核文件</p>
+<p><img src="../../../../static/images/blog/Linux_boot_2.png" alt="Linux_boot_2"></p>
+<p>/boot 目录下面大概是这样一些文件：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">　$ ls /boot
+　　
+　　config-3.2.0-3-amd64
+　　config-3.2.0-4-amd64
+　　grub
+　　initrd.img-3.2.0-3-amd64
+　　initrd.img-3.2.0-4-amd64
+　　System.map-3.2.0-3-amd64
+　　System.map-3.2.0-4-amd64
+　　vmlinuz-3.2.0-3-amd64
+</code></pre></div><p><strong>第二步、启动初始化进程</strong></p>
+<p>内核文件加载以后，就开始运行第一个程序 /sbin/init，它的作用是初始化系统环境。由于init是第一个运行的程序，它的进程编号（pid）就是1。其他所有进程都从它衍生，都是它的子进程。</p>
+<p><img src="../../../../static/images/blog/Linux_boot_3.png" alt="Linux_boot_3"></p>
+<p><strong>第三步、确定运行级别</strong></p>
+<p>许多程序需要开机启动。它们在Windows叫做&quot;服务&rdquo;（service），在Linux就叫做&quot;守护进程&rdquo;（daemon）。</p>
+<p>init进程的一大任务，就是去运行这些开机启动的程序。但是，不同的场合需要启动不同的程序，比如用作服务器时，需要启动Apache，用作桌面就不需要。Linux允许为不同的场合，分配不同的开机启动程序，这就叫做&quot;运行级别&rdquo;（runlevel）。也就是说，启动时根据&quot;运行级别&rdquo;，确定要运行哪些程序。</p>
+<p><img src="../../../../static/images/blog/Linux_boot_4.png" alt="Linux_boot_4"></p>
+<p>Linux预置七种运行级别（0-6）。一般来说，0是关机，1是单用户模式（也就是维护模式），6是重启。运行级别2-5，各个发行版不太一样，对于Debian来说，都是同样的多用户模式（也就是正常模式）。
+init进程首先读取文件 /etc/inittab，它是运行级别的设置文件。如果你打开它，可以看到第一行是这样的：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> id:2:initdefault:
+</code></pre></div><p>initdefault的值是2，表明系统启动时的运行级别为2。如果需要指定其他级别，可以手动修改这个值。</p>
+<p>那么，运行级别2有些什么程序呢，系统怎么知道每个级别应该加载哪些程序呢？回答是每个运行级别在/etc目录下面，都有一个对应的子目录，指定要加载的程序。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> /etc/rc0.d
+    /etc/rc1.d
+    /etc/rc2.d
+    /etc/rc3.d
+    /etc/rc4.d
+    /etc/rc5.d
+    /etc/rc6.d
+</code></pre></div><p>上面目录名中的&quot;rc&rdquo;，表示run command（运行程序），最后的d表示directory（目录）。下面让我们看看 /etc/rc2.d 目录中到底指定了哪些程序。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">　$ ls  /etc/rc2.d
+　　
+　　README
+　　S01motd
+　　S13rpcbind
+　　S14nfs-common
+　　S16binfmt-support
+　　S16rsyslog
+　　S16sudo
+　　S17apache2
+　　S18acpid
+　　...
+</code></pre></div><p>可以看到，除了第一个文件README以外，其他文件名都是&quot;字母S+两位数字+程序名&quot;的形式。字母S表示Start，也就是启动的意思（启动<a href="https://www.linuxcool.com/">脚本</a>的运行参数为start），如果这个位置是字母K，就代表Kill（关闭），即如果从其他运行级别切换过来，需要关闭的程序（启动<a href="https://www.linuxcool.com/">脚本</a>的运行参数为stop）。后面的两位数字表示处理顺序，数字越小越早处理，所以第一个启动的程序是motd，然后是rpcbing、nfs&hellip;&hellip;数字相同时，则按照程序名的字母顺序启动，所以rsyslog会先于sudo启动。</p>
+<p>这个目录里的所有文件（除了README），就是启动时要加载的程序。如果想增加或删除某些程序，不建议手动修改 /etc/rcN.d 目录，最好是用专门<a href="https://www.linuxcool.com/">命令</a>进行管理。</p>
+<p><strong>第四步、加载开机启动程序</strong></p>
+<p>前面提到，七种预设的&quot;运行级别&quot;各自有一个目录，存放需要开机启动的程序。不难想到，如果多个&quot;运行级别&quot;需要启动同一个程序，那么这个程序的启动脚本，就会在每一个目录里都有一个拷贝。这样会造成管理上的困扰：如果要修改启动脚本，岂不是每个目录都要改一遍？</p>
+<p>Linux的解决办法，就是七个 /etc/rcN.d 目录里列出的程序，都设为链接文件，指向另外一个目录 /etc/init.d ，真正的启动脚本都统一放在这个目录中。init进程逐一加载开机启动程序，其实就是运行这个目录里的启动脚本。</p>
+<p><img src="../../../../static/images/blog/Linux_boot_5.png" alt="Linux_boot_5"></p>
+<p>下面就是链接文件真正的指向。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">　$ ls -l /etc/rc2.d
+　　
+　　README
+　　S01motd -&gt; ../init.d/motd
+　　S13rpcbind -&gt; ../init.d/rpcbind
+　　S14nfs-common -&gt; ../init.d/nfs-common
+　　S16binfmt-support -&gt; ../init.d/binfmt-support
+　　S16rsyslog -&gt; ../init.d/rsyslog
+　　S16sudo -&gt; ../init.d/sudo
+　　S17apache2 -&gt; ../init.d/apache2
+　　S18acpid -&gt; ../init.d/acpid
+</code></pre></div><p>这样做的另一个好处，就是如果你要手动关闭或重启某个进程，直接到目录 /etc/init.d 中寻找启动脚本即可。比如，我要重启Apache服务器，就运行下面的<a href="https://www.linuxcool.com/">命令</a>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo /etc/init.d/apache2 restart
+</code></pre></div><p>/etc/init.d 这个目录名最后一个字母d，是directory的意思，表示这是一个目录，用来与程序 /etc/init 区分。</p>
+<p><strong>第五步、用户登录</strong></p>
+<p>开机启动程序加载完毕以后，就要让用户登录了</p>
+<p><img src="../../../../static/images/blog/Linux_boot_6.png" alt="Linux_boot_6"></p>
+<p>一般来说，用户的登录方式有三种：</p>
+<blockquote>
+<p>（1）命令行登录</p>
+<p>（2）ssh登录</p>
+<p>（3）图形界面登录</p>
+</blockquote>
+<p>这三种情况，都有自己的方式对用户进行认证。</p>
+<p>（1）命令行登录：init进程调用getty程序（意为get  teletype），让用户输入用户名和密码。输入完成后，再调用login程序，核对密码（linux还会再多运行一个身份核对程序/etc/pam.d/login）。如果密码正确，就从文件 /etc/passwd 读取该用户指定的<a href="https://www.linuxcool.com/">shell</a>，然后启动这个shell。</p>
+<p>（2）ssh登录：这时系统调用sshd程序（linux还会再运行/etc/pam.d/ssh ），取代getty和login，然后启动shell。</p>
+<p>（3）图形界面登录：init进程调用显示管理器，Gnome图形界面对应的显示管理器为gdm（GNOME Display Manager），然后用户输入用户名和密码。如果密码正确，就读取/etc/gdm3/Xsession，启动用户的会话。</p>
+<p><strong>第六步、进入 login shell</strong></p>
+<p>所谓shell，简单说就是命令行界面，让用户可以直接与操作系统对话。用户登录时打开的shell，就叫做login shell。</p>
+<p><img src="../../../../static/images/blog/Linux_boot_7.png" alt="Linux_boot_7"></p>
+<p>linux默认的shell是Bash，它会读入一系列的配置文件。上一步的三种情况，在这一步的处理，也存在差异。</p>
+<p>（1）命令行登录：首先读入 /etc/profile，这是对所有用户都有效的配置；然后依次寻找下面三个文件，这是针对当前用户的配置。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">　　~/.bash_profile
+　　~/.bash_login
+　　~/.profile
+</code></pre></div><p>需要注意的是，这三个文件只要有一个存在，就不再读入后面的文件了。比如，要是 ~/.bash_profile 存在，就不会再读入后面两个文件了。</p>
+<p>（2）ssh登录：与第一种情况完全相同。</p>
+<p>（3）图形界面登录：只加载 /etc/profile 和 ~/.profile。也就是说，~/.bash_profile 不管有没有，都不会运行。</p>
+<p><strong>第七步，打开 non-login shell</strong></p>
+<p>老实说，上一步完成以后，Linux的启动过程就算结束了，用户已经可以看到命令行提示符或者图形界面了。但是，为了内容的完整，必须再介绍一下这一步。</p>
+<p>用户进入操作系统以后，常常会再手动开启一个shell。这个shell就叫做 non-login shell，意思是它不同于登录时出现的那个shell，不读取/etc/profile和.profile等配置文件。</p>
+<p><img src="../../../../static/images/blog/Linux_boot_8.png" alt="Linux_boot_8"></p>
+<p>non-login shell的重要性，不仅在于它是用户最常接触的那个shell，还在于它会读入用户自己的bash配置文件 ~/.bashrc。大多数时候，我们对于bash的定制，都是写在这个文件里面的。</p>
+<hr>
+<p>以上就是linux启动的详细过程。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://anfieldqi.top/tags/iot/">
+                    #IoT</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://anfieldqi.top">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://anfieldqi.top/2020/%E5%9F%BA%E4%BA%8E%E5%90%8C%E6%BA%90%E6%80%A7%E5%88%86%E6%9E%90%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%AE%BE%E5%A4%87%E5%9B%BA%E4%BB%B6%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/" class="prev" rel="prev" title="基于同源性分析的嵌入式设备固件漏洞检测"><i class="iconfont icon-left"></i>&nbsp;基于同源性分析的嵌入式设备固件漏洞检测</a>
+         
+        
+        <a href="http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/" class="next" rel="next" title="论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform">论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://anfieldqi.top">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备20032128号 </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -6,10 +6,19 @@
     <description>Recent content in IoT安全 on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Nov 2020 15:30:16 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2020 14:26:24 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>固件启动一般流程</title>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Wed, 25 Nov 2020 14:26:24 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</guid>
+      <description>固件启动的一般流程 物联网设备的系统大多数是基于LINUX的，因此其启动过程与linux系统相似，但具体涉及的处理细节可能存在一些不同。本文梳</description>
+    </item>
     
     <item>
       <title>基于同源性分析的嵌入式设备固件漏洞检测</title>

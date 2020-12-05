@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>固件启动一般流程</title>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Wed, 25 Nov 2020 14:26:24 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</guid>
+      <description>固件启动的一般流程 物联网设备的系统大多数是基于LINUX的，因此其启动过程与linux系统相似，但具体涉及的处理细节可能存在一些不同。本文梳</description>
+    </item>
+    
+    <item>
       <title>基于同源性分析的嵌入式设备固件漏洞检测</title>
       <link>http://anfieldqi.top/2020/%E5%9F%BA%E4%BA%8E%E5%90%8C%E6%BA%90%E6%80%A7%E5%88%86%E6%9E%90%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%AE%BE%E5%A4%87%E5%9B%BA%E4%BB%B6%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/</link>
       <pubDate>Sat, 14 Nov 2020 15:30:16 +0800</pubDate>
