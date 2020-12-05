@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT安全 on AnfieldQi`s Blog</title>
+    <link>http://anfieldqi.top/tags/iot%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in IoT安全 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 03 Nov 2020 09:05:32 +0800</lastBuildDate>
+    
+	<atom:link href="http://anfieldqi.top/tags/iot%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Detecting_and_Identifying_Faulty_IoT_Devices</title>
+      <link>http://anfieldqi.top/2020/detecting_and_identifying_faulty_iot_devices/</link>
+      <pubDate>Tue, 03 Nov 2020 09:05:32 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/detecting_and_identifying_faulty_iot_devices/</guid>
+      <description>题目 关于静态，预计一个月内更新</description>
+    </item>
+    
+  </channel>
+</rss>
