@@ -57,39 +57,12 @@
     </item>
     
     <item>
-      <title>论文:FirmCorn:Vulnerability Oriented Fuzzing of IoT Firmware</title>
-      <link>http://anfieldqi.top/2020/firmcorn/</link>
-      <pubDate>Sun, 20 Sep 2020 16:19:36 +0800</pubDate>
+      <title>论文:Scalable Graph-based Bug Search for Firmware Images</title>
+      <link>http://anfieldqi.top/2020/scalable_graph_based_bug_search/</link>
+      <pubDate>Mon, 05 Oct 2020 11:34:20 +0800</pubDate>
       
-      <guid>http://anfieldqi.top/2020/firmcorn/</guid>
-      <description>1.题目 FIRMCORN:Vulnerability-Oriented Fuzzing of IoT Firmware via Optimized Virtual Execution 2.论文简介 主要内容 针对物联网的漏洞检测，本文提出了一个基于优化虚拟执行的以漏洞为导向的模糊测试框架，从用户角度来</description>
-    </item>
-    
-    <item>
-      <title>论文:Firmdyne项目附带paper</title>
-      <link>http://anfieldqi.top/2020/firmdyne/</link>
-      <pubDate>Wed, 16 Sep 2020 16:22:55 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/firmdyne/</guid>
-      <description>1.题目 Towards Automated Dynamic Analysis forLinux-based Embedded Firmware 2.主要内容 2.1 论文内容 针对市场上嵌入式设备固件种类繁多，严重影响模拟动态分析执行的问题，本文提出了一个不依赖于物理设备</description>
-    </item>
-    
-    <item>
-      <title>论文:FirmFuzz:Automated IoT Firmware Introspection and Analysis</title>
-      <link>http://anfieldqi.top/2020/firmfuzz/</link>
-      <pubDate>Sun, 13 Sep 2020 20:38:09 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/firmfuzz/</guid>
-      <description>1.题目 FirmFuzz:Automated IoT Firmware Introspection and Analysis 2.主要内容 2.1 论文内容 针对物联网固件漏洞的搜索，本文提出一个用于基于Linux的固件映像的自动化设备独立仿真和动态分析框</description>
-    </item>
-    
-    <item>
-      <title>论文:A_Case_Study_on_Embedded_Web_Interfaces</title>
-      <link>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</link>
-      <pubDate>Tue, 08 Sep 2020 17:24:47 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</guid>
-      <description>1.题目 Automated Dynamic Firmware Analysis at Scale: A Case Study on Embedded Web Interfaces 2.主要内容 2.1 论文内容 提出了第一个完全自动化的框架，它应用动态固件分析技术，以可扩展的方式实现嵌入式固件映</description>
+      <guid>http://anfieldqi.top/2020/scalable_graph_based_bug_search/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -99,15 +72,6 @@
       
       <guid>http://anfieldqi.top/2020/avatar2/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>论文:Avatar动态测试框架1</title>
-      <link>http://anfieldqi.top/2020/avatar1/</link>
-      <pubDate>Tue, 08 Sep 2020 08:42:29 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/avatar1/</guid>
-      <description>1.题目 Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares 2.主要内容 2.1 论文内容 动态分析是安全分析的主要基础之一，例如，通过动态污点跟踪或符号执行。 与静</description>
     </item>
     
     <item>
@@ -162,24 +126,6 @@
       
       <guid>http://anfieldqi.top/2020/hugo-nginx-%E5%8D%8E%E4%B8%BA%E4%BA%91/</guid>
       <description>hugo+nginx+webhook+华为云 之前博客页面一直托管在gitpage,不过觉得速度太慢了，现在简述一种利用webhook将博客自</description>
-    </item>
-    
-    <item>
-      <title>固件动态模拟之QEMU手动搭桥</title>
-      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</link>
-      <pubDate>Wed, 05 Aug 2020 23:39:05 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8Bqemu%E6%89%8B%E5%8A%A8%E6%90%AD%E6%A1%A5/</guid>
-      <description>QEMU的网络问题 使用qemu模拟时虚拟机与外界的网络问题一直是一个比较普遍且令人头疼的问题。直接表现为虚拟机不能与外界网络连通，外界不能访</description>
-    </item>
-    
-    <item>
-      <title>固件动态模拟之网络接口的浅析</title>
-      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</link>
-      <pubDate>Mon, 03 Aug 2020 07:57:26 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%85%E6%9E%90/</guid>
-      <description>网络端口浅析 因为在做固件模拟的时候，遇到了QEMU模拟时因为模拟运行的固件内部·端口未开放导致不能访问管理界面的问题，So简单学习一下关于网</description>
     </item>
     
     <item>
@@ -252,42 +198,6 @@
       
       <guid>http://anfieldqi.top/2020/2.docker%E9%95%9C%E5%83%8F/</guid>
       <description>Docker镜像 docker镜像是构建docker容器的基础，与常用的VM虚拟机做对比，如果使用VM启动一个操作系统，Dcoker镜像可以理</description>
-    </item>
-    
-    <item>
-      <title>论文:Design_and_implementation_of_automated_iot_security_testbed</title>
-      <link>http://anfieldqi.top/2020/design_and_implementation_of_automated_iot_security_testbed/</link>
-      <pubDate>Tue, 14 Jul 2020 10:35:11 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/design_and_implementation_of_automated_iot_security_testbed/</guid>
-      <description>1.题目 Design and Implementation of Automated IoT Security Testbed 2020 2.主要内容 对以前有关IOT设备安全性的研究进行了全面分析，重点是用于测试IOT设备的各种工具以及已发现的漏洞，此</description>
-    </item>
-    
-    <item>
-      <title>论文:Towards_automated_classification_of_firmware</title>
-      <link>http://anfieldqi.top/2020/towards_automated_classification_of_firmware/</link>
-      <pubDate>Fri, 10 Jul 2020 15:11:21 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/towards_automated_classification_of_firmware/</guid>
-      <description>1.题目 Towards Automated Classification of Firmware Images and Identification of Embedded Devices 2.主要内容 目前没有集中式或者标准化的固件分发机制，各个厂商之间的分发标准通常有很大区别，1.研究人员很难跟踪</description>
-    </item>
-    
-    <item>
-      <title>论文:A Large-Scale Analysis of the Security of Embedded Firmwares</title>
-      <link>http://anfieldqi.top/2020/a_large_analysis/</link>
-      <pubDate>Wed, 01 Jul 2020 16:01:14 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/a_large_analysis/</guid>
-      <description>1.题目 A Large-Scale Analysis of the Security of Embedded Firmwares 2.主要内容 这是一篇时间上相对来说比较靠前的文章，主要介绍了针对固件镜像的大规模分析项目。具体为将32000个固件</description>
-    </item>
-    
-    <item>
-      <title>论文:Discovering Memory Corruptions in IoT Through App-based Fuzzing</title>
-      <link>http://anfieldqi.top/2020/iotfuzzer_note/</link>
-      <pubDate>Thu, 11 Jun 2020 09:54:58 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/iotfuzzer_note/</guid>
-      <description>1.题目 IOTFUZZER: Discovering Memory Corruptions in IoT Through App-based Fuzzing 2.主要内容 目前IOT安全检测使用的大部分是基于二进制分析的，分析的前提是获取到固件的镜像，但是镜像提取是一个问题</description>
     </item>
     
     <item>
