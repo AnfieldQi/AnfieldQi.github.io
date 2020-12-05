@@ -6,18 +6,18 @@
     <description>Recent content in IoT on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 23 Nov 2020 16:17:32 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2020 14:12:04 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/tags/iot/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Firmadyne源码解析之未适配固件</title>
-      <link>http://anfieldqi.top/2020/firmadyne%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%AA%E9%80%82%E9%85%8D%E5%9B%BA%E4%BB%B6/</link>
-      <pubDate>Mon, 23 Nov 2020 16:17:32 +0800</pubDate>
+      <title>论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform</title>
+      <link>http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/</link>
+      <pubDate>Fri, 27 Nov 2020 14:12:04 +0800</pubDate>
       
-      <guid>http://anfieldqi.top/2020/firmadyne%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%AA%E9%80%82%E9%85%8D%E5%9B%BA%E4%BB%B6/</guid>
-      <description>Firmadyne 源码解析之未适配版本固件 1. Firmadyne的效果 firmadyne是目前效果最好的固件模拟工具，z但随着固件版本的更新迭代，其适配范围也</description>
+      <guid>http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/</guid>
+      <description>1. 题目 Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection 2.技术背景 2.1 背景 给定两个二进制函数，我们想检测它们是否相似。这个问题被称为“二进制代码相似性检测”，它有很多安全</description>
     </item>
     
     <item>

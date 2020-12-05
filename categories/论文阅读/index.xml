@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>论文阅读 on AnfieldQi`s Blog</title>
+    <link>http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
+    <description>Recent content in 论文阅读 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 Nov 2020 14:12:04 +0800</lastBuildDate>
+    
+	<atom:link href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform</title>
+      <link>http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/</link>
+      <pubDate>Fri, 27 Nov 2020 14:12:04 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/</guid>
+      <description>1. 题目 Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection 2.技术背景 2.1 背景 给定两个二进制函数，我们想检测它们是否相似。这个问题被称为“二进制代码相似性检测”，它有很多安全</description>
+    </item>
+    
+  </channel>
+</rss>

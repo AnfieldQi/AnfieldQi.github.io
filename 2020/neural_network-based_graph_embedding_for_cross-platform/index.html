@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="anfieldqi">
+  
+  
+  
+  <link rel="prev" href="http://anfieldqi.top/2020/%E5%9F%BA%E4%BA%8E%E5%90%8C%E6%BA%90%E6%80%A7%E5%88%86%E6%9E%90%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%AE%BE%E5%A4%87%E5%9B%BA%E4%BB%B6%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/" />
+  
+  <link rel="canonical" href="http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform | AnfieldQi`s Blog
+       
+  </title>
+  <meta name="title" content="论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform | AnfieldQi`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/anfieldqi.top"
+    },
+    "articleSection" : "posts",
+    "name" : "论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform",
+    "headline" : "论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform",
+    "description" : "1. 题目 Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection 2.技术背景 2.1 背景 给定两个二进制函数，我们想检测它们是否相似。这个问题被称为“二进制代码相似性检测”，它有很多安全",
+    "inLanguage" : "zh-cn",
+    "author" : "anfieldqi",
+    "creator" : "anfieldqi",
+    "publisher": "anfieldqi",
+    "accountablePerson" : "anfieldqi",
+    "copyrightHolder" : "anfieldqi",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-11-27 14:12:04 \x2b0800 CST",
+    "dateModified" : "2020-11-27 14:12:04 \x2b0800 CST",
+    "url" : "http:\/\/anfieldqi.top\/2020\/neural_network-based_graph_embedding_for_cross-platform\/",
+    "wordCount" : "4682",
+    "keywords" : [ "IoT", "AnfieldQi`s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://anfieldqi.top">AnfieldQi`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://anfieldqi.top" rel="author">anfieldqi</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-11-27 itemprop="datePublished">November 27, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"> 论文阅读 </a>
+                        
+                </span>
+                <span class="post-word-count">, 4682 words</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="1-题目">1. 题目</h3>
+<p>Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection</p>
+<h3 id="2技术背景">2.技术背景</h3>
+<h4 id="21-背景">2.1 背景</h4>
+<p>给定两个二进制函数，我们想检测它们是否相似。这个问题被称为“二进制代码相似性检测”，它有很多安全应用，如剽窃检测、恶意软件检测、漏洞搜索等。跨平台二进制代码相似性检测的问题.在这些安全应用中，物联网设备固件图像中的漏洞搜索尤为关键，源代码级别的单个bug可能会传播到数百个或更多具有不同硬件架构和软件平台的设备上。Cui等人的研究表明，80.4%的供应商发布的固件中存在多个已知漏洞，而最近发布的许多固件更新包含第三方库中的漏洞，这些漏洞已被发现超过8年[12]</p>
+<h4 id="22-基于图匹配算法的缺陷">2.2 基于图匹配算法的缺陷</h4>
+<ol>
+<li>固定图匹配算法近似的相似函数难以适应不同的应用。例如，两段二进制代码只在几个指令上不同，在剽窃检测的应用中，由于大部分代码是相同的，因此可以认为它们是相似的；但在<strong>漏洞搜索</strong>的应用中，它们可能被认为是不同的，因为一些指令的差异可以修复一个重要的漏洞。人工设计的相似函数本质上不能同时适用于这两种情况。</li>
+<li>所有基于图匹配的相似性检测方法的效率都受到图匹配算法（如二部图匹配）效率的限制。然而，图匹配算法速度较慢，即需要在图大小上具有超线性运行时间。因此，这种方法不可避免地效率低下.</li>
+</ol>
+<h4 id="23-基于神经网络的算法的优点">2.3 基于神经网络的算法的优点</h4>
+<ol>
+<li>神经网络的优点在于其可以表示二进制分析任务,比如为一个二进制函数生成嵌入.</li>
+<li>为一个神经网络，其参数可以进行端到端的训练，因此它依赖于尽可能少的其他领域知识（如以前的方法中的图匹配）</li>
+<li>基于深度神经网络的方法可以通过设计自适应，因为神经网络可以用不同的数据进行训练，以适应不同的应用场景或任务</li>
+<li>深度神经网络模型可以有效地计算，即运行时与输入大小和网络大小成线性关系。</li>
+</ol>
+<h3 id="3本文的contribuation">3.本文的contribuation</h3>
+<p>本文提出了一种基于深度神经网络的二元函数嵌入生成方法。特别地，假设一个二元函数被表示为一个控制流图，每个节点都附加了属性，我们使用一个图嵌入网络将该图转换为一个嵌入图。</p>
+<p>•首次提出了基于二元网络的嵌入函数生成方法；</p>
+<p>•使用暹罗网络，以便预先训练模型我们提出了一种训练嵌入网络的新方法，可以生成用于相似性检测的嵌入；</p>
+<p>•我们建议采用再培训方法，以便培训前的模型能够进行额外的监督，以适应特定的任务；</p>
+<p>•我们在一个由OpenSSL、Gemini构建的测试集上实现了一个名为demonstrates的原型。我们的评估Gemini可以实现比Genius和其他最先进的基于图形匹配的方法更高的AUC；</p>
+<p>•我们的评估表明，与现有技术相比，Gemini可以计算出em，速度为3到4个数量级-</p>
+<h3 id="4关键技术">4.关键技术</h3>
+<h4 id="41-跨平台相似度检测">4.1 跨平台相似度检测</h4>
+<p>考虑跨平台二进制代码相似性检测问题。给定一个感兴趣的二进制函数（例如，包含Heartbleed漏洞的函数），我们希望检查大量的二进制函数（例如，从各种IoT设备的固件映像中提取的函数），并快速、准确地确定语义上等同或类似于感兴趣函数的候选函数列表。我们称感兴趣的<strong>二元函数为查询函数</strong>，<strong>二元函数的语料库称为目标语料库</strong>。</p>
+<p>固件图像中的bug搜索和二进制代码中的剽窃检测等。</p>
+<p><strong>这个问题的核心是设计一个函数来检测两个函数是否相似</strong>,但是一般情况下有以下几个困难:</p>
+<ol>
+<li>代码搜索工作必须针对二进制源代码进行,因为在IOT固件领域是拿不到源码的</li>
+<li>跨平台支持目标语料库中的功能可能来自不同的查询功能、硬件结构和软件平台，一种有效的二元搜索技术必须能容忍不同平台带来的句法差异，并能捕捉到这些二元函数的内在特征</li>
+<li>高精度:对一对相似有效的二进制码相似性检测函数应能给予高分，对一对无关的相似性检测函数应能给予低分。</li>
+<li>高效率:对于漏洞搜索系统，应该有效地计算相似度函数,并可扩展到大型目标语料库。以适应大规模的目标语料库相似度比较.</li>
+</ol>
+<h4 id="42-现有技术">4.2 现有技术</h4>
+<p>目前大多数只针对单个平台的二进制代码,直到最近，研究人员才开始在跨平台环境下解决这个问题。这些工作建议直接从二进制代码中提取各种特性，这些特性足够健壮，可以跨不同的体系结构和编译器优化选项持久化。</p>
+<h5 id="1-成对图匹配">1. 成对图匹配</h5>
+<ol>
+<li>
+<p>Pewny等人[31]的方法提取每个基本块的输入输出对作为其在控制流图中的特征（或标签），然后进行图匹配。&mdash;&mdash;这是一个非常昂贵的过程：输入输出对的计算和图形匹配都很昂贵</p>
+</li>
+<li>
+<p>discovRE[16]提出提取更轻量级的语法级特征（如算术指令数和调用指令数），以加快特征提取速度，并在图匹配前通过简单的函数级特征进行预过滤，提高搜索效率。然而，根据Feng等人[18]，这种预过滤方法不可靠，可能会导致搜索精度的显著降低。</p>
+</li>
+</ol>
+<h5 id="2图嵌入">2.图嵌入</h5>
+<ol>
+<li>
+<p>Feng等人[18]首先将一种新的方法应用于漏洞搜索问题。他们提出了Genius，一个图形嵌入工作流，如图1所示。给定一个二进制函数（来自固件映像或已知漏洞），Genius首先以属性化控制流图（ACFG）的形式提取原始特征。在ACFG中，每个顶点都是用一组属性标记的基本块。表1列出了Genius中使用的六个块级属性和两个块间属性。</p>
+<p><img src="../../../../static/images/blog/image-20201129165401951.png" alt=""></p>
+<p><img src="/images/blog/image-20201129165401951.png" alt=""></p>
+<p>图2显示了OpenSSL中包含Heartbleed漏洞的函数的ACFG。</p>
+<p><img src="../../../../static/images/blog/image-20201129165504230.png" alt=""></p>
+<p><img src="/images/blog/image-20201129165504230.png" alt=""></p>
+<p>然后将每个ACFG转换为高级嵌入，并使用位置敏感哈希（LSH）将其存储到哈希表中。因此，要识别一组与查询函数相似的二元函数，只需找到查询函数对应的嵌入，并在目标语料库中找到附近的嵌入。</p>
+<p><img src="../../../../static/images/blog/image-20201129165126612.png" alt=""></p>
+</li>
+</ol>
+<p><img src="/images/image-20201129165126612.png" alt=""></p>
+<p><strong>关键部分是:<strong>如何将ACFGs转换成它们的嵌入。Genius采用基于码本的方法嵌入ACFG。它使用一个聚类算法来训练一个码本，该码本由为每个簇识别的多个具有代表性的acfg组成。然后，为了将一个ACFG转换为一个特征向量，Genius测量指定的ACFG和每个代表之间的相似性,ACFG在码本中采用</strong>二部图匹配算法</strong>。因此，这些相似性度量构成了特定ACFG的特征向量。</p>
+<p><strong>局限性:</strong></p>
+<ol>
+<li>码书生成是一个非常昂贵的过程，因为训练数据集中的每对控制流图都要进行成对图匹配，然后进行谱聚类</li>
+<li>图嵌入的运行时开销随码本大小（即码本中控制流图的数量）线性增加。因此，码书的尺寸必须很小，这就限制了图编码的保真度</li>
+<li>这种方法的搜索精度最终取决于二部图匹配的质量[35]。作为一种近似算法，二部图匹配不一定总能得到最优匹配结果</li>
+</ol>
+<h4 id="43-基于神经网络的嵌入生成">4.3 基于神经网络的嵌入生成</h4>
+<p><strong>优点:</strong></p>
+<ol>
+<li>更精确。我们基于神经网络的嵌入比二部图匹配和Genius都能获得更好的精度，主要有两个原因。首先，基于神经网络的图嵌入完全不依赖于二部图匹配。相反，它通过在整个控制流图中迭代传播嵌入来评估图形表示作为一个整体。第二，自动学习神经网络中的参数，使我们的嵌入目标最大化：两个相似的ACFG的嵌入之间的距离最小</li>
+<li>更高的嵌入效率。Genius中的图嵌入非常慢，因为它必须与码书中的每个ACFG执行二部图匹配。相比之下，我们的神经网络模型计算成本较低。此外，神经网络中的所有计算都可以并行化，以利用大规模并行计算硬件（即多核cpu和gpu）。<strong>另一个性能提升来自于不需要块间属性。为了获得良好的图匹配结果，Genius提取了块间属性：子代数和中间值，平均比块级属性的计算成本高8倍。我们的神经网络模型只需要基本的块级属性和子代的数量</strong>（计算成本低）就可以获得高精度。神经网络模型已经将块间关系信息融入到嵌入中，因此不需要这些块间属性（如中间性）来获得高精度。</li>
+<li>更快的离线训练。为了计算一个码本，Genius需要为一组大的训练acfg计算一个距离矩阵，其时间复杂度在训练样本数上是二次的，而二部图匹配算法的代价是线性的。相比之下，神经网络方法只需要对一个固定的时间段进行训练，每个时间复杂度在训练数据的大小上是线性的。因此，Genius需要1周以上的时间来生成码本，而我们的方法可以在30分钟内训练出一个神经网络模型，这使得实际应用能够使用再训练。</li>
+</ol>
+<h3 id="5基于神经网络的嵌入生成模型">5.基于神经网络的嵌入生成模型</h3>
+<h4 id="51代码相似性嵌入问题">5.1代码相似性嵌入问题</h4>
+<p>代码相似性嵌入问题的目标是找到一个映射函数ψ的ACFG到一个向量表示的映射。直观地说，这样的嵌入应该捕获足够的信息来检测相似的函数。也就是说，给定一个易于计算的相似函数Sim（）（例如，两个向量的余弦函数）.将图转换为向量,再比较向量的相似度.</p>
+<p>学习嵌入的一个优点（即，映射ψ）是它能够进行有效的计算。两个函数之间的相似性可以用两个向量之间的一个廉价的相似性函数来计算，而不会产生昂贵的图匹配算法的代价。使用神经网络来近似嵌入函数是特别吸引人的，因为当提供有限的任务相关的真实数据时，它可以快速地重新训练以适应给定的任务。因此，基于神经网络的匹配算法也不能有效地实现，而且也不能依赖于任何一种算法的嵌入。</p>
+<h4 id="52-解决方案概述">5.2 解决方案概述</h4>
+<p>在这一部分中，我们将介绍我们解决代码相似性嵌入问题的关键思想。在这项工作中，我们假设函数的二进制代码由它的ACFG表示。我们将嵌入映射设计为一个神经网络。由于输入是一个ACFG，我们将利用机器学习社区以前的图嵌入网络来解决这个问题[13]。然而，在Dai等人的工作[13]中，图嵌入网络是为分类问题而设计的，它需要标签信息来训练模型.相反，我们的代码相似性嵌入问题不是一个分类问题。因此现有的方法不能直接应用，需要设计一种新的方法来训练图嵌入网络来解决相似性检测问题。</p>
+<p>we design a Siamese architecture [7] and embed the graph embedding network Structure2vec [13] into it. 此体系结构以两个函数作为输入，并生成相似性分数作为输出。这使得模型可以进行端到端的训练，只需对图对1,2进行监督作为输入，以基本真值π（f1，f2）作为输出，而不需要任何关于如何生成嵌入的额外手工启发式方法。因此，这种方法更健壮，更容易适应不同的任务。</p>
+<p>训练暹罗体系结构需要大量的相似功对，以及不同功能对。然而，在大多数任务中，地面真实数据是有限的。为了解决这个问题，我们使用了一个默认策略，**该策略考虑等效函数（即从同一源代码编译的二进制函数）相似，而不等价函数则不相似，因此我们可以在给定一组源代码的情况下轻松生成一个大的训练集。**我们可以使用这个数据集来预先训练一个独立于任务的模型，它对大多数任务都是有效的。此外，为了将少量可用的实际数据用于特定任务的策略，我们的方法允许对模型进行再训练，以合并特定于任务的数据。</p>
+<h4 id="53-图嵌入网络">5.3 图嵌入网络</h4>
+<p>图嵌入网络是由Structure2vec改编而来的.</p>
+<p>ACFG=&lt;V,E&gt; V:顶点 E:边</p>
+<p>图中的每个顶点v可以具有对应的其他特征Xv(ACFG中的基本块功能)</p>
+<p>首先,图嵌入网络为每个顶点生成一个p维的特征向量Uv</p>
+<p>然后,图g的嵌入向量ug计算为这些顶点嵌入的聚合</p>
+<pre><code>那就是µg：= Av∈V（µv），
+其中A是聚合函数，即求和或平均值。
+在这项工作，作者选择
+µg =Ev∈V（µv）
+使用其他聚合函数作为将来探索的工作。
+</code></pre><h4 id="54-structure2vec基本结构">5.4 Structure2vec基本结构</h4>
+<p>Structure2vec的灵感来自于图形模型推理算法，其中特定于顶点的特征Xv根据图拓扑g递归聚合。经过几步递归后，网络将为每个顶点生成一个新的特征表示（或嵌入），它既考虑了图的特征，又考虑了顶点特征之间的长期交互作用。</p>
+<p>**N(v)**表示图g中顶点v的邻域集。</p>
+<p>然后Structure2vec网络将初始化嵌入uv(0)为0,然后在每次迭代更新嵌入为:</p>
+<p><img src="../../../../static/images/blog/image-20201129190355556.png" alt=""></p>
+<p><img src="/images/image-20201129190355556.png" alt=""></p>
+<hr>
+<p>这里是图形嵌入网络的具体架构，回头细看</p>
+<hr>
+<h3 id="6可研究的点">6.可研究的点</h3>
+<ol>
+<li>ACFG=&lt;V,E&gt; V:顶点 E:边 此外,图中的每个顶点v可以具有对应的其他特征Xv
+比如ACFG中的基本块功能</li>
+</ol>
+<h3 id="7-比genius好的地方">7. 比genius好的地方</h3>
+<p>1.基于神经网络的方法的一个优点是，预先训练的模型可以在附加监督的情况下快速地重新训练，以适应新的应用场景。我们的评估表明，在这种额外的监督下，再训练模型能够有效地适应新的任务。与以前的方法（如Genius）不同，Genius需要一周以上的时间来重新训练模型，训练神经网络是非常有效的，每个再训练阶段都可以在30分钟内完成。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>anfieldqi </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/>http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                除特别标注，文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://anfieldqi.top/tags/iot/">
+                    #IoT</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://anfieldqi.top">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://anfieldqi.top/2020/%E5%9F%BA%E4%BA%8E%E5%90%8C%E6%BA%90%E6%80%A7%E5%88%86%E6%9E%90%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%AE%BE%E5%A4%87%E5%9B%BA%E4%BB%B6%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/" class="prev" rel="prev" title="基于同源性分析的嵌入式设备固件漏洞检测"><i class="iconfont icon-left"></i>&nbsp;基于同源性分析的嵌入式设备固件漏洞检测</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+          
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '10430486a804bdce5dd3',
+    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
+    repo: 'AnfieldQi.github.io',
+    owner: 'AnfieldQi',
+    admin: ['AnfieldQi'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://anfieldqi.top">anfieldqi</a> | </span> 
+         
+
+         
+            <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="external nofollow">京ICP备20032128号 </a> |
+         
+		  <span>power by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
