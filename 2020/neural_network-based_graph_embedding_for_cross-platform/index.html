@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform",
     "headline" : "论文笔记:Neural_Network Based_Graph_Embedding_for_Cross Platform",
-    "description" : "1. 题目 Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection 2.技术背景 2.1 背景 给定两个二进制函数，我们想检测它们是否相似。这个问题被称为“二进制代码相似性检测”，它有很多安全",
+    "description" : "1. 题目 Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection 2.技术背景 2.1 背景 给定两个二进制函数，我们想检测它们相似。这个问题被称为“二进制代码相似性检测”，它有很多安全应用",
     "inLanguage" : "zh-cn",
     "author" : "anfieldqi",
     "creator" : "anfieldqi",
@@ -57,7 +57,7 @@
     "datePublished": "2020-11-27 14:12:04 \x2b0800 CST",
     "dateModified" : "2020-11-27 14:12:04 \x2b0800 CST",
     "url" : "http:\/\/anfieldqi.top\/2020\/neural_network-based_graph_embedding_for_cross-platform\/",
-    "wordCount" : "4682",
+    "wordCount" : "4680",
     "keywords" : [ "IoT", "AnfieldQi`s Blog"]
 }
 </script>
@@ -131,10 +131,10 @@
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"> 论文阅读 </a>
+                        <a href="http://anfieldqi.top/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"> 论文笔记 </a>
                         
                 </span>
-                <span class="post-word-count">, 4682 words</span>
+                <span class="post-word-count">, 4680 words</span>
         </div>
     </header>
     <div class="post-content">
@@ -159,7 +159,7 @@
 <p>Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection</p>
 <h3 id="2技术背景">2.技术背景</h3>
 <h4 id="21-背景">2.1 背景</h4>
-<p>给定两个二进制函数，我们想检测它们是否相似。这个问题被称为“二进制代码相似性检测”，它有很多安全应用，如剽窃检测、恶意软件检测、漏洞搜索等。跨平台二进制代码相似性检测的问题.在这些安全应用中，物联网设备固件图像中的漏洞搜索尤为关键，源代码级别的单个bug可能会传播到数百个或更多具有不同硬件架构和软件平台的设备上。Cui等人的研究表明，80.4%的供应商发布的固件中存在多个已知漏洞，而最近发布的许多固件更新包含第三方库中的漏洞，这些漏洞已被发现超过8年[12]</p>
+<p>给定两个二进制函数，我们想检测它们相似。这个问题被称为“二进制代码相似性检测”，它有很多安全应用，如剽窃检测、恶意软件检测、漏洞搜索等。跨平台二进制代码相似性检测的问题.在这些安全应用中，物联网设备固件图像中的漏洞搜索尤为关键，源代码级别的单个bug可能会传播到数百个或更多具有不同硬件架构和软件平台的设备上。Cui等人的研究表明，80.4%的供应商发布的固件中存在多个已知漏洞，而最近发布的许多固件更新包含第三方库中的漏洞，这些漏洞已被发现超过8年[12]</p>
 <h4 id="22-基于图匹配算法的缺陷">2.2 基于图匹配算法的缺陷</h4>
 <ol>
 <li>固定图匹配算法近似的相似函数难以适应不同的应用。例如，两段二进制代码只在几个指令上不同，在剽窃检测的应用中，由于大部分代码是相同的，因此可以认为它们是相似的；但在<strong>漏洞搜索</strong>的应用中，它们可能被认为是不同的，因为一些指令的差异可以修复一个重要的漏洞。人工设计的相似函数本质上不能同时适用于这两种情况。</li>

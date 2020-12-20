@@ -17,7 +17,7 @@
       <pubDate>Fri, 27 Nov 2020 14:12:04 +0800</pubDate>
       
       <guid>http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/</guid>
-      <description>1. 题目 Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection 2.技术背景 2.1 背景 给定两个二进制函数，我们想检测它们是否相似。这个问题被称为“二进制代码相似性检测”，它有很多安全</description>
+      <description>1. 题目 Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection 2.技术背景 2.1 背景 给定两个二进制函数，我们想检测它们相似。这个问题被称为“二进制代码相似性检测”，它有很多安全应用</description>
     </item>
     
     <item>
