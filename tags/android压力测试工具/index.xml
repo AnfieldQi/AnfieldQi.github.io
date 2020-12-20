@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android压力测试工具 on AnfieldQi`s Blog</title>
+    <link>http://anfieldqi.top/tags/android%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in Android压力测试工具 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 19 Apr 2020 22:48:19 +0800</lastBuildDate>
+    
+	<atom:link href="http://anfieldqi.top/tags/android%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android_Monkey</title>
+      <link>http://anfieldqi.top/2020/android_monkey/</link>
+      <pubDate>Sun, 19 Apr 2020 22:48:19 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/android_monkey/</guid>
+      <description>什么是Monkey 一只猴子？ Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(</description>
+    </item>
+    
+  </channel>
+</rss>

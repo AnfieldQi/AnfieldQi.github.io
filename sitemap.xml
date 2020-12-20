@@ -4,7 +4,7 @@
     <url>
       <loc>http://anfieldqi.top/categories/</loc>
       
-      <lastmod>2020-11-27T14:12:04+08:00</lastmod>
+      <lastmod>2020-12-20T17:01:14+08:00</lastmod>
       
       
       
@@ -14,7 +14,27 @@
     <url>
       <loc>http://anfieldqi.top/tags/iot/</loc>
       
-      <lastmod>2020-11-27T14:12:04+08:00</lastmod>
+      <lastmod>2020-12-20T17:01:14+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/tags/iot%E5%8A%A8%E6%80%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</loc>
+      
+      <lastmod>2020-12-20T17:01:14+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/</loc>
+      
+      <lastmod>2020-12-20T17:01:14+08:00</lastmod>
       
       
       
@@ -24,7 +44,7 @@
     <url>
       <loc>http://anfieldqi.top/posts/</loc>
       
-      <lastmod>2020-11-27T14:12:04+08:00</lastmod>
+      <lastmod>2020-12-20T17:01:14+08:00</lastmod>
       
       
       
@@ -34,7 +54,17 @@
     <url>
       <loc>http://anfieldqi.top/tags/</loc>
       
-      <lastmod>2020-11-27T14:12:04+08:00</lastmod>
+      <lastmod>2020-12-20T17:01:14+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/valgrind%E5%8A%A8%E6%80%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</loc>
+      
+      <lastmod>2020-12-20T17:01:14+08:00</lastmod>
       
       
       
@@ -62,7 +92,7 @@
     </url>
   
     <url>
-      <loc>http://anfieldqi.top/categories/iot%E5%AE%89%E5%85%A8/</loc>
+      <loc>http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6/</loc>
       
       <lastmod>2020-11-25T14:26:24+08:00</lastmod>
       
@@ -73,6 +103,16 @@
   
     <url>
       <loc>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</loc>
+      
+      <lastmod>2020-11-25T14:26:24+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
       
       <lastmod>2020-11-25T14:26:24+08:00</lastmod>
       
@@ -152,9 +192,89 @@
     </url>
   
     <url>
+      <loc>http://anfieldqi.top/tags/iot%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/</loc>
+      
+      <lastmod>2020-09-20T16:19:36+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/firmcorn/</loc>
+      
+      <lastmod>2020-09-20T16:19:36+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/tags/iot%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E5%B7%A5%E5%85%B7/</loc>
+      
+      <lastmod>2020-09-16T16:22:55+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/firmdyne/</loc>
+      
+      <lastmod>2020-09-16T16:22:55+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/firmfuzz/</loc>
+      
+      <lastmod>2020-09-13T20:38:09+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</loc>
+      
+      <lastmod>2020-09-08T17:24:47+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>http://anfieldqi.top/2020/avatar2/</loc>
       
       <lastmod>2020-09-08T15:50:05+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/avatar1/</loc>
+      
+      <lastmod>2020-09-08T08:42:29+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/tags/iot%E6%B5%8B%E8%AF%95owasp/</loc>
+      
+      <lastmod>2020-09-01T19:30:29+08:00</lastmod>
       
       
       
@@ -175,6 +295,26 @@
       <loc>http://anfieldqi.top/2020/discovering_and_understanding_the_security_hazards_in_the_interactions/</loc>
       
       <lastmod>2020-08-31T14:56:35+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/kyland_2/</loc>
+      
+      <lastmod>2020-08-27T20:27:02+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/kyland_test/</loc>
+      
+      <lastmod>2020-08-27T19:17:39+08:00</lastmod>
       
       
       
@@ -385,6 +525,46 @@
       <loc>http://anfieldqi.top/2020/2.docker%E9%95%9C%E5%83%8F/</loc>
       
       <lastmod>2020-07-19T09:31:11+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/tags/iot%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/</loc>
+      
+      <lastmod>2020-07-14T10:35:11+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/design_and_implementation_of_automated_iot_security_testbed/</loc>
+      
+      <lastmod>2020-07-14T10:35:11+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/tags/iot%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%88%86%E6%9E%90/</loc>
+      
+      <lastmod>2020-07-10T15:11:21+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/2020/towards_automated_classification_of_firmware/</loc>
+      
+      <lastmod>2020-07-10T15:11:21+08:00</lastmod>
       
       
       
@@ -612,16 +792,6 @@
     </url>
   
     <url>
-      <loc>http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6/</loc>
-      
-      <lastmod>2020-04-29T16:50:58+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>http://anfieldqi.top/2020/%E7%A1%AE%E5%AE%9A%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%9C%B0%E5%9D%80/</loc>
       
       <lastmod>2020-04-29T16:50:58+08:00</lastmod>
@@ -632,9 +802,29 @@
     </url>
   
     <url>
+      <loc>http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</loc>
+      
+      <lastmod>2020-04-28T15:06:30+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%A1%8C/</loc>
       
       <lastmod>2020-04-28T15:06:30+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96/</loc>
+      
+      <lastmod>2020-04-28T10:42:17+08:00</lastmod>
       
       
       
@@ -792,7 +982,7 @@
     </url>
   
     <url>
-      <loc>http://anfieldqi.top/tags/androidtestmachine/</loc>
+      <loc>http://anfieldqi.top/tags/android%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</loc>
       
       <lastmod>2020-04-19T22:48:19+08:00</lastmod>
       
@@ -852,7 +1042,7 @@
     </url>
   
     <url>
-      <loc>http://anfieldqi.top/tags/android%E9%80%86%E5%90%91/</loc>
+      <loc>http://anfieldqi.top/2020/android%E5%9F%BA%E7%A1%80/</loc>
       
       <lastmod>2020-04-18T20:52:47+08:00</lastmod>
       
@@ -862,7 +1052,7 @@
     </url>
   
     <url>
-      <loc>http://anfieldqi.top/2020/android%E5%9F%BA%E7%A1%80/</loc>
+      <loc>http://anfieldqi.top/tags/android%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/</loc>
       
       <lastmod>2020-04-18T20:52:47+08:00</lastmod>
       

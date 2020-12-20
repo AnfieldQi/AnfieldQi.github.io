@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT动态测试工具 on AnfieldQi`s Blog</title>
+    <link>http://anfieldqi.top/tags/iot%E5%8A%A8%E6%80%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in IoT动态测试工具 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Dec 2020 17:01:14 +0800</lastBuildDate>
+    
+	<atom:link href="http://anfieldqi.top/tags/iot%E5%8A%A8%E6%80%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Valgrind动态测试工具</title>
+      <link>http://anfieldqi.top/2020/valgrind%E5%8A%A8%E6%80%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sun, 20 Dec 2020 17:01:14 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/valgrind%E5%8A%A8%E6%80%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</guid>
+      <description>Valgrind动态测试相关漏洞 1.Valgrind 简介 拉取源代码 进入代码目录 执行以下命令： ./configure 如果遇到aclocal的错误 sudo apt-install automake 执行make sudo make 执行make install</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT动态模拟工具 on AnfieldQi`s Blog</title>
+    <link>http://anfieldqi.top/tags/iot%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in IoT动态模拟工具 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 16 Sep 2020 16:22:55 +0800</lastBuildDate>
+    
+	<atom:link href="http://anfieldqi.top/tags/iot%E5%8A%A8%E6%80%81%E6%A8%A1%E6%8B%9F%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>论文:Firmdyne项目附带paper</title>
+      <link>http://anfieldqi.top/2020/firmdyne/</link>
+      <pubDate>Wed, 16 Sep 2020 16:22:55 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/firmdyne/</guid>
+      <description>1.题目 Towards Automated Dynamic Analysis forLinux-based Embedded Firmware 2.主要内容 2.1 论文内容 针对市场上嵌入式设备固件种类繁多，严重影响模拟动态分析执行的问题，本文提出了一个不依赖于物理设备</description>
+    </item>
+    
+    <item>
+      <title>论文:Avatar动态测试框架1</title>
+      <link>http://anfieldqi.top/2020/avatar1/</link>
+      <pubDate>Tue, 08 Sep 2020 08:42:29 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/avatar1/</guid>
+      <description>1.题目 Avatar: A Framework to Support Dynamic Security Analysis of Embedded Systems’ Firmwares 2.主要内容 2.1 论文内容 动态分析是安全分析的主要基础之一，例如，通过动态污点跟踪或符号执行。 与静</description>
+    </item>
+    
+  </channel>
+</rss>

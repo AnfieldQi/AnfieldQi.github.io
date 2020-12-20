@@ -6,7 +6,7 @@
     <description>Recent content in iot on AnfieldQi`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Nov 2020 14:12:04 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 17:01:14 +0800</lastBuildDate>
     
 	<atom:link href="http://anfieldqi.top/tags/iot/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,15 +18,6 @@
       
       <guid>http://anfieldqi.top/2020/neural_network-based_graph_embedding_for_cross-platform/</guid>
       <description>1. 题目 Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection 2.技术背景 2.1 背景 给定两个二进制函数，我们想检测它们是否相似。这个问题被称为“二进制代码相似性检测”，它有很多安全</description>
-    </item>
-    
-    <item>
-      <title>固件启动一般流程</title>
-      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</link>
-      <pubDate>Wed, 25 Nov 2020 14:26:24 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</guid>
-      <description>固件启动的一般流程 物联网设备的系统大多数是基于LINUX的，因此其启动过程与linux系统相似，但具体涉及的处理细节可能存在一些不同。本文梳</description>
     </item>
     
     <item>
@@ -48,6 +39,15 @@
     </item>
     
     <item>
+      <title>论文:A_Case_Study_on_Embedded_Web_Interfaces</title>
+      <link>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</link>
+      <pubDate>Tue, 08 Sep 2020 17:24:47 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/a_case_study_on_embedded_web_interfaces/</guid>
+      <description>1.题目 Automated Dynamic Firmware Analysis at Scale: A Case Study on Embedded Web Interfaces 2.主要内容 2.1 论文内容 提出了第一个完全自动化的框架，它应用动态固件分析技术，以可扩展的方式实现嵌入式固件映</description>
+    </item>
+    
+    <item>
       <title>论文:Avatar动态测试框架2</title>
       <link>http://anfieldqi.top/2020/avatar2/</link>
       <pubDate>Tue, 08 Sep 2020 15:50:05 +0800</pubDate>
@@ -57,21 +57,30 @@
     </item>
     
     <item>
-      <title>固件攻击面总结</title>
-      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Tue, 01 Sep 2020 19:30:29 +0800</pubDate>
-      
-      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E6%94%BB%E5%87%BB%E9%9D%A2%E6%80%BB%E7%BB%93/</guid>
-      <description>固件攻击面总结 攻击面 设备WEB界面 设备固件 本地数据存储 更新机制 移动应用程序 网络流量 认证与授权 隐私泄露 1.设备Web界面 这里主要是针对固件的w</description>
-    </item>
-    
-    <item>
       <title>论文:Discovering_and_understanding_the_security_hazards_in_the_interactions</title>
       <link>http://anfieldqi.top/2020/discovering_and_understanding_the_security_hazards_in_the_interactions/</link>
       <pubDate>Mon, 31 Aug 2020 14:56:35 +0800</pubDate>
       
       <guid>http://anfieldqi.top/2020/discovering_and_understanding_the_security_hazards_in_the_interactions/</guid>
       <description>1.题目 Discovering and Understanding the Security Hazards in the Interactions between IoT Devices, Mobile Apps, and Clouds on Smart Home Platforms 2.主要内容 2.1 论文内容 本论文研究的主要内容集中在**(1)物联网设备(2)移动APP(3)物</description>
+    </item>
+    
+    <item>
+      <title>Kyland_sensitive information disclosure vulnerability</title>
+      <link>http://anfieldqi.top/2020/kyland_2/</link>
+      <pubDate>Thu, 27 Aug 2020 20:27:02 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/kyland_2/</guid>
+      <description>Below we briefly describe the vulnerability verification process with a simple example. In kyland&amp;rsquo;s http service, when we audit its webadminget.cgi file, there is an instruction to print the password. The source code is as follows: We request the cgi script through the browser. The details are shown in the following figure. You can see that the user name and password are all displayed in plain text, so there is</description>
+    </item>
+    
+    <item>
+      <title>Vulnerability verification for Kyland</title>
+      <link>http://anfieldqi.top/2020/kyland_test/</link>
+      <pubDate>Thu, 27 Aug 2020 19:17:39 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/kyland_test/</guid>
+      <description>Below we briefly describe the vulnerability verification process with a simple example. Run the firmware to be tested in the simulation environment, we open its http service, and the running script is in /sbin/httpd or run the device directly Then we use the browser to request the http service of the firmware. There are many interactive interfaces found among them. Find its html source code and cgi script by viewing</description>
     </item>
     
   </channel>

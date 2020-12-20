@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT固件启动流程 on AnfieldQi`s Blog</title>
+    <link>http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</link>
+    <description>Recent content in IoT固件启动流程 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 25 Nov 2020 14:26:24 +0800</lastBuildDate>
+    
+	<atom:link href="http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IoT固件启动一般流程</title>
+      <link>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Wed, 25 Nov 2020 14:26:24 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/%E5%9B%BA%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B/</guid>
+      <description>固件启动的一般流程 物联网设备的系统大多数是基于LINUX的，因此其启动过程与linux系统相似，但具体涉及的处理细节可能存在一些不同。本文梳</description>
+    </item>
+    
+  </channel>
+</rss>

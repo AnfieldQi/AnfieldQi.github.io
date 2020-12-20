@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT固件提取 on AnfieldQi`s Blog</title>
+    <link>http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96/</link>
+    <description>Recent content in IoT固件提取 on AnfieldQi`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 28 Apr 2020 10:42:17 +0800</lastBuildDate>
+    
+	<atom:link href="http://anfieldqi.top/tags/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IoT固件提取与解包</title>
+      <link>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</link>
+      <pubDate>Tue, 28 Apr 2020 10:42:17 +0800</pubDate>
+      
+      <guid>http://anfieldqi.top/2020/iot%E5%9B%BA%E4%BB%B6%E6%8F%90%E5%8F%96%E4%B8%8E%E8%A7%A3%E5%8C%85/</guid>
+      <description>1.IoT Firmware 1.IoT设备 IoT 设备是一类特殊的嵌入式设备，基于智能单元与网络提升了传统硬件功能的设备 IoT Device = Embedded Device + Network = Hardware Device + Computation Intelligence + Network 2.IoT固件 IoT Fi</description>
+    </item>
+    
+  </channel>
+</rss>

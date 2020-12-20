@@ -169,22 +169,22 @@
 <li>
 <p>We manually audited the cgi scripts and found that many of them are statements executed by instructions. The code in 3005webget.cgi is as follows. You can clearly see that some of the parameters passed by the web are received and passed to the eval function.</p>
 <p><img src="/images/image-20200827192336469.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192336469.png" alt="~"></p>
+<p><img src="../../../../../../../CVE_list/image-20200827192336469.png" alt=""></p>
 </li>
 <li>
 <p>We request the cgi script directly from the browser, because we did not pass the parameters correctly, so the error message was returned.</p>
 <p><img src="/images/image-20200827192518549.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192518549.png" alt="~"></p>
+<p><img src="../../../../../../../CVE_list/image-20200827192518549.png" alt=""></p>
 </li>
 <li>
 <p>The method of constructing the request is &ldquo;POST&rdquo;. In the request parameters, we write a payload as a file instruction.</p>
 <p><img src="/images/image-20200827192600518.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192600518.png" alt="~"></p>
+<p><img src="../../../../../../../CVE_list/image-20200827192600518.png" alt=""></p>
 </li>
 <li>
 <p>Visit the file we constructed through the browser and found that it can be accessed normally. It shows that there is an arbitrary command execution vulnerability, which can upload malicious scripts.</p>
 <p><img src="/images/image-20200827192646368.png" alt=""></p>
-<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192646368.png" alt="image-20200827192646368"></p>
+<p><img src="D:%5C%E5%8D%9A%E5%AE%A2%5Chugo%5Canfieldqi%5Cstatic%5Cimages%5Cimage-20200827192646368.png" alt=""></p>
 </li>
 <li>
 <p>Similar affected files are 3005webset.cgi, firmware_fix_submit.cgi, networkset.cgi, oem.cgi, setautostartprg.cgi, setfactory.cgi, upgrade.cgi and webadminset.cgi in the /www/cgi-bin/ directory</p>
@@ -233,7 +233,7 @@
 
     <div class="post-nav">
         
-        <a href="http://anfieldqi.top/2020/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94_%E5%A6%82%E4%BB%8A%E5%80%BE%E5%B0%BD%E5%85%A5%E6%B5%B7%E6%B5%81/" class="prev" rel="prev" title="生活随笔_如今倾尽入海流"><i class="iconfont icon-left"></i>&nbsp;生活随笔_如今倾尽入海流</a>
+        <a href="http://anfieldqi.top/2020/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94_%E5%A6%82%E4%BB%8A%E5%80%BE%E5%B0%BD%E5%85%A5%E6%B5%B7%E6%B5%81/" class="prev" rel="prev" title="生活随笔：别时曾许新丰酒，如今倾尽入海流"><i class="iconfont icon-left"></i>&nbsp;生活随笔：别时曾许新丰酒，如今倾尽入海流</a>
          
         
         <a href="http://anfieldqi.top/2020/kyland_2/" class="next" rel="next" title="Kyland_sensitive information disclosure vulnerability">Kyland_sensitive information disclosure vulnerability&nbsp;<i class="iconfont icon-right"></i></a>
@@ -250,11 +250,11 @@
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
   const gitalk = new Gitalk({
-    clientID: '10430486a804bdce5dd3',
-    clientSecret: 'b8c2e27fc2de4a7e7f9e80094cebbf2601134eea',
-    repo: 'AnfieldQi.github.io',
-    owner: 'AnfieldQi',
-    admin: ['AnfieldQi'],
+    clientID: '',
+    clientSecret: '',
+    repo: 'xxoo',
+    owner: 'xxoo',
+    admin: ['xxoo'],
     id: location.pathname, 
     distractionFreeMode: false 
   });
